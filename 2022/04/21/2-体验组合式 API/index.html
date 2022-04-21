@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, syhan&#39;s blog">
+    <meta name="keywords" content="2-体验组合式 API, syhan&#39;s blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | syhan&#39;s blog</title>
+    <title>2-体验组合式 API | syhan&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -320,12 +320,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">2-体验组合式 API</h1>
                 </div>
             </div>
         </div>
@@ -439,12 +439,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/vue3/">
+                                <span class="chip bg-color">vue3</span>
+                            </a>
+                        
+                            <a href="/tags/router/">
+                                <span class="chip bg-color">router</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Markdown/" class="post-category">
+                                Markdown
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -453,12 +470,17 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-18
+                    2022-04-21
                 </div>
                 
 
                 
 
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.7k
+                </div>
                 
 
                 
@@ -474,19 +496,100 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+                <h1 id="体验组合式-API"><a href="#体验组合式-API" class="headerlink" title="体验组合式 API"></a>体验组合式 API</h1><h2 id="1、知识点"><a href="#1、知识点" class="headerlink" title="1、知识点"></a>1、知识点</h2><ul>
+<li>setup</li>
+<li>reactive</li>
+<li>computed</li>
+<li>toRefs</li>
+<li>watch</li>
+<li>watchEffect</li>
+<li>readonly</li>
+</ul>
+<h2 id="2、简单例子"><a href="#2、简单例子" class="headerlink" title="2、简单例子"></a>2、简单例子</h2><p>组合 API 是 Vue3 中最常用特色语法。这是一种全新的逻辑重用和代码组织方法。</p>
+<p>我们使用所谓的选项式 API 构建组件。如 <code>data</code>，<code>methods</code>，<code>computed</code> 等这种方法缺点已成事实，因为这些 JavaScript 代码本身不起作用。需要确切地知道模板中可以访问哪些属性以及 <code>this</code> 关键字的动作。Vue 编译器需要将此属性转换为工作代码。因此，我们无法从自动建议或类型检查中受益。</p>
+<p>组合式 API 旨在通过将组件属性中当前可用的机制公开为 JavaScript 函数来解决此问题。Vue 核心团队将组合式 API 描述为“一组基于功能的附加 API，它们允许灵活地组成组件逻辑”。用组合式 API 编写的代码更具可读性，这使它更易于阅读和学习。</p>
+<p>来看一个使用新的组合式 API 理解其工作原理的组件的简单示例。</p>
+<p>新建 <code>src/components/counter/Counter.vue</code> </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;button @click=&quot;increment&quot;&gt;</span><br><span class="line">    Count is: &#123;&#123; count &#125;&#125;, double is: &#123;&#123; double &#125;&#125; Name is: &#123;&#123; reonly.name &#125;&#125;</span><br><span class="line">  &lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123; reactive, computed, toRefs, watch, watchEffect, readonly &#125; from &quot;vue&quot;;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  setup() &#123;</span><br><span class="line">    const state = reactive(&#123;</span><br><span class="line">      count: 0,</span><br><span class="line">      double: computed(() =&gt; state.count * 2),</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    const reonly = readonly(&#123;</span><br><span class="line">      name: &quot;InfinityX7&quot;,</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    function increment() &#123;</span><br><span class="line">      state.count++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    watch(</span><br><span class="line">      () =&gt; state.count,</span><br><span class="line">      (newVal, oldVal) =&gt; &#123;</span><br><span class="line">        console.log(&quot;Counter is change ===&gt;&quot;, oldVal, newVal);</span><br><span class="line">      &#125;</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    watchEffect(() =&gt; &#123;</span><br><span class="line">      console.log(&quot;watchEffect&quot;);</span><br><span class="line">      reonly.name = &quot;开到荼蘼&quot;;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    return &#123;</span><br><span class="line">      ...toRefs(state),</span><br><span class="line">      reonly,</span><br><span class="line">      increment,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>在 <code>src/components/counter/index.js</code> 导出组件：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Counter</span> <span class="keyword">from</span> <span class="string">&#x27;./src/Counter.vue&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Counter</span>;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p> 新建<code>src/views/TestCounter.vue</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;test-counter&quot;&gt;</span><br><span class="line">    &lt;Counter /&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import Counter from &quot;../components/couter/Couter.vue&quot;;</span><br><span class="line">import &#123; defineComponent &#125; from &quot;vue&quot;;</span><br><span class="line">export default defineComponent(&#123;</span><br><span class="line">  name: &quot;TestCounter&quot;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    Counter,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>在 <code>src/router/index.js</code> 配置路由</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="attr">path</span>: <span class="string">&quot;/counter&quot;</span>,</span><br><span class="line">   <span class="attr">name</span>: <span class="string">&quot;Counter&quot;</span>,</span><br><span class="line">   <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="string">&quot;../views/TestCounter.vue&quot;</span>),</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p><code>App.vue</code>增加<code>/counter</code>导航跳转，运行效果</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/uPic/2022-04-14%2009.40.02.gif" alt="GIF描述"></p>
+<h2 id="3、setup"><a href="#3、setup" class="headerlink" title="3、setup"></a>3、setup</h2><p>简而言之，它只是一个将属性和函数返回到模板使用的入口。</p>
+<p>我们在这里声明所有响应式属性，计算属性，观察者和生命周期挂钩，然后将它们返回，以便可以在模板中使用它们。</p>
+<p>所以<strong>没有从 <code>setup</code> 函数返回的内容将在模板中不可用</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineComponent</span>(&#123;</span><br><span class="line">  <span class="title function_">setup</span>(<span class="params"></span>) &#123;&#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4、reactive-普通对象响应式代理"><a href="#4、reactive-普通对象响应式代理" class="headerlink" title="4、reactive 普通对象响应式代理"></a>4、reactive 普通对象响应式代理</h2><p>在 <code>setup</code> 函数里面， <code>reactive</code> 它主要是处理你的对象，让它经过 <code>Proxy</code> 的加工变为一个响应式的对象，类似于 <code>Vue2.0</code> 版本的 <code>data</code> 属性。</p>
+<p>需要注意的是加工后的对象跟原对象是不相等的，并且加工后的对象属于<strong>深度克隆的对象</strong>。响应式转换是“深层的”：会影响对象内部所有嵌套的属性。基于 ES2015 的 Proxy 实现，返回的代理对象<strong>不等于</strong>原始对象。建议仅使用代理对象而避免依赖原始对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> state = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  <span class="attr">count</span>: <span class="number">0</span>,</span><br><span class="line">  <span class="attr">double</span>: <span class="title function_">computed</span>(<span class="function">() =&gt;</span> state.<span class="property">count</span> * <span class="number">2</span>),</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5、computed-计算属性"><a href="#5、computed-计算属性" class="headerlink" title="5、computed 计算属性"></a>5、computed 计算属性</h2><p>根据以上内容，我们声明了 <code>count</code> 用 <code>reatcive</code> 函数调用的响应式。它可以包装任何原生语法或对象并返回其响应式引用。传入一个 getter 函数，返回一个默认不可手动修改的 ref 对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> double = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> count.<span class="property">value</span> * <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">increment</span>(<span class="params"></span>) &#123;</span><br><span class="line">  count.<span class="property">value</span>++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="6、toRefs"><a href="#6、toRefs" class="headerlink" title="6、toRefs"></a>6、toRefs</h2><p>可以看到我们上面用了很多的新属性，<code>toRefs</code> 函数可以将 <code>reactive()</code> 创建出来的响应式对象，转换为普通的对象，只不过这个对象上的每个属性节点，都是 <code>ref()</code> 类型的响应式数据，配合 <code>&#123;&#123;&#125;&#125;</code> 插值指令能完成数据的双向绑定，在开发中非常高效。其实就有点像 ES6 的对象解构。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> &#123;</span><br><span class="line">  ...<span class="title function_">toRefs</span>(state),</span><br><span class="line">  reonly,</span><br><span class="line">  increment,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>拆分之后，我们可以写出类似这样的伪代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> &#123;</span><br><span class="line">  count,</span><br><span class="line">  double,</span><br><span class="line">  reonly,</span><br><span class="line">  increament,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><code>count</code>，<code>double</code> 直接在 <code>html</code> 上使用了：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;increment&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Count is: &#123;&#123; state.count &#125;&#125;, double is: &#123;&#123; state.double &#125;&#125; --&gt;</span></span><br><span class="line">  Count is: &#123;&#123; count &#125;&#125;, double is: &#123;&#123; double &#125;&#125; Name is: &#123;&#123;reonly.name&#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>无需使用如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;increment&quot;</span>&gt;</span></span><br><span class="line">  Count is: &#123;&#123; state.count &#125;&#125;, double is: &#123;&#123; state.double &#125;&#125; Name is:</span><br><span class="line">  &#123;&#123;reonly.name&#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>所以，这种开发方式就大大提高了开发效率了。</p>
+<h2 id="7、watch-监听"><a href="#7、watch-监听" class="headerlink" title="7、watch 监听"></a>7、watch 监听</h2><p><code>watch()</code> 函数用来监视某些数据项的变化，从而触发某些特定的操作，使用之前还是需要按需导入，监听 <code>state.count</code> 的变化，然后触发回调函数里面的逻辑，也就是监听用户输入的检索值，然后触发回调函数的逻辑把 <code>state.count</code> 值打印到控制台上：</p>
+<ul>
+<li>第一个参数传入一个 getter 函数，获取 state.count 返回值。</li>
+<li>监听 state.count 新旧值变化。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">watch</span>(</span><br><span class="line">  <span class="function">() =&gt;</span> state.<span class="property">count</span>,</span><br><span class="line">  <span class="function">(<span class="params">newVal, oldVal</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Counter is change ===&gt;&#x27;</span>, oldVal, newVal);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="8、watchEffect-立即执行监听"><a href="#8、watchEffect-立即执行监听" class="headerlink" title="8、watchEffect 立即执行监听"></a>8、watchEffect 立即执行监听</h2><p>这个属性有点像 <code>vue 2.x</code> 中的 <code>immediate: true</code> 这个立即执行属性。立即执行传入的一个函数，并响应式追踪其依赖，并在其依赖变更时重新运行该函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">watchEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;watchEffect&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>当 <code>watchEffect</code> 在组件的 <code>setup()</code> 函数或生命周期钩子被调用时，侦听器会被链接到该组件的生命周期，并在组件卸载时自动停止。</p>
+<p>在一些情况下，也可以显式调用返回值以停止侦听：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> stop = <span class="title function_">watchEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;watchEffect&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="title function_">stop</span>();</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="9、readonly-只读代理"><a href="#9、readonly-只读代理" class="headerlink" title="9、readonly 只读代理"></a>9、readonly 只读代理</h2><p>传入一个对象（响应式或普通）或 ref，返回一个原始对象的 <strong>只读</strong> 代理。一个只读的代理是“深层的”，对象内部任何嵌套的属性也都是只读的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reonly = <span class="title function_">readonly</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Zhangsan&#x27;</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>然后我们来修改 <code>reonly.name</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">watchEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;watchEffect&#x27;</span>);</span><br><span class="line">  reonly.<span class="property">name</span> = <span class="string">&#x27;Lisi&#x27;</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>发现 <code>reonly.name</code> 还是 <code>Zhangsan</code>，没有变化。</p>
+<h2 id="10、总结"><a href="#10、总结" class="headerlink" title="10、总结"></a>10、总结</h2><p>我们通过一个简单的例子对 <code>Vue 3</code> 组合式 <code>API</code> 有了一个初步的了解：</p>
+<ul>
+<li>reactive 对普通对象进行响应式代理。</li>
+<li>setup 类似 <code>created</code> 生命周期。</li>
+<li>computed 计算属性。</li>
+<li>watch 属性值监听。</li>
+<li>watchEffect 立即执行监听。</li>
+<li>readonly 对值，对象进行只读代理。</li>
+<li>toRefs 可对 reactive 申明的对象进行解构，提高开发效率。</li>
+</ul>
 
                 
             </div>
@@ -513,7 +616,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://syhan.top/2022/04/18/hello-world/">http://syhan.top/2022/04/18/hello-world/</a>
+                    <a href="http://syhan.top/2022/04/21/2-%E4%BD%93%E9%AA%8C%E7%BB%84%E5%90%88%E5%BC%8F%20API/">http://syhan.top/2022/04/21/2-%E4%BD%93%E9%AA%8C%E7%BB%84%E5%90%88%E5%BC%8F%20API/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -550,7 +653,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/vue3/">
+                                    <span class="chip bg-color">vue3</span>
+                                </a>
+                            
+                                <a href="/tags/router/">
+                                    <span class="chip bg-color">router</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -559,7 +670,7 @@
 <div id="article-share">
 
     
-    <div class="social-share" data-sites="qq,qzone,wechat,weibo,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="/libs/share/js/social-share.min.js"></script>
     
 
@@ -722,13 +833,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/04/18/hello/">
+                <a href="/2022/04/21/3-%E7%8E%A9%E8%BD%AC%E6%8F%92%E6%A7%BD%E6%96%B0%E7%89%B9%E6%80%A7/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="hello">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="3-玩转插槽新特性">
                         
-                        <span class="card-title">hello</span>
+                        <span class="card-title">3-玩转插槽新特性</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -739,15 +850,31 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-18
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-21
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Syhan
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Markdown/" class="post-category">
+                                    Markdown
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/vue3/">
+                        <span class="chip bg-color">vue3</span>
+                    </a>
+                    
+                    <a href="/tags/router/">
+                        <span class="chip bg-color">router</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -756,16 +883,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/04/18/hello-world/">
+                <a href="/2022/04/21/1-%E7%8E%A9%E8%BD%AC%20Vue3%20%E5%93%8D%E5%BA%94%E6%80%A7/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="1-玩转 Vue3 响应性">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">1-玩转 Vue3 响应性</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -776,17 +903,32 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-21
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Syhan
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Markdown/" class="post-category">
+                                    Markdown
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/vue3/">
+                        <span class="chip bg-color">vue3</span>
+                    </a>
+                    
+                    <a href="/tags/router/">
+                        <span class="chip bg-color">router</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -984,6 +1126,9 @@
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">16.5k</span>&nbsp;字
             
             
             
