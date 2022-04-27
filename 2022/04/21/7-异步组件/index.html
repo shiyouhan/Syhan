@@ -479,7 +479,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.4k
                 </div>
                 
 
@@ -490,6 +490,9 @@
         </div>
         <hr class="clearfix">
 
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
         
 
         
@@ -504,23 +507,113 @@
 </ul>
 <h2 id="2、传递工厂函数作为参数"><a href="#2、传递工厂函数作为参数" class="headerlink" title="2、传递工厂函数作为参数"></a>2、传递工厂函数作为参数</h2><p><code>defineAsyncComponent</code>方法接收一个工厂函数是它的基本用法，这个工厂函数必须返回一个<code>Promise</code>，<code>Promise</code>的<code>resolve</code>应该返回一个组件。</p>
 <p>新建<code>views/TestAsync.vue</code>，页面用两个组件来呈现，代码如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;logo-img /&gt;</span><br><span class="line">  &lt;hello-world msg=&quot;Welcome to Your Vue.js App&quot; /&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import LogoImg from &quot;../components/LogoImg.vue&quot;;</span><br><span class="line">import HelloWorld from &quot;../components/HelloWorld.vue&quot;;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;TestAnync&quot;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    LogoImg,</span><br><span class="line">    HelloWorld,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
+  &lt;logo-img &#x2F;&gt;
+  &lt;hello-world msg&#x3D;&quot;Welcome to Your Vue.js App&quot; &#x2F;&gt;
+&lt;&#x2F;template&gt;
+
+&lt;script&gt;
+import LogoImg from &quot;..&#x2F;components&#x2F;LogoImg.vue&quot;;
+import HelloWorld from &quot;..&#x2F;components&#x2F;HelloWorld.vue&quot;;
+
+export default &#123;
+  name: &quot;TestAnync&quot;,
+  components: &#123;
+    LogoImg,
+    HelloWorld,
+  &#125;,
+&#125;;
+&lt;&#x2F;script&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>components目录新建<code>LogoImg.vue</code>组件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">      &lt;img src=&quot;../assets/logo.png&quot; alt=&quot;&quot;&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;LogoImg&quot;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped lang=&quot;scss&quot;&gt;&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
+  &lt;div&gt;
+      &lt;img src&#x3D;&quot;..&#x2F;assets&#x2F;logo.png&quot; alt&#x3D;&quot;&quot;&gt;
+  &lt;&#x2F;div&gt;
+&lt;&#x2F;template&gt;
+
+&lt;script&gt;
+export default &#123;
+  name: &quot;LogoImg&quot;,
+&#125;;
+&lt;&#x2F;script&gt;
+
+&lt;style scoped lang&#x3D;&quot;scss&quot;&gt;&lt;&#x2F;style&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>components目录<code>HelloWorld</code>组件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;hello&quot;&gt;</span><br><span class="line">    &lt;h1&gt;&#123;&#123; msg &#125;&#125;&lt;/h1&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;HelloWorld&quot;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    msg: String,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped lang=&quot;scss&quot;&gt;&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
+  &lt;div class&#x3D;&quot;hello&quot;&gt;
+    &lt;h1&gt;&#123;&#123; msg &#125;&#125;&lt;&#x2F;h1&gt;
+  &lt;&#x2F;div&gt;
+&lt;&#x2F;template&gt;
+
+&lt;script&gt;
+export default &#123;
+  name: &quot;HelloWorld&quot;,
+  props: &#123;
+    msg: String,
+  &#125;,
+&#125;;
+&lt;&#x2F;script&gt;
+
+&lt;style scoped lang&#x3D;&quot;scss&quot;&gt;&lt;&#x2F;style&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>配置路由和导航，看效果</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-21_16-15-45.png" alt="图片描述"></p>
 <p>现在我们将<code>&lt;hello-world&gt;</code>组件修改为异步组件，修改<code>TestAsync.vue</code>代码如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;logo-img /&gt;</span><br><span class="line">  &lt;hello-world msg=&quot;Welcome to Your Vue.js App&quot; /&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; defineAsyncComponent &#125; from &#x27;vue&#x27;</span><br><span class="line">import LogoImg from &#x27;../components/LogoImg.vue&#x27;</span><br><span class="line"></span><br><span class="line">// 修改为异步组件</span><br><span class="line">const HelloWorld = defineAsyncComponent(() =&gt;</span><br><span class="line">  import(&#x27;../components/HelloWorld.vue&#x27;),</span><br><span class="line">)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
+  &lt;logo-img &#x2F;&gt;
+  &lt;hello-world msg&#x3D;&quot;Welcome to Your Vue.js App&quot; &#x2F;&gt;
+&lt;&#x2F;template&gt;
+
+&lt;script setup&gt;
+import &#123; defineAsyncComponent &#125; from &#39;vue&#39;
+import LogoImg from &#39;..&#x2F;components&#x2F;LogoImg.vue&#39;
+
+&#x2F;&#x2F; 修改为异步组件
+const HelloWorld &#x3D; defineAsyncComponent(() &#x3D;&gt;
+  import(&#39;..&#x2F;components&#x2F;HelloWorld.vue&#39;),
+)
+&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <p>为了看到效果，将<code>import</code>延迟执行，完整代码</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;logo-img /&gt;</span><br><span class="line">  &lt;hello-world msg=&quot;Welcome to Your Vue.js App&quot; /&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; defineAsyncComponent &#125; from &quot;vue&quot;;</span><br><span class="line">import LogoImg from &quot;../components/LogoImg.vue&quot;;</span><br><span class="line"></span><br><span class="line">// 定义一个耗时执行的函数，t 表示延迟的时间，callback 表示需要执行的函数，可选</span><br><span class="line">const time = (t, callback = () =&gt; &#123;&#125;) =&gt; &#123;</span><br><span class="line">  return new Promise((resolve) =&gt; &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">      callback();</span><br><span class="line">      resolve();</span><br><span class="line">    &#125;, t);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 定义异步组件，这里这样写是为了查看效果</span><br><span class="line">const HelloWorld = defineAsyncComponent(() =&gt; &#123;</span><br><span class="line">  return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">    (async function () &#123;</span><br><span class="line">      try &#123;</span><br><span class="line">        await time(2000);</span><br><span class="line">        const res = await import(&quot;../components/HelloWorld.vue&quot;);</span><br><span class="line">        resolve(res);</span><br><span class="line">      &#125; catch (error) &#123;</span><br><span class="line">        reject(error);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
+  &lt;logo-img &#x2F;&gt;
+  &lt;hello-world msg&#x3D;&quot;Welcome to Your Vue.js App&quot; &#x2F;&gt;
+&lt;&#x2F;template&gt;
+
+&lt;script setup&gt;
+import &#123; defineAsyncComponent &#125; from &quot;vue&quot;;
+import LogoImg from &quot;..&#x2F;components&#x2F;LogoImg.vue&quot;;
+
+&#x2F;&#x2F; 定义一个耗时执行的函数，t 表示延迟的时间，callback 表示需要执行的函数，可选
+const time &#x3D; (t, callback &#x3D; () &#x3D;&gt; &#123;&#125;) &#x3D;&gt; &#123;
+  return new Promise((resolve) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      callback();
+      resolve();
+    &#125;, t);
+  &#125;);
+&#125;;
+
+&#x2F;&#x2F; 定义异步组件，这里这样写是为了查看效果
+const HelloWorld &#x3D; defineAsyncComponent(() &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    (async function () &#123;
+      try &#123;
+        await time(2000);
+        const res &#x3D; await import(&quot;..&#x2F;components&#x2F;HelloWorld.vue&quot;);
+        resolve(res);
+      &#125; catch (error) &#123;
+        reject(error);
+      &#125;
+    &#125;)();
+  &#125;);
+&#125;);
+&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>运行效果：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/uPic/2022-04-19%2010.02.37.gif" alt="GIF描述"></p>
@@ -536,10 +629,76 @@
 <li>onError：一个函数，该函数包含4个参数，分别是error、retry、fail和attempts，这4个参数分别是错误对象、重新加载的函数、加载程序结束的函数、已经重试的次数。</li>
 </ul>
 <p>components目录新建<code>error.vue</code>组件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;发生错误！&lt;/h1&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;error&quot;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped lang=&quot;scss&quot;&gt;&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;发生错误！&lt;&#x2F;h1&gt;
+  &lt;&#x2F;div&gt;
+&lt;&#x2F;template&gt;
+
+&lt;script&gt;
+export default &#123;
+  name: &quot;error&quot;,
+&#125;;
+&lt;&#x2F;script&gt;
+
+&lt;style scoped lang&#x3D;&quot;scss&quot;&gt;&lt;&#x2F;style&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>views新建<code>TestAsync1.vue</code>，使用defineAsyncComponent`方法的对象类型参数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;logo-img /&gt;</span><br><span class="line">  &lt;hello-world msg=&quot;Welcome to Your Vue.js App&quot; /&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; defineAsyncComponent &#125; from &quot;vue&quot;;</span><br><span class="line">import LogoImg from &quot;../components/LogoImg.vue&quot;;</span><br><span class="line">import ErrorComponent from &quot;../components/error.vue&quot;;</span><br><span class="line"></span><br><span class="line">// 定义一个耗时执行的函数，t 表示延迟的时间， callback 表示需要执行的函数，可选</span><br><span class="line">const time = (t, callback = () =&gt; &#123;&#125;) =&gt; &#123;</span><br><span class="line">  return new Promise((resolve) =&gt; &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">      callback();</span><br><span class="line">      resolve();</span><br><span class="line">    &#125;, t);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line">// 记录加载次数</span><br><span class="line">let count = 0;</span><br><span class="line">const HelloWorld = defineAsyncComponent(&#123;</span><br><span class="line">  // 工厂函数</span><br><span class="line">  loader: () =&gt; &#123;</span><br><span class="line">    return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">      (async function () &#123;</span><br><span class="line">        await time(2000);</span><br><span class="line">        const res = await import(&quot;../components/HelloWorld.vue&quot;);</span><br><span class="line">        if (++count &lt; 3) &#123;</span><br><span class="line">          // 前两次加载手动设置加载失败</span><br><span class="line">          reject(res);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          // 大于3次成功</span><br><span class="line">          resolve(res);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)();</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  errorComponent: ErrorComponent,</span><br><span class="line">  delay: 0,</span><br><span class="line">  timeout: 1000,</span><br><span class="line">  suspensible: false,</span><br><span class="line">  onError(retry, fail, attempts) &#123;</span><br><span class="line">    // 注意，retry/fail 就像 promise 的 resolve/reject 一样：</span><br><span class="line">    // 必须调用其中一个才能继续错误处理。</span><br><span class="line">    if (attempts &lt; 3) &#123;</span><br><span class="line">      // 请求发生错误时重试，最多可尝试 3 次</span><br><span class="line">      console.log(attempts);</span><br><span class="line">      retry();</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      fail();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
+  &lt;logo-img &#x2F;&gt;
+  &lt;hello-world msg&#x3D;&quot;Welcome to Your Vue.js App&quot; &#x2F;&gt;
+&lt;&#x2F;template&gt;
+
+&lt;script setup&gt;
+import &#123; defineAsyncComponent &#125; from &quot;vue&quot;;
+import LogoImg from &quot;..&#x2F;components&#x2F;LogoImg.vue&quot;;
+import ErrorComponent from &quot;..&#x2F;components&#x2F;error.vue&quot;;
+
+&#x2F;&#x2F; 定义一个耗时执行的函数，t 表示延迟的时间， callback 表示需要执行的函数，可选
+const time &#x3D; (t, callback &#x3D; () &#x3D;&gt; &#123;&#125;) &#x3D;&gt; &#123;
+  return new Promise((resolve) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      callback();
+      resolve();
+    &#125;, t);
+  &#125;);
+&#125;;
+&#x2F;&#x2F; 记录加载次数
+let count &#x3D; 0;
+const HelloWorld &#x3D; defineAsyncComponent(&#123;
+  &#x2F;&#x2F; 工厂函数
+  loader: () &#x3D;&gt; &#123;
+    return new Promise((resolve, reject) &#x3D;&gt; &#123;
+      (async function () &#123;
+        await time(2000);
+        const res &#x3D; await import(&quot;..&#x2F;components&#x2F;HelloWorld.vue&quot;);
+        if (++count &lt; 3) &#123;
+          &#x2F;&#x2F; 前两次加载手动设置加载失败
+          reject(res);
+        &#125; else &#123;
+          &#x2F;&#x2F; 大于3次成功
+          resolve(res);
+        &#125;
+      &#125;)();
+    &#125;);
+  &#125;,
+  errorComponent: ErrorComponent,
+  delay: 0,
+  timeout: 1000,
+  suspensible: false,
+  onError(retry, fail, attempts) &#123;
+    &#x2F;&#x2F; 注意，retry&#x2F;fail 就像 promise 的 resolve&#x2F;reject 一样：
+    &#x2F;&#x2F; 必须调用其中一个才能继续错误处理。
+    if (attempts &lt; 3) &#123;
+      &#x2F;&#x2F; 请求发生错误时重试，最多可尝试 3 次
+      console.log(attempts);
+      retry();
+    &#125; else &#123;
+      fail();
+    &#125;
+  &#125;,
+&#125;);
+&lt;&#x2F;script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>加载组件时前两次会请求错误，只有第三次加载才会成功，如果加载失败则会展示<code>ErrorComponent</code>组件。运行结果如下：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/uPic/2022-04-19%2010.18.08.gif" alt="GIF描述"></p>
@@ -1050,7 +1209,7 @@
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
                    type="song"
-                   id="308299"
+                   id="1938019501"
                    fixed='true'
                    autoplay='true'
                    theme='#42b983'
@@ -1072,16 +1231,16 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
-            <span id="year">2019</span>
+            <span id="year">2022</span>
             <a href="/about" target="_blank">Syhan</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">16.5k</span>&nbsp;字
+                class="white-color">15.1k</span>&nbsp;字
             
             
             
