@@ -499,40 +499,40 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="redis和缓存"><a href="#redis和缓存" class="headerlink" title="redis和缓存"></a>redis和缓存</h1><h2 id="1-redis数据结构与应用场景"><a href="#1-redis数据结构与应用场景" class="headerlink" title="1.redis数据结构与应用场景"></a>1.redis数据结构与应用场景</h2><h3 id="⼀、简介"><a href="#⼀、简介" class="headerlink" title="⼀、简介"></a>⼀、简介</h3><p>Redis 是开源免费， key-value 内存数据库，主要解决⾼并发、⼤数据场景下，热点数据访</p>
+                <h1 id="redis-和缓存"><a href="#redis-和缓存" class="headerlink" title="redis 和缓存"></a>redis 和缓存</h1><h2 id="1-redis-数据结构与应用场景"><a href="#1-redis-数据结构与应用场景" class="headerlink" title="1.redis 数据结构与应用场景"></a>1.redis 数据结构与应用场景</h2><h3 id="⼀、简介"><a href="#⼀、简介" class="headerlink" title="⼀、简介"></a>⼀、简介</h3><p>Redis 是开源免费， key-value 内存数据库，主要解决⾼并发、⼤数据场景下，热点数据访</p>
 <p>问的性能问题，提供⾼性能的数据快速访问。项⽬中部分数据访问⽐较频繁，对下游 DB</p>
 <p>（例如 MySQL）造成服务压⼒，这时候可以使⽤缓存来提⾼效率。</p>
 <p>Redis 的主要特点包括：</p>
 <ul>
-<li><p>Redis数据存储在内存中，可以提高热点数据的访问效率</p>
+<li><p>Redis 数据存储在内存中，可以提高热点数据的访问效率</p>
 </li>
-<li><p>Redis 除了支持key-value 类型的数据，同时还支持其他多种数据结构的存储；</p>
+<li><p>Redis 除了支持 key-value 类型的数据，同时还支持其他多种数据结构的存储；</p>
 </li>
 <li><p>Redis 支持数据持久化存储，可以将数据存储在磁盘中，机器重启数据将从磁盘重新</p>
-<p>加载数据;Redis 作为缓存数据库和 MySQL这种结构化数据库进行对比。</p>
+<p>加载数据;Redis 作为缓存数据库和 MySQL 这种结构化数据库进行对比。</p>
 </li>
 <li><p>从数据库类型上，Redis 是 NoSQL 半结构化缓存数据库，MySQL 是结构化关系型数据库；</p>
 </li>
 <li><p>从读写性能上，MySQL 是持久化硬盘存储，读写速度较楼，Redis 数据存储读取都在内存，同时也可以持久化到磁盘，读写速度较快；</p>
 </li>
-<li><p>从使用场景上，Redis 一般作为 MySQL数据读取性能优化的技术送型，彼此配合使用。Redis用于存储热数据或者级存数据，并不存在相互替换的关系。</p>
+<li><p>从使用场景上，Redis 一般作为 MySQL 数据读取性能优化的技术送型，彼此配合使用。Redis 用于存储热数据或者级存数据，并不存在相互替换的关系。</p>
 </li>
 </ul>
 <h3 id="⼆、Redis-基本数据结构与实战场景"><a href="#⼆、Redis-基本数据结构与实战场景" class="headerlink" title="⼆、Redis 基本数据结构与实战场景"></a>⼆、Redis 基本数据结构与实战场景</h3><ol>
-<li><p>redis的数据结构可以理解为Java数据类型中的Map&lt;String,Object&gt;,key是String类型，value是下⾯ 的类型。只不过作为⼀个独⽴的数据库单独存在，所以Java中的Map怎么⽤，redis就怎么⽤，⼤同⼩异。 </p>
+<li><p>redis 的数据结构可以理解为 Java 数据类型中的 Map&lt;String,Object&gt;,key 是 String 类型，value 是下⾯ 的类型。只不过作为⼀个独⽴的数据库单独存在，所以 Java 中的 Map 怎么⽤，redis 就怎么⽤，⼤同⼩异。</p>
 </li>
-<li><p>字符串类型的数据结构可以理解为Map&lt;String,String&gt; </p>
+<li><p>字符串类型的数据结构可以理解为 Map&lt;String,String&gt;</p>
 </li>
-<li><p>list类型的数据结构可以理解为Map&lt;String,List<String>&gt; </p>
+<li><p>list 类型的数据结构可以理解为 Map&lt;String,List<String>&gt;</p>
 </li>
-<li><p>set类型的数据结构可以理解为Map&lt;String,Set<String>&gt; </p>
+<li><p>set 类型的数据结构可以理解为 Map&lt;String,Set<String>&gt;</p>
 </li>
-<li><p>hash类型的数据结构可以理解为Map&lt;String,HashMap&lt;String,String&gt;&gt;</p>
+<li><p>hash 类型的数据结构可以理解为 Map&lt;String,HashMap&lt;String,String&gt;&gt;</p>
 </li>
 </ol>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-05-01_13-23-32.png" alt="图片描述"></p>
-<p>上图中命令行更正：Irange，不是lrang</p>
-<h3 id="三、redis应用场景解析"><a href="#三、redis应用场景解析" class="headerlink" title="三、redis应用场景解析"></a>三、redis应用场景解析</h3><h4 id="3-1-String-类型使用场景"><a href="#3-1-String-类型使用场景" class="headerlink" title="3.1 String 类型使用场景"></a>3.1 String 类型使用场景</h4><h5 id="场景一：商品库存数"><a href="#场景一：商品库存数" class="headerlink" title="场景一：商品库存数"></a>场景一：商品库存数</h5><p>从业务上，商品库存数据是热点数据，交易行为会直接影响库存。而 Redis 自身 String 类</p>
+<p>上图中命令行更正：Irange，不是 lrang</p>
+<h3 id="三、redis-应用场景解析"><a href="#三、redis-应用场景解析" class="headerlink" title="三、redis 应用场景解析"></a>三、redis 应用场景解析</h3><h4 id="3-1-String-类型使用场景"><a href="#3-1-String-类型使用场景" class="headerlink" title="3.1 String 类型使用场景"></a>3.1 String 类型使用场景</h4><h5 id="场景一：商品库存数"><a href="#场景一：商品库存数" class="headerlink" title="场景一：商品库存数"></a>场景一：商品库存数</h5><p>从业务上，商品库存数据是热点数据，交易行为会直接影响库存。而 Redis 自身 String 类</p>
 <p>型提供了：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">incr key     <span class="token comment">#增加⼀个库存</span>
 decr key    <span class="token comment"># 减少⼀个库存</span>
@@ -540,16 +540,16 @@ incrby key <span class="token number">10</span> <span class="token comment"># �
 decrby key <span class="token number">15</span>   <span class="token comment"># 减少15个库存</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>set goods_id 10；设置id 为 goodid 的商品的库存初始值为10；</li>
-<li>decr goods_id；当商品被购买时候，库存数据减1。</li>
+<li>set goods_id 10；设置 id 为 goodid 的商品的库存初始值为 10；</li>
+<li>decr goods_id；当商品被购买时候，库存数据减 1。</li>
 </ul>
-<p>依此类推的场景：商品的浏览次数，问题或者回复的点赞次数等。这种计数的场景都可以考虑利用Redis 来实现。</p>
-<h5 id="场景二：时效信息存储"><a href="#场景二：时效信息存储" class="headerlink" title="场景二：时效信息存储"></a>场景二：时效信息存储</h5><p>Redis 的数据存储具有自动失效能力。也就是存储的 key-value 可以设置过期时间，SETEX </p>
-<p>mykey 60 “value”中的第2个參数就是过期时间。</p>
-<p>比如，用户登录某个 App 需要获取登录验证码，验证码在30 秒内有效。</p>
+<p>依此类推的场景：商品的浏览次数，问题或者回复的点赞次数等。这种计数的场景都可以考虑利用 Redis 来实现。</p>
+<h5 id="场景二：时效信息存储"><a href="#场景二：时效信息存储" class="headerlink" title="场景二：时效信息存储"></a>场景二：时效信息存储</h5><p>Redis 的数据存储具有自动失效能力。也就是存储的 key-value 可以设置过期时间，SETEX</p>
+<p>mykey 60 “value”中的第 2 个參数就是过期时间。</p>
+<p>比如，用户登录某个 App 需要获取登录验证码，验证码在 30 秒内有效。</p>
 <ul>
-<li>生成验证码：生成验证码并使用 String 类型在reids存储验证码，同时设置 30 秒的失效时间。如：SETEX validcode 30 “value”</li>
-<li>验证过程：用户获得验证码之后，我们通过get validcode获取验证码，如果获取不到说明验证码过期了。</li>
+<li>生成验证码：生成验证码并使用 String 类型在 reids 存储验证码，同时设置 30 秒的失效时间。如：SETEX validcode 30 “value”</li>
+<li>验证过程：用户获得验证码之后，我们通过 get validcode 获取验证码，如果获取不到说明验证码过期了。</li>
 </ul>
 <h4 id="3-2-List-类型使用场景"><a href="#3-2-List-类型使用场景" class="headerlink" title="3.2 List 类型使用场景"></a>3.2 List 类型使用场景</h4><p>list 是按照插入顺序排序的字符串链表。可以在头部和尾部插入新的元素（双向链表实</p>
 <p>现，两端添加元素的时间复杂度为 O(1))。</p>
@@ -557,18 +557,18 @@ decrby key <span class="token number">15</span>   <span class="token comment"># 
 <p>征来实现消息队列的要求。在实际技术选型的过程中，大家可以慎重思考。</p>
 <p>list 存储就是一个队列的存储形式：</p>
 <ul>
-<li><p>Ipush key value； 在key 对应 list 的头部添加字符串元素；</p>
+<li><p>Ipush key value； 在 key 对应 list 的头部添加字符串元素；</p>
 </li>
 <li><p>rpop key； 移除列表的最后一个元素，返回值为移除的元素。</p>
 </li>
 </ul>
-<h5 id="场景二：最新上架商品"><a href="#场景二：最新上架商品" class="headerlink" title="场景二：最新上架商品"></a>场景二：最新上架商品</h5><p>在交易网站首页经常会有新上架产品推荐的模块，这个模块是存储了最新上架前100 名。</p>
-<p>这时候使用Redis 的 list 数据结构，来进行 TOP 100新上架产品的存储。</p>
+<h5 id="场景二：最新上架商品"><a href="#场景二：最新上架商品" class="headerlink" title="场景二：最新上架商品"></a>场景二：最新上架商品</h5><p>在交易网站首页经常会有新上架产品推荐的模块，这个模块是存储了最新上架前 100 名。</p>
+<p>这时候使用 Redis 的 list 数据结构，来进行 TOP 100 新上架产品的存储。</p>
 <p>Redis trim 指令对一个列表进行修剪（trim），这样 list 就会只包含指定范围的指定元</p>
 <p>素。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ltrim key start end<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>start 和 end 都是由 0 开始计数的，这⾥的 0 是列表⾥的第⼀个元素（表头），1 是第⼆个元素。 </p>
+<p>start 和 end 都是由 0 开始计数的，这⾥的 0 是列表⾥的第⼀个元素（表头），1 是第⼆个元素。</p>
 <p>如下伪代码演示：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">//把新上架商品添加到链表⾥
 ret <span class="token operator">=</span> r.lpush<span class="token punctuation">(</span><span class="token string">"new:goods"</span>, goodsId<span class="token punctuation">)</span>
@@ -577,9 +577,9 @@ ret <span class="token operator">=</span> r.ltrim<span class="token punctuation"
 //获得前 <span class="token number">100</span> 个最新上架的商品 <span class="token function">id</span> 列表
 newest_goods_list <span class="token operator">=</span> r.lrange<span class="token punctuation">(</span><span class="token string">"new:goods"</span>, <span class="token number">0</span>, <span class="token number">99</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="3-3-set-类型使用场景"><a href="#3-3-set-类型使用场景" class="headerlink" title="3.3 set 类型使用场景"></a>3.3 set 类型使用场景</h4><p>set 也是存储了⼀个集合列表功能。和 list 不同，set 具备去重功能(和Java的Set数据类型</p>
+<h4 id="3-3-set-类型使用场景"><a href="#3-3-set-类型使用场景" class="headerlink" title="3.3 set 类型使用场景"></a>3.3 set 类型使用场景</h4><p>set 也是存储了⼀个集合列表功能。和 list 不同，set 具备去重功能(和 Java 的 Set 数据类型</p>
 <p>⼀样)。当需要存储⼀个列表信息，同时要求列表内的元素不能有重复，这时候使⽤ set ⽐</p>
-<p>较合适。与此同时，set 还提供的交集、并集、差集。 </p>
+<p>较合适。与此同时，set 还提供的交集、并集、差集。</p>
 <p>例如，在交易⽹站，我们会存储⽤户感兴趣的商品信息，在进⾏相似⽤户分析的时候， 可</p>
 <p>以通过计算两个不同⽤户之间感兴趣商品的数量来提供⼀些依据。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">//userid 为⽤户 ID ， goodID 为感兴趣的商品信息。
@@ -593,7 +593,7 @@ sinter <span class="token string">"user:101"</span> <span class="token string">"
 <p>获取到两个⽤户相似的产品， 然后确定相似产品的类⽬就可以进⾏⽤户分析。类似的应⽤</p>
 <p>场景还有， 社交场景下共同关注好友， 相似兴趣 tag 等场景的⽀持。</p>
 <h4 id="3-4-Hash-类型使用场景"><a href="#3-4-Hash-类型使用场景" class="headerlink" title="3.4 Hash 类型使用场景"></a>3.4 Hash 类型使用场景</h4><p>Redis 在存储对象（例如：⽤户信息）的时候需要对对象进⾏序列化转换然后存储，还有</p>
-<p>⼀种形式，就是将对象数据转换为 JSON 结构数据，然后存储 JSON 的字符串到 Redis。 </p>
+<p>⼀种形式，就是将对象数据转换为 JSON 结构数据，然后存储 JSON 的字符串到 Redis。</p>
 <p>对于⼀些对象类型，还有另外⼀种⽐较⽅便的类型，那就是按照 Redis 的 Hash 类型进⾏</p>
 <p>存储。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hset key field value<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -603,58 +603,56 @@ sinter <span class="token string">"user:101"</span> <span class="token string">"
 hset user101 phone <span class="token string">"123456"</span>
 hset user101 sex <span class="token string">"男"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>这样就存储了⼀个⽤户基本信息，存储信息有：{name : ⼩明， phone : “123456”，sex : “男”} </p>
+<p>这样就存储了⼀个⽤户基本信息，存储信息有：{name : ⼩明， phone : “123456”，sex : “男”}</p>
 <p>当然这种类似场景还⾮常多， ⽐如存储订单的数据，产品的数据，商家基本信息等。⼤家</p>
 <p>可以参考来进⾏存储选型。但是不适合存储关联关系⽐较复杂的数据，那种场景还得⽤关</p>
 <p>系型数据库⽐较⽅便。</p>
 <h4 id="3-5-Sorted-Set-类型使用场景"><a href="#3-5-Sorted-Set-类型使用场景" class="headerlink" title="3.5 Sorted Set 类型使用场景"></a>3.5 Sorted Set 类型使用场景</h4><p>Redis sorted set 的使⽤场景与 set 类似，区别是 set 不是⾃动有序的，⽽ sorted set 可</p>
-<p>以通过提供⼀个score 参数来为存储数据排序，并且是⾃动排序，插⼊既有序。<strong>业务中如</strong></p>
-<p><strong>果需要⼀个有序且不重复的集合列表，就可以选择 sorted set 这种数据结构。</strong> </p>
+<p>以通过提供⼀个 score 参数来为存储数据排序，并且是⾃动排序，插⼊既有序。<strong>业务中如</strong></p>
+<p><strong>果需要⼀个有序且不重复的集合列表，就可以选择 sorted set 这种数据结构。</strong></p>
 <p>⽐如：商品的购买热度可以将购买总量 num 当做商品列表的 score，这样获取最热⻔的商</p>
-<p>品时就是可以⾃动按售卖总量排好序。 </p>
-<h2 id="2-整合单例模式"><a href="#2-整合单例模式" class="headerlink" title="2. 整合单例模式"></a>2. 整合单例模式</h2><p>redis集群模式和哨兵模式⾼可⽤的安装与运维，需要去专⻔的redis课程学习。这⾥主要</p>
-<p>⾯向SpringBoot整合redis来开发，不涉及redis集群⾼可⽤及运维知识。 </p>
-<h3 id="⼀、spring-data-redis简介"><a href="#⼀、spring-data-redis简介" class="headerlink" title="⼀、spring-data-redis简介"></a>⼀、spring-data-redis简介</h3><p>Spring Boot 提供了对 Redis 集成的组件包：spring-boot-starter-data-redis，它依赖于 </p>
-<p>spring-data-redis 和 lettuce。Spring Boot 1.0 默认使⽤的是 Jedis 客户端，2.0 替换成了 </p>
-<p>Lettuce， spring-boot-starter-data-redis 为我们隔离了其中的差异性。 </p>
+<p>品时就是可以⾃动按售卖总量排好序。</p>
+<h2 id="2-整合单例模式"><a href="#2-整合单例模式" class="headerlink" title="2. 整合单例模式"></a>2. 整合单例模式</h2><p>redis 集群模式和哨兵模式⾼可⽤的安装与运维，需要去专⻔的 redis 课程学习。这⾥主要</p>
+<p>⾯向 SpringBoot 整合 redis 来开发，不涉及 redis 集群⾼可⽤及运维知识。</p>
+<h3 id="⼀、spring-data-redis-简介"><a href="#⼀、spring-data-redis-简介" class="headerlink" title="⼀、spring-data-redis 简介"></a>⼀、spring-data-redis 简介</h3><p>Spring Boot 提供了对 Redis 集成的组件包：spring-boot-starter-data-redis，它依赖于</p>
+<p>spring-data-redis 和 lettuce。Spring Boot 1.0 默认使⽤的是 Jedis 客户端，2.0 替换成了</p>
+<p>Lettuce， spring-boot-starter-data-redis 为我们隔离了其中的差异性。</p>
 <ol>
-<li><p>Lettuce：是⼀个可伸缩线程安全的 Redis 客户端，多个线程可以共享同⼀个 RedisConnection，它 利⽤优秀 Netty NIO 框架来⾼效地管理多个连接。 </p>
+<li><p>Lettuce：是⼀个可伸缩线程安全的 Redis 客户端，多个线程可以共享同⼀个 RedisConnection，它 利⽤优秀 Netty NIO 框架来⾼效地管理多个连接。</p>
 </li>
-<li><p>Spring Data：是 Spring 框架中的⼀个主要项⽬，⽬的是为了简化构建基于 Spring 框架应⽤的数据访问，包括⾮关系数据库、Map-Reduce 框架、云数据服务等，另外也包含对关系数据库的访问⽀持。 </p>
+<li><p>Spring Data：是 Spring 框架中的⼀个主要项⽬，⽬的是为了简化构建基于 Spring 框架应⽤的数据访问，包括⾮关系数据库、Map-Reduce 框架、云数据服务等，另外也包含对关系数据库的访问⽀持。</p>
 </li>
-<li><p>Spring Data Redis：是 Spring Data 项⽬中的⼀个主要模块，实现了对 Redis 客户端 API 的⾼度封装，使对 Redis 的操作更加便捷。 </p>
+<li><p>Spring Data Redis：是 Spring Data 项⽬中的⼀个主要模块，实现了对 Redis 客户端 API 的⾼度封装，使对 Redis 的操作更加便捷。</p>
 </li>
 </ol>
-<h3 id="⼆、整合spring-data-redis"><a href="#⼆、整合spring-data-redis" class="headerlink" title="⼆、整合spring data redis"></a>⼆、整合spring data redis</h3><p>引入依赖包</p>
+<h3 id="⼆、整合-spring-data-redis"><a href="#⼆、整合-spring-data-redis" class="headerlink" title="⼆、整合 spring data redis"></a>⼆、整合 spring data redis</h3><p>引入依赖包</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-data-redis<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.commons<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>commons-pool2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>引入 commons-pool 2 是因为 Lettuce 需要使用 commons-pool 2 创建 Redis 连接池.<br>application全局配置redis的单节点实例:</p>
+<p>引入 commons-pool 2 是因为 Lettuce 需要使用 commons-pool 2 创建 Redis 连接池.<br>application 全局配置 redis 的单节点实例:</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
- <span class="token key atrule">redis</span><span class="token punctuation">:</span>
-   database<span class="token punctuation">:</span> 0     <span class="token comment"># Redis 数据库索引（默认为 0）</span>
-   host<span class="token punctuation">:</span> 127.0.0.1 <span class="token comment"># Redis 服务器地址</span>
-   port<span class="token punctuation">:</span> <span class="token number">6379</span> <span class="token comment"># Redis 服务器连接端⼝</span>
-   password<span class="token punctuation">:</span> <span class="token number">123456</span> <span class="token comment"># Redis 服务器连接密码（默认为空）</span>
-   timeout<span class="token punctuation">:</span>  5000  <span class="token comment"># 连接超时，单位ms</span>
-   lettuce<span class="token punctuation">:</span>
-     pool<span class="token punctuation">:</span>
-       max<span class="token punctuation">-</span><span class="token key atrule">active</span><span class="token punctuation">:</span> <span class="token number">8</span> <span class="token comment"># 连接池最⼤连接数（使⽤负值表示没有限制） 默认 8</span>
-       max<span class="token punctuation">-</span><span class="token key atrule">wait</span><span class="token punctuation">:</span> <span class="token number">-1</span> <span class="token comment"># 连接池最⼤阻塞等待时间（使⽤负值表示没有限制） 默认 -1</span>
-       max<span class="token punctuation">-</span><span class="token key atrule">idle</span><span class="token punctuation">:</span> <span class="token number">8</span> <span class="token comment"># 连接池中的最⼤空闲连接 默认 8</span>
-       min<span class="token punctuation">-</span><span class="token key atrule">idle</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token comment"># 连接池中的最⼩空闲连接 默认 0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token key atrule">redis</span><span class="token punctuation">:</span>
+    database<span class="token punctuation">:</span> <span class="token number">0</span> <span class="token comment"># Redis 数据库索引（默认为 0）</span>
+    host<span class="token punctuation">:</span> 127.0.0.1 <span class="token comment"># Redis 服务器地址</span>
+    port<span class="token punctuation">:</span> <span class="token number">6379</span> <span class="token comment"># Redis 服务器连接端⼝</span>
+    password<span class="token punctuation">:</span> <span class="token number">123456</span> <span class="token comment"># Redis 服务器连接密码（默认为空）</span>
+    timeout<span class="token punctuation">:</span>  5000  <span class="token comment"># 连接超时，单位ms</span>
+    lettuce<span class="token punctuation">:</span>
+      pool<span class="token punctuation">:</span>
+        max<span class="token punctuation">-</span><span class="token key atrule">active</span><span class="token punctuation">:</span> <span class="token number">8</span> <span class="token comment"># 连接池最⼤连接数（使⽤负值表示没有限制） 默认 8</span>
+        max<span class="token punctuation">-</span><span class="token key atrule">wait</span><span class="token punctuation">:</span> <span class="token number">-1</span> <span class="token comment"># 连接池最⼤阻塞等待时间（使⽤负值表示没有限制） 默认 -1</span>
+        max<span class="token punctuation">-</span><span class="token key atrule">idle</span><span class="token punctuation">:</span> <span class="token number">8</span> <span class="token comment"># 连接池中的最⼤空闲连接 默认 8</span>
+        min<span class="token punctuation">-</span><span class="token key atrule">idle</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token comment"># 连接池中的最⼩空闲连接 默认 0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-<h2 id="3-使用redisTemplate操作数据"><a href="#3-使用redisTemplate操作数据" class="headerlink" title="3.使用redisTemplate操作数据"></a>3.使用redisTemplate操作数据</h2><h3 id="⼀、redis模板封装类"><a href="#⼀、redis模板封装类" class="headerlink" title="⼀、redis模板封装类"></a>⼀、redis模板封装类</h3><p>RedisTemplate 的封装使我们能够更⽅便的进⾏redis数据操作，⽐直接使⽤Jedis或者</p>
-<p>Lettuce的javaSDK要⽅便很多。RedisTemplate作为java 操作redis数据库的API模板更通</p>
-<p>⽤，可以操作所有的redis数据类型。</p>
+<h2 id="3-使用-redisTemplate-操作数据"><a href="#3-使用-redisTemplate-操作数据" class="headerlink" title="3.使用 redisTemplate 操作数据"></a>3.使用 redisTemplate 操作数据</h2><h3 id="⼀、redis-模板封装类"><a href="#⼀、redis-模板封装类" class="headerlink" title="⼀、redis 模板封装类"></a>⼀、redis 模板封装类</h3><p>RedisTemplate 的封装使我们能够更⽅便的进⾏ redis 数据操作，⽐直接使⽤ Jedis 或者</p>
+<p>Lettuce 的 javaSDK 要⽅便很多。RedisTemplate 作为 java 操作 redis 数据库的 API 模板更通</p>
+<p>⽤，可以操作所有的 redis 数据类型。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 注⼊RedisTemplate，更通⽤</span>
 <span class="token annotation punctuation">@Resource</span>
 <span class="token keyword">private</span> <span class="token class-name">RedisTemplate</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> redisTemplate<span class="token punctuation">;</span>
@@ -670,7 +668,7 @@ redisTemplate<span class="token punctuation">.</span><span class="token function
 redisTemplate<span class="token punctuation">.</span><span class="token function">opsForZSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//操作有序 set</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>ListOperations、ValueOperations、HashOperations、SetOperations、</p>
-<p>ZSetOperations等都是针对专有数据类型进⾏操作，使⽤起来更简洁。</p>
+<p>ZSetOperations 等都是针对专有数据类型进⾏操作，使⽤起来更简洁。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Resource</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"redisTemplate"</span><span class="token punctuation">)</span>
 <span class="token keyword">private</span> <span class="token class-name">ValueOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Object</span><span class="token punctuation">></span></span> valueOperations<span class="token punctuation">;</span>   <span class="token comment">//以redis</span>
 string类型存取<span class="token class-name">Java</span> <span class="token class-name">Object</span><span class="token punctuation">(</span>序列化反序列化<span class="token punctuation">)</span>
@@ -685,8 +683,8 @@ string类型存取<span class="token class-name">Java</span> <span class="token 
 <span class="token keyword">private</span> <span class="token class-name">ZSetOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> zSetOperations<span class="token punctuation">;</span>  <span class="token comment">//以redis的</span>
 zset类型存储java <span class="token class-name">Object</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="⼆、基础数据Java类"><a href="#⼆、基础数据Java类" class="headerlink" title="⼆、基础数据Java类"></a>⼆、基础数据Java类</h3><p>为了⽅便后⾯写代码解释API的使⽤⽅法，写测试⽤例。我们需要先准备数据对象</p>
-<p>Person，注意要实现Serializable接⼝，为什么⼀定要实现这个接⼝？我们下⽂解释。 </p>
+<h3 id="⼆、基础数据-Java-类"><a href="#⼆、基础数据-Java-类" class="headerlink" title="⼆、基础数据 Java 类"></a>⼆、基础数据 Java 类</h3><p>为了⽅便后⾯写代码解释 API 的使⽤⽅法，写测试⽤例。我们需要先准备数据对象</p>
+<p>Person，注意要实现 Serializable 接⼝，为什么⼀定要实现这个接⼝？我们下⽂解释。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">long</span> serialVersionUID <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">8985545025228238754L</span><span class="token punctuation">;</span>
@@ -700,7 +698,7 @@ zset类型存储java <span class="token class-name">Object</span><span aria-hidd
  <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>准备数据对象Address</p>
+<p>准备数据对象 Address</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Address</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">long</span> serialVersionUID <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">8985545025228238771L</span><span class="token punctuation">;</span>
@@ -712,7 +710,7 @@ zset类型存储java <span class="token class-name">Object</span><span aria-hidd
  <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="三、StringRedisTemplate"><a href="#三、StringRedisTemplate" class="headerlink" title="三、StringRedisTemplate"></a>三、StringRedisTemplate</h3><p>除了RedisTemplate模板类，还有另⼀个模板类叫做StringRedisTemplate 。⼆者都提供了⽤来操作redis数据库的API。</p>
+<h3 id="三、StringRedisTemplate"><a href="#三、StringRedisTemplate" class="headerlink" title="三、StringRedisTemplate"></a>三、StringRedisTemplate</h3><p>除了 RedisTemplate 模板类，还有另⼀个模板类叫做 StringRedisTemplate 。⼆者都提供了⽤来操作 redis 数据库的 API。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootTest</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RedisConfigTest</span> <span class="token punctuation">&#123;</span>
     <span class="token annotation punctuation">@Resource</span>
@@ -731,28 +729,28 @@ zset类型存储java <span class="token class-name">Object</span><span aria-hidd
    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>⼆者的区别在于 </p>
+<p>⼆者的区别在于</p>
 <ul>
-<li><p>操作的数据类型不同，以List类型为例：RedisTemplate操作List<Object>,StringRedisTemplate操 作List<String> </p>
+<li><p>操作的数据类型不同，以 List 类型为例：RedisTemplate 操作 <code>List&lt;Object&gt;</code>,StringRedisTemplate 操作 <code>List&lt;String&gt;</code></p>
 </li>
-<li><p>序列化数据的⽅式不同，RedisTemplate使⽤的是JdkSerializationRedisSerializer 存⼊数据会将数据先序列化成字节数组然后在存⼊Redis数据库。 StringRedisTemplate使⽤的是 StringRedisSerializer </p>
+<li><p>序列化数据的⽅式不同，RedisTemplate 使⽤的是 JdkSerializationRedisSerializer 存⼊数据会将数据先序列化成字节数组然后在存⼊ Redis 数据库。 StringRedisTemplate 使⽤的是 StringRedisSerializer</p>
 </li>
 </ul>
-<p>redis持久化的java数据类为什么要实现Serializable接⼝？因为RedisTemplate默认使⽤的</p>
-<p>是JdkSerializationRedisSerializer，也就是使⽤Java JDK默认的序列化⽅式存储数据。如</p>
-<p>果不实现Serializable接⼝，JDK序列化就会报错，这是java基础知识。如果我们可以不使</p>
-<p>⽤JDK默认的序列化⽅式，就不需要实现这个Serializable接⼝。</p>
+<p>redis 持久化的 java 数据类为什么要实现 Serializable 接⼝？因为 RedisTemplate 默认使⽤的</p>
+<p>是 JdkSerializationRedisSerializer，也就是使⽤ Java JDK 默认的序列化⽅式存储数据。如</p>
+<p>果不实现 Serializable 接⼝，JDK 序列化就会报错，这是 java 基础知识。如果我们可以不使</p>
+<p>⽤ JDK 默认的序列化⽅式，就不需要实现这个 Serializable 接⼝。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-05-01_14-17-02.png" alt="图片描述"></p>
-<p>需要注意的是因为RedisTemplate和StringRedisTemplate的默认序列化存储⽅式不⼀样，</p>
-<p>所以⼆者存储的数据并不能通⽤。也就是说RedisTemplate存的数据只能⽤</p>
-<p>RedisTemplate去取，对于StringRedisTemplate也是⼀样。 </p>
-<h3 id="四、解决key-value乱码问题"><a href="#四、解决key-value乱码问题" class="headerlink" title="四、解决key-value乱码问题"></a>四、解决key-value乱码问题</h3><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-05-01_14-43-28.png" alt="图片描述"></p>
-<p>其实这个不是严格意义上的乱码，是JDK的⼆进制序列化之后的存储⽅式。 </p>
+<p>需要注意的是因为 RedisTemplate 和 StringRedisTemplate 的默认序列化存储⽅式不⼀样，</p>
+<p>所以⼆者存储的数据并不能通⽤。也就是说 RedisTemplate 存的数据只能⽤</p>
+<p>RedisTemplate 去取，对于 StringRedisTemplate 也是⼀样。</p>
+<h3 id="四、解决-key-value-乱码问题"><a href="#四、解决-key-value-乱码问题" class="headerlink" title="四、解决 key-value 乱码问题"></a>四、解决 key-value 乱码问题</h3><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-05-01_14-43-28.png" alt="图片描述"></p>
+<p>其实这个不是严格意义上的乱码，是 JDK 的⼆进制序列化之后的存储⽅式。</p>
 <p>如何解决？看下⽂的配置类代码</p>
 <ul>
-<li><p>采⽤StringRedisSerializer对key进⾏序列化（字符串格式） </p>
+<li><p>采⽤ StringRedisSerializer 对 key 进⾏序列化（字符串格式）</p>
 </li>
-<li><p>采⽤Jackson2JsonRedisSerializer对value将进⾏序列化（JSON格式）</p>
+<li><p>采⽤ Jackson2JsonRedisSerializer 对 value 将进⾏序列化（JSON 格式）</p>
 </li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
@@ -781,19 +779,19 @@ redisTemplate<span class="token punctuation">.</span><span class="token function
    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>乱码问题的症结在于对象的序列化问题：RedisTemplate默认使⽤的是</p>
-<p>JdkSerializationRedisSerializer （⼆进制存储），StringRedisTemplate默认使⽤的是</p>
-<p>StringRedisSerializer（redis字符串格式存储）。 </p>
-<p>序列化⽅式对⽐： </p>
+<p>乱码问题的症结在于对象的序列化问题：RedisTemplate 默认使⽤的是</p>
+<p>JdkSerializationRedisSerializer （⼆进制存储），StringRedisTemplate 默认使⽤的是</p>
+<p>StringRedisSerializer（redis 字符串格式存储）。</p>
+<p>序列化⽅式对⽐：</p>
 <ul>
-<li><p>JdkSerializationRedisSerializer: 使⽤JDK提供的序列化功能。 优点是反序列化时不需要提供类型信息(class)，但缺点是需要实现Serializable接⼝，还有序列化后的结果⾮常庞⼤，是JSON格式的5倍左右，这样就会消耗redis服务器的⼤量内存。⽽且是以⼆进制形式保存，⾃然⼈⽆法理解。 </p>
+<li><p>JdkSerializationRedisSerializer: 使⽤ JDK 提供的序列化功能。 优点是反序列化时不需要提供类型信息(class)，但缺点是需要实现 Serializable 接⼝，还有序列化后的结果⾮常庞⼤，是 JSON 格式的 5 倍左右，这样就会消耗 redis 服务器的⼤量内存。⽽且是以⼆进制形式保存，⾃然⼈⽆法理解。</p>
 </li>
-<li><p>Jackson2JsonRedisSerializer： 使⽤Jackson库将对象序列化为JSON字符串。优点是速度快，序列化后的字符串短⼩精悍，不需要实现Serializable接⼝。似乎没啥缺点。 </p>
+<li><p>Jackson2JsonRedisSerializer： 使⽤ Jackson 库将对象序列化为 JSON 字符串。优点是速度快，序列化后的字符串短⼩精悍，不需要实现 Serializable 接⼝。似乎没啥缺点。</p>
 </li>
-<li><p>StringRedisSerializer序列化之后的结果，⾃然⼈也是可以理解，但是value只能是String类型，不能是Object。 </p>
+<li><p>StringRedisSerializer 序列化之后的结果，⾃然⼈也是可以理解，但是 value 只能是 String 类型，不能是 Object。</p>
 </li>
 </ul>
-<h3 id="五、使用redisTemplate存取redis各种数据类型"><a href="#五、使用redisTemplate存取redis各种数据类型" class="headerlink" title="五、使用redisTemplate存取redis各种数据类型"></a>五、使用redisTemplate存取redis各种数据类型</h3><p>下⾯的各种数据类型操作的api和redis命令⾏api的含义⼏乎是⼀致的。</p>
+<h3 id="五、使用-redisTemplate-存取-redis-各种数据类型"><a href="#五、使用-redisTemplate-存取-redis-各种数据类型" class="headerlink" title="五、使用 redisTemplate 存取 redis 各种数据类型"></a>五、使用 redisTemplate 存取 redis 各种数据类型</h3><p>下⾯的各种数据类型操作的 api 和 redis 命令⾏ api 的含义⼏乎是⼀致的。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootTest</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RedisConfigTest2</span> <span class="token punctuation">&#123;</span>
     <span class="token annotation punctuation">@Resource</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"redisTemplate"</span><span class="token punctuation">)</span>
@@ -856,15 +854,13 @@ hashOperations<span class="token punctuation">.</span><span class="token functio
    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-<h2 id="4-使用Redis-Repository操作数据"><a href="#4-使用Redis-Repository操作数据" class="headerlink" title="4. 使用Redis Repository操作数据"></a>4. 使用Redis Repository操作数据</h2><p>通过集成spring-boot-starter-data-redis之后⼀共有三种redis hash数据操作⽅式可以供我们选择 </p>
+<h2 id="4-使用-Redis-Repository-操作数据"><a href="#4-使用-Redis-Repository-操作数据" class="headerlink" title="4. 使用 Redis Repository 操作数据"></a>4. 使用 Redis Repository 操作数据</h2><p>通过集成 spring-boot-starter-data-redis 之后⼀共有三种 redis hash 数据操作⽅式可以供我们选择</p>
 <ul>
-<li><p>⼀个属性、⼀个属性的存取 </p>
+<li><p>⼀个属性、⼀个属性的存取</p>
 </li>
-<li><p>使⽤Jackson2HashMapper存取对象 </p>
+<li><p>使⽤ Jackson2HashMapper 存取对象</p>
 </li>
-<li><p>使⽤RedisRepository的对象操作（本节核⼼内容）</p>
+<li><p>使⽤ RedisRepository 的对象操作（本节核⼼内容）</p>
 </li>
 </ul>
 <h3 id="一、一个属性、一个属性的存取"><a href="#一、一个属性、一个属性的存取" class="headerlink" title="一、一个属性、一个属性的存取"></a>一、一个属性、一个属性的存取</h3><p>这种⽅式在上⼀节中的代码，已经得以体现。</p>
@@ -881,12 +877,12 @@ hashOperations<span class="token punctuation">.</span><span class="token functio
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li><p>⼀个hash代表⼀个对象的数据</p>
+<li><p>⼀个 hash 代表⼀个对象的数据</p>
 </li>
-<li><p>⼀个对象有多个属性key、value键值对数据，每⼀组键值对都可以单独存取</p>
+<li><p>⼀个对象有多个属性 key、value 键值对数据，每⼀组键值对都可以单独存取</p>
 </li>
 </ul>
-<h3 id="⼆、使⽤Jackson2HashMapper存取对象"><a href="#⼆、使⽤Jackson2HashMapper存取对象" class="headerlink" title="⼆、使⽤Jackson2HashMapper存取对象"></a>⼆、使⽤Jackson2HashMapper存取对象</h3><p>上⼀⼩节我们操作hash对象的时候是⼀个属性⼀个属性设置的，那我们有没有办法将对象⼀次性hash⼊库呢？可以使⽤jacksonHashOperations和Jackson2HashMapper </p>
+<h3 id="⼆、使⽤-Jackson2HashMapper-存取对象"><a href="#⼆、使⽤-Jackson2HashMapper-存取对象" class="headerlink" title="⼆、使⽤ Jackson2HashMapper 存取对象"></a>⼆、使⽤ Jackson2HashMapper 存取对象</h3><p>上⼀⼩节我们操作 hash 对象的时候是⼀个属性⼀个属性设置的，那我们有没有办法将对象⼀次性 hash ⼊库呢？可以使⽤ jacksonHashOperations 和 Jackson2HashMapper</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootTest</span>
 <span class="token annotation punctuation">@ExtendWith</span><span class="token punctuation">(</span><span class="token class-name">SpringExtension</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RedisConfigTest3</span> <span class="token punctuation">&#123;</span>
@@ -917,24 +913,24 @@ jacksonHashOperations<span class="token punctuation">.</span><span class="token 
    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>使⽤这种⽅式可以⼀次性存取 Java 对象为redis数据库的hash数据类型。需要注意的是：执⾏上⾯的测试⽤例，Person和Address⼀定要有public⽆参构造⽅法，在将map转换成Person或Address对象的时候⽤到，如果没有的话会报错。</p>
-<h3 id="三、使⽤RedisRepository的对象操作"><a href="#三、使⽤RedisRepository的对象操作" class="headerlink" title="三、使⽤RedisRepository的对象操作"></a>三、使⽤RedisRepository的对象操作</h3><p>使⽤RedisRepository进⾏redis数据操作，它不只是能简单地存取数据，还可以做很多CURD操作。使⽤起来和⽤JPA进⾏关系型数据库的单表操作，⼏乎是⼀样的。 </p>
-<p>⾸先，我们需要在需要操作的java实体类上⾯加上@RedisHash注解，并使⽤@Id为该实体类指定id。 </p>
+<p>使⽤这种⽅式可以⼀次性存取 Java 对象为 redis 数据库的 hash 数据类型。需要注意的是：执⾏上⾯的测试⽤例，Person 和 Address ⼀定要有 public ⽆参构造⽅法，在将 map 转换成 Person 或 Address 对象的时候⽤到，如果没有的话会报错。</p>
+<h3 id="三、使⽤-RedisRepository-的对象操作"><a href="#三、使⽤-RedisRepository-的对象操作" class="headerlink" title="三、使⽤ RedisRepository 的对象操作"></a>三、使⽤ RedisRepository 的对象操作</h3><p>使⽤ RedisRepository 进⾏ redis 数据操作，它不只是能简单地存取数据，还可以做很多 CURD 操作。使⽤起来和⽤ JPA 进⾏关系型数据库的单表操作，⼏乎是⼀样的。</p>
+<p>⾸先，我们需要在需要操作的 java 实体类上⾯加上@RedisHash 注解，并使⽤@Id 为该实体类指定 id。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@RedisHash</span><span class="token punctuation">(</span><span class="token string">"people"</span><span class="token punctuation">)</span>   <span class="token comment">//注意这⾥的person，下⽂会说明</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">&#123;</span>
   <span class="token annotation punctuation">@Id</span>
   <span class="token class-name">String</span> id<span class="token punctuation">;</span>
   
-  <span class="token comment">//其他和上⼀节代码⼀样 </span>
+  <span class="token comment">//其他和上⼀节代码⼀样</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>然后写⼀个PersonRepository ，继承CrudRepository，是不是也和JPA差不多？</p>
+<p>然后写⼀个 PersonRepository ，继承 CrudRepository，是不是也和 JPA 差不多？</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//泛型第⼆个参数是id的数据类型</span>
 <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">PersonRepository</span> <span class="token keyword">extends</span> <span class="token class-name">CrudRepository</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Person</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
-<span class="token comment">// 继承CrudRepository，获取基本的CRUD操作 </span>
+<span class="token comment">// 继承CrudRepository，获取基本的CRUD操作</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>CrudRepository默认为我们提供了下⾯的这么多⽅法，我们直接调⽤就可以了。</p>
+<p>CrudRepository 默认为我们提供了下⾯的这么多⽅法，我们直接调⽤就可以了。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-05-01_14-53-02.png" alt="图片描述"></p>
 <p>然后进⾏下⾯的测试</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootTest</span>
@@ -958,88 +954,88 @@ jacksonHashOperations<span class="token punctuation">.</span><span class="token 
    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>测试结果：需要注意的是RedisRepository在存取对象数据的时候，实际上使⽤了redis的2种数据类型 </p>
+<p>测试结果：需要注意的是 RedisRepository 在存取对象数据的时候，实际上使⽤了 redis 的 2 种数据类型</p>
 <ul>
-<li><p>第⼀种是Set类型，⽤于保存每⼀个存⼊redis的对象（Person）的id。我们可以利⽤这个Set实现person对象集合类的操作，⽐如说：count()统计redis数据库中⼀共保存了多少个person。 </p>
+<li><p>第⼀种是 Set 类型，⽤于保存每⼀个存⼊ redis 的对象（Person）的 id。我们可以利⽤这个 Set 实现 person 对象集合类的操作，⽐如说：count()统计 redis 数据库中⼀共保存了多少个 person。</p>
 </li>
-<li><p>第⼆种是Hash类型，是⽤来保存Java对象的，id是RedisRepository帮我们⽣成的。</p>
+<li><p>第⼆种是 Hash 类型，是⽤来保存 Java 对象的，id 是 RedisRepository 帮我们⽣成的。</p>
 </li>
 </ul>
-<h2 id="5-spring-cache缓存基本用法"><a href="#5-spring-cache缓存基本用法" class="headerlink" title="5. spring cache缓存基本用法"></a>5. spring cache缓存基本用法</h2><h3 id="一、为什么要做缓存"><a href="#一、为什么要做缓存" class="headerlink" title="一、为什么要做缓存"></a>一、为什么要做缓存</h3><ul>
-<li><p>提升性能绝⼤多数情况下，关系型数据库select查询是出现性能问题最⼤的地⽅。⼀⽅⾯，select 会有很多像 join、group、order、like 等这样丰富的语义，⽽这些语义是⾮常耗性能的；另⼀⽅⾯，⼤多数应⽤都是读多写少，所以加剧了慢查询的问题。分布式系统中远程调⽤也会耗很多性能，因为有⽹络开销，会导致整体的响应时间下降。为了挽救这样的性能开销，在业务允许的情况（不需要太实时的数据）下，使⽤缓存是⾮常必要的事情。 </p>
+<h2 id="5-spring-cache-缓存基本用法"><a href="#5-spring-cache-缓存基本用法" class="headerlink" title="5. spring cache 缓存基本用法"></a>5. spring cache 缓存基本用法</h2><h3 id="一、为什么要做缓存"><a href="#一、为什么要做缓存" class="headerlink" title="一、为什么要做缓存"></a>一、为什么要做缓存</h3><ul>
+<li><p>提升性能绝⼤多数情况下，关系型数据库 select 查询是出现性能问题最⼤的地⽅。⼀⽅⾯，select 会有很多像 join、group、order、like 等这样丰富的语义，⽽这些语义是⾮常耗性能的；另⼀⽅⾯，⼤多数应⽤都是读多写少，所以加剧了慢查询的问题。分布式系统中远程调⽤也会耗很多性能，因为有⽹络开销，会导致整体的响应时间下降。为了挽救这样的性能开销，在业务允许的情况（不需要太实时的数据）下，使⽤缓存是⾮常必要的事情。</p>
 </li>
 <li><p>缓解数据库压⼒当⽤户请求增多时，数据库的压⼒将⼤⼤增加，通过缓存能够⼤⼤降低数据库的压⼒。</p>
 </li>
 </ul>
-<h3 id="⼆、常⽤缓存操作流程"><a href="#⼆、常⽤缓存操作流程" class="headerlink" title="⼆、常⽤缓存操作流程"></a>⼆、常⽤缓存操作流程</h3><p>使⽤缓存最关键的⼀点就是保证：缓存与数据库的数据⼀致性，该怎么去做？下图是⼀种最常⽤的缓存操作模式，来保证数据⼀致性。 </p>
+<h3 id="⼆、常⽤缓存操作流程"><a href="#⼆、常⽤缓存操作流程" class="headerlink" title="⼆、常⽤缓存操作流程"></a>⼆、常⽤缓存操作流程</h3><p>使⽤缓存最关键的⼀点就是保证：缓存与数据库的数据⼀致性，该怎么去做？下图是⼀种最常⽤的缓存操作模式，来保证数据⼀致性。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-05-01_14-55-32.png" alt="图片描述"></p>
 <ul>
-<li><p><strong>更新写数据</strong>：先把数据存到数据库中，然后再让缓存失效或更新。缓存操作失败，数据库事务回滚。 </p>
+<li><p><strong>更新写数据</strong>：先把数据存到数据库中，然后再让缓存失效或更新。缓存操作失败，数据库事务回滚。</p>
 </li>
-<li><p><strong>删除写数据</strong>: 先从数据库⾥⾯删掉数据，再从缓存⾥⾯删掉。缓存操作失败，数据库事务回滚。 </p>
+<li><p><strong>删除写数据</strong>: 先从数据库⾥⾯删掉数据，再从缓存⾥⾯删掉。缓存操作失败，数据库事务回滚。</p>
 </li>
 <li><p><strong>查询读数据</strong></p>
 <ul>
-<li><strong>缓存命中</strong>：先去缓存 cache 中取数据，取到后返回结果。 </li>
+<li><strong>缓存命中</strong>：先去缓存 cache 中取数据，取到后返回结果。</li>
 <li><strong>缓存失效</strong>：应⽤程序先从 cache 取数据，没有得到，则从数据库中取数据，成功后，在将数据放到缓存中。</li>
 </ul>
 </li>
 </ul>
-<p>如果上⾯的这些更新、删除、查询操作流程全都由程序员通过编码来完成的话 </p>
+<p>如果上⾯的这些更新、删除、查询操作流程全都由程序员通过编码来完成的话</p>
 <ul>
 <li><p>因为加⼊缓存层，程序员的编码量⼤⼤增多</p>
 </li>
 <li><p>缓存层代码和业务代码耦合，造成难以维护的问题。</p>
 </li>
 </ul>
-<h3 id="三、整合Spring-Cache"><a href="#三、整合Spring-Cache" class="headerlink" title="三、整合Spring Cache"></a>三、整合Spring Cache</h3><p>我们可以使⽤Spring cache解决上⾯遇到的两个问题，Spring cache通过注解的⽅式来操</p>
+<h3 id="三、整合-Spring-Cache"><a href="#三、整合-Spring-Cache" class="headerlink" title="三、整合 Spring Cache"></a>三、整合 Spring Cache</h3><p>我们可以使⽤ Spring cache 解决上⾯遇到的两个问题，Spring cache 通过注解的⽅式来操</p>
 <p>作缓存，⼀定程度上减少了程序员缓存操作代码编写量。注解添加和移除都很⽅便，不与</p>
-<p>业务代码耦合，容易维护。 </p>
+<p>业务代码耦合，容易维护。</p>
 <p>第⼀步：pom.xml 添加 Spring Boot 的 jar 依赖：</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-cache<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>第⼆步：添加⼊⼝启动类 @EnableCaching 注解开启 Caching </p>
-<p>在Spring Boot中通过@EnableCaching注解⾃动化配置合适的缓存管理器</p>
-<p>（CacheManager），SpringBoot根据下⾯的顺序去侦测缓存提供者，也就是说Spring </p>
-<p>Cache⽀持下⾯的这些缓存框架：</p>
+<p>第⼆步：添加⼊⼝启动类 @EnableCaching 注解开启 Caching</p>
+<p>在 Spring Boot 中通过@EnableCaching 注解⾃动化配置合适的缓存管理器</p>
+<p>（CacheManager），SpringBoot 根据下⾯的顺序去侦测缓存提供者，也就是说 Spring</p>
+<p>Cache ⽀持下⾯的这些缓存框架：</p>
 <ul>
-<li><p>Generic </p>
+<li><p>Generic</p>
 </li>
-<li><p>JCache (JSR-107) (EhCache 3, Hazelcast, Infinispan, and others) </p>
+<li><p>JCache (JSR-107) (EhCache 3, Hazelcast, Infinispan, and others)</p>
 </li>
-<li><p>EhCache 2.x </p>
+<li><p>EhCache 2.x</p>
 </li>
-<li><p>Hazelcast </p>
+<li><p>Hazelcast</p>
 </li>
-<li><p>Infinispan </p>
+<li><p>Infinispan</p>
 </li>
 <li><p>Couchbase</p>
 </li>
-<li><p>Redis </p>
+<li><p>Redis</p>
 </li>
-<li><p>Caffeine </p>
+<li><p>Caffeine</p>
 </li>
-<li><p>Simple </p>
+<li><p>Simple</p>
 </li>
 </ul>
-<h3 id="四、在ArticleController类上实现一个简单的例子"><a href="#四、在ArticleController类上实现一个简单的例子" class="headerlink" title="四、在ArticleController类上实现一个简单的例子"></a>四、在ArticleController类上实现一个简单的例子</h3><p>第⼀次访问⾛数据库，第⼆次访问就⾛缓存了, 可以⾃⼰打⽇志试⼀下。 </p>
+<h3 id="四、在-ArticleController-类上实现一个简单的例子"><a href="#四、在-ArticleController-类上实现一个简单的例子" class="headerlink" title="四、在 ArticleController 类上实现一个简单的例子"></a>四、在 ArticleController 类上实现一个简单的例子</h3><p>第⼀次访问⾛数据库，第⼆次访问就⾛缓存了, 可以⾃⼰打⽇志试⼀下。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Cacheable</span><span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">"article"</span><span class="token punctuation">)</span>
 <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span> <span class="token string">"/article/&#123;id&#125;"</span><span class="token punctuation">)</span>
 <span class="token keyword">public</span> <span class="token annotation punctuation">@ResponseBody</span>  <span class="token class-name">AjaxResponse</span> <span class="token function">getArticle</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span> <span class="token class-name">Long</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>使⽤redis缓存，被缓存的对象（函数返回值）有⼏个⾮常需要注意的点： </p>
+<p>使⽤ redis 缓存，被缓存的对象（函数返回值）有⼏个⾮常需要注意的点：</p>
 <ol>
-<li><p>必须实现⽆参的构造函数 </p>
+<li><p>必须实现⽆参的构造函数</p>
 </li>
-<li><p>需要实现Serializable 接⼝和定义serialVersionUID （因为缓存需要使⽤JDK的⽅式序列化和反序列化）。</p>
+<li><p>需要实现 Serializable 接⼝和定义 serialVersionUID （因为缓存需要使⽤ JDK 的⽅式序列化和反序列化）。</p>
 </li>
 </ol>
-<h3 id="五、更改Redis缓存的序列化方式"><a href="#五、更改Redis缓存的序列化方式" class="headerlink" title="五、更改Redis缓存的序列化方式"></a>五、更改Redis缓存的序列化方式</h3><p>让缓存使⽤JDK默认的序列化和反序列化⽅式⾮常不友好，我们可以修改为使⽤JSON序列</p>
+<h3 id="五、更改-Redis-缓存的序列化方式"><a href="#五、更改-Redis-缓存的序列化方式" class="headerlink" title="五、更改 Redis 缓存的序列化方式"></a>五、更改 Redis 缓存的序列化方式</h3><p>让缓存使⽤ JDK 默认的序列化和反序列化⽅式⾮常不友好，我们可以修改为使⽤ JSON 序列</p>
 <p>化与反序列化的⽅式，可读性更强，体积更⼩，速度更快。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RedisConfig</span> <span class="token punctuation">&#123;</span>
@@ -1083,7 +1079,6 @@ redisTemplate<span class="token punctuation">)</span> <span class="token punctua
 redisCacheConfiguration<span class="token punctuation">)</span><span class="token punctuation">;</span>
  <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 
                 
             </div>
@@ -1380,13 +1375,13 @@ redisCacheConfiguration<span class="token punctuation">)</span><span class="toke
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/04/28/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF/">
+                <a href="/2022/05/01/%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="服务器推送技术">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="异步任务与定时任务">
                         
-                        <span class="card-title">服务器推送技术</span>
+                        <span class="card-title">异步任务与定时任务</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1397,7 +1392,7 @@ redisCacheConfiguration<span class="token punctuation">)</span><span class="toke
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-01
                             </span>
                         <span class="publish-author">
                             
@@ -1622,7 +1617,7 @@ redisCacheConfiguration<span class="token punctuation">)</span><span class="toke
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">32.4k</span>&nbsp;字
+                class="white-color">39.5k</span>&nbsp;字
             
             
             
