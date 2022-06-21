@@ -500,13 +500,13 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="邮件发送的整合与使用"><a href="#邮件发送的整合与使用" class="headerlink" title="邮件发送的整合与使用"></a>邮件发送的整合与使用</h1><h2 id="1-基础协议及邮件配置整合"><a href="#1-基础协议及邮件配置整合" class="headerlink" title="1. 基础协议及邮件配置整合"></a>1. 基础协议及邮件配置整合</h2><h3 id="一、名词概念解释"><a href="#一、名词概念解释" class="headerlink" title="一、名词概念解释"></a>一、名词概念解释</h3><ul>
-<li><p>什么是POP3、SMTP和IMAP？ </p>
-<p>简单的说：POP3和IMAP是⽤来从服务器上下载邮件的。SMTP适⽤于发送或中转信件时找到下⼀个⽬的地。所以我们发送邮件应该使⽤SMTP协议。 </p>
+<li><p>什么是 POP3、SMTP 和 IMAP？</p>
+<p>简单的说：POP3 和 IMAP 是⽤来从服务器上下载邮件的。SMTP 适⽤于发送或中转信件时找到下⼀个⽬的地。所以我们发送邮件应该使⽤ SMTP 协议。</p>
 </li>
 </ul>
-<p><a target="_blank" rel="noopener" href="http://help.mail.163.com/faqDetail.do?code=d7a5dc8471cd0c0e8b4b8f4f8e49998b374173cfe9171305fa1ce630d7f67ac2f56104105f35a05d">IMAP和POP3有什么区别？</a></p>
+<p><a target="_blank" rel="noopener" href="http://help.mail.163.com/faqDetail.do?code=d7a5dc8471cd0c0e8b4b8f4f8e49998b374173cfe9171305fa1ce630d7f67ac2f56104105f35a05d">IMAP 和 POP3 有什么区别？</a></p>
 <ul>
-<li><p>什么是免费邮箱客户端授权码功能？ </p>
+<li><p>什么是免费邮箱客户端授权码功能？</p>
 <p>邮箱客户端授权码是为了避免您的邮箱密码被盗后，盗号者通过客户端登录邮箱⽽独特设计的安防功能。可以理解为客户端授权码为邮件发送的⼆次密码。</p>
 </li>
 </ul>
@@ -515,56 +515,56 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-mail<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="2-2-邮箱配置"><a href="#2-2-邮箱配置" class="headerlink" title="2.2 邮箱配置"></a>2.2 邮箱配置</h4><p><strong>QQ系邮箱配置</strong></p>
+<h4 id="2-2-邮箱配置"><a href="#2-2-邮箱配置" class="headerlink" title="2.2 邮箱配置"></a>2.2 邮箱配置</h4><p><strong>QQ 系邮箱配置</strong></p>
 <p>官方配置说明：<a target="_blank" rel="noopener" href="https://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=369">参考官方帮助中心</a></p>
 <p>获取客户端授权码：<a target="_blank" rel="noopener" href="https://service.mail.qq.com/cgi-bin/help?subtype=1&&no=1001256&&id=28">参考官方帮助中心</a></p>
 <p>详细的配置如下：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
- <span class="token key atrule">mail</span><span class="token punctuation">:</span>
-   host<span class="token punctuation">:</span> smtp.qq.com <span class="token comment">#发送邮件服务器</span>
-   username<span class="token punctuation">:</span> xx@qq.com <span class="token comment">#QQ邮箱</span>
-   password<span class="token punctuation">:</span> xxxxxxxxxxx <span class="token comment">#客户端授权码</span>
-   protocol<span class="token punctuation">:</span> smtp <span class="token comment">#发送邮件协议</span>
-   properties.mail.smtp.auth<span class="token punctuation">:</span> <span class="token boolean important">true</span>
-   properties.mail.smtp.port<span class="token punctuation">:</span> <span class="token number">465</span> <span class="token comment">#端⼝号465或587</span>
-   properties.mail.display.sendmail<span class="token punctuation">:</span> Javen <span class="token comment">#可以任意</span>
-   properties.mail.display.sendname<span class="token punctuation">:</span> Spring Boot Guide Email <span class="token comment">#可以任意</span>
-   properties.mail.smtp.starttls.enable<span class="token punctuation">:</span> <span class="token boolean important">true</span>
-   properties.mail.smtp.starttls.required<span class="token punctuation">:</span> <span class="token boolean important">true</span>
-   properties.mail.smtp.ssl.enable<span class="token punctuation">:</span> <span class="token boolean important">true</span>
-   default<span class="token punctuation">-</span><span class="token key atrule">encoding</span><span class="token punctuation">:</span> utf<span class="token punctuation">-</span><span class="token number">8</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token key atrule">mail</span><span class="token punctuation">:</span>
+    host<span class="token punctuation">:</span> smtp.qq.com <span class="token comment">#发送邮件服务器</span>
+    username<span class="token punctuation">:</span> xx@qq.com <span class="token comment">#QQ邮箱</span>
+    password<span class="token punctuation">:</span> xxxxxxxxxxx <span class="token comment">#客户端授权码</span>
+    protocol<span class="token punctuation">:</span> smtp <span class="token comment">#发送邮件协议</span>
+    properties.mail.smtp.auth<span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    properties.mail.smtp.port<span class="token punctuation">:</span> <span class="token number">465</span> <span class="token comment">#端⼝号465或587</span>
+    properties.mail.display.sendmail<span class="token punctuation">:</span> Javen <span class="token comment">#可以任意</span>
+    properties.mail.display.sendname<span class="token punctuation">:</span> Spring Boot Guide Email <span class="token comment">#可以任意</span>
+    properties.mail.smtp.starttls.enable<span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    properties.mail.smtp.starttls.required<span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    properties.mail.smtp.ssl.enable<span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    default<span class="token punctuation">-</span><span class="token key atrule">encoding</span><span class="token punctuation">:</span> utf<span class="token punctuation">-</span><span class="token number">8</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
-<p>说明：开启SSL时使⽤<strong>587</strong>端⼝时⽆法连接QQ邮件服务器</p>
+<p>说明：开启 SSL 时使⽤<strong>587</strong>端⼝时⽆法连接 QQ 邮件服务器</p>
 </blockquote>
-<p><strong>⽹易系(126/163/yeah)邮箱配置</strong> </p>
+<p><strong>⽹易系(126/163/yeah)邮箱配置</strong></p>
 <p>网易邮箱客户端授码：<a target="_blank" rel="noopener" href="http://help.mail.163.com/faq.do?m=list&categoryID=197">参考官方帮助中心</a></p>
 <p>客户端端口配置说明：<a target="_blank" rel="noopener" href="http://mail.163.com/html/110127_imap/index.htm#tab=android">参考官方帮助中心</a></p>
 <p>详细的配置如下：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
- <span class="token key atrule">mail</span><span class="token punctuation">:</span>
-   host<span class="token punctuation">:</span> smtp.126.com
-   username<span class="token punctuation">:</span> xx@126.com
-   password<span class="token punctuation">:</span> xxxxxxxx
-   protocol<span class="token punctuation">:</span> smtp
-   properties.mail.smtp.auth<span class="token punctuation">:</span> <span class="token boolean important">true</span>
-   properties.mail.smtp.port<span class="token punctuation">:</span> <span class="token number">994</span> <span class="token comment">#465或者994</span>
-   properties.mail.display.sendmail<span class="token punctuation">:</span> Javen
-   properties.mail.display.sendname<span class="token punctuation">:</span> Spring Boot Guide Email
-   properties.mail.smtp.starttls.enable<span class="token punctuation">:</span> <span class="token boolean important">true</span>
-   properties.mail.smtp.starttls.required<span class="token punctuation">:</span> <span class="token boolean important">true</span>
-   properties.mail.smtp.ssl.enable<span class="token punctuation">:</span> <span class="token boolean important">true</span>
-   default<span class="token punctuation">-</span><span class="token key atrule">encoding</span><span class="token punctuation">:</span> utf<span class="token punctuation">-</span><span class="token number">8</span>
-   from<span class="token punctuation">:</span> xx@126.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token key atrule">mail</span><span class="token punctuation">:</span>
+    host<span class="token punctuation">:</span> smtp.126.com
+    username<span class="token punctuation">:</span> xx@126.com
+    password<span class="token punctuation">:</span> xxxxxxxx
+    protocol<span class="token punctuation">:</span> smtp
+    properties.mail.smtp.auth<span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    properties.mail.smtp.port<span class="token punctuation">:</span> <span class="token number">994</span> <span class="token comment">#465或者994</span>
+    properties.mail.display.sendmail<span class="token punctuation">:</span> Javen
+    properties.mail.display.sendname<span class="token punctuation">:</span> Spring Boot Guide Email
+    properties.mail.smtp.starttls.enable<span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    properties.mail.smtp.starttls.required<span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    properties.mail.smtp.ssl.enable<span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    default<span class="token punctuation">-</span><span class="token key atrule">encoding</span><span class="token punctuation">:</span> utf<span class="token punctuation">-</span><span class="token number">8</span>
+    from<span class="token punctuation">:</span> xx@126.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>特别说明:</p>
 <ul>
-<li>126邮箱SMTP服务器地址:smtp.126.com,端⼝号:465或者994</li>
-<li>163邮箱SMTP服务器地址:smtp.163.com,端⼝号:465或者994</li>
-<li>yeah邮箱SMTP服务器地址:smtp.yeah.net,端⼝号:465或者994</li>
+<li>126 邮箱 SMTP 服务器地址:smtp.126.com,端⼝号:465 或者 994</li>
+<li>163 邮箱 SMTP 服务器地址:smtp.163.com,端⼝号:465 或者 994</li>
+<li>yeah 邮箱 SMTP 服务器地址:smtp.yeah.net,端⼝号:465 或者 994</li>
 </ul>
 <blockquote>
-<p>有的邮件服务器接受使⽤客户端授权码发邮件，有的邮件服务器接受使⽤邮箱密码来发送邮件，所以 password的配置不能⼀概⽽论。客户端授权码不⾏，就试试⽤邮箱密码；邮箱密码不⾏，就试试客户 端授权码。</p>
+<p>有的邮件服务器接受使⽤客户端授权码发邮件，有的邮件服务器接受使⽤邮箱密码来发送邮件，所以 password 的配置不能⼀概⽽论。客户端授权码不⾏，就试试⽤邮箱密码；邮箱密码不⾏，就试试客户 端授权码。</p>
 </blockquote>
 <h3 id="三、发送简单邮件"><a href="#三、发送简单邮件" class="headerlink" title="三、发送简单邮件"></a>三、发送简单邮件</h3><p>这⾥的简单邮件就是指邮件的内容只是普通⽂字的这种邮件。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Service</span>
@@ -586,10 +586,9 @@
    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>sendSimpleMail的三个参数依次是：邮件的发送⽬标，邮件的标题，邮件的内容.</p>
-<p>测试代码: </p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootTest</span><span class="token punctuation">(</span>webEnvironment <span class="token operator">=</span>
-<span class="token class-name">SpringBootTest<span class="token punctuation">.</span>WebEnvironment</span><span class="token punctuation">.</span>DEFINED_PORT<span class="token punctuation">)</span>
+<p>sendSimpleMail 的三个参数依次是：邮件的发送⽬标，邮件的标题，邮件的内容.</p>
+<p>测试代码:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootTest</span><span class="token punctuation">(</span>webEnvironment <span class="token operator">=</span> <span class="token class-name">SpringBootTest<span class="token punctuation">.</span>WebEnvironment</span><span class="token punctuation">.</span>DEFINED_PORT<span class="token punctuation">)</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MailServiceTest</span> <span class="token punctuation">&#123;</span>
     <span class="token annotation punctuation">@Resource</span>
     <span class="token class-name">MailService</span> mailService<span class="token punctuation">;</span>
@@ -599,25 +598,24 @@
                 <span class="token string">"普通⽂本邮件"</span><span class="token punctuation">,</span>
                 <span class="token string">"普通⽂本邮件内容测试"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>测试结果:</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-27_14-42-07.png" alt="测试结果"></p>
-<p>附录：QQ邮箱发邮件设置</p>
-<p>1.开启SMTP服务</p>
+<p>附录：QQ 邮箱发邮件设置</p>
+<p>1.开启 SMTP 服务</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-27_14-38-49.png" alt="图片描述"></p>
-<p>2.在配置开启SMTP之后，会返回给我们⼀个客户端授权码。这个授权码就是上⽂中⽤来发邮件的password。</p>
+<p>2.在配置开启 SMTP 之后，会返回给我们⼀个客户端授权码。这个授权码就是上⽂中⽤来发邮件的 password。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-27_14-39-36.png" alt="图片描述"></p>
-<h2 id="2-发送html和基于模板的邮件"><a href="#2-发送html和基于模板的邮件" class="headerlink" title="2. 发送html和基于模板的邮件"></a>2. 发送html和基于模板的邮件</h2><h3 id="⼀、发送html邮件服务"><a href="#⼀、发送html邮件服务" class="headerlink" title="⼀、发送html邮件服务"></a>⼀、发送html邮件服务</h3><p>sendHtmlMail函数的第⼀个参数是发送⽬标邮箱，第⼆个参数是邮件标题，第三个参数是邮件的正⽂(html)。</p>
+<h2 id="2-发送-html-和基于模板的邮件"><a href="#2-发送-html-和基于模板的邮件" class="headerlink" title="2. 发送 html 和基于模板的邮件"></a>2. 发送 html 和基于模板的邮件</h2><h3 id="⼀、发送-html-邮件服务"><a href="#⼀、发送-html-邮件服务" class="headerlink" title="⼀、发送 html 邮件服务"></a>⼀、发送 html 邮件服务</h3><p>sendHtmlMail 函数的第⼀个参数是发送⽬标邮箱，第⼆个参数是邮件标题，第三个参数是邮件的正⽂(html)。</p>
 <ul>
-<li>上⼀节中发送普通的⽂本⽂件邮件，使⽤的是SimpleMailMessage</li>
-<li>下⽂代码中发送的正⽂是HTML的邮件，使⽤的是MimeMessage</li>
+<li>上⼀节中发送普通的⽂本⽂件邮件，使⽤的是 SimpleMailMessage</li>
+<li>下⽂代码中发送的正⽂是 HTML 的邮件，使⽤的是 MimeMessage</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
 * 发送html邮件
 */</span>
-<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sendHtmlMail</span><span class="token punctuation">(</span><span class="token class-name">String</span> <span class="token keyword">to</span><span class="token punctuation">,</span> <span class="token class-name">String</span> subject<span class="token punctuation">,</span> <span class="token class-name">String</span> content<span class="token punctuation">)</span>
-<span class="token keyword">throws</span> <span class="token class-name">MessagingException</span> <span class="token punctuation">&#123;</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sendHtmlMail</span><span class="token punctuation">(</span><span class="token class-name">String</span> <span class="token keyword">to</span><span class="token punctuation">,</span> <span class="token class-name">String</span> subject<span class="token punctuation">,</span> <span class="token class-name">String</span> content<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">MessagingException</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">//注意这⾥使⽤的是MimeMessage</span>
     <span class="token class-name">MimeMessage</span> message <span class="token operator">=</span> mailSender<span class="token punctuation">.</span><span class="token function">createMimeMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token class-name">MimeMessageHelper</span> helper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MimeMessageHelper</span><span class="token punctuation">(</span>message<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -627,9 +625,9 @@
     <span class="token comment">//第⼆个参数是否是html，true表示发送的邮件正⽂是html⽂本</span>
     helper<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>content<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     mailSender<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>测试⽤例，我们将HTML以字符串拼接的⽅式写在Java代码⾥⾯，这样对于开发者⽽⾔不太友好。可以 结合Java模板引擎，如Freemarker来来发送HTML邮件。 </p>
+<p>测试⽤例，我们将 HTML 以字符串拼接的⽅式写在 Java 代码⾥⾯，这样对于开发者⽽⾔不太友好。可以 结合 Java 模板引擎，如 Freemarker 来来发送 HTML 邮件。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
 <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sendHtmlMail</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">MessagingException</span> <span class="token punctuation">&#123;</span>
   mailService<span class="token punctuation">.</span><span class="token function">sendHtmlMail</span><span class="token punctuation">(</span>
@@ -654,10 +652,10 @@
 
 <p>测试结果:</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-27_14-46-11.png" alt="测试结果"></p>
-<h3 id="⼆、基于freemarker模板的邮件"><a href="#⼆、基于freemarker模板的邮件" class="headerlink" title="⼆、基于freemarker模板的邮件"></a>⼆、基于freemarker模板的邮件</h3><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-27_14-47-01.png" alt="图片描述"></p>
-<p>基于freemarker模板邮件本质上，还是发送html邮件，只不过是有⼀个把模板转换成html字符串的过程。</p>
+<h3 id="⼆、基于-freemarker-模板的邮件"><a href="#⼆、基于-freemarker-模板的邮件" class="headerlink" title="⼆、基于 freemarker 模板的邮件"></a>⼆、基于 freemarker 模板的邮件</h3><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-27_14-47-01.png" alt="图片描述"></p>
+<p>基于 freemarker 模板邮件本质上，还是发送 html 邮件，只不过是有⼀个把模板转换成 html 字符串的过程。</p>
 <ul>
-<li>先添加freemarker依赖 </li>
+<li>先添加 freemarker 依赖</li>
 </ul>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
@@ -665,17 +663,17 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>application.yml配置freemarker</li>
+<li>application.yml 配置 freemarker</li>
 </ul>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
- <span class="token key atrule">freemarker</span><span class="token punctuation">:</span>
- <span class="token key atrule">cache</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 缓存配置 开发阶段应该配置为false 因为经常会改</span>
- <span class="token key atrule">suffix</span><span class="token punctuation">:</span> .ftl <span class="token comment"># 模版⽂件后缀名</span>
- <span class="token key atrule">charset</span><span class="token punctuation">:</span> UTF<span class="token punctuation">-</span><span class="token number">8</span> <span class="token comment"># ⽂件编码</span>
- <span class="token key atrule">template-loader-path</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>/templates/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token key atrule">freemarker</span><span class="token punctuation">:</span>
+  <span class="token key atrule">cache</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 缓存配置 开发阶段应该配置为false 因为经常会改</span>
+  <span class="token key atrule">suffix</span><span class="token punctuation">:</span> .ftl <span class="token comment"># 模版⽂件后缀名</span>
+  <span class="token key atrule">charset</span><span class="token punctuation">:</span> UTF<span class="token punctuation">-</span><span class="token number">8</span> <span class="token comment"># ⽂件编码</span>
+  <span class="token key atrule">template-loader-path</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>/templates/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>Article实体类 </li>
+<li>Article 实体类</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
 <span class="token annotation punctuation">@AllArgsConstructor</span>
@@ -687,7 +685,7 @@
     <span class="token keyword">private</span> <span class="token class-name">String</span> title<span class="token punctuation">;</span>
     <span class="token keyword">private</span> <span class="token class-name">String</span> content<span class="token punctuation">;</span>
     <span class="token annotation punctuation">@JsonFormat</span><span class="token punctuation">(</span>pattern <span class="token operator">=</span> <span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">,</span> timezone <span class="token operator">=</span> <span class="token string">"GMT+8"</span><span class="token punctuation">)</span>
-    <span class="token keyword">private</span> <span class="token class-name">Date</span> createTime<span class="token punctuation">;</span> 
+    <span class="token keyword">private</span> <span class="token class-name">Date</span> createTime<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
@@ -709,7 +707,7 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>templates⽬录新建 freemarker-temp.ftl 模板⽂件</li>
+<li>templates ⽬录新建 freemarker-temp.ftl 模板⽂件</li>
 </ul>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -733,7 +731,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>测试结果： </li>
+<li>测试结果：</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-27_14-49-58.png" alt="测试结果"></p>
 <h2 id="3-发送带附件和内联附件邮件"><a href="#3-发送带附件和内联附件邮件" class="headerlink" title="3. 发送带附件和内联附件邮件"></a>3. 发送带附件和内联附件邮件</h2><h3 id="⼀、发送带附件的邮件"><a href="#⼀、发送带附件的邮件" class="headerlink" title="⼀、发送带附件的邮件"></a>⼀、发送带附件的邮件</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
@@ -757,7 +755,7 @@ filePath<span class="token punctuation">.</span><span class="token function">sub
     mailSender<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>sendAttachmentsMail的第⼀个参数是发送⽬标邮箱，第⼆个参数是邮件的内容，第三个参数是邮件的附件。 </p>
+<p>sendAttachmentsMail 的第⼀个参数是发送⽬标邮箱，第⼆个参数是邮件的内容，第三个参数是邮件的附件。</p>
 <p>运⾏如下的测试⽤例进⾏测试：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
 <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sendAttachmentsMailTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">MessagingException</span> <span class="token punctuation">&#123;</span>
@@ -771,7 +769,7 @@ filePath<span class="token punctuation">.</span><span class="token function">sub
 
 <p>测试结果:</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-27_14-52-41.png" alt="测试结果"></p>
-<h3 id="⼆、发送内联附件的邮件"><a href="#⼆、发送内联附件的邮件" class="headerlink" title="⼆、发送内联附件的邮件"></a>⼆、发送内联附件的邮件</h3><p>所谓的内联附件就是附件⽂件在邮件正⽂内显示，通常是⼀图⽚资源。 </p>
+<h3 id="⼆、发送内联附件的邮件"><a href="#⼆、发送内联附件的邮件" class="headerlink" title="⼆、发送内联附件的邮件"></a>⼆、发送内联附件的邮件</h3><p>所谓的内联附件就是附件⽂件在邮件正⽂内显示，通常是⼀图⽚资源。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-27_14-53-41.png" alt="图片描述"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
 * 发送正⽂中有静态资源的邮件
@@ -792,20 +790,20 @@ filePath<span class="token punctuation">.</span><span class="token function">sub
     mailSender<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>sendResourceMail⽅法的参数说明： </p>
+<p>sendResourceMail ⽅法的参数说明：</p>
 <ul>
-<li><p>参数⼀：发送邮件的⽬标邮箱 </p>
+<li><p>参数⼀：发送邮件的⽬标邮箱</p>
 </li>
-<li><p>参数⼆：⽂件的标题 </p>
+<li><p>参数⼆：⽂件的标题</p>
 </li>
-<li><p>参数三：邮件的正⽂：html（含图⽚资源id：rscId） </p>
+<li><p>参数三：邮件的正⽂：html（含图⽚资源 id：rscId）</p>
 </li>
-<li><p>参数四：图⽚资源⽂件本地磁盘路径res </p>
+<li><p>参数四：图⽚资源⽂件本地磁盘路径 res</p>
 </li>
-<li><p>参数五：图⽚资源⽂件的资源Id：rscId </p>
+<li><p>参数五：图⽚资源⽂件的资源 Id：rscId</p>
 </li>
 </ul>
-<p>参数三HTML⽂本发现正⽂中包含<img src=cid: rscId>,就会根据参数五helper.addInline(rscId, res);，找 到参数四对应的资源⽂件res，并渲染到HTML⾥⾯。 </p>
+<p>参数三 HTML ⽂本发现正⽂中包含<code>&lt;img src=cid: rscId&gt;</code>,就会根据参数五 helper.addInline(rscId, res);，找 到参数四对应的资源⽂件 res，并渲染到 HTML ⾥⾯。</p>
 <p>测试⽤例，执⾏之后看结果</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
 <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sendResourceMail</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">MessagingException</span> <span class="token punctuation">&#123;</span>
@@ -1360,7 +1358,7 @@ filePath<span class="token punctuation">.</span><span class="token function">sub
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">43.9k</span>&nbsp;字
+                class="white-color">44k</span>&nbsp;字
             
             
             

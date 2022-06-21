@@ -499,25 +499,20 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="日志框架与全局日志管理"><a href="#日志框架与全局日志管理" class="headerlink" title="日志框架与全局日志管理"></a>日志框架与全局日志管理</h1><h2 id="1-⽇志框架的体系结构"><a href="#1-⽇志框架的体系结构" class="headerlink" title="1.⽇志框架的体系结构"></a>1.⽇志框架的体系结构</h2><p>刚刚接触到⽇志的同学可能会被各种⽇志框架吓到，包括各种⽇志框架之间的jar总是发⽣冲突，另很多 ⼩伙伴头疼不已。本章将学习各种 Java ⽇志框架发展过程，以及他们之间的关系，以及如何选型。</p>
+                <h1 id="日志框架与全局日志管理"><a href="#日志框架与全局日志管理" class="headerlink" title="日志框架与全局日志管理"></a>日志框架与全局日志管理</h1><h2 id="1-⽇志框架的体系结构"><a href="#1-⽇志框架的体系结构" class="headerlink" title="1.⽇志框架的体系结构"></a>1.⽇志框架的体系结构</h2><p>刚刚接触到⽇志的同学可能会被各种⽇志框架吓到，包括各种⽇志框架之间的 jar 总是发⽣冲突，另很多 ⼩伙伴头疼不已。本章将学习各种 Java ⽇志框架发展过程，以及他们之间的关系，以及如何选型。</p>
 <h3 id="⼀、五花⼋⻔的⽇志⼯具包"><a href="#⼀、五花⼋⻔的⽇志⼯具包" class="headerlink" title="⼀、五花⼋⻔的⽇志⼯具包"></a>⼀、五花⼋⻔的⽇志⼯具包</h3><h4 id="1-1-⽇志框架"><a href="#1-1-⽇志框架" class="headerlink" title="1.1 ⽇志框架"></a>1.1 ⽇志框架</h4><ul>
 <li>JDK java.util.logging 包:java.util.logging 是 jdk1.4 发布的 java ⽇志包, 可以说是应⽤⽐较久远的⽇志⼯具包</li>
 <li>log4j： apache 的⼀个开源项⽬，提供了强有⼒的 java ⽇志⽀持，甚⾄他也提供了其他语⾔包括 C、C++、.Net、PL/SQL 的接⼝，从⽽实现多语⾔并存的分布式环境⽇志打印。⽬前已经停⽌更 新，所以不推荐使⽤。</li>
-<li>Logback：由log4j创始⼈设计的另⼀个开源⽇志组件，作为Spring Boot默认的⽇志框架，应⽤⽐较 ⼴泛。</li>
-<li>log4j2 ：Apache Log4j2是对Log4j的升级，它⽐其前身Log4j1.x提供了重⼤改进，并提供了 Logback中可⽤的许多改进，同时修复了Logback架构中的⼀些问题。它基于LMAX公司开发 Disruptor（⼀个开源的⽆锁并发框架），改善了Log4j和Logback在架构设计⽅⾯的缺陷，具有超⾼ 的吞吐量和低延迟，性能⽐Log4j1.x和Logback更好。</li>
+<li>Logback：由 log4j 创始⼈设计的另⼀个开源⽇志组件，作为 Spring Boot 默认的⽇志框架，应⽤⽐较 ⼴泛。</li>
+<li>log4j2 ：Apache Log4j2 是对 Log4j 的升级，它⽐其前身 Log4j1.x 提供了重⼤改进，并提供了 Logback 中可⽤的许多改进，同时修复了 Logback 架构中的⼀些问题。它基于 LMAX 公司开发 Disruptor（⼀个开源的⽆锁并发框架），改善了 Log4j 和 Logback 在架构设计⽅⾯的缺陷，具有超⾼ 的吞吐量和低延迟，性能⽐ Log4j1.x 和 Logback 更好。</li>
 </ul>
 <h4 id="1-2-⽇志⻔⾯"><a href="#1-2-⽇志⻔⾯" class="headerlink" title="1.2 ⽇志⻔⾯"></a>1.2 ⽇志⻔⾯</h4><ul>
-<li>commons-logging： Apache commons类库中的⼀员，他作为⼀个⽇志⻔⾯，能够⾃动选择使⽤ log4j 还是 JDK logging，但是他不依赖Log4j，JDK Logging的API。如果项⽬的classpath中包含了 log4j的类库，就会使⽤log4j，否则就使⽤JDK Logging。</li>
+<li>commons-logging： Apache commons 类库中的⼀员，他作为⼀个⽇志⻔⾯，能够⾃动选择使⽤ log4j 还是 JDK logging，但是他不依赖 Log4j，JDK Logging 的 API。如果项⽬的 classpath 中包含了 log4j 的类库，就会使⽤ log4j，否则就使⽤ JDK Logging。</li>
 <li>SLF4J： 可以说是⽬前应⽤最为⼴泛的⽇志⻔⾯了，它提供了⼀个⽇志抽象层，允许你在后台使⽤ 任意⼀个⽇志类库。如：log4j、log4j2、logback。</li>
 </ul>
 <h4 id="1-3-⽇志⻔⾯存在的意义"><a href="#1-3-⽇志⻔⾯存在的意义" class="headerlink" title="1.3 ⽇志⻔⾯存在的意义"></a>1.3 ⽇志⻔⾯存在的意义</h4><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/bg9dbV.png"></p>
 <p><strong>为什么不直接使⽤⽇志框架，⽽是搞出⼀个⽇志⻔⾯？</strong></p>
-<p>⽇志⻔⾯（SLF4J）主要是为了给Java⽇志访问提供⼀套标准、规范的API框架，其主要意义在于提供接 ⼝，具体的实现可以交由其他⽇志 </p>
-<p>框架来实现，例如log4j和logback等。 对于⼀般的Java项⽬⽽⾔，⽇ 志框架会选择slf4j-api作为⻔⾯，配上具体的实现框架（log4j、</p>
-<p>log4j2、logback等），中间使⽤桥接器 完成桥接。 </p>
-<p>前⾯介绍的⼏种⽇志框架，每⼀种⽇志框架都有⾃⼰单独的API，要使⽤对应的框架就要使⽤其对应的 API，这就⼤⼤的增加应⽤程序代</p>
-<p>码对于⽇志框架的耦合性要求。有了SLF4J这个⻔⾯之后，程序员永远 都是⾯向SLF4J编程，可以实现简单快速地替换底层的⽇志框架⽽不</p>
-<p>会导致业务代码需要做相应的修改。</p>
+<p>⽇志⻔⾯（SLF4J）主要是为了给 Java ⽇志访问提供⼀套标准、规范的 API 框架，其主要意义在于提供接 ⼝，具体的实现可以交由其他⽇志框架来实现，例如 log4j 和 logback 等。 对于⼀般的 Java 项⽬⽽⾔，⽇ 志框架会选择 slf4j-api 作为⻔⾯，配上具体的实现框架（log4j、log4j2、logback 等），中间使⽤桥接器 完成桥接。前⾯介绍的⼏种⽇志框架，每⼀种⽇志框架都有⾃⼰单独的 API，要使⽤对应的框架就要使⽤其对应的 API，这就⼤⼤的增加应⽤程序代码对于⽇志框架的耦合性要求。有了 SLF4J 这个⻔⾯之后，程序员永远 都是⾯向 SLF4J 编程，可以实现简单快速地替换底层的⽇志框架⽽不会导致业务代码需要做相应的修改。</p>
 <p>在使⽤ SLF4J 进⾏⽇志记录时，通常都需要在每个需要记录⽇志的类中定义 Logger 变量，如下所示：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Logger</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">LoggerFactory</span></span><span class="token punctuation">;</span>
@@ -525,7 +520,7 @@
 <span class="token annotation punctuation">@RestController</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LogTestController</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Logger</span> logger <span class="token operator">=</span> <span class="token class-name">LoggerFactory</span><span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span><span class="token class-name">LogTestController</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  
+
     <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/test"</span><span class="token punctuation">)</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
         logger<span class="token punctuation">.</span><span class="token function">trace</span><span class="token punctuation">(</span><span class="token string">"Trace ⽇志..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -545,8 +540,8 @@
 <p>SLF4J + Log4j2 是我们推荐的⽇志记录选型。</p>
 <p>性能测试结果</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/EyWSI9.png"></p>
-<p>参考:[log4j2官网](<a target="_blank" rel="noopener" href="https://logging.apache.org/log4j/2.x/manual/async.html">Log4j – Log4j 2 Lock-free Asynchronous Loggers for Low-Latency Logging (apache.org)</a>)</p>
-<h3 id="三、⽇志级别"><a href="#三、⽇志级别" class="headerlink" title="三、⽇志级别"></a>三、⽇志级别</h3><p>细说各⽇志框架整合配置前，我们先来⼤致了解下，最常⻅的⽇志的⼏个级别：ERROR, WARN, INFO, DEBUG和TRACE。像其他的，⽐如ALL、OFF和FATAL之类的开发过程中应该基本上是不会涉及的。所 以以下从低到⾼⼀次介绍下常⻅的⽇志级别。</p>
+<p>参考:[log4j2 官网](<a target="_blank" rel="noopener" href="https://logging.apache.org/log4j/2.x/manual/async.html">Log4j – Log4j 2 Lock-free Asynchronous Loggers for Low-Latency Logging (apache.org)</a>)</p>
+<h3 id="三、⽇志级别"><a href="#三、⽇志级别" class="headerlink" title="三、⽇志级别"></a>三、⽇志级别</h3><p>细说各⽇志框架整合配置前，我们先来⼤致了解下，最常⻅的⽇志的⼏个级别：ERROR, WARN, INFO, DEBUG 和 TRACE。像其他的，⽐如 ALL、OFF 和 FATAL 之类的开发过程中应该基本上是不会涉及的。所 以以下从低到⾼⼀次介绍下常⻅的⽇志级别。</p>
 <ol>
 <li>TRACE：追踪。⼀般上对核⼼系统进⾏性能调试或者跟踪问题时有⽤，此级别很低，⼀般上是不开 启的，开启后⽇志会很快就打满磁盘的。</li>
 <li>DEBUG:调试。这个⼤家应该不陌⽣了。开发过程中主要是打印记录⼀些运⾏信息之类的。</li>
@@ -554,8 +549,7 @@
 <li>WARN:警告。这个⼀般上是记录潜在的可能会引发错误的信息。⽐如启动时，某某配置⽂件不存在 或者某个参数未设置之类的。</li>
 <li>ERROR:错误。这个也是⽐较常⻅的，⼀般上是在捕获异常时输出，虽然发⽣了错误，但不影响系统 的正常运⾏。但可能会导致系统出错或是宕机等。</li>
 </ol>
-<p>⽇志级别从⼩到⼤为trace&lt;debug&lt;info&lt;warn&lt;error&lt;fatal，由于通常⽇志框架默认⽇志级别设置为 INFO，因此trace和debug级别的⽇</p>
-<p>志都看不到。</p>
+<p>⽇志级别从⼩到⼤为 trace&lt;debug&lt;info&lt;warn&lt;error&lt;fatal，由于通常⽇志框架默认⽇志级别设置为 INFO，因此 trace 和 debug 级别的⽇志都看不到。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">2022</span>-04-17 <span class="token number">13</span>:59:16.566 INFO c.z.b.l.controller.LogTestController  <span class="token builtin class-name">:</span>
 Info ⽇志<span class="token punctuation">..</span>.
 <span class="token number">2020</span>-04-17 <span class="token number">13</span>:59:16.566 WARN c.z.b.l.controller.LogTestController  <span class="token builtin class-name">:</span>
@@ -563,12 +557,10 @@ Warn ⽇志<span class="token punctuation">..</span>.
 <span class="token number">2020</span>-04-17 <span class="token number">13</span>:59:16.566 ERROR c.z.b.l.controller.LogTestController <span class="token builtin class-name">:</span>
 Error ⽇志<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
 <h3 id="四、常⻅术语概念解析"><a href="#四、常⻅术语概念解析" class="headerlink" title="四、常⻅术语概念解析"></a>四、常⻅术语概念解析</h3><ol>
 <li>appender：主要控制⽇志输出到哪⾥，⽐如：⽂件、数据库、控制台打印等。</li>
-<li>logger: ⽤来设置某⼀个包或者具体某⼀个类的⽇志打印级别、以及指定appender。</li>
-<li>root：也是⼀个logger，是⼀个特殊的⽗logger。所有的⼦logger最终都会将输出流交给root，除⾮ 在⼦logger中配置了additivity=”false”。</li>
+<li>logger: ⽤来设置某⼀个包或者具体某⼀个类的⽇志打印级别、以及指定 appender。</li>
+<li>root：也是⼀个 logger，是⼀个特殊的⽗ logger。所有的⼦ logger 最终都会将输出流交给 root，除⾮ 在⼦ logger 中配置了 additivity=”false”。</li>
 <li>rollingPolicy：所有⽇志都放在⼀个⽂件是不好的，所以可以指定滚动策略，按照⼀定周期或⽂件⼤ ⼩切割存放⽇志⽂件。</li>
 <li>RolloverStrategy：⽇志清理策略。通常是指⽇志保留的时间。</li>
 <li>异步⽇志：单独开⼀个线程做⽇志的写操作，达到不阻塞主线程的⽬的。</li>
@@ -578,12 +570,12 @@ Error ⽇志<span class="token punctuation">..</span>.<span aria-hidden="true" c
 <li>同步⽇志，主线程要等到⽇志写磁盘完成之后，才能继续向下执⾏。</li>
 <li>异步⽇志，主线程写⽇志只是将⽇志消息放⼊⼀个队列，之后就继续向下执⾏，这个过程是在内存层 ⾯完成的。之后由专⻔的线程从队列中获取⽇志数据写⼊磁盘，所以不阻塞主线程。主线程（核⼼业 务代码）执⾏效率很⾼。</li>
 </ul>
-<h2 id="2-logback⽇志框架配置"><a href="#2-logback⽇志框架配置" class="headerlink" title="2.logback⽇志框架配置"></a>2.logback⽇志框架配置</h2><p>logback既可以通过application配置⽂件进⾏⽇志的配置，⼜可以通过logback-spring.xml进⾏⽇志的配 置。通常情况下，使⽤全局配置⽂件application.yml或properties进⾏配置就⾜够了，如果您的⽇志输出 需求特别复杂⽽且需求⽐较个性化，可以考虑使⽤logback-spring.xml的配置⽅式。</p>
-<h3 id="⼀、application配置⽂件实现⽇志配置"><a href="#⼀、application配置⽂件实现⽇志配置" class="headerlink" title="⼀、application配置⽂件实现⽇志配置"></a>⼀、application配置⽂件实现⽇志配置</h3><p>我们可以在applicaition.properties(yml) ⽂件中进⾏⽇志的配置</p>
+<h2 id="2-logback-⽇志框架配置"><a href="#2-logback-⽇志框架配置" class="headerlink" title="2.logback ⽇志框架配置"></a>2.logback ⽇志框架配置</h2><p>logback 既可以通过 application 配置⽂件进⾏⽇志的配置，⼜可以通过 logback-spring.xml 进⾏⽇志的配 置。通常情况下，使⽤全局配置⽂件 application.yml 或 properties 进⾏配置就⾜够了，如果您的⽇志输出 需求特别复杂⽽且需求⽐较个性化，可以考虑使⽤ logback-spring.xml 的配置⽅式。</p>
+<h3 id="⼀、application-配置⽂件实现⽇志配置"><a href="#⼀、application-配置⽂件实现⽇志配置" class="headerlink" title="⼀、application 配置⽂件实现⽇志配置"></a>⼀、application 配置⽂件实现⽇志配置</h3><p>我们可以在 applicaition.properties(yml) ⽂件中进⾏⽇志的配置</p>
 <pre class="line-numbers language-none"><code class="language-none">logging:
  level:
    root: info
-   com.mqxu.boot.log.controller: debug
+   top.syhan.boot.log.controller: debug
  file:
    path: &#x2F;Users&#x2F;apple&#x2F;Desktop&#x2F;logs
    name:  &#x2F;Users&#x2F;apple&#x2F;Desktop&#x2F;logs&#x2F;boot.log
@@ -596,38 +588,38 @@ Error ⽇志<span class="token punctuation">..</span>.<span aria-hidden="true" c
 %msg%n&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>logging.level.root=info指定整个系统的默认⽇志级别是info，⽇志级别统⼀化。</li>
-<li>logging.level.com.zimug.boot.launch.controller=debug,指定某个特定的package的⽇志级别是 debug，⽇志级别个性化。优先级⻆度，个性配置⼤于统⼀配置。</li>
-<li>logging.file.path将⽇志输出到指定⽬录，如果不指定logging.file.name，⽇志⽂件的默认名称是 spring.log。配置了logging.file.name之后，logging.file.path配置失效。</li>
-<li>⽆论何种设置，Spring Boot都会⾃动按天分割⽇志⽂件，也就是说每天都会⾃动⽣成⼀个新的log⽂ 件，⽽之前的会⾃动打成GZ压缩包。# ⽇志⽂件⼤⼩</li>
-<li>可以设置logging.file.max-size=10MB分割的每个⽇志的⽂件最⼤容量，超过这个size之后⽇志继续分隔。</li>
-<li>可以设置保留的⽇志时间logging.file.max-history=10，以天为单位。</li>
-<li>logging.pattern.file输出到⽂件中的⽇志的格式。</li>
-<li>logging.pattern.console控制台输出⽇志的格式，为了在控制台调试时候显示效果更清晰，为⽇志增 加了颜⾊。red、green等等。</li>
+<li>logging.level.root=info 指定整个系统的默认⽇志级别是 info，⽇志级别统⼀化。</li>
+<li>logging.level.com.zimug.boot.launch.controller=debug,指定某个特定的 package 的⽇志级别是 debug，⽇志级别个性化。优先级⻆度，个性配置⼤于统⼀配置。</li>
+<li>logging.file.path 将⽇志输出到指定⽬录，如果不指定 logging.file.name，⽇志⽂件的默认名称是 spring.log。配置了 logging.file.name 之后，logging.file.path 配置失效。</li>
+<li>⽆论何种设置，Spring Boot 都会⾃动按天分割⽇志⽂件，也就是说每天都会⾃动⽣成⼀个新的 log ⽂ 件，⽽之前的会⾃动打成 GZ 压缩包。# ⽇志⽂件⼤⼩</li>
+<li>可以设置 logging.file.max-size=10MB 分割的每个⽇志的⽂件最⼤容量，超过这个 size 之后⽇志继续分隔。</li>
+<li>可以设置保留的⽇志时间 logging.file.max-history=10，以天为单位。</li>
+<li>logging.pattern.file 输出到⽂件中的⽇志的格式。</li>
+<li>logging.pattern.console 控制台输出⽇志的格式，为了在控制台调试时候显示效果更清晰，为⽇志增 加了颜⾊。red、green 等等。</li>
 </ul>
 <p><strong>⽇志格式占位符</strong></p>
-<p>配合这张图，看⼀下占位符和logging.pattern.console格式配置之间的关系</p>
+<p>配合这张图，看⼀下占位符和 logging.pattern.console 格式配置之间的关系</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/aGV75l.png"></p>
 <ul>
 <li>%d{HH:mm:ss.SSS}：⽇志输出时间（red）</li>
-<li>%thread：输出⽇志的进程名字，这在Web应⽤以及异步任务处理中很有⽤ （green）</li>
-<li>%-5level：⽇志级别，并且使⽤5个字符靠左对⻬ （highlight⾼亮蓝⾊）</li>
-<li>%logger：⽇志输出类的名字 （boldMagenta粗体洋红⾊）</li>
-<li>%msg：⽇志消息 （cyan蓝绿⾊）</li>
+<li>%thread：输出⽇志的进程名字，这在 Web 应⽤以及异步任务处理中很有⽤ （green）</li>
+<li>%-5level：⽇志级别，并且使⽤ 5 个字符靠左对⻬ （highlight ⾼亮蓝⾊）</li>
+<li>%logger：⽇志输出类的名字 （boldMagenta 粗体洋红⾊）</li>
+<li>%msg：⽇志消息 （cyan 蓝绿⾊）</li>
 <li>%n：平台的换⾏符</li>
 </ul>
-<h3 id="⼆、使⽤logback-spring-xml实现⽇志配置"><a href="#⼆、使⽤logback-spring-xml实现⽇志配置" class="headerlink" title="⼆、使⽤logback-spring.xml实现⽇志配置"></a>⼆、使⽤logback-spring.xml实现⽇志配置</h3><h4 id="2-1-需求"><a href="#2-1-需求" class="headerlink" title="2.1 需求"></a>2.1 需求</h4><p>⼀般情况下，使⽤全局配置⽂件application.yml或properties进⾏配置就⾜够了，如果你的⽇志输出需求 特别复杂，可以考虑使⽤logback-spring.xml的配置⽅式。</p>
-<p><strong>spring boot ⽤⾃带的logback打印⽇志，多环境打印：</strong></p>
+<h3 id="⼆、使⽤-logback-spring-xml-实现⽇志配置"><a href="#⼆、使⽤-logback-spring-xml-实现⽇志配置" class="headerlink" title="⼆、使⽤ logback-spring.xml 实现⽇志配置"></a>⼆、使⽤ logback-spring.xml 实现⽇志配置</h3><h4 id="2-1-需求"><a href="#2-1-需求" class="headerlink" title="2.1 需求"></a>2.1 需求</h4><p>⼀般情况下，使⽤全局配置⽂件 application.yml 或 properties 进⾏配置就⾜够了，如果你的⽇志输出需求 特别复杂，可以考虑使⽤ logback-spring.xml 的配置⽅式。</p>
+<p><strong>spring boot ⽤⾃带的 logback 打印⽇志，多环境打印：</strong></p>
 <ol>
-<li>⽣产环境输出到控制台和⽂件,⼀天⼀个⽂件,保留30天。</li>
-<li>开发环境输出到控制台和打印sql(mybatis)输出，⽣产环境不打印这个信息。</li>
+<li>⽣产环境输出到控制台和⽂件,⼀天⼀个⽂件,保留 30 天。</li>
+<li>开发环境输出到控制台和打印 sql(mybatis)输出，⽣产环境不打印这个信息。</li>
 <li>测试环境只输出到控制台。不输出到⽂件。</li>
 </ol>
 <blockquote>
-<p>打印Mybatis SQL，只需要把使⽤到Mybatis的package的⽇志级别调整为DEBUG，就可以将SQL打印出来。</p>
+<p>打印 Mybatis SQL，只需要把使⽤到 Mybatis 的 package 的⽇志级别调整为 DEBUG，就可以将 SQL 打印出来。</p>
 </blockquote>
-<p><strong>前提：</strong>项⽬已经⽀持application.yml的profile多环境配置</p>
-<h4 id="2-2-需求实现"><a href="#2-2-需求实现" class="headerlink" title="2.2 需求实现"></a>2.2 需求实现</h4><p>因为logback是spring boot的默认⽇志框架，所以不需要引⼊maven依赖，直接上logback-spring.xml放 在resources下⾯。</p>
+<p><strong>前提：</strong>项⽬已经⽀持 application.yml 的 profile 多环境配置</p>
+<h4 id="2-2-需求实现"><a href="#2-2-需求实现" class="headerlink" title="2.2 需求实现"></a>2.2 需求实现</h4><p>因为 logback 是 spring boot 的默认⽇志框架，所以不需要引⼊ maven 依赖，直接上 logback-spring.xml 放 在 resources 下⾯。</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>
   <span class="token comment">&lt;!--引⼊默认的⼀些设置--></span>
@@ -635,7 +627,7 @@ Error ⽇志<span class="token punctuation">..</span>.<span aria-hidden="true" c
 <span class="token attr-name">resource</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>org/springframework/boot/logging/logback/defaults.xml<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
   <span class="token comment">&lt;!--web信息--></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logger</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>org.springframework.web<span class="token punctuation">"</span></span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>info<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
-  
+
   <span class="token comment">&lt;!--写⼊⽇志到控制台的appender,⽤默认的,但是要去掉charset,否则windows下tomcat
 下乱码--></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>CONSOLE<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.ConsoleAppender<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -643,9 +635,9 @@ Error ⽇志<span class="token punctuation">..</span>.<span aria-hidden="true" c
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>pattern</span><span class="token punctuation">></span></span>$&#123;CONSOLE_LOG_PATTERN&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>pattern</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>encoder</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appender</span><span class="token punctuation">></span></span>
-  
+
   <span class="token comment">&lt;!--定义⽇志⽂件的存储地址 勿在 LogBack 的配置中使⽤相对路径--></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>LOG_PATH<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/Users/mqxu/Desktop/logs<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>LOG_PATH<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/Users/syhan/Desktop/logs<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
   <span class="token comment">&lt;!--写⼊⽇志到⽂件的appender--></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>FILE<span class="token punctuation">"</span></span>
 <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.core.rolling.RollingFileAppender<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -666,7 +658,7 @@ Error ⽇志<span class="token punctuation">..</span>.<span aria-hidden="true" c
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>MaxFileSize</span><span class="token punctuation">></span></span>10MB<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>MaxFileSize</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>triggeringPolicy</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appender</span><span class="token punctuation">></span></span>
-  
+
   <span class="token comment">&lt;!--异步写⽇志到⽂件--></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>asyncFileAppender<span class="token punctuation">"</span></span>
 <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ch.qos.logback.classic.AsyncAppender<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -674,7 +666,7 @@ Error ⽇志<span class="token punctuation">..</span>.<span aria-hidden="true" c
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>queueSize</span><span class="token punctuation">></span></span>500<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>queueSize</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>FILE<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appender</span><span class="token punctuation">></span></span>
-  
+
   <span class="token comment">&lt;!--⽣产环境:打印控制台和输出到⽂件--></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>springProfile</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>prod<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>root</span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>info<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -682,16 +674,16 @@ Error ⽇志<span class="token punctuation">..</span>.<span aria-hidden="true" c
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>asyncFileAppender<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>root</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>springProfile</span><span class="token punctuation">></span></span>
-  
+
   <span class="token comment">&lt;!--开发环境:打印控制台--></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>springProfile</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dev<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token comment">&lt;!-- 打印sql --></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logger</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.mqxu.boot.log<span class="token punctuation">"</span></span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>DEBUG<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>logger</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>top.syhan.boot.log<span class="token punctuation">"</span></span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>DEBUG<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>root</span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>DEBUG<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appender-ref</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>CONSOLE<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>root</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>springProfile</span><span class="token punctuation">></span></span>
-  
+
   <span class="token comment">&lt;!--测试环境:打印控制台--></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>springProfile</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>test<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>root</span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>info<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -702,17 +694,17 @@ Error ⽇志<span class="token punctuation">..</span>.<span aria-hidden="true" c
 
 <p>异步⽇志配置：</p>
 <ul>
-<li>异步⽇志queueSize 默认值256，异步⽇志队列的容量。</li>
-<li>discardingThreshold：当异步⽇志队列的剩余容量⼩于这个阈值，会丢弃TRACE, DEBUG or INFO 级别的⽇志。如果不希望丢弃⽇志（即全量保存），那可以设置为0。但是当队列占满后，⾮阻塞的 异步⽇志会变成阻塞的同步⽇志。所以在⾼并发低延迟要求的系统⾥⾯针对不重要的⽇志可以设置 discardingThreshold丢弃策略，值⼤于0。</li>
+<li>异步⽇志 queueSize 默认值 256，异步⽇志队列的容量。</li>
+<li>discardingThreshold：当异步⽇志队列的剩余容量⼩于这个阈值，会丢弃 TRACE, DEBUG or INFO 级别的⽇志。如果不希望丢弃⽇志（即全量保存），那可以设置为 0。但是当队列占满后，⾮阻塞的 异步⽇志会变成阻塞的同步⽇志。所以在⾼并发低延迟要求的系统⾥⾯针对不重要的⽇志可以设置 discardingThreshold 丢弃策略，值⼤于 0。</li>
 </ul>
-<h4 id="2-3-测试"><a href="#2-3-测试" class="headerlink" title="2.3 测试"></a>2.3 测试</h4><p>上⾯配置完成之后，可以使⽤如下代码测试⼀下，是否满⾜了2.1节中提出的需求。</p>
+<h4 id="2-3-测试"><a href="#2-3-测试" class="headerlink" title="2.3 测试"></a>2.3 测试</h4><p>上⾯配置完成之后，可以使⽤如下代码测试⼀下，是否满⾜了 2.1 节中提出的需求。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Logger</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">LoggerFactory</span></span><span class="token punctuation">;</span>
 
 <span class="token annotation punctuation">@RestController</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LogTestController</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Logger</span> logger <span class="token operator">=</span> <span class="token class-name">LoggerFactory</span><span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span><span class="token class-name">LogTestController</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
+
     <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/testlog"</span><span class="token punctuation">)</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
         logger<span class="token punctuation">.</span><span class="token function">trace</span><span class="token punctuation">(</span><span class="token string">"Trace ⽇志..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -723,9 +715,7 @@ Error ⽇志<span class="token punctuation">..</span>.<span aria-hidden="true" c
    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-<h2 id="3-log4j2⽇志框架配置"><a href="#3-log4j2⽇志框架配置" class="headerlink" title="3.log4j2⽇志框架配置"></a>3.log4j2⽇志框架配置</h2><h3 id="⼀、引⼊maven依赖"><a href="#⼀、引⼊maven依赖" class="headerlink" title="⼀、引⼊maven依赖"></a>⼀、引⼊maven依赖</h3><p>Spring Boot默认使⽤LogBack，但是我们没有看到显示依赖的jar包，其实是因为所在的jar包springboot-starter-logging都是作为spring-boot-starter-web或者spring-boot-starter依赖的⼀部分。 如果这⾥要使⽤Log4j2，需要从spring-boot-starter-web中去掉spring-boot-starter-logging依赖， 同时显示声明使⽤Log4j2的依赖jar包，具体如下:</p>
+<h2 id="3-log4j2-⽇志框架配置"><a href="#3-log4j2-⽇志框架配置" class="headerlink" title="3.log4j2 ⽇志框架配置"></a>3.log4j2 ⽇志框架配置</h2><h3 id="⼀、引⼊-maven-依赖"><a href="#⼀、引⼊-maven-依赖" class="headerlink" title="⼀、引⼊ maven 依赖"></a>⼀、引⼊ maven 依赖</h3><p>Spring Boot 默认使⽤ LogBack，但是我们没有看到显示依赖的 jar 包，其实是因为所在的 jar 包 springboot-starter-logging 都是作为 spring-boot-starter-web 或者 spring-boot-starter 依赖的⼀部分。 如果这⾥要使⽤ Log4j2，需要从 spring-boot-starter-web 中去掉 spring-boot-starter-logging 依赖， 同时显示声明使⽤ Log4j2 的依赖 jar 包，具体如下:</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
@@ -741,23 +731,21 @@ Error ⽇志<span class="token punctuation">..</span>.<span aria-hidden="true" c
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-log4j2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-<h3 id="⼆、添加配置⽂件log4j2-spring-xml"><a href="#⼆、添加配置⽂件log4j2-spring-xml" class="headerlink" title="⼆、添加配置⽂件log4j2-spring.xml"></a>⼆、添加配置⽂件log4j2-spring.xml</h3><p>在resources⽬录下新建⼀个log4j2-spring.xml⽂件，放在src/main/resources⽬录下即可被Spring Boot应⽤识别。</p>
+<h3 id="⼆、添加配置⽂件-log4j2-spring-xml"><a href="#⼆、添加配置⽂件-log4j2-spring-xml" class="headerlink" title="⼆、添加配置⽂件 log4j2-spring.xml"></a>⼆、添加配置⽂件 log4j2-spring.xml</h3><p>在 resources ⽬录下新建⼀个 log4j2-spring.xml ⽂件，放在 src/main/resources ⽬录下即可被 Spring Boot 应⽤识别。</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">></span></span>
     <span class="token comment">&lt;!--⽇志输出位置--></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>LOG_HOME<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>/Users/apple/Desktop/logs<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">></span></span>
-  
+
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Appenders</span><span class="token punctuation">></span></span>
     <span class="token comment">&lt;!-- 将⽇志输出到控制台--></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Console</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>CONSOLE<span class="token punctuation">"</span></span> <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>SYSTEM_OUT<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
       <span class="token comment">&lt;!--设置⽇志格式及颜⾊--></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PatternLayout</span> <span class="token attr-name">pattern</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[%style&#123;%d&#125;&#123;bright,green&#125;][%highlight&#123;%p&#125;][%style&#123;%t&#125;&#123;bright,blue&#125;][%style&#123;%C&#125;&#123;bright,yellow&#125;]:%msg%n%style&#123;%throwable&#125;&#123;red&#125;<span class="token punctuation">"</span></span> <span class="token attr-name">disableAnsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span> <span class="token attr-name">noConsoleNoAnsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Console</span><span class="token punctuation">></span></span>
-    
+
     <span class="token comment">&lt;!-- 将⽇志输出到⽂件--></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RollingFile</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>FILE-APPENDER<span class="token punctuation">"</span></span>
                  <span class="token attr-name">fileName</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$&#123;LOG_HOME&#125;/log4j2-demo.log<span class="token punctuation">"</span></span>
@@ -775,14 +763,14 @@ Error ⽇志<span class="token punctuation">..</span>.<span aria-hidden="true" c
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DefaultRolloverStrategy</span> <span class="token attr-name">max</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>RollingFile</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Appenders</span><span class="token punctuation">></span></span>
-  
+
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Loggers</span><span class="token punctuation">></span></span>
     <span class="token comment">&lt;!-- 根⽇志设置 --></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Root</span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>debug<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AppenderRef</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>CONSOLE<span class="token punctuation">"</span></span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>debug<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AppenderRef</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>FILE-APPENDER<span class="token punctuation">"</span></span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>info<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Root</span><span class="token punctuation">></span></span>
-    
+
     <span class="token comment">&lt;!--spring⽇志--></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Logger</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>org.springframework<span class="token punctuation">"</span></span> <span class="token attr-name">level</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>info<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
     <span class="token comment">&lt;!-- mybatis⽇志 --></span>
@@ -791,55 +779,55 @@ Error ⽇志<span class="token punctuation">..</span>.<span aria-hidden="true" c
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li><p>两个Appender，⼀个叫做CONSOLE⽤于输出⽇志到控制台，⼀个叫做FILE-APPENDER输出⽇志到⽂件</p>
+<li><p>两个 Appender，⼀个叫做 CONSOLE ⽤于输出⽇志到控制台，⼀个叫做 FILE-APPENDER 输出⽇志到⽂件</p>
 </li>
-<li><p>PatternLayout⽤于指定输出⽇志的格式，[%d] [%p] [%t] [%C] %m %n 这些占位符将结合下⽂测试 结果为⼤家介绍</p>
+<li><p>PatternLayout ⽤于指定输出⽇志的格式，[%d] [%p] [%t] [%C] %m %n 这些占位符将结合下⽂测试 结果为⼤家介绍</p>
 </li>
-<li><p>Policies⽤于指定⽂件切分参数</p>
+<li><p>Policies ⽤于指定⽂件切分参数</p>
 <ul>
-<li>TimeBasedTriggeringPolicy默认的size是1，结合filePattern定义%d{yyyy-MM-dd}，则每天 ⽣成⼀个⽂件（最⼩的时间切分粒度是⼩时）</li>
-<li><code>&lt;SizeBasedTriggeringPolicy size=&quot;100 MB&quot;/&gt;</code>当⽂件⼤⼩到100MB的时候，切分⼀个新的⽇ 志⽂件</li>
+<li>TimeBasedTriggeringPolicy 默认的 size 是 1，结合 filePattern 定义%d{yyyy-MM-dd}，则每天 ⽣成⼀个⽂件（最⼩的时间切分粒度是⼩时）</li>
+<li><code>&lt;SizeBasedTriggeringPolicy size=&quot;100 MB&quot;/&gt;</code>当⽂件⼤⼩到 100MB 的时候，切分⼀个新的⽇ 志⽂件</li>
 </ul>
 </li>
 <li><p><code>&lt;DefaultRolloverStrategy max=&quot;20&quot;/&gt;</code>表示⽂件最⼤的存档数量，多余的将被删除</p>
 </li>
 </ul>
-<h3 id="三、⾃定义配置⽂件"><a href="#三、⾃定义配置⽂件" class="headerlink" title="三、⾃定义配置⽂件"></a>三、⾃定义配置⽂件</h3><p>但是我们通常会有这样⼀个需求，就是不同的环境使⽤不同的配置，⽐如：我们需要三个log4j2 xml⽂件：</p>
+<h3 id="三、⾃定义配置⽂件"><a href="#三、⾃定义配置⽂件" class="headerlink" title="三、⾃定义配置⽂件"></a>三、⾃定义配置⽂件</h3><p>但是我们通常会有这样⼀个需求，就是不同的环境使⽤不同的配置，⽐如：我们需要三个 log4j2 xml ⽂件：</p>
 <ul>
 <li>log4j2-dev.xml 开发环境⽇志配置</li>
 <li>log4j2-prod.xml ⽣产环境⽇志配置</li>
 <li>log4j2-test.xml 测试环境⽇志配置</li>
 </ul>
-<p>但是Spring Boot并不知道log4j2-.xml这些配置⽂件是⼲什么的，所以需要通过在 application.yml⽂件中显示声明才⾏。</p>
-<p>举例：在application-dev.yml⾥⾯使⽤log4j2-dev.xml配置⽂件</p>
+<p>但是 Spring Boot 并不知道 log4j2-.xml 这些配置⽂件是⼲什么的，所以需要通过在 application.yml ⽂件中显示声明才⾏。</p>
+<p>举例：在 application-dev.yml ⾥⾯使⽤ log4j2-dev.xml 配置⽂件</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">logging</span><span class="token punctuation">:</span>
- <span class="token key atrule">config</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>log4j2<span class="token punctuation">-</span>dev.xml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+  <span class="token key atrule">config</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>log4j2<span class="token punctuation">-</span>dev.xml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>以此类推，在application-prod.yml⾥⾯使⽤log4j2-prod.xml配置⽂件，在application-test.yml⾥⾯使 ⽤log4j2-test.xml配置⽂件。</p>
+<p>以此类推，在 application-prod.yml ⾥⾯使⽤ log4j2-prod.xml 配置⽂件，在 application-test.yml ⾥⾯使 ⽤ log4j2-test.xml 配置⽂件。</p>
 <p>说⼀下占位符</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PatternLayout</span> <span class="token attr-name">pattern</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[%style&#123;%d&#125;&#123;bright,green&#125;][%highlight&#123;%p&#125;][%style&#123;%t&#125;&#123;bright,blue&#125;][%style&#123;%C&#125;&#123;bright,yellow&#125;]:%msg%n%style&#123;%throwable&#125;&#123;red&#125;<span class="token punctuation">"</span></span> <span class="token attr-name">disableAnsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span> <span class="token attr-name">noConsoleNoAnsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
-<li>%d ： date时间</li>
+<li>%d ： date 时间</li>
 <li>%p ： ⽇志级别</li>
-<li>%t ： thread线程名称</li>
-<li>%C： class类⽂件名称</li>
+<li>%t ： thread 线程名称</li>
+<li>%C： class 类⽂件名称</li>
 <li>%msg：⽇志信息</li>
-<li>%n换⾏</li>
+<li>%n 换⾏</li>
 <li><code>%style&#123;%throwable&#125;&#123;red&#125;</code> 加样式，异常信息红⾊显示</li>
 </ul>
 <h2 id="4-拦截器实现统⼀访问⽇志"><a href="#4-拦截器实现统⼀访问⽇志" class="headerlink" title="4.拦截器实现统⼀访问⽇志"></a>4.拦截器实现统⼀访问⽇志</h2><h3 id="⼀、需求"><a href="#⼀、需求" class="headerlink" title="⼀、需求"></a>⼀、需求</h3><p>我们本节要实现的需求</p>
 <ul>
-<li>针对当前系统的每⼀次接⼝访问，要记录是什么⼈访问的（⽤户名）、什么时间访问的、访问耗时多 ⻓时间、使⽤什么HTTP method⽅法访问的、访问结果如何等。可以称为审计⽇志。</li>
-<li>将访问记录审计⽇志，输出到⼀个单独的⽇志⽂件access.log</li>
+<li>针对当前系统的每⼀次接⼝访问，要记录是什么⼈访问的（⽤户名）、什么时间访问的、访问耗时多 ⻓时间、使⽤什么 HTTP method ⽅法访问的、访问结果如何等。可以称为审计⽇志。</li>
+<li>将访问记录审计⽇志，输出到⼀个单独的⽇志⽂件 access.log</li>
 </ul>
-<h3 id="⼆、定义访问⽇志内容记录实体类"><a href="#⼆、定义访问⽇志内容记录实体类" class="headerlink" title="⼆、定义访问⽇志内容记录实体类"></a>⼆、定义访问⽇志内容记录实体类</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>domain</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">FormatUtils</span></span><span class="token punctuation">;</span>
+<h3 id="⼆、定义访问⽇志内容记录实体类"><a href="#⼆、定义访问⽇志内容记录实体类" class="headerlink" title="⼆、定义访问⽇志内容记录实体类"></a>⼆、定义访问⽇志内容记录实体类</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>domain</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">FormatUtils</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">Data</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Date</span></span><span class="token punctuation">;</span>
 <span class="token comment">/**
 * @description: 访问⽇志内容记录实体类
-* @author: mqxu
+* @author: syhan
 * @date: 2022-04-04
 **/</span>
 <span class="token annotation punctuation">@Data</span>
@@ -848,53 +836,51 @@ Error ⽇志<span class="token punctuation">..</span>.<span aria-hidden="true" c
      * 访问者⽤户名
      */</span>
     <span class="token keyword">private</span> <span class="token class-name">String</span> username<span class="token punctuation">;</span>
-  
+
     <span class="token comment">/**
      * 请求路径
      */</span>
     <span class="token keyword">private</span> <span class="token class-name">String</span> uri<span class="token punctuation">;</span>
-  
+
     <span class="token comment">/**
      * 请求消耗时⻓
      */</span>
     <span class="token keyword">private</span> <span class="token class-name">Integer</span> duration<span class="token punctuation">;</span>
-  
+
     <span class="token comment">/**
      * http ⽅法：GET、POST等
      */</span>
     <span class="token keyword">private</span> <span class="token class-name">String</span> httpMethod<span class="token punctuation">;</span>
-  
+
     <span class="token comment">/**
      * http 请求响应状态码
      */</span>
     <span class="token keyword">private</span> <span class="token class-name">Integer</span> httpStatus<span class="token punctuation">;</span>
-  
+
     <span class="token comment">/**
      * 访问者ip
      */</span>
     <span class="token keyword">private</span> <span class="token class-name">String</span> ip<span class="token punctuation">;</span>
-  
+
     <span class="token comment">/**
      * 此条记录的创建时间
      */</span>
     <span class="token keyword">private</span> <span class="token class-name">Date</span> createTime<span class="token punctuation">;</span>
-  
+
     <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       <span class="token keyword">return</span> <span class="token string">"&#123;"</span> <span class="token operator">+</span> <span class="token string">"username="</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>username <span class="token operator">+</span> <span class="token string">","</span> <span class="token operator">+</span> <span class="token string">"uri="</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>uri <span class="token operator">+</span> <span class="token string">","</span> <span class="token operator">+</span> <span class="token string">"duration="</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>duration <span class="token operator">+</span> <span class="token string">","</span> <span class="token operator">+</span> <span class="token string">"httpMethod="</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>httpMethod <span class="token operator">+</span> <span class="token string">","</span> <span class="token operator">+</span> <span class="token string">"httpStatus="</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>httpStatus <span class="token operator">+</span> <span class="token string">","</span> <span class="token operator">+</span> <span class="token string">"ip="</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>ip <span class="token operator">+</span> <span class="token string">","</span> <span class="token operator">+</span> <span class="token string">"createTime="</span> <span class="token operator">+</span> <span class="token class-name">FormatUtils</span><span class="token punctuation">.</span><span class="token function">forTime</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>createTime<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"&#125;"</span><span class="token punctuation">;</span>
    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
 <h3 id="三、⾃定义⽇志拦截器"><a href="#三、⾃定义⽇志拦截器" class="headerlink" title="三、⾃定义⽇志拦截器"></a>三、⾃定义⽇志拦截器</h3><p>通过⾃定义拦截器的⽅式，记录审计⽇志。</p>
 <ul>
-<li>拦截器的preHandle⽅法，可以⽤于拦截请求处理开始。⽤于记录请求开始时间等信息保存到Http Request，⽤于后续计算请求时⻓。</li>
-<li>拦截器的postHandle⽅法，可以⽤于拦截请求处理完成。可以从Request对象获取开始时间，计算本次请求总的处理时⻓等信息。</li>
+<li>拦截器的 preHandle ⽅法，可以⽤于拦截请求处理开始。⽤于记录请求开始时间等信息保存到 Http Request，⽤于后续计算请求时⻓。</li>
+<li>拦截器的 postHandle ⽅法，可以⽤于拦截请求处理完成。可以从 Request 对象获取开始时间，计算本次请求总的处理时⻓等信息。</li>
 </ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>interceptor</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>domain<span class="token punctuation">.</span></span><span class="token class-name">AccessLog</span></span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">AddressIpUtils</span></span><span class="token punctuation">;</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>interceptor</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>domain<span class="token punctuation">.</span></span><span class="token class-name">AccessLog</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">AddressIpUtils</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span><span class="token class-name">Nullable</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Component</span></span><span class="token punctuation">;</span>
@@ -905,7 +891,7 @@ Error ⽇志<span class="token punctuation">..</span>.<span aria-hidden="true" c
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Date</span></span><span class="token punctuation">;</span>
 <span class="token comment">/**
 * @description: ⾃定义⽇志拦截器
-* @author: mqxu
+* @author: syhan
 * @date: 2022-04-04
 **/</span>
 <span class="token annotation punctuation">@Component</span>
@@ -931,7 +917,7 @@ Error ⽇志<span class="token punctuation">..</span>.<span aria-hidden="true" c
         request<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"accessLog"</span><span class="token punctuation">,</span> accessLog<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
    <span class="token punctuation">&#125;</span>
-  
+
     <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">postHandle</span><span class="token punctuation">(</span><span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">HttpServletResponse</span> response<span class="token punctuation">,</span> <span class="token class-name">Object</span> handler<span class="token punctuation">,</span> <span class="token annotation punctuation">@Nullable</span> <span class="token class-name">ModelAndView</span> modelAndView<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
       <span class="token comment">//获取本次请求⽇志实体</span>
@@ -958,12 +944,12 @@ Error ⽇志<span class="token punctuation">..</span>.<span aria-hidden="true" c
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>LoggerFactory.getLogger(“ACCESS-LOG”)获取⼀个⽇志配置中的Logger的名字，⽤于打印⽇志输 出，持久化到⽇志⽂件⾥。</p>
+<p>LoggerFactory.getLogger(“ACCESS-LOG”)获取⼀个⽇志配置中的 Logger 的名字，⽤于打印⽇志输 出，持久化到⽇志⽂件⾥。</p>
 <h3 id="四、拦截器注册"><a href="#四、拦截器注册" class="headerlink" title="四、拦截器注册"></a>四、拦截器注册</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyWebMvcConfigurer</span> <span class="token keyword">implements</span> <span class="token class-name">WebMvcConfigurer</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">//设置排除路径，spring boot 2.*，注意排除掉静态资源的路径，不然静态资源⽆法访问</span>
     <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> excludePath <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"/static"</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-  
+
     <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addInterceptors</span><span class="token punctuation">(</span><span class="token class-name">InterceptorRegistry</span> registry<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         registry<span class="token punctuation">.</span><span class="token function">addInterceptor</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">AccessLogInterceptor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addPathPatterns</span><span class="token punctuation">(</span><span class="token string">"/**"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">excludePathPatterns</span><span class="token punctuation">(</span>exclud
@@ -971,14 +957,12 @@ ePath<span class="token punctuation">)</span><span class="token punctuation">;</
    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-<h3 id="五、-“ACCESS-LOG”的⽇志Logger定义"><a href="#五、-“ACCESS-LOG”的⽇志Logger定义" class="headerlink" title="五、 “ACCESS-LOG”的⽇志Logger定义"></a>五、 “ACCESS-LOG”的⽇志Logger定义</h3><p>配置参考以Log4J2配置为例</p>
+<h3 id="五、-“ACCESS-LOG”的⽇志-Logger-定义"><a href="#五、-“ACCESS-LOG”的⽇志-Logger-定义" class="headerlink" title="五、 “ACCESS-LOG”的⽇志 Logger 定义"></a>五、 “ACCESS-LOG”的⽇志 Logger 定义</h3><p>配置参考以 Log4J2 配置为例</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/mHmvkV.png"></p>
 <ul>
-<li>LoggerFactory.getLogger(“ACCESS-LOG”) 代码去配置⽂件⾥⾯找⼀个name为ACCESS-LOG的 Logger配置。</li>
-<li>该Logger是⼀个AsyncLogger，指向的输出⽬标是ACCESS-APPENDER。</li>
-<li>ACCESS-APPENDER是⼀个⽇志⽂件输出配置，⽇志⽂件是access-log.log。</li>
+<li>LoggerFactory.getLogger(“ACCESS-LOG”) 代码去配置⽂件⾥⾯找⼀个 name 为 ACCESS-LOG 的 Logger 配置。</li>
+<li>该 Logger 是⼀个 AsyncLogger，指向的输出⽬标是 ACCESS-APPENDER。</li>
+<li>ACCESS-APPENDER 是⼀个⽇志⽂件输出配置，⽇志⽂件是 access-log.log。</li>
 </ul>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>
@@ -1008,7 +992,6 @@ ePath<span class="token punctuation">)</span><span class="token punctuation">;</
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AsyncLogger</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Loggers</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 
                 
             </div>
@@ -1549,7 +1532,7 @@ ePath<span class="token punctuation">)</span><span class="token punctuation">;</
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">43.9k</span>&nbsp;字
+                class="white-color">44k</span>&nbsp;字
             
             
             

@@ -499,24 +499,14 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="redis-和缓存"><a href="#redis-和缓存" class="headerlink" title="redis 和缓存"></a>redis 和缓存</h1><h2 id="1-redis-数据结构与应用场景"><a href="#1-redis-数据结构与应用场景" class="headerlink" title="1.redis 数据结构与应用场景"></a>1.redis 数据结构与应用场景</h2><h3 id="⼀、简介"><a href="#⼀、简介" class="headerlink" title="⼀、简介"></a>⼀、简介</h3><p>Redis 是开源免费， key-value 内存数据库，主要解决⾼并发、⼤数据场景下，热点数据访</p>
-<p>问的性能问题，提供⾼性能的数据快速访问。项⽬中部分数据访问⽐较频繁，对下游 DB</p>
-<p>（例如 MySQL）造成服务压⼒，这时候可以使⽤缓存来提⾼效率。</p>
-<p>Redis 的主要特点包括：</p>
+                <h1 id="redis-和缓存"><a href="#redis-和缓存" class="headerlink" title="redis 和缓存"></a>redis 和缓存</h1><h2 id="1-redis-数据结构与应用场景"><a href="#1-redis-数据结构与应用场景" class="headerlink" title="1.redis 数据结构与应用场景"></a>1.redis 数据结构与应用场景</h2><h3 id="⼀、简介"><a href="#⼀、简介" class="headerlink" title="⼀、简介"></a>⼀、简介</h3><p>Redis 是开源免费， key-value 内存数据库，主要解决⾼并发、⼤数据场景下，热点数据访问的性能问题，提供⾼性能的数据快速访问。项⽬中部分数据访问⽐较频繁，对下游 DB（例如 MySQL）造成服务压⼒，这时候可以使⽤缓存来提⾼效率。<br>Redis 的主要特点包括：</p>
 <ul>
-<li><p>Redis 数据存储在内存中，可以提高热点数据的访问效率</p>
-</li>
-<li><p>Redis 除了支持 key-value 类型的数据，同时还支持其他多种数据结构的存储；</p>
-</li>
-<li><p>Redis 支持数据持久化存储，可以将数据存储在磁盘中，机器重启数据将从磁盘重新</p>
-<p>加载数据;Redis 作为缓存数据库和 MySQL 这种结构化数据库进行对比。</p>
-</li>
-<li><p>从数据库类型上，Redis 是 NoSQL 半结构化缓存数据库，MySQL 是结构化关系型数据库；</p>
-</li>
-<li><p>从读写性能上，MySQL 是持久化硬盘存储，读写速度较楼，Redis 数据存储读取都在内存，同时也可以持久化到磁盘，读写速度较快；</p>
-</li>
-<li><p>从使用场景上，Redis 一般作为 MySQL 数据读取性能优化的技术送型，彼此配合使用。Redis 用于存储热数据或者级存数据，并不存在相互替换的关系。</p>
-</li>
+<li>Redis 数据存储在内存中，可以提高热点数据的访问效率</li>
+<li>Redis 除了支持 key-value 类型的数据，同时还支持其他多种数据结构的存储；</li>
+<li>Redis 支持数据持久化存储，可以将数据存储在磁盘中，机器重启数据将从磁盘重新加载数据;Redis 作为缓存数据库和 MySQL 这种结构化数据库进行对比。</li>
+<li>从数据库类型上，Redis 是 NoSQL 半结构化缓存数据库，MySQL 是结构化关系型数据库；</li>
+<li>从读写性能上，MySQL 是持久化硬盘存储，读写速度较楼，Redis 数据存储读取都在内存，同时也可以持久化到磁盘，读写速度较快；</li>
+<li>从使用场景上，Redis 一般作为 MySQL 数据读取性能优化的技术送型，彼此配合使用。Redis 用于存储热数据或者级存数据，并不存在相互替换的关系。</li>
 </ul>
 <h3 id="⼆、Redis-基本数据结构与实战场景"><a href="#⼆、Redis-基本数据结构与实战场景" class="headerlink" title="⼆、Redis 基本数据结构与实战场景"></a>⼆、Redis 基本数据结构与实战场景</h3><ol>
 <li><p>redis 的数据结构可以理解为 Java 数据类型中的 Map&lt;String,Object&gt;,key 是 String 类型，value 是下⾯ 的类型。只不过作为⼀个独⽴的数据库单独存在，所以 Java 中的 Map 怎么⽤，redis 就怎么⽤，⼤同⼩异。</p>
@@ -532,8 +522,7 @@
 </ol>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-05-01_13-23-32.png" alt="图片描述"></p>
 <p>上图中命令行更正：Irange，不是 lrang</p>
-<h3 id="三、redis-应用场景解析"><a href="#三、redis-应用场景解析" class="headerlink" title="三、redis 应用场景解析"></a>三、redis 应用场景解析</h3><h4 id="3-1-String-类型使用场景"><a href="#3-1-String-类型使用场景" class="headerlink" title="3.1 String 类型使用场景"></a>3.1 String 类型使用场景</h4><h5 id="场景一：商品库存数"><a href="#场景一：商品库存数" class="headerlink" title="场景一：商品库存数"></a>场景一：商品库存数</h5><p>从业务上，商品库存数据是热点数据，交易行为会直接影响库存。而 Redis 自身 String 类</p>
-<p>型提供了：</p>
+<h3 id="三、redis-应用场景解析"><a href="#三、redis-应用场景解析" class="headerlink" title="三、redis 应用场景解析"></a>三、redis 应用场景解析</h3><h4 id="3-1-String-类型使用场景"><a href="#3-1-String-类型使用场景" class="headerlink" title="3.1 String 类型使用场景"></a>3.1 String 类型使用场景</h4><h5 id="场景一：商品库存数"><a href="#场景一：商品库存数" class="headerlink" title="场景一：商品库存数"></a>场景一：商品库存数</h5><p>从业务上，商品库存数据是热点数据，交易行为会直接影响库存。而 Redis 自身 String 类型提供了：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">incr key     <span class="token comment">#增加⼀个库存</span>
 decr key    <span class="token comment"># 减少⼀个库存</span>
 incrby key <span class="token number">10</span> <span class="token comment"># 增加20个库存</span>
@@ -544,28 +533,20 @@ decrby key <span class="token number">15</span>   <span class="token comment"># 
 <li>decr goods_id；当商品被购买时候，库存数据减 1。</li>
 </ul>
 <p>依此类推的场景：商品的浏览次数，问题或者回复的点赞次数等。这种计数的场景都可以考虑利用 Redis 来实现。</p>
-<h5 id="场景二：时效信息存储"><a href="#场景二：时效信息存储" class="headerlink" title="场景二：时效信息存储"></a>场景二：时效信息存储</h5><p>Redis 的数据存储具有自动失效能力。也就是存储的 key-value 可以设置过期时间，SETEX</p>
-<p>mykey 60 “value”中的第 2 个參数就是过期时间。</p>
-<p>比如，用户登录某个 App 需要获取登录验证码，验证码在 30 秒内有效。</p>
+<h5 id="场景二：时效信息存储"><a href="#场景二：时效信息存储" class="headerlink" title="场景二：时效信息存储"></a>场景二：时效信息存储</h5><p>Redis 的数据存储具有自动失效能力。也就是存储的 key-value 可以设置过期时间，SETEX mykey 60 “value”中的第 2 个参数就是过期时间。比如，用户登录某个 App 需要获取登录验证码，验证码在 30 秒内有效。</p>
 <ul>
 <li>生成验证码：生成验证码并使用 String 类型在 reids 存储验证码，同时设置 30 秒的失效时间。如：SETEX validcode 30 “value”</li>
 <li>验证过程：用户获得验证码之后，我们通过 get validcode 获取验证码，如果获取不到说明验证码过期了。</li>
 </ul>
-<h4 id="3-2-List-类型使用场景"><a href="#3-2-List-类型使用场景" class="headerlink" title="3.2 List 类型使用场景"></a>3.2 List 类型使用场景</h4><p>list 是按照插入顺序排序的字符串链表。可以在头部和尾部插入新的元素（双向链表实</p>
-<p>现，两端添加元素的时间复杂度为 O(1))。</p>
-<h5 id="场景一：消息队列实现"><a href="#场景一：消息队列实现" class="headerlink" title="场景一：消息队列实现"></a>场景一：消息队列实现</h5><p>目前有很多专业的消息队列组件 Kafka、 RabbitMQ 等。我们在这里仅仅是使用 list 的特</p>
-<p>征来实现消息队列的要求。在实际技术选型的过程中，大家可以慎重思考。</p>
-<p>list 存储就是一个队列的存储形式：</p>
+<h4 id="3-2-List-类型使用场景"><a href="#3-2-List-类型使用场景" class="headerlink" title="3.2 List 类型使用场景"></a>3.2 List 类型使用场景</h4><p>list 是按照插入顺序排序的字符串链表。可以在头部和尾部插入新的元素（双向链表实现，两端添加元素的时间复杂度为 O(1))。</p>
+<h5 id="场景一：消息队列实现"><a href="#场景一：消息队列实现" class="headerlink" title="场景一：消息队列实现"></a>场景一：消息队列实现</h5><p>目前有很多专业的消息队列组件 Kafka、 RabbitMQ 等。我们在这里仅仅是使用 list 的特征来实现消息队列的要求。在实际技术选型的过程中，大家可以慎重思考。list 存储就是一个队列的存储形式：</p>
 <ul>
 <li><p>Ipush key value； 在 key 对应 list 的头部添加字符串元素；</p>
 </li>
 <li><p>rpop key； 移除列表的最后一个元素，返回值为移除的元素。</p>
 </li>
 </ul>
-<h5 id="场景二：最新上架商品"><a href="#场景二：最新上架商品" class="headerlink" title="场景二：最新上架商品"></a>场景二：最新上架商品</h5><p>在交易网站首页经常会有新上架产品推荐的模块，这个模块是存储了最新上架前 100 名。</p>
-<p>这时候使用 Redis 的 list 数据结构，来进行 TOP 100 新上架产品的存储。</p>
-<p>Redis trim 指令对一个列表进行修剪（trim），这样 list 就会只包含指定范围的指定元</p>
-<p>素。</p>
+<h5 id="场景二：最新上架商品"><a href="#场景二：最新上架商品" class="headerlink" title="场景二：最新上架商品"></a>场景二：最新上架商品</h5><p>在交易网站首页经常会有新上架产品推荐的模块，这个模块是存储了最新上架前 100 名。这时候使用 Redis 的 list 数据结构，来进行 TOP 100 新上架产品的存储。Redis trim 指令对一个列表进行修剪（trim），这样 list 就会只包含指定范围的指定元素。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ltrim key start end<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>start 和 end 都是由 0 开始计数的，这⾥的 0 是列表⾥的第⼀个元素（表头），1 是第⼆个元素。</p>
@@ -577,11 +558,8 @@ ret <span class="token operator">=</span> r.ltrim<span class="token punctuation"
 //获得前 <span class="token number">100</span> 个最新上架的商品 <span class="token function">id</span> 列表
 newest_goods_list <span class="token operator">=</span> r.lrange<span class="token punctuation">(</span><span class="token string">"new:goods"</span>, <span class="token number">0</span>, <span class="token number">99</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="3-3-set-类型使用场景"><a href="#3-3-set-类型使用场景" class="headerlink" title="3.3 set 类型使用场景"></a>3.3 set 类型使用场景</h4><p>set 也是存储了⼀个集合列表功能。和 list 不同，set 具备去重功能(和 Java 的 Set 数据类型</p>
-<p>⼀样)。当需要存储⼀个列表信息，同时要求列表内的元素不能有重复，这时候使⽤ set ⽐</p>
-<p>较合适。与此同时，set 还提供的交集、并集、差集。</p>
-<p>例如，在交易⽹站，我们会存储⽤户感兴趣的商品信息，在进⾏相似⽤户分析的时候， 可</p>
-<p>以通过计算两个不同⽤户之间感兴趣商品的数量来提供⼀些依据。</p>
+<h4 id="3-3-set-类型使用场景"><a href="#3-3-set-类型使用场景" class="headerlink" title="3.3 set 类型使用场景"></a>3.3 set 类型使用场景</h4><p>set 也是存储了⼀个集合列表功能。和 list 不同，set 具备去重功能(和 Java 的 Set 数据类型⼀样)。当需要存储⼀个列表信息，同时要求列表内的元素不能有重复，这时候使⽤ set ⽐较合适。与此同时，set 还提供的交集、并集、差集。</p>
+<p>例如，在交易⽹站，我们会存储⽤户感兴趣的商品信息，在进⾏相似⽤户分析的时候， 可以通过计算两个不同⽤户之间感兴趣商品的数量来提供⼀些依据。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">//userid 为⽤户 ID ， goodID 为感兴趣的商品信息。
 sadd <span class="token string">"user:userId"</span> goodID
 sadd <span class="token string">"user:101"</span> <span class="token number">1</span>
@@ -590,12 +568,8 @@ sadd <span class="token string">"user:102"</span> <span class="token number">1</
 sadd <span class="token string">"user:102"</span> <span class="token number">3</span>
 sinter <span class="token string">"user:101"</span> <span class="token string">"user:102"</span>    <span class="token comment"># 返回值是1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>获取到两个⽤户相似的产品， 然后确定相似产品的类⽬就可以进⾏⽤户分析。类似的应⽤</p>
-<p>场景还有， 社交场景下共同关注好友， 相似兴趣 tag 等场景的⽀持。</p>
-<h4 id="3-4-Hash-类型使用场景"><a href="#3-4-Hash-类型使用场景" class="headerlink" title="3.4 Hash 类型使用场景"></a>3.4 Hash 类型使用场景</h4><p>Redis 在存储对象（例如：⽤户信息）的时候需要对对象进⾏序列化转换然后存储，还有</p>
-<p>⼀种形式，就是将对象数据转换为 JSON 结构数据，然后存储 JSON 的字符串到 Redis。</p>
-<p>对于⼀些对象类型，还有另外⼀种⽐较⽅便的类型，那就是按照 Redis 的 Hash 类型进⾏</p>
-<p>存储。</p>
+<p>获取到两个⽤户相似的产品， 然后确定相似产品的类⽬就可以进⾏⽤户分析。类似的应⽤场景还有， 社交场景下共同关注好友， 相似兴趣 tag 等场景的⽀持。</p>
+<h4 id="3-4-Hash-类型使用场景"><a href="#3-4-Hash-类型使用场景" class="headerlink" title="3.4 Hash 类型使用场景"></a>3.4 Hash 类型使用场景</h4><p>Redis 在存储对象（例如：⽤户信息）的时候需要对对象进⾏序列化转换然后存储，还有⼀种形式，就是将对象数据转换为 JSON 结构数据，然后存储 JSON 的字符串到 Redis。对于⼀些对象类型，还有另外⼀种⽐较⽅便的类型，那就是按照 Redis 的 Hash 类型进⾏存储。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hset key field value<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>例如，我们存储⼀些⽹站⽤户的基本信息， 我们可以使⽤：</p>
@@ -603,20 +577,10 @@ sinter <span class="token string">"user:101"</span> <span class="token string">"
 hset user101 phone <span class="token string">"123456"</span>
 hset user101 sex <span class="token string">"男"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>这样就存储了⼀个⽤户基本信息，存储信息有：{name : ⼩明， phone : “123456”，sex : “男”}</p>
-<p>当然这种类似场景还⾮常多， ⽐如存储订单的数据，产品的数据，商家基本信息等。⼤家</p>
-<p>可以参考来进⾏存储选型。但是不适合存储关联关系⽐较复杂的数据，那种场景还得⽤关</p>
-<p>系型数据库⽐较⽅便。</p>
-<h4 id="3-5-Sorted-Set-类型使用场景"><a href="#3-5-Sorted-Set-类型使用场景" class="headerlink" title="3.5 Sorted Set 类型使用场景"></a>3.5 Sorted Set 类型使用场景</h4><p>Redis sorted set 的使⽤场景与 set 类似，区别是 set 不是⾃动有序的，⽽ sorted set 可</p>
-<p>以通过提供⼀个 score 参数来为存储数据排序，并且是⾃动排序，插⼊既有序。<strong>业务中如</strong></p>
-<p><strong>果需要⼀个有序且不重复的集合列表，就可以选择 sorted set 这种数据结构。</strong></p>
-<p>⽐如：商品的购买热度可以将购买总量 num 当做商品列表的 score，这样获取最热⻔的商</p>
-<p>品时就是可以⾃动按售卖总量排好序。</p>
-<h2 id="2-整合单例模式"><a href="#2-整合单例模式" class="headerlink" title="2. 整合单例模式"></a>2. 整合单例模式</h2><p>redis 集群模式和哨兵模式⾼可⽤的安装与运维，需要去专⻔的 redis 课程学习。这⾥主要</p>
-<p>⾯向 SpringBoot 整合 redis 来开发，不涉及 redis 集群⾼可⽤及运维知识。</p>
-<h3 id="⼀、spring-data-redis-简介"><a href="#⼀、spring-data-redis-简介" class="headerlink" title="⼀、spring-data-redis 简介"></a>⼀、spring-data-redis 简介</h3><p>Spring Boot 提供了对 Redis 集成的组件包：spring-boot-starter-data-redis，它依赖于</p>
-<p>spring-data-redis 和 lettuce。Spring Boot 1.0 默认使⽤的是 Jedis 客户端，2.0 替换成了</p>
-<p>Lettuce， spring-boot-starter-data-redis 为我们隔离了其中的差异性。</p>
+<p>这样就存储了⼀个⽤户基本信息，存储信息有：{name : ⼩明， phone : “123456”，sex : “男”}<br>当然这种类似场景还⾮常多， ⽐如存储订单的数据，产品的数据，商家基本信息等。⼤家可以参考来进⾏存储选型。但是不适合存储关联关系⽐较复杂的数据，那种场景还得⽤关系型数据库⽐较⽅便。</p>
+<h4 id="3-5-Sorted-Set-类型使用场景"><a href="#3-5-Sorted-Set-类型使用场景" class="headerlink" title="3.5 Sorted Set 类型使用场景"></a>3.5 Sorted Set 类型使用场景</h4><p>Redis sorted set 的使⽤场景与 set 类似，区别是 set 不是⾃动有序的，⽽ sorted set 可以通过提供⼀个 score 参数来为存储数据排序，并且是⾃动排序，插⼊既有序。<strong>业务中如果需要⼀个有序且不重复的集合列表，就可以选择 sorted set 这种数据结构。</strong>⽐如：商品的购买热度可以将购买总量 num 当做商品列表的 score，这样获取最热⻔的商品时就是可以⾃动按售卖总量排好序。</p>
+<h2 id="2-整合单例模式"><a href="#2-整合单例模式" class="headerlink" title="2. 整合单例模式"></a>2. 整合单例模式</h2><p>redis 集群模式和哨兵模式⾼可⽤的安装与运维，需要去专⻔的 redis 课程学习。这⾥主要⾯向 SpringBoot 整合 redis 来开发，不涉及 redis 集群⾼可⽤及运维知识。</p>
+<h3 id="⼀、spring-data-redis-简介"><a href="#⼀、spring-data-redis-简介" class="headerlink" title="⼀、spring-data-redis 简介"></a>⼀、spring-data-redis 简介</h3><p>Spring Boot 提供了对 Redis 集成的组件包：spring-boot-starter-data-redis，它依赖于 spring-data-redis 和 lettuce。Spring Boot 1.0 默认使⽤的是 Jedis 客户端，2.0 替换成了 Lettuce， spring-boot-starter-data-redis 为我们隔离了其中的差异性。</p>
 <ol>
 <li><p>Lettuce：是⼀个可伸缩线程安全的 Redis 客户端，多个线程可以共享同⼀个 RedisConnection，它 利⽤优秀 Netty NIO 框架来⾼效地管理多个连接。</p>
 </li>
@@ -650,41 +614,29 @@ hset user101 sex <span class="token string">"男"</span><span aria-hidden="true"
         max<span class="token punctuation">-</span><span class="token key atrule">idle</span><span class="token punctuation">:</span> <span class="token number">8</span> <span class="token comment"># 连接池中的最⼤空闲连接 默认 8</span>
         min<span class="token punctuation">-</span><span class="token key atrule">idle</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token comment"># 连接池中的最⼩空闲连接 默认 0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="3-使用-redisTemplate-操作数据"><a href="#3-使用-redisTemplate-操作数据" class="headerlink" title="3.使用 redisTemplate 操作数据"></a>3.使用 redisTemplate 操作数据</h2><h3 id="⼀、redis-模板封装类"><a href="#⼀、redis-模板封装类" class="headerlink" title="⼀、redis 模板封装类"></a>⼀、redis 模板封装类</h3><p>RedisTemplate 的封装使我们能够更⽅便的进⾏ redis 数据操作，⽐直接使⽤ Jedis 或者</p>
-<p>Lettuce 的 javaSDK 要⽅便很多。RedisTemplate 作为 java 操作 redis 数据库的 API 模板更通</p>
-<p>⽤，可以操作所有的 redis 数据类型。</p>
+<h2 id="3-使用-redisTemplate-操作数据"><a href="#3-使用-redisTemplate-操作数据" class="headerlink" title="3.使用 redisTemplate 操作数据"></a>3.使用 redisTemplate 操作数据</h2><h3 id="⼀、redis-模板封装类"><a href="#⼀、redis-模板封装类" class="headerlink" title="⼀、redis 模板封装类"></a>⼀、redis 模板封装类</h3><p>RedisTemplate 的封装使我们能够更⽅便的进⾏ redis 数据操作，⽐直接使⽤ Jedis 或者 Lettuce 的 javaSDK 要⽅便很多。RedisTemplate 作为 java 操作 redis 数据库的 API 模板更通⽤，可以操作所有的 redis 数据类型。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 注⼊RedisTemplate，更通⽤</span>
 <span class="token annotation punctuation">@Resource</span>
 <span class="token keyword">private</span> <span class="token class-name">RedisTemplate</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> redisTemplate<span class="token punctuation">;</span>
-<span class="token class-name">ValueOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Object</span><span class="token punctuation">></span></span> <span class="token class-name">ValueOperations</span> <span class="token operator">=</span>
-redisTemplate<span class="token punctuation">.</span><span class="token function">opsForValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//操作字符串</span>
-<span class="token class-name">HashOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> hashOperations <span class="token operator">=</span>
-redisTemplate<span class="token punctuation">.</span><span class="token function">opsForHash</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//操作 hash</span>
-<span class="token class-name">ListOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> listOperations <span class="token operator">=</span>
-redisTemplate<span class="token punctuation">.</span><span class="token function">opsForList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//操作 list</span>
-<span class="token class-name">SetOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> setOperations <span class="token operator">=</span>
-redisTemplate<span class="token punctuation">.</span><span class="token function">opsForSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//操作 set</span>
-<span class="token class-name">ZSetOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> zSetOperations <span class="token operator">=</span>
-redisTemplate<span class="token punctuation">.</span><span class="token function">opsForZSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//操作有序 set</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token class-name">ValueOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Object</span><span class="token punctuation">></span></span> <span class="token class-name">ValueOperations</span> <span class="token operator">=</span> redisTemplate<span class="token punctuation">.</span><span class="token function">opsForValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//操作字符串</span>
+<span class="token class-name">HashOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> hashOperations <span class="token operator">=</span> redisTemplate<span class="token punctuation">.</span><span class="token function">opsForHash</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//操作 hash</span>
+<span class="token class-name">ListOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> listOperations <span class="token operator">=</span> redisTemplate<span class="token punctuation">.</span><span class="token function">opsForList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//操作 list</span>
+<span class="token class-name">SetOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> setOperations <span class="token operator">=</span> redisTemplate<span class="token punctuation">.</span><span class="token function">opsForSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//操作 set</span>
+<span class="token class-name">ZSetOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> zSetOperations <span class="token operator">=</span> redisTemplate<span class="token punctuation">.</span><span class="token function">opsForZSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//操作有序 set</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>ListOperations、ValueOperations、HashOperations、SetOperations、</p>
-<p>ZSetOperations 等都是针对专有数据类型进⾏操作，使⽤起来更简洁。</p>
+<p>ListOperations、ValueOperations、HashOperations、SetOperations、ZSetOperations 等都是针对专有数据类型进⾏操作，使⽤起来更简洁。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Resource</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"redisTemplate"</span><span class="token punctuation">)</span>
-<span class="token keyword">private</span> <span class="token class-name">ValueOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Object</span><span class="token punctuation">></span></span> valueOperations<span class="token punctuation">;</span>   <span class="token comment">//以redis</span>
-string类型存取<span class="token class-name">Java</span> <span class="token class-name">Object</span><span class="token punctuation">(</span>序列化反序列化<span class="token punctuation">)</span>
+<span class="token keyword">private</span> <span class="token class-name">ValueOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Object</span><span class="token punctuation">></span></span> valueOperations<span class="token punctuation">;</span>   <span class="token comment">//以redis string类型存取Java Object(序列化反序列化)</span>
 <span class="token annotation punctuation">@Resource</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"redisTemplate"</span><span class="token punctuation">)</span>
-<span class="token keyword">private</span> <span class="token class-name">HashOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> hashOperations<span class="token punctuation">;</span> <span class="token comment">//以redis</span>
-的hash类型存储java <span class="token class-name">Object</span>
+<span class="token keyword">private</span> <span class="token class-name">HashOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> hashOperations<span class="token punctuation">;</span> <span class="token comment">//以redis的hash类型存储java Object</span>
 <span class="token annotation punctuation">@Resource</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"redisTemplate"</span><span class="token punctuation">)</span>
 <span class="token keyword">private</span> <span class="token class-name">ListOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> listOperations<span class="token punctuation">;</span> <span class="token comment">//以redis的list类型 存储java Object</span>
 <span class="token annotation punctuation">@Resource</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"redisTemplate"</span><span class="token punctuation">)</span>
 <span class="token keyword">private</span> <span class="token class-name">SetOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> setOperations<span class="token punctuation">;</span>   <span class="token comment">//以redis的set类型存 储java Object</span>
 <span class="token annotation punctuation">@Resource</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"redisTemplate"</span><span class="token punctuation">)</span>
-<span class="token keyword">private</span> <span class="token class-name">ZSetOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> zSetOperations<span class="token punctuation">;</span>  <span class="token comment">//以redis的</span>
-zset类型存储java <span class="token class-name">Object</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">private</span> <span class="token class-name">ZSetOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> zSetOperations<span class="token punctuation">;</span>  <span class="token comment">//以redis的zset类型存储java Object</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="⼆、基础数据-Java-类"><a href="#⼆、基础数据-Java-类" class="headerlink" title="⼆、基础数据 Java 类"></a>⼆、基础数据 Java 类</h3><p>为了⽅便后⾯写代码解释 API 的使⽤⽅法，写测试⽤例。我们需要先准备数据对象</p>
-<p>Person，注意要实现 Serializable 接⼝，为什么⼀定要实现这个接⼝？我们下⽂解释。</p>
+<h3 id="⼆、基础数据-Java-类"><a href="#⼆、基础数据-Java-类" class="headerlink" title="⼆、基础数据 Java 类"></a>⼆、基础数据 Java 类</h3><p>为了⽅便后⾯写代码解释 API 的使⽤⽅法，写测试⽤例。我们需要先准备数据对象 Person，注意要实现 Serializable 接⼝，为什么⼀定要实现这个接⼝？我们下⽂解释。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">long</span> serialVersionUID <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">8985545025228238754L</span><span class="token punctuation">;</span>
@@ -695,7 +647,7 @@ zset类型存储java <span class="token class-name">Object</span><span aria-hidd
   <span class="token keyword">public</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token class-name">String</span> firstname<span class="token punctuation">,</span> <span class="token class-name">String</span> lastname<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>firstname <span class="token operator">=</span> firstname<span class="token punctuation">;</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>lastname <span class="token operator">=</span> lastname<span class="token punctuation">;</span>
- <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>准备数据对象 Address</p>
@@ -722,28 +674,20 @@ zset类型存储java <span class="token class-name">Object</span><span aria-hidd
         <span class="token class-name">Person</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"zhang"</span><span class="token punctuation">,</span><span class="token string">"san"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         person<span class="token punctuation">.</span><span class="token function">setAddress</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Address</span><span class="token punctuation">(</span><span class="token string">"南京"</span><span class="token punctuation">,</span><span class="token string">"中国"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment">//将数据存⼊redis数据库</span>
-        stringRedisTemplate<span class="token punctuation">.</span><span class="token function">opsForValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"player:srt"</span><span class="token punctuation">,</span><span class="token string">"zhangsan"</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span>
-<span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>SECONDS<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        redisTemplate<span class="token punctuation">.</span><span class="token function">opsForValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"player:rt"</span><span class="token punctuation">,</span>person<span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span>
-<span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>SECONDS<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        stringRedisTemplate<span class="token punctuation">.</span><span class="token function">opsForValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"player:srt"</span><span class="token punctuation">,</span><span class="token string">"zhangsan"</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>SECONDS<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        redisTemplate<span class="token punctuation">.</span><span class="token function">opsForValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"player:rt"</span><span class="token punctuation">,</span>person<span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>SECONDS<span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>⼆者的区别在于</p>
 <ul>
 <li><p>操作的数据类型不同，以 List 类型为例：RedisTemplate 操作 <code>List&lt;Object&gt;</code>,StringRedisTemplate 操作 <code>List&lt;String&gt;</code></p>
 </li>
-<li><p>序列化数据的⽅式不同，RedisTemplate 使⽤的是 JdkSerializationRedisSerializer 存⼊数据会将数据先序列化成字节数组然后在存⼊ Redis 数据库。 StringRedisTemplate 使⽤的是 StringRedisSerializer</p>
+<li><p>序列化数据的⽅式不同，RedisTemplate 使⽤的是 JdkSerializationRedisSerializer 存⼊数据会将数据先序列化成字节数组然后在存⼊ Redis 数据库。 StringRedisTemplate 使⽤的是 StringRedisSerializer redis 持久化的 java 数据类为什么要实现 Serializable 接⼝？因为 RedisTemplate 默认使⽤的是 JdkSerializationRedisSerializer，也就是使⽤ Java JDK 默认的序列化⽅式存储数据。如果不实现 Serializable 接⼝，JDK 序列化就会报错，这是 java 基础知识。如果我们可以不使⽤ JDK 默认的序列化⽅式，就不需要实现这个 Serializable 接⼝。</p>
 </li>
 </ul>
-<p>redis 持久化的 java 数据类为什么要实现 Serializable 接⼝？因为 RedisTemplate 默认使⽤的</p>
-<p>是 JdkSerializationRedisSerializer，也就是使⽤ Java JDK 默认的序列化⽅式存储数据。如</p>
-<p>果不实现 Serializable 接⼝，JDK 序列化就会报错，这是 java 基础知识。如果我们可以不使</p>
-<p>⽤ JDK 默认的序列化⽅式，就不需要实现这个 Serializable 接⼝。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-05-01_14-17-02.png" alt="图片描述"></p>
-<p>需要注意的是因为 RedisTemplate 和 StringRedisTemplate 的默认序列化存储⽅式不⼀样，</p>
-<p>所以⼆者存储的数据并不能通⽤。也就是说 RedisTemplate 存的数据只能⽤</p>
-<p>RedisTemplate 去取，对于 StringRedisTemplate 也是⼀样。</p>
+<p>需要注意的是因为 RedisTemplate 和 StringRedisTemplate 的默认序列化存储⽅式不⼀样，所以⼆者存储的数据并不能通⽤。也就是说 RedisTemplate 存的数据只能⽤ RedisTemplate 去取，对于 StringRedisTemplate 也是⼀样。</p>
 <h3 id="四、解决-key-value-乱码问题"><a href="#四、解决-key-value-乱码问题" class="headerlink" title="四、解决 key-value 乱码问题"></a>四、解决 key-value 乱码问题</h3><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-05-01_14-43-28.png" alt="图片描述"></p>
 <p>其实这个不是严格意义上的乱码，是 JDK 的⼆进制序列化之后的存储⽅式。</p>
 <p>如何解决？看下⽂的配置类代码</p>
@@ -756,32 +700,27 @@ zset类型存储java <span class="token class-name">Object</span><span aria-hidd
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RedisConfig</span> <span class="token punctuation">&#123;</span>
     <span class="token annotation punctuation">@Bean</span>
-    <span class="token keyword">public</span> <span class="token class-name">RedisTemplate</span> <span class="token function">redisTemplate</span><span class="token punctuation">(</span><span class="token class-name">RedisConnectionFactory</span>
-redisConnectionFactory<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">RedisTemplate</span> <span class="token function">redisTemplate</span><span class="token punctuation">(</span><span class="token class-name">RedisConnectionFactory</span> redisConnectionFactory<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">RedisTemplate</span> redisTemplate <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RedisTemplate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         redisTemplate<span class="token punctuation">.</span><span class="token function">setConnectionFactory</span><span class="token punctuation">(</span>redisConnectionFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">Jackson2JsonRedisSerializer</span> jackson2JsonRedisSerializer <span class="token operator">=</span> <span class="token keyword">new</span>
-<span class="token class-name">Jackson2JsonRedisSerializer</span><span class="token punctuation">(</span><span class="token class-name">Object</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Jackson2JsonRedisSerializer</span> jackson2JsonRedisSerializer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Jackson2JsonRedisSerializer</span><span class="token punctuation">(</span><span class="token class-name">Object</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token class-name">ObjectMapper</span> objectMapper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectMapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        objectMapper<span class="token punctuation">.</span><span class="token function">setVisibility</span><span class="token punctuation">(</span><span class="token class-name">PropertyAccessor</span><span class="token punctuation">.</span>ALL<span class="token punctuation">,</span>
-<span class="token class-name">JsonAutoDetect<span class="token punctuation">.</span>Visibility</span><span class="token punctuation">.</span>ANY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        objectMapper<span class="token punctuation">.</span><span class="token function">setVisibility</span><span class="token punctuation">(</span><span class="token class-name">PropertyAccessor</span><span class="token punctuation">.</span>ALL<span class="token punctuation">,</span> <span class="token class-name">JsonAutoDetect<span class="token punctuation">.</span>Visibility</span><span class="token punctuation">.</span>ANY<span class="token punctuation">)</span><span class="token punctuation">;</span>
       
-objectMapper<span class="token punctuation">.</span><span class="token function">enableDefaultTyping</span><span class="token punctuation">(</span><span class="token class-name">ObjectMapper<span class="token punctuation">.</span>DefaultTyping</span><span class="token punctuation">.</span>NON_FINAL<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        objectMapper<span class="token punctuation">.</span><span class="token function">enableDefaultTyping</span><span class="token punctuation">(</span><span class="token class-name">ObjectMapper<span class="token punctuation">.</span>DefaultTyping</span><span class="token punctuation">.</span>NON_FINAL<span class="token punctuation">)</span><span class="token punctuation">;</span>
         jackson2JsonRedisSerializer<span class="token punctuation">.</span><span class="token function">setObjectMapper</span><span class="token punctuation">(</span>objectMapper<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment">//重点在这四⾏代码</span>
         redisTemplate<span class="token punctuation">.</span><span class="token function">setKeySerializer</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">StringRedisSerializer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         redisTemplate<span class="token punctuation">.</span><span class="token function">setValueSerializer</span><span class="token punctuation">(</span>jackson2JsonRedisSerializer<span class="token punctuation">)</span><span class="token punctuation">;</span>
         redisTemplate<span class="token punctuation">.</span><span class="token function">setHashKeySerializer</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">StringRedisSerializer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       
-redisTemplate<span class="token punctuation">.</span><span class="token function">setHashValueSerializer</span><span class="token punctuation">(</span>jackson2JsonRedisSerializer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        redisTemplate<span class="token punctuation">.</span><span class="token function">setHashValueSerializer</span><span class="token punctuation">(</span>jackson2JsonRedisSerializer<span class="token punctuation">)</span><span class="token punctuation">;</span>
         redisTemplate<span class="token punctuation">.</span><span class="token function">afterPropertiesSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> redisTemplate<span class="token punctuation">;</span>
    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>乱码问题的症结在于对象的序列化问题：RedisTemplate 默认使⽤的是</p>
-<p>JdkSerializationRedisSerializer （⼆进制存储），StringRedisTemplate 默认使⽤的是</p>
-<p>StringRedisSerializer（redis 字符串格式存储）。</p>
+<p>乱码问题的症结在于对象的序列化问题：RedisTemplate 默认使⽤的是 JdkSerializationRedisSerializer （⼆进制存储），StringRedisTemplate 默认使⽤的是 StringRedisSerializer（redis 字符串格式存储）。</p>
 <p>序列化⽅式对⽐：</p>
 <ul>
 <li><p>JdkSerializationRedisSerializer: 使⽤ JDK 提供的序列化功能。 优点是反序列化时不需要提供类型信息(class)，但缺点是需要实现 Serializable 接⼝，还有序列化后的结果⾮常庞⼤，是 JSON 格式的 5 倍左右，这样就会消耗 redis 服务器的⼤量内存。⽽且是以⼆进制形式保存，⾃然⼈⽆法理解。</p>
@@ -794,32 +733,28 @@ redisTemplate<span class="token punctuation">.</span><span class="token function
 <h3 id="五、使用-redisTemplate-存取-redis-各种数据类型"><a href="#五、使用-redisTemplate-存取-redis-各种数据类型" class="headerlink" title="五、使用 redisTemplate 存取 redis 各种数据类型"></a>五、使用 redisTemplate 存取 redis 各种数据类型</h3><p>下⾯的各种数据类型操作的 api 和 redis 命令⾏ api 的含义⼏乎是⼀致的。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootTest</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RedisConfigTest2</span> <span class="token punctuation">&#123;</span>
-    <span class="token annotation punctuation">@Resource</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"redisTemplate"</span><span class="token punctuation">)</span>
-    <span class="token keyword">private</span> <span class="token class-name">ValueOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Object</span><span class="token punctuation">></span></span> valueOperations<span class="token punctuation">;</span>   <span class="token comment">//以redis</span>
-string类型存取<span class="token class-name">Java</span> <span class="token class-name">Object</span><span class="token punctuation">(</span>序列化反序列化<span class="token punctuation">)</span>
-    <span class="token annotation punctuation">@Resource</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"redisTemplate"</span><span class="token punctuation">)</span>
-    <span class="token keyword">private</span> <span class="token class-name">HashOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> hashOperations<span class="token punctuation">;</span> <span class="token comment">//以</span>
-redis的hash类型存储java <span class="token class-name">Object</span>
-    <span class="token annotation punctuation">@Resource</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"redisTemplate"</span><span class="token punctuation">)</span>
-    <span class="token keyword">private</span> <span class="token class-name">ListOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> listOperations<span class="token punctuation">;</span> <span class="token comment">//以redis的</span>
-list类型存储java <span class="token class-name">Object</span>
-    <span class="token annotation punctuation">@Resource</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"redisTemplate"</span><span class="token punctuation">)</span>
-    <span class="token keyword">private</span> <span class="token class-name">SetOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> setOperations<span class="token punctuation">;</span>   <span class="token comment">//以redis的set</span>
-类型存储java <span class="token class-name">Object</span>
-    <span class="token annotation punctuation">@Resource</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"redisTemplate"</span><span class="token punctuation">)</span>
-    <span class="token keyword">private</span> <span class="token class-name">ZSetOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> zSetOperations<span class="token punctuation">;</span>  <span class="token comment">//以redis的</span>
-zset类型存储java <span class="token class-name">Object</span>
-    <span class="token annotation punctuation">@Test</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testValueObj</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">Person</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"张"</span><span class="token punctuation">,</span><span class="token string">"三"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        person<span class="token punctuation">.</span><span class="token function">setAddress</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Address</span><span class="token punctuation">(</span><span class="token string">"南京"</span><span class="token punctuation">,</span><span class="token string">"中国"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//向redis数据库保存数据(key,value),数据有效期20秒</span>
-        valueOperations<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"player:1"</span><span class="token punctuation">,</span>person<span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>SECONDS<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//20</span>
-秒之后数据消失
-        <span class="token comment">//根据key把数据取出来</span>
-        <span class="token class-name">Person</span> getBack <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Person</span><span class="token punctuation">)</span>valueOperations<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"player:1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>getBack<span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">&#125;</span>
+     <span class="token annotation punctuation">@Resource</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"redisTemplate"</span><span class="token punctuation">)</span>
+     <span class="token keyword">private</span> <span class="token class-name">ValueOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Object</span><span class="token punctuation">></span></span> valueOperations<span class="token punctuation">;</span>   <span class="token comment">//以redis string类型存取Java Object(序列化反序列化)</span>
+     <span class="token annotation punctuation">@Resource</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"redisTemplate"</span><span class="token punctuation">)</span>
+     <span class="token keyword">private</span> <span class="token class-name">HashOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> hashOperations<span class="token punctuation">;</span> <span class="token comment">//以redis的hash类型存储java Object</span>
+     <span class="token annotation punctuation">@Resource</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"redisTemplate"</span><span class="token punctuation">)</span>
+     <span class="token keyword">private</span> <span class="token class-name">ListOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> listOperations<span class="token punctuation">;</span> <span class="token comment">//以redis的list类型存储java Object</span>
+     <span class="token annotation punctuation">@Resource</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"redisTemplate"</span><span class="token punctuation">)</span>
+     <span class="token keyword">private</span> <span class="token class-name">SetOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> setOperations<span class="token punctuation">;</span>   <span class="token comment">//以redis的set类型存储java Object</span>
+     <span class="token annotation punctuation">@Resource</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"redisTemplate"</span><span class="token punctuation">)</span>
+     <span class="token keyword">private</span> <span class="token class-name">ZSetOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> zSetOperations<span class="token punctuation">;</span>  <span class="token comment">//以redis的zset类型存储java Object</span>
+
+     <span class="token annotation punctuation">@Test</span>
+     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testValueObj</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+         <span class="token class-name">Person</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"张"</span><span class="token punctuation">,</span><span class="token string">"三"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         person<span class="token punctuation">.</span><span class="token function">setAddress</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Address</span><span class="token punctuation">(</span><span class="token string">"南京"</span><span class="token punctuation">,</span><span class="token string">"中国"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token comment">//向redis数据库保存数据(key,value),数据有效期20秒</span>
+         valueOperations<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"player:1"</span><span class="token punctuation">,</span>person<span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span>SECONDS<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//20秒之后数据消失</span>
+         <span class="token comment">//根据key把数据取出来</span>
+         <span class="token class-name">Person</span> getBack <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Person</span><span class="token punctuation">)</span>valueOperations<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"player:1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>getBack<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
     <span class="token annotation punctuation">@Test</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testSetOperation</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">Person</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"zhang"</span><span class="token punctuation">,</span><span class="token string">"san"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -828,20 +763,22 @@ zset类型存储java <span class="token class-name">Object</span>
         <span class="token comment">//members获取Redis Set中的所有记录</span>
         <span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Object</span><span class="token punctuation">></span></span> result <span class="token operator">=</span> setOperations<span class="token punctuation">.</span><span class="token function">members</span><span class="token punctuation">(</span><span class="token string">"playerset"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//包含kobe和curry的数组</span>
-        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
     <span class="token annotation punctuation">@Test</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token class-name">HashOperations</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">Person</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"kobe"</span><span class="token punctuation">,</span><span class="token string">"byrant"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment">//使⽤hash的⽅法存储对象数据（⼀个属性⼀个属性的存，下节教⼤家简单的⽅法）</span>
       
-hashOperations<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"hash:player"</span><span class="token punctuation">,</span><span class="token string">"firstname"</span><span class="token punctuation">,</span>person<span class="token punctuation">.</span><span class="token function">getFirstname</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashOperations<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"hash:player"</span><span class="token punctuation">,</span><span class="token string">"firstname"</span><span class="token punctuation">,</span>person<span class="token punctuation">.</span><span class="token function">getFirstname</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       
-hashOperations<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"hash:player"</span><span class="token punctuation">,</span><span class="token string">"lastname"</span><span class="token punctuation">,</span>person<span class="token punctuation">.</span><span class="token function">getLastname</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        hashOperations<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"hash:player"</span><span class="token punctuation">,</span><span class="token string">"lastname"</span><span class="token punctuation">,</span>person<span class="token punctuation">.</span><span class="token function">getLastname</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         hashOperations<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"hash:player"</span><span class="token punctuation">,</span><span class="token string">"address"</span><span class="token punctuation">,</span>person<span class="token punctuation">.</span><span class="token function">getAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment">//取出⼀个对象的属性值，有没有办法⼀次将整个对象取出来？有，下节介绍</span>
         <span class="token class-name">String</span> firstName <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span>hashOperations<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"hash:player"</span><span class="token punctuation">,</span><span class="token string">"firstname"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>firstName<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">//kobe</span>
-   <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
     <span class="token annotation punctuation">@Test</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span>  <span class="token class-name">ListOperations</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token comment">//将数据对象放⼊队列</span>
@@ -851,8 +788,8 @@ hashOperations<span class="token punctuation">.</span><span class="token functio
         <span class="token comment">//从左侧存，再从左侧取，所以取出来的数据是后放⼊的curry</span>
         <span class="token class-name">Person</span> person <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Person</span><span class="token punctuation">)</span> listOperations<span class="token punctuation">.</span><span class="token function">leftPop</span><span class="token punctuation">(</span><span class="token string">"list:player"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//curry对象</span>
-   <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="4-使用-Redis-Repository-操作数据"><a href="#4-使用-Redis-Repository-操作数据" class="headerlink" title="4. 使用 Redis Repository 操作数据"></a>4. 使用 Redis Repository 操作数据</h2><p>通过集成 spring-boot-starter-data-redis 之后⼀共有三种 redis hash 数据操作⽅式可以供我们选择</p>
 <ul>
@@ -890,28 +827,24 @@ hashOperations<span class="token punctuation">.</span><span class="token functio
     <span class="token keyword">private</span> <span class="token class-name">HashOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> jacksonHashOperations<span class="token punctuation">;</span>
     
     <span class="token comment">//注意这⾥的false，下⽂会讲解</span>
-    <span class="token keyword">private</span> <span class="token class-name">HashMapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Object</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> jackson2HashMapper <span class="token operator">=</span> <span class="token keyword">new</span>
-<span class="token class-name">Jackson2HashMapper</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">HashMapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Object</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> jackson2HashMapper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Jackson2HashMapper</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
     <span class="token annotation punctuation">@Test</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testHashPutAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
         <span class="token class-name">Person</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"zhang"</span><span class="token punctuation">,</span><span class="token string">"san"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         person<span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span><span class="token string">"zhang"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         person<span class="token punctuation">.</span><span class="token function">setAddress</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Address</span><span class="token punctuation">(</span><span class="token string">"洛杉矶"</span><span class="token punctuation">,</span><span class="token string">"美国"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment">//将对象以hash的形式放⼊redis数据库</span>
-        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Object</span><span class="token punctuation">></span></span> mappedHash <span class="token operator">=</span>
-jackson2HashMapper<span class="token punctuation">.</span><span class="token function">toHash</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        jacksonHashOperations<span class="token punctuation">.</span><span class="token function">putAll</span><span class="token punctuation">(</span><span class="token string">"player:"</span> <span class="token operator">+</span> person<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-mappedHash<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Object</span><span class="token punctuation">></span></span> mappedHash <span class="token operator">=</span> jackson2HashMapper<span class="token punctuation">.</span><span class="token function">toHash</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        jacksonHashOperations<span class="token punctuation">.</span><span class="token function">putAll</span><span class="token punctuation">(</span><span class="token string">"player:"</span> <span class="token operator">+</span> person<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> mappedHash<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment">//将对象从数据库取出来</span>
-        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Object</span><span class="token punctuation">></span></span> loadedHash <span class="token operator">=</span>
-jacksonHashOperations<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token string">"player:"</span> <span class="token operator">+</span> person<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Object</span><span class="token punctuation">></span></span> loadedHash <span class="token operator">=</span> jacksonHashOperations<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token string">"player:"</span> <span class="token operator">+</span> person<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token class-name">Object</span> map <span class="token operator">=</span> jackson2HashMapper<span class="token punctuation">.</span><span class="token function">fromHash</span><span class="token punctuation">(</span>loadedHash<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">Person</span> getback <span class="token operator">=</span> <span class="token keyword">new</span>
-<span class="token class-name">ObjectMapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">convertValue</span><span class="token punctuation">(</span>map<span class="token punctuation">,</span><span class="token class-name">Person</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Person</span> getback <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectMapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">convertValue</span><span class="token punctuation">(</span>map<span class="token punctuation">,</span><span class="token class-name">Person</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment">//Junit5,验证放进去的和取出来的数据⼀致</span>
         <span class="token function">assertEquals</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getFirstname</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>getback<span class="token punctuation">.</span><span class="token function">getFirstname</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>使⽤这种⽅式可以⼀次性存取 Java 对象为 redis 数据库的 hash 数据类型。需要注意的是：执⾏上⾯的测试⽤例，Person 和 Address ⼀定要有 public ⽆参构造⽅法，在将 map 转换成 Person 或 Address 对象的时候⽤到，如果没有的话会报错。</p>
 <h3 id="三、使⽤-RedisRepository-的对象操作"><a href="#三、使⽤-RedisRepository-的对象操作" class="headerlink" title="三、使⽤ RedisRepository 的对象操作"></a>三、使⽤ RedisRepository 的对象操作</h3><p>使⽤ RedisRepository 进⾏ redis 数据操作，它不只是能简单地存取数据，还可以做很多 CURD 操作。使⽤起来和⽤ JPA 进⾏关系型数据库的单表操作，⼏乎是⼀样的。</p>
@@ -938,6 +871,7 @@ jacksonHashOperations<span class="token punctuation">.</span><span class="token 
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RedisRepositoryTest</span> <span class="token punctuation">&#123;</span>
     <span class="token annotation punctuation">@Resource</span>
     <span class="token class-name">PersonRepository</span> personRepository<span class="token punctuation">;</span>
+
     <span class="token annotation punctuation">@Test</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
         <span class="token class-name">Person</span> rand <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"zhang"</span><span class="token punctuation">,</span> <span class="token string">"san"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -952,7 +886,7 @@ jacksonHashOperations<span class="token punctuation">.</span><span class="token 
         <span class="token comment">//删除person对象rand</span>
         personRepository<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>rand<span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>测试结果：需要注意的是 RedisRepository 在存取对象数据的时候，实际上使⽤了 redis 的 2 种数据类型</p>
 <ul>
@@ -988,9 +922,7 @@ jacksonHashOperations<span class="token punctuation">.</span><span class="token 
 <li><p>缓存层代码和业务代码耦合，造成难以维护的问题。</p>
 </li>
 </ul>
-<h3 id="三、整合-Spring-Cache"><a href="#三、整合-Spring-Cache" class="headerlink" title="三、整合 Spring Cache"></a>三、整合 Spring Cache</h3><p>我们可以使⽤ Spring cache 解决上⾯遇到的两个问题，Spring cache 通过注解的⽅式来操</p>
-<p>作缓存，⼀定程度上减少了程序员缓存操作代码编写量。注解添加和移除都很⽅便，不与</p>
-<p>业务代码耦合，容易维护。</p>
+<h3 id="三、整合-Spring-Cache"><a href="#三、整合-Spring-Cache" class="headerlink" title="三、整合 Spring Cache"></a>三、整合 Spring Cache</h3><p>我们可以使⽤ Spring cache 解决上⾯遇到的两个问题，Spring cache 通过注解的⽅式来操作缓存，⼀定程度上减少了程序员缓存操作代码编写量。注解添加和移除都很⽅便，不与业务代码耦合，容易维护。</p>
 <p>第⼀步：pom.xml 添加 Spring Boot 的 jar 依赖：</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
@@ -998,9 +930,7 @@ jacksonHashOperations<span class="token punctuation">.</span><span class="token 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>第⼆步：添加⼊⼝启动类 @EnableCaching 注解开启 Caching</p>
-<p>在 Spring Boot 中通过@EnableCaching 注解⾃动化配置合适的缓存管理器</p>
-<p>（CacheManager），SpringBoot 根据下⾯的顺序去侦测缓存提供者，也就是说 Spring</p>
-<p>Cache ⽀持下⾯的这些缓存框架：</p>
+<p>在 Spring Boot 中通过@EnableCaching 注解⾃动化配置合适的缓存管理器（CacheManager），SpringBoot 根据下⾯的顺序去侦测缓存提供者，也就是说 Spring Cache ⽀持下⾯的这些缓存框架：</p>
 <ul>
 <li><p>Generic</p>
 </li>
@@ -1035,50 +965,41 @@ jacksonHashOperations<span class="token punctuation">.</span><span class="token 
 <li><p>需要实现 Serializable 接⼝和定义 serialVersionUID （因为缓存需要使⽤ JDK 的⽅式序列化和反序列化）。</p>
 </li>
 </ol>
-<h3 id="五、更改-Redis-缓存的序列化方式"><a href="#五、更改-Redis-缓存的序列化方式" class="headerlink" title="五、更改 Redis 缓存的序列化方式"></a>五、更改 Redis 缓存的序列化方式</h3><p>让缓存使⽤ JDK 默认的序列化和反序列化⽅式⾮常不友好，我们可以修改为使⽤ JSON 序列</p>
-<p>化与反序列化的⽅式，可读性更强，体积更⼩，速度更快。</p>
+<h3 id="五、更改-Redis-缓存的序列化方式"><a href="#五、更改-Redis-缓存的序列化方式" class="headerlink" title="五、更改 Redis 缓存的序列化方式"></a>五、更改 Redis 缓存的序列化方式</h3><p>让缓存使⽤ JDK 默认的序列化和反序列化⽅式⾮常不友好，我们可以修改为使⽤ JSON 序列化与反序列化的⽅式，可读性更强，体积更⼩，速度更快。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RedisConfig</span> <span class="token punctuation">&#123;</span>
-   <span class="token comment">//这个函数是上⼀节的内容</span>
-   <span class="token annotation punctuation">@Bean</span>
-   <span class="token keyword">public</span> <span class="token class-name">RedisTemplate</span> <span class="token function">redisTemplate</span><span class="token punctuation">(</span><span class="token class-name">RedisConnectionFactory</span>
-redisConnectionFactory<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-       <span class="token class-name">RedisTemplate</span> redisTemplate <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RedisTemplate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       redisTemplate<span class="token punctuation">.</span><span class="token function">setConnectionFactory</span><span class="token punctuation">(</span>redisConnectionFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token class-name">Jackson2JsonRedisSerializer</span> jackson2JsonRedisSerializer <span class="token operator">=</span> <span class="token keyword">new</span>
-<span class="token class-name">Jackson2JsonRedisSerializer</span><span class="token punctuation">(</span><span class="token class-name">Object</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token class-name">ObjectMapper</span> objectMapper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectMapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       objectMapper<span class="token punctuation">.</span><span class="token function">setVisibility</span><span class="token punctuation">(</span><span class="token class-name">PropertyAccessor</span><span class="token punctuation">.</span>ALL<span class="token punctuation">,</span>
-<span class="token class-name">JsonAutoDetect<span class="token punctuation">.</span>Visibility</span><span class="token punctuation">.</span>ANY<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      
-objectMapper<span class="token punctuation">.</span><span class="token function">enableDefaultTyping</span><span class="token punctuation">(</span><span class="token class-name">ObjectMapper<span class="token punctuation">.</span>DefaultTyping</span><span class="token punctuation">.</span>NON_FINAL<span class="token punctuation">)</span><span class="token punctuation">;</span>
-       jackson2JsonRedisSerializer<span class="token punctuation">.</span><span class="token function">setObjectMapper</span><span class="token punctuation">(</span>objectMapper<span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token comment">//重点在这四⾏代码</span>
-       redisTemplate<span class="token punctuation">.</span><span class="token function">setKeySerializer</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">StringRedisSerializer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       redisTemplate<span class="token punctuation">.</span><span class="token function">setValueSerializer</span><span class="token punctuation">(</span>jackson2JsonRedisSerializer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-       redisTemplate<span class="token punctuation">.</span><span class="token function">setHashKeySerializer</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">StringRedisSerializer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       redisTemplate<span class="token punctuation">.</span><span class="token function">setHashValueSerializer</span><span class="token punctuation">(</span>jackson2JsonRedisSerializer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-       redisTemplate<span class="token punctuation">.</span><span class="token function">afterPropertiesSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token keyword">return</span> redisTemplate<span class="token punctuation">;</span>
-   <span class="token punctuation">&#125;</span>
+    <span class="token comment">//这个函数是上⼀节的内容</span>
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">RedisTemplate</span> <span class="token function">redisTemplate</span><span class="token punctuation">(</span><span class="token class-name">RedisConnectionFactory</span> redisConnectionFactory<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">RedisTemplate</span> redisTemplate <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RedisTemplate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        redisTemplate<span class="token punctuation">.</span><span class="token function">setConnectionFactory</span><span class="token punctuation">(</span>redisConnectionFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Jackson2JsonRedisSerializer</span> jackson2JsonRedisSerializer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Jackson2JsonRedisSerializer</span><span class="token punctuation">(</span><span class="token class-name">Object</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">ObjectMapper</span> objectMapper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectMapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        objectMapper<span class="token punctuation">.</span><span class="token function">setVisibility</span><span class="token punctuation">(</span><span class="token class-name">PropertyAccessor</span><span class="token punctuation">.</span>ALL<span class="token punctuation">,</span> <span class="token class-name">JsonAutoDetect<span class="token punctuation">.</span>Visibility</span><span class="token punctuation">.</span>ANY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             
+        objectMapper<span class="token punctuation">.</span><span class="token function">enableDefaultTyping</span><span class="token punctuation">(</span><span class="token class-name">ObjectMapper<span class="token punctuation">.</span>DefaultTyping</span><span class="token punctuation">.</span>NON_FINAL<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        jackson2JsonRedisSerializer<span class="token punctuation">.</span><span class="token function">setObjectMapper</span><span class="token punctuation">(</span>objectMapper<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//重点在这四⾏代码</span>
+        redisTemplate<span class="token punctuation">.</span><span class="token function">setKeySerializer</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">StringRedisSerializer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        redisTemplate<span class="token punctuation">.</span><span class="token function">setValueSerializer</span><span class="token punctuation">(</span>jackson2JsonRedisSerializer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        redisTemplate<span class="token punctuation">.</span><span class="token function">setHashKeySerializer</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">StringRedisSerializer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        redisTemplate<span class="token punctuation">.</span><span class="token function">setHashValueSerializer</span><span class="token punctuation">(</span>jackson2JsonRedisSerializer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        redisTemplate<span class="token punctuation">.</span><span class="token function">afterPropertiesSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> redisTemplate<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
     <span class="token comment">//本节的重点配置，让Redis缓存的序列化⽅式使⽤</span>
-redisTemplate<span class="token punctuation">.</span><span class="token function">getValueSerializer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-   <span class="token comment">//不在使⽤JDK默认的序列化⽅式</span>
-   <span class="token annotation punctuation">@Bean</span>
-   <span class="token keyword">public</span> <span class="token class-name">RedisCacheManager</span> <span class="token function">redisCacheManager</span><span class="token punctuation">(</span><span class="token class-name">RedisTemplate</span>
-redisTemplate<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-       <span class="token class-name">RedisCacheWriter</span> redisCacheWriter <span class="token operator">=</span>
-<span class="token class-name">RedisCacheWriter</span><span class="token punctuation">.</span><span class="token function">nonLockingRedisCacheWriter</span><span class="token punctuation">(</span>redisTemplate<span class="token punctuation">.</span>getConnectionFa
-<span class="token function">ctory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token class-name">RedisCacheConfiguration</span> redisCacheConfiguration <span class="token operator">=</span>
-<span class="token class-name">RedisCacheConfiguration</span><span class="token punctuation">.</span><span class="token function">defaultCacheConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-              
-<span class="token punctuation">.</span><span class="token function">serializeValuesWith</span><span class="token punctuation">(</span><span class="token class-name">RedisSerializationContext<span class="token punctuation">.</span>SerializationPair</span><span class="token punctuation">.</span>fromSeri
-<span class="token function">alizer</span><span class="token punctuation">(</span>redisTemplate<span class="token punctuation">.</span><span class="token function">getValueSerializer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">RedisCacheManager</span><span class="token punctuation">(</span>redisCacheWriter<span class="token punctuation">,</span>
-redisCacheConfiguration<span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    redisTemplate<span class="token punctuation">.</span><span class="token function">getValueSerializer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment">//不在使⽤JDK默认的序列化⽅式</span>
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">RedisCacheManager</span> <span class="token function">redisCacheManager</span><span class="token punctuation">(</span><span class="token class-name">RedisTemplate</span> redisTemplate<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+       <span class="token class-name">RedisCacheWriter</span> redisCacheWriter <span class="token operator">=</span> <span class="token class-name">RedisCacheWriter</span><span class="token punctuation">.</span><span class="token function">nonLockingRedisCacheWriter</span><span class="token punctuation">(</span>redisTemplate<span class="token punctuation">.</span><span class="token function">getConnectionFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token class-name">RedisCacheConfiguration</span> redisCacheConfiguration <span class="token operator">=</span> <span class="token class-name">RedisCacheConfiguration</span><span class="token punctuation">.</span><span class="token function">defaultCacheConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token function">serializeValuesWith</span><span class="token punctuation">(</span><span class="token class-name">RedisSerializationContext<span class="token punctuation">.</span>SerializationPair</span><span class="token punctuation">.</span><span class="token function">fromSerializer</span><span class="token punctuation">(</span>redisTemplate<span class="token punctuation">.</span><span class="token function">getValueSerializer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">RedisCacheManager</span><span class="token punctuation">(</span>redisCacheWriter<span class="token punctuation">,</span> redisCacheConfiguration<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -1617,7 +1538,7 @@ redisCacheConfiguration<span class="token punctuation">)</span><span class="toke
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">43.9k</span>&nbsp;字
+                class="white-color">44k</span>&nbsp;字
             
             
             

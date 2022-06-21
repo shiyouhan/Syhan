@@ -499,46 +499,41 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="整合分布式⽂件系统"><a href="#整合分布式⽂件系统" class="headerlink" title="整合分布式⽂件系统"></a>整合分布式⽂件系统</h1><h2 id="1-⽂件本地上传与提供访问服务"><a href="#1-⽂件本地上传与提供访问服务" class="headerlink" title="1.⽂件本地上传与提供访问服务"></a>1.⽂件本地上传与提供访问服务</h2><p>在开始介绍分布式⽂件系统之前，先来看⼀下使⽤本机存储来存放⽂件资源。 </p>
+                <h1 id="整合分布式⽂件系统"><a href="#整合分布式⽂件系统" class="headerlink" title="整合分布式⽂件系统"></a>整合分布式⽂件系统</h1><h2 id="1-⽂件本地上传与提供访问服务"><a href="#1-⽂件本地上传与提供访问服务" class="headerlink" title="1.⽂件本地上传与提供访问服务"></a>1.⽂件本地上传与提供访问服务</h2><p>在开始介绍分布式⽂件系统之前，先来看⼀下使⽤本机存储来存放⽂件资源。</p>
 <p>⼆者的核⼼实现过程是⼀样的：</p>
 <ul>
-<li>上传⽂件，保存⽂件（本节是本地磁盘） </li>
-<li>返回⽂件HTTP访问服务路径给前端，进⾏上传之后的效果展示</li>
+<li>上传⽂件，保存⽂件（本节是本地磁盘）</li>
+<li>返回⽂件 HTTP 访问服务路径给前端，进⾏上传之后的效果展示</li>
 </ul>
-<h3 id="⼀、复习"><a href="#⼀、复习" class="headerlink" title="⼀、复习"></a>⼀、复习</h3><p>服务端接收上传的⽬的是提供⽂件的访问服务，那么对于SpringBoot⽽⾔，有哪些可以提供</p>
-<p>⽂件访问的静态资源⽬录呢？</p>
+<h3 id="⼀、复习"><a href="#⼀、复习" class="headerlink" title="⼀、复习"></a>⼀、复习</h3><p>服务端接收上传的⽬的是提供⽂件的访问服务，那么对于 SpringBoot ⽽⾔，有哪些可以提供⽂件访问的静态资源⽬录呢？</p>
 <ul>
 <li>classpath:/META-INF/resources/</li>
 <li>classpath:/static/</li>
 <li>classpath:/public/</li>
-<li>classpath:/resources/ </li>
+<li>classpath:/resources/</li>
 </ul>
-<p>静态资源都在classpath下。那么就出现了问题： </p>
+<p>静态资源都在 classpath 下。那么就出现了问题：</p>
 <ul>
-<li><p>应⽤的⽂件资源不能和项⽬代码分开存储（你⻅过往github上传代码，还附带项⽬⽂件数据的么？）</p>
-</li>
-<li><p>项⽬打包困难，当上传的⽂件越来越多，项⽬的打包jar越来越⼤。 </p>
-</li>
-<li><p>代码与⽂件数据不能分开存储，就意味着⽂件数据的备份将变得复杂</p>
-</li>
+<li>应⽤的⽂件资源不能和项⽬代码分开存储（你⻅过往 github 上传代码，还附带项⽬⽂件数据的么？）</li>
+<li>项⽬打包困难，当上传的⽂件越来越多，项⽬的打包 jar 越来越⼤。</li>
+<li>代码与⽂件数据不能分开存储，就意味着⽂件数据的备份将变得复杂</li>
 </ul>
-<h3 id="⼆、⽂件上传⽬录⾃定义配置"><a href="#⼆、⽂件上传⽬录⾃定义配置" class="headerlink" title="⼆、⽂件上传⽬录⾃定义配置"></a>⼆、⽂件上传⽬录⾃定义配置</h3><p>怎么解决上述问题? </p>
-<p>别忘记了spring boot 为我们提供了使⽤spring.resources.static-locations<strong>配置⾃定义静</strong></p>
-<p><strong>态⽂件的位置</strong>。</p>
+<h3 id="⼆、⽂件上传⽬录⾃定义配置"><a href="#⼆、⽂件上传⽬录⾃定义配置" class="headerlink" title="⼆、⽂件上传⽬录⾃定义配置"></a>⼆、⽂件上传⽬录⾃定义配置</h3><p>怎么解决上述问题?</p>
+<p>别忘记了 spring boot 为我们提供了使⽤ spring.resources.static-locations<strong>配置⾃定义静态⽂件的位置</strong>。</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">web</span><span class="token punctuation">:</span>
 <span class="token key atrule">upload-path</span><span class="token punctuation">:</span> /Users/apple/Desktop
 <span class="token key atrule">spring</span><span class="token punctuation">:</span>
 <span class="token key atrule">resources</span><span class="token punctuation">:</span>
-   static<span class="token punctuation">-</span><span class="token key atrule">locations</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>/METAINF/resources/<span class="token punctuation">,</span>classpath<span class="token punctuation">:</span>/resources/<span class="token punctuation">,</span>classpath<span class="token punctuation">:</span>/static/<span class="token punctuation">,</span>classpath<span class="token punctuation">:</span>/public
+   static<span class="token punctuation">-</span><span class="token key atrule">locations</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>/META<span class="token punctuation">-</span>INF/resources/<span class="token punctuation">,</span>classpath<span class="token punctuation">:</span>/resources/<span class="token punctuation">,</span>classpath<span class="token punctuation">:</span>/static/<span class="token punctuation">,</span>classpath<span class="token punctuation">:</span>/public
 /<span class="token punctuation">,</span>file<span class="token punctuation">:</span>$<span class="token punctuation">&#123;</span>web.upload<span class="token punctuation">-</span>path<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li><p>配置web.upload-path为与项⽬代码分离的静态资源路径，即：⽂件上传保存根路径 </p>
+<li><p>配置 web.upload-path 为与项⽬代码分离的静态资源路径，即：⽂件上传保存根路径</p>
 </li>
-<li><p>配置spring.resources.static-locations，除了带上Spring Boot默认的静态资源路径之外，加上file:${web.upload-path}指向外部的⽂件资源上传路径。该路径下的静态资源可以直接对外提供 HTTP访问服务。 </p>
+<li><p>配置 spring.resources.static-locations，除了带上 Spring Boot 默认的静态资源路径之外，加上 file:${web.upload-path}指向外部的⽂件资源上传路径。该路径下的静态资源可以直接对外提供 HTTP 访问服务。</p>
 </li>
 </ul>
-<h3 id="三、⽂件上传的Controller实现"><a href="#三、⽂件上传的Controller实现" class="headerlink" title="三、⽂件上传的Controller实现"></a>三、⽂件上传的Controller实现</h3><p>详情看代码注释</p>
+<h3 id="三、⽂件上传的-Controller-实现"><a href="#三、⽂件上传的-Controller-实现" class="headerlink" title="三、⽂件上传的 Controller 实现"></a>三、⽂件上传的 Controller 实现</h3><p>详情看代码注释</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@RestController</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FileUploadController</span> <span class="token punctuation">&#123;</span>
     
@@ -549,8 +544,7 @@
     <span class="token class-name">SimpleDateFormat</span> sdf <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"yyyy/MM/dd/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     
     <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"/upload"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">upload</span><span class="token punctuation">(</span><span class="token class-name">MultipartFile</span> uploadFile<span class="token punctuation">,</span>
-                         <span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">upload</span><span class="token punctuation">(</span><span class="token class-name">MultipartFile</span> uploadFile<span class="token punctuation">,</span> <span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
         
         <span class="token comment">// 在 uploadPath ⽂件夹中通过⽇期对上传的⽂件归类保存</span>
         <span class="token comment">// ⽐如：/2019/06/06/cf13891e-4b95-4000-81eb-b6d70ae44930.png</span>
@@ -562,98 +556,72 @@
         
         <span class="token comment">// 对上传的⽂件重命名，避免⽂件重名</span>
         <span class="token class-name">String</span> oldName <span class="token operator">=</span> uploadFile<span class="token punctuation">.</span><span class="token function">getOriginalFilename</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">String</span> newName <span class="token operator">=</span> UUID<span class="token punctuation">.</span><span class="token function">randomUUID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token operator">+</span> oldName<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>oldName<span class="token punctuation">.</span><span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-oldName<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        
+        <span class="token class-name">String</span> newName <span class="token operator">=</span> UUID<span class="token punctuation">.</span><span class="token function">randomUUID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> oldName<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>oldName<span class="token punctuation">.</span><span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">,</span> oldName<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         
         <span class="token comment">// ⽂件保存</span>
         uploadFile<span class="token punctuation">.</span><span class="token function">transferTo</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>folder<span class="token punctuation">,</span> newName<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         
         <span class="token comment">// 返回上传⽂件的访问路径</span>
-        <span class="token comment">//https://localhost:8888/2020/10/18/a9a05df4-6615-4bb5-b859-</span>
-a3f9bf4bfae0<span class="token punctuation">.</span>jpg
-        <span class="token class-name">String</span> filePath <span class="token operator">=</span> request<span class="token punctuation">.</span><span class="token function">getScheme</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"://"</span> <span class="token operator">+</span>
-request<span class="token punctuation">.</span><span class="token function">getServerName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token operator">+</span> <span class="token string">":"</span> <span class="token operator">+</span> request<span class="token punctuation">.</span><span class="token function">getServerPort</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"/"</span>   <span class="token operator">+</span> format <span class="token operator">+</span> newName<span class="token punctuation">;</span>
+        <span class="token comment">//https://localhost:8888/2020/10/18/a9a05df4-6615-4bb5-b859-a3f9bf4bfae0.jpg</span>
+        <span class="token class-name">String</span> filePath <span class="token operator">=</span> request<span class="token punctuation">.</span><span class="token function">getScheme</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"://"</span> <span class="token operator">+</span>request<span class="token punctuation">.</span><span class="token function">getServerName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">":"</span> <span class="token operator">+</span> request<span class="token punctuation">.</span><span class="token function">getServerPort</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"/"</span>   <span class="token operator">+</span> format <span class="token operator">+</span> newName<span class="token punctuation">;</span>
         <span class="token keyword">return</span> filePath<span class="token punctuation">;</span>
    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="四、写⼀个模拟的⽂件上传⻚⾯，进⾏测试"><a href="#四、写⼀个模拟的⽂件上传⻚⾯，进⾏测试" class="headerlink" title="四、写⼀个模拟的⽂件上传⻚⾯，进⾏测试"></a>四、写⼀个模拟的⽂件上传⻚⾯，进⾏测试</h3><p>把该upload.html⽂件放到classpath:public⽬录下，对外提供访问。</p>
+<h3 id="四、写⼀个模拟的⽂件上传⻚⾯，进⾏测试"><a href="#四、写⼀个模拟的⽂件上传⻚⾯，进⾏测试" class="headerlink" title="四、写⼀个模拟的⽂件上传⻚⾯，进⾏测试"></a>四、写⼀个模拟的⽂件上传⻚⾯，进⾏测试</h3><p>把该 upload.html ⽂件放到 classpath:public ⽬录下，对外提供访问。</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+       
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+       
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>upload<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/upload<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>multipart/form-data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>uploadFile<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>请选择上传⽂件<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>保存<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/upload<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>multipart/form-data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>uploadFile<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>请选择上传⽂件<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>  
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>保存<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>访问测试、点击“选择⽂件”，之后保存 </p>
+<p>访问测试、点击“选择⽂件”，之后保存</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_18-19-42.png" alt="测试结果"></p>
-<p>⽂件被保存到服务端的 web.upload-path 指定的资源⽬录下，浏览器端响应返回⼀个⽂件</p>
-<p>HTTP访问路径。</p>
-<p>使⽤该HTTP访问路径，在浏览器可以看到上传的图⽚。证明我们的⽂件已经成功上传到服</p>
-<p>务端。 </p>
-<h2 id="2-MinlO简介与选型介绍"><a href="#2-MinlO简介与选型介绍" class="headerlink" title="2. MinlO简介与选型介绍"></a>2. MinlO简介与选型介绍</h2><p>⽬前可⽤于⽂件存储的⽹络服务选择有很多，⽐如阿⾥云OSS、七⽜云、腾讯云等等，但</p>
-<p>是收费都有点⼩贵。为了帮公司节约成本，之前⼀直是使⽤fastDFS作为⽂件服务器，准确</p>
-<p>的说是图⽚服务器。直到我发现了MinIO，我决定放弃FastDFS。下⾯我从对⽐的⻆度来说</p>
-<p>说我为什么果断的放弃了fastDFS，转⽽使⽤MinIO作为图⽚存储服务器。 </p>
-<h3 id="⼀、为什么使⽤MInIO替换了FastDFS"><a href="#⼀、为什么使⽤MInIO替换了FastDFS" class="headerlink" title="⼀、为什么使⽤MInIO替换了FastDFS"></a>⼀、为什么使⽤MInIO替换了FastDFS</h3><p>MinIO 是⼀个基于Apache License v2.0开源协议的对象存储服务。它兼容亚⻢逊S3云存储</p>
-<p>服务接⼝，⾮常适合于存储⼤容量⾮结构化的数据，例如图⽚、视频、⽇志⽂件、备份数</p>
-<p>据和容器/虚拟机镜像等，⽽⼀个对象⽂件可以是任意⼤⼩，从⼏kb到最⼤5T不等。</p>
-<h4 id="理由⼀：安装部署-运维-复杂度"><a href="#理由⼀：安装部署-运维-复杂度" class="headerlink" title="理由⼀：安装部署(运维)复杂度"></a>理由⼀：安装部署(运维)复杂度</h4><p>如果要将⼀个fastDFS分布式服务部署完成，需要具备以下的知识：</p>
+<p>⽂件被保存到服务端的 web.upload-path 指定的资源⽬录下，浏览器端响应返回⼀个⽂件 HTTP 访问路径。</p>
+<p>使⽤该 HTTP 访问路径，在浏览器可以看到上传的图⽚。证明我们的⽂件已经成功上传到服务端。</p>
+<h2 id="2-MinlO-简介与选型介绍"><a href="#2-MinlO-简介与选型介绍" class="headerlink" title="2. MinlO 简介与选型介绍"></a>2. MinlO 简介与选型介绍</h2><p>⽬前可⽤于⽂件存储的⽹络服务选择有很多，⽐如阿⾥云 OSS、七⽜云、腾讯云等等，但是收费都有点⼩贵。为了帮公司节约成本，之前⼀直是使⽤ fastDFS 作为⽂件服务器，准确的说是图⽚服务器。直到我发现了 MinIO，我决定放弃 FastDFS。下⾯我从对⽐的⻆度来说说我为什么果断的放弃了 fastDFS，转⽽使⽤ MinIO 作为图⽚存储服务器。</p>
+<h3 id="⼀、为什么使⽤-MInIO-替换了-FastDFS"><a href="#⼀、为什么使⽤-MInIO-替换了-FastDFS" class="headerlink" title="⼀、为什么使⽤ MInIO 替换了 FastDFS"></a>⼀、为什么使⽤ MInIO 替换了 FastDFS</h3><p>MinIO 是⼀个基于 Apache License v2.0 开源协议的对象存储服务。它兼容亚⻢逊 S3 云存储服务接⼝，⾮常适合于存储⼤容量⾮结构化的数据，例如图⽚、视频、⽇志⽂件、备份数据和容器/虚拟机镜像等，⽽⼀个对象⽂件可以是任意⼤⼩，从⼏ kb 到最⼤ 5T 不等。</p>
+<h4 id="理由⼀：安装部署-运维-复杂度"><a href="#理由⼀：安装部署-运维-复杂度" class="headerlink" title="理由⼀：安装部署(运维)复杂度"></a>理由⼀：安装部署(运维)复杂度</h4><p>如果要将⼀个 fastDFS 分布式服务部署完成，需要具备以下的知识：</p>
 <ul>
-<li><p>linux基础的⽬录操作 </p>
+<li><p>linux 基础的⽬录操作</p>
 </li>
-<li><p>常⽤的分布式主从原理 </p>
+<li><p>常⽤的分布式主从原理</p>
 </li>
-<li><p>C语⾔代码的编译 </p>
+<li><p>C 语⾔代码的编译</p>
 </li>
-<li><p>nginx安装部署 </p>
+<li><p>nginx 安装部署</p>
 </li>
-<li><p>nginx插件的使⽤（防盗链）</p>
+<li><p>nginx 插件的使⽤（防盗链）</p>
 </li>
 </ul>
-<p>fastdfs部署结构⽐较复杂。看了MinIO的分布式的部署（[分布式MinIO快速⼊⻔](<a target="_blank" rel="noopener" href="https://docs.min.io/docs/distributed-minio-quickstart-guide.html">MinIO | Learn more about Deploying MinIO in Distributed Mode</a>)），放弃</p>
-<p>fastdfs的决⼼就会愈发明显。</p>
-<p>fastdfs的部署是零件的组装过程，需要你去理解fastDFS的架构设计，才能够正确的安装</p>
-<p>部署。MinIO在 安装的过程是⿊盒的，你不⽤去深⼊关注它的架构，也不需要你进⾏零件</p>
-<p>组装，基本上可以做到开箱即 ⽤。普通的技术⼈员就能够参与后期运维。 </p>
-<h4 id="理由⼆：⽂档"><a href="#理由⼆：⽂档" class="headerlink" title="理由⼆：⽂档"></a>理由⼆：⽂档</h4><p>fastdfs也有⼗年了，没有官⽅⽂档，所有的⽂档全是某某公司的⽹友总结的⽂档。 </p>
-<p>从这点上看fastdfs真的是⼀败涂地，当然发明者：阿⾥的余庆⼤神在做这个项⽬的时候可</p>
-<p>能也没有考虑 到后来会有这么多⼈⽤。</p>
-<h4 id="理由三：开源项⽬运营组织"><a href="#理由三：开源项⽬运营组织" class="headerlink" title="理由三：开源项⽬运营组织"></a>理由三：开源项⽬运营组织</h4><p>fastdfs是阿⾥余庆做的⼀个个⼈项⽬，在⼀些互联⽹创业公司中有应⽤，没有官⽹，不活</p>
-<p>跃，⽬前已经很少做更新。 </p>
-<p>MinIO⽬前是由2014年在硅⾕创⽴的公司MinIO.Inc运营的开源项⽬，社区论坛的活跃度</p>
-<p>⽬前也⾮常的不错。</p>
-<h4 id="理由四：UI界⾯"><a href="#理由四：UI界⾯" class="headerlink" title="理由四：UI界⾯"></a>理由四：UI界⾯</h4><p>我们都知道fastdfs默认是不带UI界⾯的，⽽下⾯是MinIO的界⾯，这个界⾯不需要单独部</p>
-<p>署，和服务端⼀并安装，开箱即⽤。</p>
+<p>fastdfs 部署结构⽐较复杂。看了 MinIO 的分布式的部署<a target="_blank" rel="noopener" href="https://docs.min.io/docs/distributed-minio-quickstart-guide.html">分布式 MinIO 快速⼊⻔</a>，放弃 fastdfs 的决⼼就会愈发明显。<br>fastdfs 的部署是零件的组装过程，需要你去理解 fastDFS 的架构设计，才能够正确的安装部署。MinIO 在 安装的过程是⿊盒的，你不⽤去深⼊关注它的架构，也不需要你进⾏零件组装，基本上可以做到开箱即 ⽤。普通的技术⼈员就能够参与后期运维。</p>
+<h4 id="理由⼆：⽂档"><a href="#理由⼆：⽂档" class="headerlink" title="理由⼆：⽂档"></a>理由⼆：⽂档</h4><p>fastdfs 也有⼗年了，没有官⽅⽂档，所有的⽂档全是某某公司的⽹友总结的⽂档。从这点上看 fastdfs 真的是⼀败涂地，当然发明者：阿⾥的余庆⼤神在做这个项⽬的时候可能也没有考虑 到后来会有这么多⼈⽤。</p>
+<h4 id="理由三：开源项⽬运营组织"><a href="#理由三：开源项⽬运营组织" class="headerlink" title="理由三：开源项⽬运营组织"></a>理由三：开源项⽬运营组织</h4><p>fastdfs 是阿⾥余庆做的⼀个个⼈项⽬，在⼀些互联⽹创业公司中有应⽤，没有官⽹，不活跃，⽬前已经很少做更新。 MinIO ⽬前是由 2014 年在硅⾕创⽴的公司 MinIO.Inc 运营的开源项⽬，社区论坛的活跃度⽬前也⾮常的不错。</p>
+<h4 id="理由四：UI-界⾯"><a href="#理由四：UI-界⾯" class="headerlink" title="理由四：UI 界⾯"></a>理由四：UI 界⾯</h4><p>我们都知道 fastdfs 默认是不带 UI 界⾯的，⽽下⾯是 MinIO 的界⾯，这个界⾯不需要单独部署，和服务端⼀并安装，开箱即⽤。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_19-25-41.png" alt="图片描述"></p>
-<h4 id="理由五：性能"><a href="#理由五：性能" class="headerlink" title="理由五：性能"></a>理由五：性能</h4><p>MinIO号称是世界上速度最快的对象存储服务器。在标准硬件上，对象存储的读/写速度最</p>
-<p>⾼可以达到183 GB/s和171 GB/s。关于fastDFS我曾经单线程测试写了20万个⽂件，总共</p>
-<p>200G，⼤约⽤时10个⼩ 时。总体上是很难达到MinIO“号称的”以G为单位的每秒读写速</p>
-<p>度。</p>
+<h4 id="理由五：性能"><a href="#理由五：性能" class="headerlink" title="理由五：性能"></a>理由五：性能</h4><p>MinIO 号称是世界上速度最快的对象存储服务器。在标准硬件上，对象存储的读/写速度最⾼可以达到 183 GB/s 和 171 GB/s。关于 fastDFS 我曾经单线程测试写了 20 万个⽂件，总共 200G，⼤约⽤时 10 个⼩ 时。总体上是很难达到 MinIO“号称的”以 G 为单位的每秒读写速度。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_19-28-31.png" alt="图片描述"></p>
-<h4 id="理由六：容器化⽀持"><a href="#理由六：容器化⽀持" class="headerlink" title="理由六：容器化⽀持"></a>理由六：容器化⽀持</h4><p>MinIO提供了与k8s、etcd、docker等容器化技术深度集成⽅案，可以说就是为了云环境</p>
-<p>⽽⽣的。这点是Fastdfs不具备的。</p>
+<h4 id="理由六：容器化⽀持"><a href="#理由六：容器化⽀持" class="headerlink" title="理由六：容器化⽀持"></a>理由六：容器化⽀持</h4><p>MinIO 提供了与 k8s、etcd、docker 等容器化技术深度集成⽅案，可以说就是为了云环境⽽⽣的。这点是 Fastdfs 不具备的。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_19-31-49.png" alt="图片描述"></p>
-<h4 id="理由七：丰富的SDK⽀持"><a href="#理由七：丰富的SDK⽀持" class="headerlink" title="理由七：丰富的SDK⽀持"></a>理由七：丰富的SDK⽀持</h4><p>fastDFS⽬前提供了 C 和 Java SDK ，以及 PHP 扩展 SDK。 </p>
-<p>下图是MinIO提供的SDK⽀持，MinIO⼏乎提供了所有主流开发语⾔的SDK以及⽂档。</p>
+<h4 id="理由七：丰富的-SDK-⽀持"><a href="#理由七：丰富的-SDK-⽀持" class="headerlink" title="理由七：丰富的 SDK ⽀持"></a>理由七：丰富的 SDK ⽀持</h4><p>fastDFS ⽬前提供了 C 和 Java SDK ，以及 PHP 扩展 SDK。</p>
+<p>下图是 MinIO 提供的 SDK ⽀持，MinIO ⼏乎提供了所有主流开发语⾔的 SDK 以及⽂档。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_19-54-56.png"></p>
-<h4 id="理由⼋：AWS-S3标准兼容"><a href="#理由⼋：AWS-S3标准兼容" class="headerlink" title="理由⼋：AWS S3标准兼容"></a>理由⼋：AWS S3标准兼容</h4><p>Amazon的S3 API是对象存储领域的事实标准。MinIO是S3兼容性的事实上的标准，是第</p>
-<p>⼀个采⽤API和第⼀个添加对S3 Select⽀持的标准之⼀。包括微软Azure在内的750多家公</p>
-<p>司使⽤MinIO的S3⽹关，这⼀数字超过了业内其他公司的总和。</p>
+<h4 id="理由⼋：AWS-S3-标准兼容"><a href="#理由⼋：AWS-S3-标准兼容" class="headerlink" title="理由⼋：AWS S3 标准兼容"></a>理由⼋：AWS S3 标准兼容</h4><p>Amazon 的 S3 API 是对象存储领域的事实标准。MinIO 是 S3 兼容性的事实上的标准，是第⼀个采⽤ API 和第⼀个添加对 S3 Select ⽀持的标准之⼀。包括微软 Azure 在内的 750 多家公司使⽤ MinIO 的 S3 ⽹关，这⼀数字超过了业内其他公司的总和。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_20-57-47.png" alt="图片描述"></p>
-<p>现在为了节约成本使⽤MinIO，等你的公司壮⼤了、有钱了。不想⾃⼰运维基础设施了，</p>
-<p>就可以把对象存储放到云上，只要云⼚商⽀持S3标准（⽐如阿⾥云OSS、七⽜云等），应</p>
-<p>⽤程序是不需要重新开发的。</p>
-<h2 id="3-MinIO的安装与基础⽤法"><a href="#3-MinIO的安装与基础⽤法" class="headerlink" title="3. MinIO的安装与基础⽤法"></a>3. MinIO的安装与基础⽤法</h2><h3 id="⼀、安装"><a href="#⼀、安装" class="headerlink" title="⼀、安装"></a>⼀、安装</h3><p>我们使⽤Docker来安装MinIO，步骤如下：</p>
+<p>现在为了节约成本使⽤ MinIO，等你的公司壮⼤了、有钱了。不想⾃⼰运维基础设施了，就可以把对象存储放到云上，只要云⼚商⽀持 S3 标准（⽐如阿⾥云 OSS、七⽜云等），应⽤程序是不需要重新开发的。</p>
+<h2 id="3-MinIO-的安装与基础⽤法"><a href="#3-MinIO-的安装与基础⽤法" class="headerlink" title="3. MinIO 的安装与基础⽤法"></a>3. MinIO 的安装与基础⽤法</h2><h3 id="⼀、安装"><a href="#⼀、安装" class="headerlink" title="⼀、安装"></a>⼀、安装</h3><p>我们使⽤ Docker 来安装 MinIO，步骤如下：</p>
 <ul>
-<li>拉取镜像 </li>
+<li>拉取镜像</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> pull minio/minio<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -668,11 +636,11 @@ request<span class="token punctuation">.</span><span class="token function">getS
 minio/minio server /data --console-address <span class="token string">":9001"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li><p>开启相应的安全组端⼝ </p>
+<li><p>开启相应的安全组端⼝</p>
 <p>访问：<a target="_blank" rel="noopener" href="http://124.222.178.129:9000/">http://124.222.178.129:9000</a></p>
 <p>账号：admin，密码：admin123</p>
-<p>9000：API调⽤端⼝</p>
-<p>9001：控制台端⼝，不指定会随机⽣成。注：控制台⽤9000也能打开，最终会跳转到9001，效果是⼀样的</p>
+<p>9000：API 调⽤端⼝</p>
+<p>9001：控制台端⼝，不指定会随机⽣成。注：控制台⽤ 9000 也能打开，最终会跳转到 9001，效果是⼀样的</p>
 </li>
 <li><p>防⽕墙相关</p>
 </li>
@@ -682,12 +650,12 @@ firewall-cmd --zone<span class="token operator">=</span>public --add-port<span c
 firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>查看端⼝是否开放 </li>
+<li>查看端⼝是否开放</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --query-port<span class="token operator">=</span><span class="token number">9000</span>/tcp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>开启防⽕墙：systemctl start firewalld </p>
-<p>关闭防⽕墙：systemctl stop firewalld </p>
+<p>开启防⽕墙：systemctl start firewalld</p>
+<p>关闭防⽕墙：systemctl stop firewalld</p>
 <p>重启防⽕墙：systemctl restart firewalld</p>
 <p><strong>相关⽂档</strong></p>
 <ul>
@@ -700,7 +668,7 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_21-18-59.png"></p>
 <ul>
-<li>创建bucket </li>
+<li>创建 bucket</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_21-21-14.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_21-22-06.png"></p>
@@ -709,7 +677,7 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_21-26-42.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_21-28-35.png"></p>
-<p>● 修改bucket访问策略为公开</p>
+<p>● 修改 bucket 访问策略为公开</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_21-29-44.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_21-30-43.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_21-33-14.png"></p>
@@ -717,22 +685,22 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 <li>访问</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_21-34-45.png"></p>
-<h2 id="4-整合MinIO的JavaSDK"><a href="#4-整合MinIO的JavaSDK" class="headerlink" title="4. 整合MinIO的JavaSDK"></a>4. 整合MinIO的JavaSDK</h2><h3 id="⼀、整合MinIO"><a href="#⼀、整合MinIO" class="headerlink" title="⼀、整合MinIO"></a>⼀、整合MinIO</h3><p>pom.xml引⼊：</p>
+<h2 id="4-整合-MinIO-的-JavaSDK"><a href="#4-整合-MinIO-的-JavaSDK" class="headerlink" title="4. 整合 MinIO 的 JavaSDK"></a>4. 整合 MinIO 的 JavaSDK</h2><h3 id="⼀、整合-MinIO"><a href="#⼀、整合-MinIO" class="headerlink" title="⼀、整合 MinIO"></a>⼀、整合 MinIO</h3><p>pom.xml 引⼊：</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>io.minio<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>minio<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>7.1.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>application.yml，服务信息要和我们上⼀节安装的MinIO服务⼀致，这样我们才能正常连接测试：</p>
+<p>application.yml，服务信息要和我们上⼀节安装的 MinIO 服务⼀致，这样我们才能正常连接测试：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">minio</span><span class="token punctuation">:</span>
- <span class="token key atrule">endPoint</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//124.222.178.129<span class="token punctuation">:</span><span class="token number">9000</span>
- <span class="token key atrule">accessKey</span><span class="token punctuation">:</span> admin
- <span class="token key atrule">secretKey</span><span class="token punctuation">:</span> admin123<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token key atrule">endPoint</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//124.222.178.129<span class="token punctuation">:</span><span class="token number">9000</span>
+  <span class="token key atrule">accessKey</span><span class="token punctuation">:</span> admin
+  <span class="token key atrule">secretKey</span><span class="token punctuation">:</span> admin123<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>写⼀个⼯具类，这个⼯具类只为⼤家演示了基础的API。</p>
-<p>更多的API请参考官⽅⽂档：<a target="_blank" rel="noopener" href="https://docs.min.io/cn/java-client-api-reference.html">https://docs.min.io/cn/java-client-api-reference.html</a> </p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>file<span class="token punctuation">.</span>utils</span><span class="token punctuation">;</span>
+<p>写⼀个⼯具类，这个⼯具类只为⼤家演示了基础的 API。</p>
+<p>更多的 API 请参考官⽅⽂档：<a target="_blank" rel="noopener" href="https://docs.min.io/cn/java-client-api-reference.html">https://docs.min.io/cn/java-client-api-reference.html</a></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>file<span class="token punctuation">.</span>utils</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">io<span class="token punctuation">.</span>minio<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Value</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Configuration</span></span><span class="token punctuation">;</span>
@@ -741,7 +709,7 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">InputStream</span></span><span class="token punctuation">;</span>
 <span class="token comment">/**
 * @description: MinIO⼯具类
-* @author: mqxu
+* @author: syhan
 * @date: 2022-04-14
 **/</span>
 <span class="token annotation punctuation">@Component</span>
@@ -754,21 +722,22 @@ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></
     <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;minio.secretKey&#125;"</span><span class="token punctuation">)</span>
     <span class="token keyword">private</span> <span class="token class-name">String</span> secretKey<span class="token punctuation">;</span>
     <span class="token keyword">private</span> <span class="token class-name">MinioClient</span> instance<span class="token punctuation">;</span>
+
     <span class="token annotation punctuation">@PostConstruct</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         instance <span class="token operator">=</span> <span class="token class-name">MinioClient</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
                <span class="token punctuation">.</span><span class="token function">endpoint</span><span class="token punctuation">(</span>endPoint<span class="token punctuation">)</span>
                <span class="token punctuation">.</span><span class="token function">credentials</span><span class="token punctuation">(</span>accessKey<span class="token punctuation">,</span> secretKey<span class="token punctuation">)</span>
                <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
     <span class="token comment">/**
      * 判断 bucket是否存在
      */</span>
     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">bucketExists</span><span class="token punctuation">(</span><span class="token class-name">String</span> bucketName<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span>
-instance<span class="token punctuation">.</span><span class="token function">bucketExists</span><span class="token punctuation">(</span><span class="token class-name">BucketExistsArgs</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">bucket</span><span class="token punctuation">(</span>bucketName<span class="token punctuation">)</span><span class="token punctuation">.</span>buil
-<span class="token function">d</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> instance<span class="token punctuation">.</span><span class="token function">bucketExists</span><span class="token punctuation">(</span><span class="token class-name">BucketExistsArgs</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">bucket</span><span class="token punctuation">(</span>bucketName<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
+
     <span class="token comment">/**
      * 创建 bucket
      */</span>
@@ -780,7 +749,8 @@ instance<span class="token punctuation">.</span><span class="token function">buc
                            <span class="token punctuation">.</span><span class="token function">bucket</span><span class="token punctuation">(</span>bucketName<span class="token punctuation">)</span>
                            <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
        <span class="token punctuation">&#125;</span>
-   <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
     <span class="token comment">/**
      * ⽂件上传
      *
@@ -788,14 +758,14 @@ instance<span class="token punctuation">.</span><span class="token function">buc
      * @param objectName 对象名称，⽂件名称
      * @param filepath   ⽂件路径
      */</span>
-    <span class="token keyword">public</span> <span class="token class-name">ObjectWriteResponse</span> <span class="token function">putObject</span><span class="token punctuation">(</span><span class="token class-name">String</span> bucketName<span class="token punctuation">,</span> <span class="token class-name">String</span>
-objectName<span class="token punctuation">,</span> <span class="token class-name">String</span> filepath<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">ObjectWriteResponse</span> <span class="token function">putObject</span><span class="token punctuation">(</span><span class="token class-name">String</span> bucketName<span class="token punctuation">,</span> <span class="token class-name">String</span> objectName<span class="token punctuation">,</span> <span class="token class-name">String</span> filepath<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">return</span> instance<span class="token punctuation">.</span><span class="token function">uploadObject</span><span class="token punctuation">(</span>
                 <span class="token class-name">UploadObjectArgs</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
                        <span class="token punctuation">.</span><span class="token function">bucket</span><span class="token punctuation">(</span>bucketName<span class="token punctuation">)</span>
                        <span class="token punctuation">.</span><span class="token function">object</span><span class="token punctuation">(</span>objectName<span class="token punctuation">)</span>
                        <span class="token punctuation">.</span><span class="token function">filename</span><span class="token punctuation">(</span>filepath<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
     <span class="token comment">/**
      * ⽂件上传
      *
@@ -803,34 +773,32 @@ objectName<span class="token punctuation">,</span> <span class="token class-name
      * @param objectName 对象名称，⽂件名称
      * @param inputStream ⽂件输⼊流
      */</span>
-    <span class="token keyword">public</span> <span class="token class-name">ObjectWriteResponse</span> <span class="token function">putObject</span><span class="token punctuation">(</span><span class="token class-name">String</span> bucketName<span class="token punctuation">,</span> <span class="token class-name">String</span>
-objectName<span class="token punctuation">,</span> <span class="token class-name">InputStream</span> inputStream<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
+     <span class="token keyword">public</span> <span class="token class-name">ObjectWriteResponse</span> <span class="token function">putObject</span><span class="token punctuation">(</span><span class="token class-name">String</span> bucketName<span class="token punctuation">,</span> <span class="token class-name">String</span> objectName<span class="token punctuation">,</span> <span class="token class-name">InputStream</span> inputStream<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">return</span> instance<span class="token punctuation">.</span><span class="token function">putObject</span><span class="token punctuation">(</span>
-                <span class="token class-name">PutObjectArgs</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                       <span class="token punctuation">.</span><span class="token function">bucket</span><span class="token punctuation">(</span>bucketName<span class="token punctuation">)</span>
-                       <span class="token punctuation">.</span><span class="token function">object</span><span class="token punctuation">(</span>objectName<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span>inputStream<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span>
-<span class="token number">10485760</span><span class="token punctuation">)</span>
-                       <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">&#125;</span>
-   <span class="token comment">/**
-     * 删除⽂件
-     *
-     * @param bucketName bucket名称
-     * @param objectName 对象名称
-     */</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">removeObject</span><span class="token punctuation">(</span><span class="token class-name">String</span> bucketName<span class="token punctuation">,</span> <span class="token class-name">String</span> objectName<span class="token punctuation">)</span>
-<span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
-        instance<span class="token punctuation">.</span><span class="token function">removeObject</span><span class="token punctuation">(</span>
+               <span class="token class-name">PutObjectArgs</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                      <span class="token punctuation">.</span><span class="token function">bucket</span><span class="token punctuation">(</span>bucketName<span class="token punctuation">)</span>
+                      <span class="token punctuation">.</span><span class="token function">object</span><span class="token punctuation">(</span>objectName<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span>inputStream<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10485760</span><span class="token punctuation">)</span>
+                      <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">/**
+      * 删除⽂件
+      *
+      * @param bucketName bucket名称
+      * @param objectName 对象名称
+      */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">removeObject</span><span class="token punctuation">(</span><span class="token class-name">String</span> bucketName<span class="token punctuation">,</span> <span class="token class-name">String</span> objectName<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
+       instance<span class="token punctuation">.</span><span class="token function">removeObject</span><span class="token punctuation">(</span>
                  <span class="token class-name">RemoveObjectArgs</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
                <span class="token punctuation">.</span><span class="token function">bucket</span><span class="token punctuation">(</span>bucketName<span class="token punctuation">)</span>
                <span class="token punctuation">.</span><span class="token function">object</span><span class="token punctuation">(</span>objectName<span class="token punctuation">)</span>
                <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="⼆、测试"><a href="#⼆、测试" class="headerlink" title="⼆、测试"></a>⼆、测试</h3><p>写⼀个测试⽤例测试上⾯的⽅法</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>file</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>file<span class="token punctuation">.</span>utils<span class="token punctuation">.</span></span><span class="token class-name">MinIoTemplate</span></span><span class="token punctuation">;</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>file</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>file<span class="token punctuation">.</span>utils<span class="token punctuation">.</span></span><span class="token class-name">MinIoTemplate</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">io<span class="token punctuation">.</span>minio<span class="token punctuation">.</span></span><span class="token class-name">ObjectWriteResponse</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>jupiter<span class="token punctuation">.</span>api<span class="token punctuation">.</span></span><span class="token class-name">Test</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>jupiter<span class="token punctuation">.</span>api<span class="token punctuation">.</span>extension<span class="token punctuation">.</span></span><span class="token class-name">ExtendWith</span></span><span class="token punctuation">;</span>
@@ -839,7 +807,7 @@ objectName<span class="token punctuation">,</span> <span class="token class-name
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Resource</span></span><span class="token punctuation">;</span>
 <span class="token comment">/**
 * @description:
-* @author: mqxu
+* @author: syhan
 * @date: 2022-04-14
 **/</span>
 <span class="token annotation punctuation">@SpringBootTest</span>
@@ -847,80 +815,65 @@ objectName<span class="token punctuation">,</span> <span class="token class-name
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MinIoTest</span> <span class="token punctuation">&#123;</span>
     <span class="token annotation punctuation">@Resource</span>
     <span class="token keyword">private</span> <span class="token class-name">MinIoTemplate</span> minIoTemplate<span class="token punctuation">;</span>
+
     <span class="token comment">//测试创建bucket</span>
     <span class="token annotation punctuation">@Test</span>
     <span class="token keyword">void</span> <span class="token function">testCreateBucket</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
         minIoTemplate<span class="token punctuation">.</span><span class="token function">makeBucket</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
     <span class="token comment">//测试上传⽂件对象</span>
     <span class="token annotation punctuation">@Test</span>
     <span class="token keyword">void</span> <span class="token function">testPutObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">ObjectWriteResponse</span> response <span class="token operator">=</span> minIoTemplate<span class="token punctuation">.</span><span class="token function">putObject</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">,</span>
                 <span class="token string">"img/banner.jpg"</span><span class="token punctuation">,</span>
-                <span class="token string">"/Users/mqxu/Pictures/横版背景/img7.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token string">"/Users/syhan/Pictures/横版背景/img7.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span><span class="token function">object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
     <span class="token comment">//测试删除⽂件对象</span>
     <span class="token annotation punctuation">@Test</span>
     <span class="token keyword">void</span> <span class="token function">testDeleteObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
-        minIoTemplate<span class="token punctuation">.</span><span class="token function">removeObject</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">,</span>
-                <span class="token string">"img/banner.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        minIoTemplate<span class="token punctuation">.</span><span class="token function">removeObject</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">,</span> <span class="token string">"img/banner.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li><p>第⼀个测试⽤例创建⼀个名称为 hello 的bucket </p>
-</li>
-<li><p>第⼆个测试⽤例上传了⼀个图⽚⽂件对象 </p>
-</li>
-<li><p>第三个测试⽤例把图⽚⽂件对象删除</p>
-</li>
+<li>第⼀个测试⽤例创建⼀个名称为 hello 的 bucket</li>
+<li>第⼆个测试⽤例上传了⼀个图⽚⽂件对象</li>
+<li>第三个测试⽤例把图⽚⽂件对象删除需要注意的是当⽂件对象名称中包含⽂件夹分隔符“/”的时候,会⾃动创建⽂件⽬录。</li>
+<li>MinIO 不提供⽂件⽬录的创建 API，⽂件⽬录随着⽂件上传动作创建。objectName 可以是/temp/xxx.jpg，可以认为⾃动创建了 temp ⽬录。</li>
+<li>MinIO 不提供删除⽬录的 API，把⽂件⽬录下的所有⽂件都删除，就等于⽂件⽬录被删除。</li>
 </ul>
-<p>需要注意的是当⽂件对象名称中包含⽂件夹分隔符“/”的时候,会⾃动创建⽂件⽬录。</p>
-<ul>
-<li><p>MinIO不提供⽂件⽬录的创建API，⽂件⽬录随着⽂件上传动作创建。objectName 可以是/temp/xxx.jpg，可以认为⾃动创建了temp⽬录。 </p>
-</li>
-<li><p>MinIO 不提供删除⽬录的API，把⽂件⽬录下的所有⽂件都删除，就等于⽂件⽬录被删除。</p>
-</li>
-</ul>
-<h2 id="5-fastdfs简介及架构说明"><a href="#5-fastdfs简介及架构说明" class="headerlink" title="5. fastdfs简介及架构说明"></a>5. fastdfs简介及架构说明</h2><h3 id="⼀、简介"><a href="#⼀、简介" class="headerlink" title="⼀、简介"></a>⼀、简介</h3><ul>
-<li><p>fastdfs是⼀个轻量级的开源分布式⽂件系统。 </p>
-</li>
-<li><p>fastdfs主要解决了⼤容量的⽂件存储和⾼并发访问的问题，⽂件存取时实现了负载均衡。 </p>
-</li>
-<li><p>fastdfs实现了软件⽅式的RAID，可以使⽤廉价的IDE硬盘进⾏存储 </p>
-</li>
-<li><p>⽀持存储服务器在线扩容 </p>
-</li>
-<li><p>⽀持相同内容的⽂件只保存⼀份，节约磁盘空间 </p>
-</li>
-<li><p>fastdfs特别适合⼤中型⽹站使⽤，⽤来存储资源⽂件（如：图⽚、⽂档、⾳频、视频等等）</p>
-</li>
+<h2 id="5-fastdfs-简介及架构说明"><a href="#5-fastdfs-简介及架构说明" class="headerlink" title="5. fastdfs 简介及架构说明"></a>5. fastdfs 简介及架构说明</h2><h3 id="⼀、简介"><a href="#⼀、简介" class="headerlink" title="⼀、简介"></a>⼀、简介</h3><ul>
+<li>fastdfs 是⼀个轻量级的开源分布式⽂件系统。</li>
+<li>fastdfs 主要解决了⼤容量的⽂件存储和⾼并发访问的问题，⽂件存取时实现了负载均衡。</li>
+<li>fastdfs 实现了软件⽅式的 RAID，可以使⽤廉价的 IDE 硬盘进⾏存储</li>
+<li>⽀持存储服务器在线扩容</li>
+<li>⽀持相同内容的⽂件只保存⼀份，节约磁盘空间</li>
+<li>fastdfs 特别适合⼤中型⽹站使⽤，⽤来存储资源⽂件（如：图⽚、⽂档、⾳频、视频等等）</li>
 </ul>
 <h3 id="⼆、架构说明"><a href="#⼆、架构说明" class="headerlink" title="⼆、架构说明"></a>⼆、架构说明</h3><ul>
-<li><p>Tracker：管理集群，tracker 也可以实现集群。每个 tracker 节点地位平等。收集 Storage 集群的状态。</p>
-</li>
-<li><p>Storage：实际保存⽂件 Storage 分为多个组，每个组之间保存的⽂件是不同的。每个组内部可以有多个成员。</p>
-</li>
+<li>Tracker：管理集群，tracker 也可以实现集群。每个 tracker 节点地位平等。收集 Storage 集群的状态。</li>
+<li>Storage：实际保存⽂件 Storage 分为多个组，每个组之间保存的⽂件是不同的。每个组内部可以有多个成员。组成员内部保存的内容是⼀样的，组成员的地位是⼀致的，没有主从的概念。</li>
 </ul>
-<p>组成员内部保存的内容是⼀样的，组成员的地位是⼀致的，没有主从的概念。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/HcQUCO.png" alt="图片描述"></p>
-<p>说明： nginx + fileid（⽂件路径），http访问</p>
+<p>说明： nginx + fileid（⽂件路径），http 访问</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/uiHWfw.png" alt="图片描述"></p>
 <p>三、好处</p>
 <ol>
-<li><p>将文件的管理与具体业务应用解耦，可以多个应用共用一套fastDFS集群，分成不同的组。</p>
+<li><p>将文件的管理与具体业务应用解耦，可以多个应用共用一套 fastDFS 集群，分成不同的组。</p>
 </li>
-<li><p>图片访问，只需要将http-ur交给浏览器。nginx提供访问服务。</p>
+<li><p>图片访问，只需要将 http-ur 交给浏览器。nginx 提供访问服务。</p>
 </li>
-<li><p>方便统一备份，一组的多个storage就是彼此的备份。</p>
+<li><p>方便统一备份，一组的多个 storage 就是彼此的备份。</p>
 </li>
-<li><p>可以将图片浏览，文件下载的压力分散给nginx服务。应用自己专心做业务。</p>
+<li><p>可以将图片浏览，文件下载的压力分散给 nginx 服务。应用自己专心做业务。</p>
 </li>
 <li><p>缩略图，防盗链等等。</p>
 </li>
 </ol>
-<h2 id="6-使用docker安装Fastdfs"><a href="#6-使用docker安装Fastdfs" class="headerlink" title="6. 使用docker安装Fastdfs"></a>6. 使用docker安装Fastdfs</h2><p>一、安装</p>
+<h2 id="6-使用-docker-安装-Fastdfs"><a href="#6-使用-docker-安装-Fastdfs" class="headerlink" title="6. 使用 docker 安装 Fastdfs"></a>6. 使用 docker 安装 Fastdfs</h2><p>一、安装</p>
 <ul>
 <li>拉取镜像</li>
 </ul>
@@ -933,7 +886,7 @@ objectName<span class="token punctuation">,</span> <span class="token class-name
 <span class="token function">mkdir</span> /home/docker/fastdfs/<span class="token punctuation">&#123;</span>tracker,storage<span class="token punctuation">&#125;</span>  -p<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <ul>
-<li>启动tracker </li>
+<li>启动 tracker</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run -d <span class="token punctuation">\</span>
 --network<span class="token operator">=</span>host <span class="token punctuation">\</span>
@@ -942,7 +895,7 @@ objectName<span class="token punctuation">,</span> <span class="token class-name
 delron/fastdfs tracker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>启动storage（改成⾃⼰的地址）</li>
+<li>启动 storage（改成⾃⼰的地址）</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run -d <span class="token punctuation">\</span>
 --network<span class="token operator">=</span>host <span class="token punctuation">\</span>
@@ -952,7 +905,7 @@ delron/fastdfs tracker<span aria-hidden="true" class="line-numbers-rows"><span><
 -e <span class="token assign-left variable">GROUP_NAME</span><span class="token operator">=</span>group1 <span class="token punctuation">\</span>
 delron/fastdfs storage<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="二、开启宿主机防火墙端口"><a href="#二、开启宿主机防火墙端口" class="headerlink" title="二、开启宿主机防火墙端口"></a>二、开启宿主机防火墙端口</h3><p>morunchang/fastdfs镜像在构建的时候，为nginx配置的端⼝是8888（开相应安全组） </p>
+<h3 id="二、开启宿主机防火墙端口"><a href="#二、开启宿主机防火墙端口" class="headerlink" title="二、开启宿主机防火墙端口"></a>二、开启宿主机防火墙端口</h3><p>morunchang/fastdfs 镜像在构建的时候，为 nginx 配置的端⼝是 8888（开相应安全组）</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">22122</span>/tcp --permanent
 firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">23000</span>/tcp --permanent
 firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span><span class="token number">8888</span>/tcp --permanent
@@ -962,17 +915,17 @@ firewall-cmd --query-port<span class="token operator">=</span><span class="token
 firewall-cmd --query-port<span class="token operator">=</span><span class="token number">23000</span>/tcp
 firewall-cmd --query-port<span class="token operator">=</span><span class="token number">8888</span>/tcp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="三、测试安装结果"><a href="#三、测试安装结果" class="headerlink" title="三、测试安装结果"></a>三、测试安装结果</h3><p>FastDFS安装包中，⾃带了客户端程序，可以使⽤这个命令⾏客户端进⾏⽂件上</p>
-<p>传及下载测试。 在宿主机执⾏命令 </p>
+<h3 id="三、测试安装结果"><a href="#三、测试安装结果" class="headerlink" title="三、测试安装结果"></a>三、测试安装结果</h3><p>FastDFS 安装包中，⾃带了客户端程序，可以使⽤这个命令⾏客户端进⾏⽂件上</p>
+<p>传及下载测试。 在宿主机执⾏命令</p>
 <ul>
-<li>上传⽂件（是容器⾥⾯的⽂件） </li>
+<li>上传⽂件（是容器⾥⾯的⽂件）</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> -i storage /usr/bin/fdfs_upload_file /etc/fdfs/client.conf
 ./README
 返回结果（序号不⼀定⼀样）group1/M00/00/00/wKgBW10lZHCAC8TaAAAAMT6WPfM3645854<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>查看fastdfs⽂件系统信息</li>
+<li>查看 fastdfs ⽂件系统信息</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> -i storage fdfs_file_info /etc/fdfs/client.conf
 group1/M00/00/00/wKgBW10lZHCAC8TaAAAAMT6WPfM3645854
@@ -994,18 +947,16 @@ group1/M00/00/00/wKgBW10lZHCAC8TaAAAAMT6WPfM3645854<span aria-hidden="true" clas
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> -i storage fdfs_monitor /etc/fdfs/storage.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-
-
 <h2 id="7-开发一个自定义-fastdfs-starter"><a href="#7-开发一个自定义-fastdfs-starter" class="headerlink" title="7. 开发一个自定义 fastdfs-starter"></a>7. 开发一个自定义 fastdfs-starter</h2><h3 id="⼀、主要实现的功能"><a href="#⼀、主要实现的功能" class="headerlink" title="⼀、主要实现的功能"></a>⼀、主要实现的功能</h3><ol>
-<li><p>实现FastDFSClientUtil及properties的⾃动装配（如何开发⼀个⾃定义的spring-boot-starter） </p>
+<li><p>实现 FastDFSClientUtil 及 properties 的⾃动装配（如何开发⼀个⾃定义的 spring-boot-starter）</p>
 </li>
-<li><p>加⼊连接线程池管理 </p>
+<li><p>加⼊连接线程池管理</p>
 </li>
 </ol>
-<h3 id="⼆、实现FastDFSClientUtil及properties的⾃动装配"><a href="#⼆、实现FastDFSClientUtil及properties的⾃动装配" class="headerlink" title="⼆、实现FastDFSClientUtil及properties的⾃动装配"></a>⼆、实现FastDFSClientUtil及properties的⾃动装配</h3><p>实际上就是要⾃⼰实现⼀个starter </p>
-<p>第⼀步：创建项⽬ </p>
+<h3 id="⼆、实现-FastDFSClientUtil-及-properties-的⾃动装配"><a href="#⼆、实现-FastDFSClientUtil-及-properties-的⾃动装配" class="headerlink" title="⼆、实现 FastDFSClientUtil 及 properties 的⾃动装配"></a>⼆、实现 FastDFSClientUtil 及 properties 的⾃动装配</h3><p>实际上就是要⾃⼰实现⼀个 starter</p>
+<p>第⼀步：创建项⽬</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/yA4u1f.png" alt="图片描述"></p>
-<p>第⼆步：引⼊maven依赖</p>
+<p>第⼆步：引⼊ maven 依赖</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
          <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -1062,9 +1013,9 @@ group1/M00/00/00/wKgBW10lZHCAC8TaAAAAMT6WPfM3645854<span aria-hidden="true" clas
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>其中 spring-boot-configuration-processor 的作⽤是编译时⽣成spring-configuration-metadata.json， 此⽂件主要给IDE使⽤，⽤于提示。 </p>
-<p>fastdfs-client-java和commons-pool2 是实现fastdfs功能及连接池的，与⾃动装配⽆关。 </p>
-<p>第三步：FastDFS属性类 FastDFSProperties</p>
+<p>其中 spring-boot-configuration-processor 的作⽤是编译时⽣成 spring-configuration-metadata.json， 此⽂件主要给 IDE 使⽤，⽤于提示。</p>
+<p>fastdfs-client-java 和 commons-pool2 是实现 fastdfs 功能及连接池的，与⾃动装配⽆关。</p>
+<p>第三步：FastDFS 属性类 FastDFSProperties</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>fastdfs</span><span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>context<span class="token punctuation">.</span>properties<span class="token punctuation">.</span></span><span class="token class-name">ConfigurationProperties</span></span><span class="token punctuation">;</span>
@@ -1166,7 +1117,7 @@ group1/M00/00/00/wKgBW10lZHCAC8TaAAAAMT6WPfM3645854<span aria-hidden="true" clas
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>其余如Base64⼯具类、FastDFSClient、FastDFSClientFactory、FastDFSClientPool等查看代码 </p>
+<p>其余如 Base64 ⼯具类、FastDFSClient、FastDFSClientFactory、FastDFSClientPool 等查看代码</p>
 <p>第四步：⾃动装配配置类</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>fastdfs</span><span class="token punctuation">;</span>
 
@@ -1215,22 +1166,19 @@ group1/M00/00/00/wKgBW10lZHCAC8TaAAAAMT6WPfM3645854<span aria-hidden="true" clas
 
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>第五步：在resources/META-INF/下创建spring.factories⽂件 </p>
+<p>第五步：在 resources/META-INF/下创建 spring.factories ⽂件</p>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">org.springframework.boot.autoconfigure.EnableAutoConfiguration</span><span class="token punctuation">=</span><span class="token value attr-value">\
 top.syhan.boot.fastdfs.AutoConfigure</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="三、总结Starter的⼯作原理"><a href="#三、总结Starter的⼯作原理" class="headerlink" title="三、总结Starter的⼯作原理"></a>三、总结Starter的⼯作原理</h3><ul>
-<li><p>Spring Boot在启动时扫描项⽬所依赖的JAR包，寻找包含spring.factories⽂件的JAR包 </p>
-</li>
-<li><p>根据spring.factories配置加载AutoConfigure类 </p>
-</li>
-<li><p>根据 @Conditional 注解的条件，进⾏⾃动配置并将Bean注⼊Spring Context </p>
-</li>
+<h3 id="三、总结-Starter-的⼯作原理"><a href="#三、总结-Starter-的⼯作原理" class="headerlink" title="三、总结 Starter 的⼯作原理"></a>三、总结 Starter 的⼯作原理</h3><ul>
+<li>Spring Boot 在启动时扫描项⽬所依赖的 JAR 包，寻找包含 spring.factories ⽂件的 JAR 包</li>
+<li>根据 spring.factories 配置加载 AutoConfigure 类</li>
+<li>根据 @Conditional 注解的条件，进⾏⾃动配置并将 Bean 注⼊ Spring Context</li>
 </ul>
-<h3 id="四、打包安装"><a href="#四、打包安装" class="headerlink" title="四、打包安装"></a>四、打包安装</h3><p>依次执⾏ mvn clean、mvn install 命令，在本地仓库安装成功 </p>
+<h3 id="四、打包安装"><a href="#四、打包安装" class="headerlink" title="四、打包安装"></a>四、打包安装</h3><p>依次执⾏ mvn clean、mvn install 命令，在本地仓库安装成功</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-05-01_15-31-05.png" alt="图片描述"></p>
-<h2 id="8-整合fastdfs操作文件数据"><a href="#8-整合fastdfs操作文件数据" class="headerlink" title="8. 整合fastdfs操作文件数据"></a>8. 整合fastdfs操作文件数据</h2><ul>
-<li>在需要上传⽂件的项⽬中引⼊maven依赖坐标</li>
+<h2 id="8-整合-fastdfs-操作文件数据"><a href="#8-整合-fastdfs-操作文件数据" class="headerlink" title="8. 整合 fastdfs 操作文件数据"></a>8. 整合 fastdfs 操作文件数据</h2><ul>
+<li>在需要上传⽂件的项⽬中引⼊ maven 依赖坐标</li>
 </ul>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>top.syhan.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
@@ -1267,20 +1215,16 @@ top.syhan.boot.fastdfs.AutoConfigure</span><span aria-hidden="true" class="line-
         <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
             <span class="token class-name">String</span> originalFileName <span class="token operator">=</span> file<span class="token punctuation">.</span><span class="token function">getOriginalFilename</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token keyword">assert</span> originalFileName <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-            fileId <span class="token operator">=</span>
-fastDFSClientUtil<span class="token punctuation">.</span><span class="token function">uploadFile</span><span class="token punctuation">(</span>file<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>originalFileName<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>o
-riginalFileName<span class="token punctuation">.</span><span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span>
-<span class="token class-name">AjaxResponse</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>fastDFSClientUtil<span class="token punctuation">.</span><span class="token function">getSourceUrl</span><span class="token punctuation">(</span>fileId<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            fileId <span class="token operator">=</span> fastDFSClientUtil<span class="token punctuation">.</span><span class="token function">uploadFile</span><span class="token punctuation">(</span>file<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>originalFileName<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>originalFileName<span class="token punctuation">.</span><span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token class-name">AjaxResponse</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>fastDFSClientUtil<span class="token punctuation">.</span><span class="token function">getSourceUrl</span><span class="token punctuation">(</span>fileId<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">throw</span> <span class="token keyword">new</span>
-<span class="token class-name">CustomException</span><span class="token punctuation">(</span><span class="token class-name">CustomExceptionType</span><span class="token punctuation">.</span>SYSTEM_ERROR<span class="token punctuation">,</span><span class="token string">"⽂件上传图⽚服务器失败"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">CustomException</span><span class="token punctuation">(</span><span class="token class-name">CustomExceptionType</span><span class="token punctuation">.</span>SYSTEM_ERROR<span class="token punctuation">,</span><span class="token string">"⽂件上传图⽚服务器失败"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
        <span class="token punctuation">&#125;</span>
    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>postman测试</li>
+<li>postman 测试</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/CEABzb.png"></p>
 <ul>
@@ -1825,7 +1769,7 @@ riginalFileName<span class="token punctuation">.</span><span class="token functi
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">43.9k</span>&nbsp;字
+                class="white-color">44k</span>&nbsp;字
             
             
             

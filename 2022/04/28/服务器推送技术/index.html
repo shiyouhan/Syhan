@@ -479,7 +479,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    2.9k
                 </div>
                 
 
@@ -499,42 +499,25 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="服务器推送技术"><a href="#服务器推送技术" class="headerlink" title="服务器推送技术"></a>服务器推送技术</h1><h2 id="1-主流服务器推送技术说明"><a href="#1-主流服务器推送技术说明" class="headerlink" title="1. 主流服务器推送技术说明"></a>1. 主流服务器推送技术说明</h2><h3 id="⼀、需求与背景"><a href="#⼀、需求与背景" class="headerlink" title="⼀、需求与背景"></a>⼀、需求与背景</h3><p>若⼲年前，所有的请求都是由浏览器端发起，浏览器本身并没有接受请求的</p>
-<p>能⼒。所以⼀些特殊需求都是⽤ajax轮询的⽅式来实现的。⽐如：</p>
+                <h1 id="服务器推送技术"><a href="#服务器推送技术" class="headerlink" title="服务器推送技术"></a>服务器推送技术</h1><h2 id="1-主流服务器推送技术说明"><a href="#1-主流服务器推送技术说明" class="headerlink" title="1. 主流服务器推送技术说明"></a>1. 主流服务器推送技术说明</h2><h3 id="⼀、需求与背景"><a href="#⼀、需求与背景" class="headerlink" title="⼀、需求与背景"></a>⼀、需求与背景</h3><p>若⼲年前，所有的请求都是由浏览器端发起，浏览器本身并没有接受请求的能⼒。所以⼀些特殊需求都是⽤ ajax 轮询的⽅式来实现的。⽐如：</p>
 <ul>
 <li>股价展示页面实时的获取股价更新</li>
 <li>赛事的文字直播，实时更新赛况</li>
 <li>通过页面启动一个任务，前媏想知道任务后台的实时运行状态</li>
 </ul>
-<p>通常的做法就是需要以较⼩的间隔，频繁的向服务器建⽴http连接询问任务</p>
-<p>状态的更新，然后刷新⻚⾯显示状态。但这样做的后果就是浪费⼤量流量，</p>
-<p>对服务端造成了⾮常⼤的压⼒。 </p>
-<h3 id="⼆、服务端推送常⽤技术"><a href="#⼆、服务端推送常⽤技术" class="headerlink" title="⼆、服务端推送常⽤技术"></a>⼆、服务端推送常⽤技术</h3><p>在html5被⼴泛推⼴之后，我们可以使⽤服务端主动推送数据，浏览器接收</p>
-<p>数据的⽅式来解决上⾯提到的问题。下⾯我们就为⼤家介绍两种服务端数据</p>
-<p>推送技术。 </p>
-<h4 id="全双⼯通信-WebSocket"><a href="#全双⼯通信-WebSocket" class="headerlink" title="全双⼯通信:WebSocket"></a>全双⼯通信:WebSocket</h4><p>全双⼯就是双向通信。如果说http协议是“对讲机”之间的通话（你⼀句我⼀</p>
-<p>句，有来有回），那websocket就是移动电话(可以随时发送信息与接收信</p>
-<p>息，就是全双⼯)。 </p>
+<p>通常的做法就是需要以较⼩的间隔，频繁的向服务器建⽴ http 连接询问任务状态的更新，然后刷新⻚⾯显示状态。但这样做的后果就是浪费⼤量流量，对服务端造成了⾮常⼤的压⼒。</p>
+<h3 id="⼆、服务端推送常⽤技术"><a href="#⼆、服务端推送常⽤技术" class="headerlink" title="⼆、服务端推送常⽤技术"></a>⼆、服务端推送常⽤技术</h3><p>在 html5 被⼴泛推⼴之后，我们可以使⽤服务端主动推送数据，浏览器接收数据的⽅式来解决上⾯提到的问题。下⾯我们就为⼤家介绍两种服务端数据推送技术。</p>
+<h4 id="全双⼯通信-WebSocket"><a href="#全双⼯通信-WebSocket" class="headerlink" title="全双⼯通信:WebSocket"></a>全双⼯通信:WebSocket</h4><p>全双⼯就是双向通信。如果说 http 协议是“对讲机”之间的通话（你⼀句我⼀句，有来有回），那 websocket 就是移动电话(可以随时发送信息与接收信息，就是全双⼯)。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_13-48-35.png" alt="图片描述"></p>
-<p>本质上是⼀个额外的tcp连接，建⽴和关闭时握⼿使⽤http协议，其他数据传</p>
-<p>输不使⽤http协议 ，更加复杂⼀些，⽐较适⽤于需要进⾏复杂双向实时数据</p>
-<p>通讯的场景。在web⽹⻚上⾯的客服、聊天室⼀般都是使⽤WebSocket 协议</p>
-<p>来开发的。</p>
-<h4 id="服务端主动推送-SSE-Server-Send-Event"><a href="#服务端主动推送-SSE-Server-Send-Event" class="headerlink" title="服务端主动推送:SSE (Server Send Event)"></a>服务端主动推送:SSE (Server Send Event)</h4><p>html5新标准，⽤来从服务端实时推送数据到浏览器端， 直接建⽴在当前</p>
-<p>http连接上，本质上是保持⼀个http⻓连接，轻量协议 。客户端发送⼀个请</p>
-<p>求到服务端 ，服务端保持这个请求连接直到⼀个新的消息准备好，将消息返</p>
-<p>回⾄客户端。除⾮主动关闭，这个连接会⼀直保持。</p>
+<p>本质上是⼀个额外的 tcp 连接，建⽴和关闭时握⼿使⽤ http 协议，其他数据传输不使⽤ http 协议 ，更加复杂⼀些，⽐较适⽤于需要进⾏复杂双向实时数据通讯的场景。在 web ⽹⻚上⾯的客服、聊天室⼀般都是使⽤ WebSocket 协议来开发的。</p>
+<h4 id="服务端主动推送-SSE-Server-Send-Event"><a href="#服务端主动推送-SSE-Server-Send-Event" class="headerlink" title="服务端主动推送:SSE (Server Send Event)"></a>服务端主动推送:SSE (Server Send Event)</h4><p>html5 新标准，⽤来从服务端实时推送数据到浏览器端， 直接建⽴在当前 http 连接上，本质上是保持⼀个 http ⻓连接，轻量协议 。客户端发送⼀个请求到服务端 ，服务端保持这个请求连接直到⼀个新的消息准备好，将消息返回⾄客户端。除⾮主动关闭，这个连接会⼀直保持。</p>
 <ul>
-<li><p>建⽴连接 </p>
-</li>
-<li><p>服务端 -&gt; 浏览器(连接保持） </p>
-</li>
-<li><p>关闭连接</p>
-</li>
+<li>建⽴连接</li>
+<li>服务端 -&gt; 浏览器(连接保持）</li>
+<li>关闭连接</li>
 </ul>
-<p>SSE的⼀⼤特⾊就是<strong>重复利⽤1个连接来接收服务端发送的消息</strong>（⼜称</p>
-<p>event），从⽽避免不断轮询请求建⽴连接，造成服务资源紧张。 </p>
-<h3 id="三、websocket与SSE⽐较"><a href="#三、websocket与SSE⽐较" class="headerlink" title="三、websocket与SSE⽐较"></a>三、websocket与SSE⽐较</h3><table>
+<p>SSE 的⼀⼤特⾊就是<strong>重复利⽤ 1 个连接来接收服务端发送的消息</strong>（⼜称 event），从⽽避免不断轮询请求建⽴连接，造成服务资源紧张。</p>
+<h3 id="三、websocket-与-SSE-⽐较"><a href="#三、websocket-与-SSE-⽐较" class="headerlink" title="三、websocket 与 SSE ⽐较"></a>三、websocket 与 SSE ⽐较</h3><table>
 <thead>
 <tr>
 <th>1</th>
@@ -556,26 +539,25 @@
 <td>是</td>
 </tr>
 </tbody></table>
-<p><strong>但是IE和Edge浏览器不⽀持SSE，所以SSE⽬前的应⽤场景⽐较少。</strong> 虽然</p>
-<p>websocket在很多⽐较旧的版本浏览器上⾯也不兼容，但是总体上⽐SSE要好</p>
-<p>不少。另外还有⼀些开源的JS前端产品，如 <a target="_blank" rel="noopener" href="https://github.com/sockjs/sockjs-client"> SockJS</a>，<a target="_blank" rel="noopener" href="https://socket.io/"> Socket.IO</a>，在浏览器</p>
-<p>端提供了更好的websocket前端js编程体验，与浏览器有更好的兼容性。</p>
+<p><strong>但是 IE 和 Edge 浏览器不⽀持 SSE，所以 SSE ⽬前的应⽤场景⽐较少。</strong> 虽然</p>
+<p>websocket 在很多⽐较旧的版本浏览器上⾯也不兼容，但是总体上⽐ SSE 要好不少。另外还有⼀些开源的 JS 前端产品，如 <a target="_blank" rel="noopener" href="https://github.com/sockjs/sockjs-client"> SockJS</a>，<a target="_blank" rel="noopener" href="https://socket.io/"> Socket.IO</a>，在浏览器</p>
+<p>端提供了更好的 websocket 前端 js 编程体验，与浏览器有更好的兼容性。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_14-03-41.png" alt="图片描述"></p>
-<h2 id="2-服务端推送事件SSE"><a href="#2-服务端推送事件SSE" class="headerlink" title="2. 服务端推送事件SSE"></a>2. 服务端推送事件SSE</h2><h3 id="⼀、模拟⽹络⽀付场景"><a href="#⼀、模拟⽹络⽀付场景" class="headerlink" title="⼀、模拟⽹络⽀付场景"></a>⼀、模拟⽹络⽀付场景</h3><p>⼤家应该都⽤过⽀付系统，⽐如淘宝买⼀个产品之后进⾏扫码⽀付。如果结</p>
-<p>合SSE，该如何实现这个过 程？</p>
+<h2 id="2-服务端推送事件-SSE"><a href="#2-服务端推送事件-SSE" class="headerlink" title="2. 服务端推送事件 SSE"></a>2. 服务端推送事件 SSE</h2><h3 id="⼀、模拟⽹络⽀付场景"><a href="#⼀、模拟⽹络⽀付场景" class="headerlink" title="⼀、模拟⽹络⽀付场景"></a>⼀、模拟⽹络⽀付场景</h3><p>⼤家应该都⽤过⽀付系统，⽐如淘宝买⼀个产品之后进⾏扫码⽀付。如果结</p>
+<p>合 SSE，该如何实现这个过 程？</p>
 <ol>
-<li><p>⽤户扫码向⽀付系统（⽀付宝）进⾏⽀付 </p>
+<li><p>⽤户扫码向⽀付系统（⽀付宝）进⾏⽀付</p>
 </li>
-<li><p>⽀付完成之后，告知商户系统（淘宝卖家系统）我已经发起⽀付了（建⽴SSE连接） </p>
+<li><p>⽀付完成之后，告知商户系统（淘宝卖家系统）我已经发起⽀付了（建⽴ SSE 连接）</p>
 </li>
-<li><p>⽀付系统(⽀付宝)告诉商户系统(淘宝卖家系统)，这个⽤户确实⽀付成功了 </p>
+<li><p>⽀付系统(⽀付宝)告诉商户系统(淘宝卖家系统)，这个⽤户确实⽀付成功了</p>
 </li>
-<li><p>商户系统(淘宝卖家系统)向⽤户发送消息：你已经⽀付成功，跳转到⽀付成功⻚⾯。（<strong>通过SSE连接，由服务器端告知⽤户客户端浏览器</strong>） </p>
+<li><p>商户系统(淘宝卖家系统)向⽤户发送消息：你已经⽀付成功，跳转到⽀付成功⻚⾯。（<strong>通过 SSE 连接，由服务器端告知⽤户客户端浏览器</strong>）</p>
 </li>
 </ol>
 <p><strong>注意：在返回最终⽀付结果的操作，实现了服务端向客户端的事件推送，以</strong></p>
-<p><strong>使⽤SSE来实现</strong> </p>
-<h3 id="⼆、SSE-起步练习"><a href="#⼆、SSE-起步练习" class="headerlink" title="⼆、SSE 起步练习"></a>⼆、SSE 起步练习</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>websocket<span class="token punctuation">.</span>controller</span><span class="token punctuation">;</span>
+<p><strong>使⽤ SSE 来实现</strong></p>
+<h3 id="⼆、SSE-起步练习"><a href="#⼆、SSE-起步练习" class="headerlink" title="⼆、SSE 起步练习"></a>⼆、SSE 起步练习</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>websocket<span class="token punctuation">.</span>controller</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>http<span class="token punctuation">.</span></span><span class="token class-name">MediaType</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Controller</span></span><span class="token punctuation">;</span>
@@ -589,7 +571,7 @@
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span></span><span class="token punctuation">;</span>
 <span class="token comment">/**
 * @description: SSE练习
-* @author: mqxu
+* @author: syhan
 * @date: 2022-04-18
 **/</span>
 <span class="token annotation punctuation">@Slf4j</span>
@@ -630,9 +612,7 @@
    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>对于服务器端向浏览器发送的数据，浏览器端需要在 JavaScript 中使⽤ EventSource 对象</p>
-<p>来进⾏处理。EventSource 使⽤的是标准的事件监听器⽅式，只需要在对象上添加相应的</p>
-<p>事件处理⽅法即可。EventSource 提供了三个标准事件</p>
+<p>对于服务器端向浏览器发送的数据，浏览器端需要在 JavaScript 中使⽤ EventSource 对象来进⾏处理。EventSource 使⽤的是标准的事件监听器⽅式，只需要在对象上添加相应的事件处理⽅法即可。EventSource 提供了三个标准事件</p>
 <table>
 <thead>
 <tr>
@@ -668,60 +648,77 @@ es<span class="token punctuation">.</span><span class="token function">addEventL
 
 <p>public/sse-demo1.html</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+       
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+       
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>sse-demo1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>msg_from_server<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token operator">!</span>window<span class="token punctuation">.</span>EventSource<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">let</span> source <span class="token operator">=</span> <span class="token keyword">new</span>
-<span class="token class-name">EventSource</span><span class="token punctuation">(</span><span class="token string">'http://localhost:8080/server/info'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">let</span> s <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
-        source<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'open'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>msg_from_server<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token operator">!</span>window<span class="token punctuation">.</span>EventSource<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">let</span> source <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">EventSource</span><span class="token punctuation">(</span><span class="token string">"http://localhost:8080/server/info"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">let</span> s <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+        source<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+          <span class="token string">"open"</span><span class="token punctuation">,</span>
+          <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
             console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"连接打开."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-       <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        source<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-            s <span class="token operator">+=</span> e<span class="token punctuation">.</span>data <span class="token operator">+</span> <span class="token string">"&lt;br/>"</span>
-            document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"msg_from_server"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> s<span class="token punctuation">;</span>
-       <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        source<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+          <span class="token boolean">false</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        source<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"message"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+          s <span class="token operator">+=</span> e<span class="token punctuation">.</span>data <span class="token operator">+</span> <span class="token string">"&lt;br/>"</span><span class="token punctuation">;</span>
+          document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"msg_from_server"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> s<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        source<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+          <span class="token string">"error"</span><span class="token punctuation">,</span>
+          <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>readyState <span class="token operator">===</span> EventSource<span class="token punctuation">.</span><span class="token constant">CLOSED</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"连接关闭"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-           <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>readyState<span class="token punctuation">)</span><span class="token punctuation">;</span>
-           <span class="token punctuation">&#125;</span>
-       <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+              console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"连接关闭"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+              console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>readyState<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+          <span class="token boolean">false</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
         <span class="token function">alert</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"没有sse"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">&#125;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+      <span class="token punctuation">&#125;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>运⾏效果 </p>
+<p>运⾏效果</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_14-33-54.png" alt="运行效果"></p>
-<p>public/sse-demo2.html </p>
+<p>public/sse-demo2.html</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+       
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+       
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>sse-demo2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>result<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-    <span class="token comment">//需要判断浏览器⽀不⽀持，可以去w3c进⾏查看</span>
-    <span class="token keyword">const</span> source <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">EventSource</span><span class="token punctuation">(</span><span class="token string">'http://localhost:8080/server/data'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    source<span class="token punctuation">.</span><span class="token function-variable function">onmessage</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>result<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+      <span class="token comment">//需要判断浏览器⽀不⽀持，可以去w3c进⾏查看</span>
+      <span class="token keyword">const</span> source <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">EventSource</span><span class="token punctuation">(</span><span class="token string">"http://localhost:8080/server/data"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      source<span class="token punctuation">.</span><span class="token function-variable function">onmessage</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         console<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'result'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerText <span class="token operator">=</span> event<span class="token punctuation">.</span>data
-   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"result"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerText <span class="token operator">=</span> event<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>运⾏效果：1秒后出现服务端推送的数据</p>
+<p>运⾏效果：1 秒后出现服务端推送的数据</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_14-50-19.png" alt="运行效果"></p>
-<h2 id="3-双向实时通信websocket"><a href="#3-双向实时通信websocket" class="headerlink" title="3. 双向实时通信websocket"></a>3. 双向实时通信websocket</h2><h3 id="⼀、整合websocket"><a href="#⼀、整合websocket" class="headerlink" title="⼀、整合websocket"></a>⼀、整合websocket</h3><ul>
-<li>添加依赖 </li>
+<h2 id="3-双向实时通信-websocket"><a href="#3-双向实时通信-websocket" class="headerlink" title="3. 双向实时通信 websocket"></a>3. 双向实时通信 websocket</h2><h3 id="⼀、整合-websocket"><a href="#⼀、整合-websocket" class="headerlink" title="⼀、整合 websocket"></a>⼀、整合 websocket</h3><ul>
+<li>添加依赖</li>
 </ul>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token comment">&lt;!-- 引⼊websocket依赖 --></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
@@ -729,7 +726,7 @@ es<span class="token punctuation">.</span><span class="token function">addEventL
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-websocket<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>编写配置类，开启websocket功能 </p>
+<p>编写配置类，开启 websocket 功能</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">WebSocketConfig</span> <span class="token punctuation">&#123;</span>
     <span class="token annotation punctuation">@Bean</span>
@@ -738,12 +735,12 @@ es<span class="token punctuation">.</span><span class="token function">addEventL
    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="⼆、兼容HTTPS协议"><a href="#⼆、兼容HTTPS协议" class="headerlink" title="⼆、兼容HTTPS协议"></a>⼆、兼容HTTPS协议</h3><ul>
-<li>WebSocket的ws协议是基于HTTP协议实现的 </li>
-<li>WebSocket的wss协议是基于HTTPS协议实现的</li>
+<h3 id="⼆、兼容-HTTPS-协议"><a href="#⼆、兼容-HTTPS-协议" class="headerlink" title="⼆、兼容 HTTPS 协议"></a>⼆、兼容 HTTPS 协议</h3><ul>
+<li>WebSocket 的 ws 协议是基于 HTTP 协议实现的</li>
+<li>WebSocket 的 wss 协议是基于 HTTPS 协议实现的</li>
 </ul>
-<p>⼀旦你的项⽬⾥⾯使⽤了https协议，websocket就要使⽤wss协议才可以。 </p>
-<p>在 TomcatCustomizer 配置的基础之上加上如下的代码，就可以⽀持wss协议。</p>
+<p>⼀旦你的项⽬⾥⾯使⽤了 https 协议，websocket 就要使⽤ wss 协议才可以。</p>
+<p>在 TomcatCustomizer 配置的基础之上加上如下的代码，就可以⽀持 wss 协议。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Bean</span>
 <span class="token keyword">public</span> <span class="token class-name">TomcatContextCustomizer</span> <span class="token function">tomcatContextCustomizer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">TomcatContextCustomizer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -754,10 +751,10 @@ es<span class="token punctuation">.</span><span class="token function">addEventL
    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="三、WebSocket编程基础"><a href="#三、WebSocket编程基础" class="headerlink" title="三、WebSocket编程基础"></a>三、WebSocket编程基础</h3><h4 id="3-1-连接的建⽴"><a href="#3-1-连接的建⽴" class="headerlink" title="3.1 连接的建⽴"></a>3.1 连接的建⽴</h4><p>前端js向后端发送wss连接建⽴请求</p>
+<h3 id="三、WebSocket-编程基础"><a href="#三、WebSocket-编程基础" class="headerlink" title="三、WebSocket 编程基础"></a>三、WebSocket 编程基础</h3><h4 id="3-1-连接的建⽴"><a href="#3-1-连接的建⽴" class="headerlink" title="3.1 连接的建⽴"></a>3.1 连接的建⽴</h4><p>前端 js 向后端发送 wss 连接建⽴请求</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">socket <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebSocket</span><span class="token punctuation">(</span><span class="token string">"wss://localhost:8888/ws/asset"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>SpringBoot服务端WebSocket服务接收类定义如下：</p>
+<p>SpringBoot 服务端 WebSocket 服务接收类定义如下：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
 <span class="token annotation punctuation">@Slf4j</span>
 <span class="token annotation punctuation">@ServerEndpoint</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"/ws/asset"</span><span class="token punctuation">)</span>
@@ -766,21 +763,21 @@ es<span class="token punctuation">.</span><span class="token function">addEventL
 
 <h4 id="3-2-全双工数据交互"><a href="#3-2-全双工数据交互" class="headerlink" title="3.2 全双工数据交互"></a>3.2 全双工数据交互</h4><p>前端后端都有</p>
 <ul>
-<li><p>onopen事件监听，处理连接建⽴事件</p>
+<li><p>onopen 事件监听，处理连接建⽴事件</p>
 </li>
-<li><p>onmessage事件监听，处理对⽅发过来的消息数据</p>
+<li><p>onmessage 事件监听，处理对⽅发过来的消息数据</p>
 </li>
-<li><p>onclose事件监听，处理连接关闭 </p>
+<li><p>onclose 事件监听，处理连接关闭</p>
 </li>
-<li><p>onerror事件监听，处理交互过程中的异常</p>
+<li><p>onerror 事件监听，处理交互过程中的异常</p>
 </li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_14-58-17.png" alt="图片描述"></p>
 <h4 id="3-3-数据发送"><a href="#3-3-数据发送" class="headerlink" title="3.3 数据发送"></a>3.3 数据发送</h4><h5 id="浏览器与服务器交换数据"><a href="#浏览器与服务器交换数据" class="headerlink" title="浏览器与服务器交换数据"></a>浏览器与服务器交换数据</h5><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_15-00-07.png" alt="图片描述"></p>
-<p>前端JS </p>
+<p>前端 JS</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">socket<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>后端Java，向某⼀个javax.websocket.Session⽤户发送消息。 </p>
+<p>后端 Java，向某⼀个 javax.websocket.Session ⽤户发送消息。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
 * 发送消息，每次浏览器刷新，session会发⽣变化。
 * @param session session
@@ -793,7 +790,7 @@ es<span class="token punctuation">.</span><span class="token function">addEventL
 <span class="token punctuation">&#125;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="⼀个⽤户向其他⽤户群发"><a href="#⼀个⽤户向其他⽤户群发" class="headerlink" title="⼀个⽤户向其他⽤户群发"></a>⼀个⽤户向其他⽤户群发</h5><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_15-04-47.png" alt="图片描述"></p>
-<p>服务器向所有在线的javax.websocket.Session⽤户发送消息。</p>
+<p>服务器向所有在线的 javax.websocket.Session ⽤户发送消息。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
 * 群发消息
 * @param message 消息
@@ -806,20 +803,20 @@ es<span class="token punctuation">.</span><span class="token function">addEventL
    <span class="token punctuation">&#125;</span>  
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="四、websocket实现简单聊天"><a href="#四、websocket实现简单聊天" class="headerlink" title="四、websocket实现简单聊天"></a>四、websocket实现简单聊天</h3><p>WebSocketServer核⼼代码</p>
+<h3 id="四、websocket-实现简单聊天"><a href="#四、websocket-实现简单聊天" class="headerlink" title="四、websocket 实现简单聊天"></a>四、websocket 实现简单聊天</h3><p>WebSocketServer 核⼼代码</p>
 <ol>
-<li><p>@ServerEndpoint(value = “/ws/asset”)表示websocket的接⼝服务地址</p>
+<li><p>@ServerEndpoint(value = “/ws/asset”)表示 websocket 的接⼝服务地址</p>
 </li>
-<li><p>@OnOpen注解的⽅法，为连接建⽴成功时调⽤的⽅法 </p>
+<li><p>@OnOpen 注解的⽅法，为连接建⽴成功时调⽤的⽅法</p>
 </li>
-<li><p>@OnClose注解的⽅法，为连接关闭调⽤的⽅法 </p>
+<li><p>@OnClose 注解的⽅法，为连接关闭调⽤的⽅法</p>
 </li>
-<li><p>@OnMessage注解的⽅法，为收到客户端消息后调⽤的⽅法 </p>
+<li><p>@OnMessage 注解的⽅法，为收到客户端消息后调⽤的⽅法</p>
 </li>
-<li><p>@OnError注解的⽅法，为出现异常时调⽤的⽅法</p>
+<li><p>@OnError 注解的⽅法，为出现异常时调⽤的⽅法</p>
 </li>
 </ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>websocket<span class="token punctuation">.</span>server</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>websocket<span class="token punctuation">.</span>server</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Component</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>websocket<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
@@ -828,7 +825,7 @@ es<span class="token punctuation">.</span><span class="token function">addEventL
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">IOException</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span></span><span class="token class-name">ConcurrentHashMap</span></span><span class="token punctuation">;</span>
 <span class="token comment">/**
-* @author mqxu
+* @author syhan
 * @description: webSocket服务层，连接webSocket的时候，路径中传⼀个参数值id，⽤ 来区分不同⻚⾯推送不同的数据
 * @date 2022-04-18
 */</span>
@@ -945,74 +942,93 @@ session<span class="token punctuation">)</span> <span class="token punctuation">
 
 <p>客户端代码，public/websocket.html</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+       
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+       
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>websocket⻚⾯<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+         
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">></span></span>
-           输⼊昵称
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nickname<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nickname<span class="token punctuation">"</span></span>
-<span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>输⼊昵称<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+              输⼊昵称            
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+            <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span>
+            <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nickname<span class="token punctuation">"</span></span>
+            <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nickname<span class="token punctuation">"</span></span>
+            <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>输⼊昵称<span class="token punctuation">"</span></span>
+          <span class="token punctuation">/></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>open<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>连接websocket<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>open<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>连接websocket<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>    
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+         
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">></span></span>
-           输⼊内容
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span>
-<span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>输⼊内容<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+             输⼊内容            
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+            <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span>
+            <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span>
+            <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span>
+            <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>输⼊内容<span class="token punctuation">"</span></span>
+          <span class="token punctuation">/></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>sendMsg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>发送消息<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>sendMsg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>发送消息<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>    
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+         
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span> <span class="token punctuation">/></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+         
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>&#123;&#123;message&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span> &#123;&#123;message&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-    <span class="token keyword">const</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-        el<span class="token operator">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+      <span class="token keyword">const</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        <span class="token literal-property property">el</span><span class="token operator">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
         <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
-                ws<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
-                content<span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-                message<span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-                nickname<span class="token operator">:</span> <span class="token string">""</span>
-           <span class="token punctuation">&#125;</span>
-       <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-        methods<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-        			<span class="token function">open</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>nickname <span class="token operator">===</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"昵称不能为空"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token keyword">return</span><span class="token punctuation">;</span>
-               <span class="token punctuation">&#125;</span>
-                ws <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebSocket</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">ws://localhost:8888/websocket?
-nickname=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>nickname<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                ws<span class="token punctuation">.</span><span class="token function-variable function">onopen</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"websocket已经连接"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-               <span class="token punctuation">&#125;</span>
-                ws<span class="token punctuation">.</span><span class="token function-variable function">onclose</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"websocket已经关闭"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-               <span class="token punctuation">&#125;</span>
-                ws<span class="token punctuation">.</span><span class="token function-variable function">onerror</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"websocket出现异常"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-               <span class="token punctuation">&#125;</span>
-                ws<span class="token punctuation">.</span><span class="token function-variable function">onmessage</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">msg</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token keyword">this</span><span class="token punctuation">.</span>message <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>message<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-               <span class="token punctuation">&#125;</span>
-           <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-            <span class="token function">sendMsg</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                ws<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>content<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"发送成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token keyword">this</span><span class="token punctuation">.</span>content <span class="token operator">=</span> <span class="token string">""</span>
-           <span class="token punctuation">&#125;</span>
-       <span class="token punctuation">&#125;</span>
-   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+          <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+            <span class="token literal-property property">ws</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">content</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">nickname</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+          <span class="token function">open</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>nickname <span class="token operator">===</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+              <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"昵称不能为空"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token keyword">return</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            ws <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebSocket</span><span class="token punctuation">(</span>
+              <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">ws://localhost:8888/websocket?nickname=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>nickname<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span>
+            <span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ws<span class="token punctuation">.</span><span class="token function-variable function">onopen</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+              console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"websocket已经连接"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+            ws<span class="token punctuation">.</span><span class="token function-variable function">onclose</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+              console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"websocket已经关闭"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+            ws<span class="token punctuation">.</span><span class="token function-variable function">onerror</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+              console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"websocket出现异常"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+            ws<span class="token punctuation">.</span><span class="token function-variable function">onmessage</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">msg</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+              console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token keyword">this</span><span class="token punctuation">.</span>message <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>message<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+          <span class="token function">sendMsg</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            ws<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>content<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"发送成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>content <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>运⾏效果</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-28_15-19-11.png" alt="运行效果"></p>
@@ -1555,7 +1571,7 @@ nickname=</span><span class="token interpolation"><span class="token interpolati
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">43.9k</span>&nbsp;字
+                class="white-color">44k</span>&nbsp;字
             
             
             

@@ -499,8 +499,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="异步任务与定时任务"><a href="#异步任务与定时任务" class="headerlink" title="异步任务与定时任务"></a>异步任务与定时任务</h1><h2 id="1-实现Async异步任务"><a href="#1-实现Async异步任务" class="headerlink" title="1. 实现Async异步任务"></a>1. 实现Async异步任务</h2><h3 id="⼀、环境准备"><a href="#⼀、环境准备" class="headerlink" title="⼀、环境准备"></a>⼀、环境准备</h3><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/HkuXGu.png"></p>
-<p>在 Spring Boot ⼊⼝类上配置 @EnableAsync 注解开启异步处理。 </p>
+                <h1 id="异步任务与定时任务"><a href="#异步任务与定时任务" class="headerlink" title="异步任务与定时任务"></a>异步任务与定时任务</h1><h2 id="1-实现-Async-异步任务"><a href="#1-实现-Async-异步任务" class="headerlink" title="1. 实现 Async 异步任务"></a>1. 实现 Async 异步任务</h2><h3 id="⼀、环境准备"><a href="#⼀、环境准备" class="headerlink" title="⼀、环境准备"></a>⼀、环境准备</h3><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/HkuXGu.png"></p>
+<p>在 Spring Boot ⼊⼝类上配置 @EnableAsync 注解开启异步处理。</p>
 <p>创建任务抽象类 AbstractTask，并分别配置三个任务⽅法 doTaskOne()，doTaskTwo()，doTaskThree()。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">AbstractTask</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Random</span> random <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -527,7 +527,7 @@
    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="⼆、同步调⽤"><a href="#⼆、同步调⽤" class="headerlink" title="⼆、同步调⽤"></a>⼆、同步调⽤</h3><p>下⾯通过⼀个简单示例来直观的理解什么是同步调⽤： </p>
+<h3 id="⼆、同步调⽤"><a href="#⼆、同步调⽤" class="headerlink" title="⼆、同步调⽤"></a>⼆、同步调⽤</h3><p>下⾯通过⼀个简单示例来直观的理解什么是同步调⽤：</p>
 <ul>
 <li>定义 Task 类，继承 AbstractTask，三个处理函数分别模拟三个执⾏任务的操作，操作消耗时间随机取（10 秒内）。</li>
 </ul>
@@ -553,16 +553,16 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>执⾏单元测试，可以看到类似如下输出： </li>
+<li>执⾏单元测试，可以看到类似如下输出：</li>
 </ul>
-<p>开始做任务⼀ 完成任务⼀，耗时：6720毫秒 开始做任务⼆ 完成任务⼆，耗时：6604毫秒 开始做任务三 完成任务三，耗时：9448毫秒 </p>
+<p>开始做任务⼀ 完成任务⼀，耗时：6720 毫秒 开始做任务⼆ 完成任务⼆，耗时：6604 毫秒 开始做任务三 完成任务三，耗时：9448 毫秒</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/tyjy5t.png"></p>
 <p>任务⼀、任务⼆、任务三顺序的执⾏完了，换⾔之 doTaskOne()，doTaskTwo()，doTaskThree() 三个⽅法按调⽤顺序的先后执⾏完成。</p>
 <h3 id="三、异步调⽤"><a href="#三、异步调⽤" class="headerlink" title="三、异步调⽤"></a>三、异步调⽤</h3><p>上述的<strong>同步调⽤</strong>虽然顺利的执⾏完了三个任务，但是可以看到<strong>执⾏时间⽐较⻓</strong>，若这三个任务本身之间<strong>不存在依赖关系</strong>，可以<strong>并发执⾏</strong>的话，同步调⽤在<strong>执⾏效率</strong>⽅⾯就⽐较差，可以考虑通过<strong>异步调⽤</strong>的⽅式来 并发执⾏。</p>
 <ul>
-<li><p>在Application启动类上⾯加上@EnableAsync </p>
+<li><p>在 Application 启动类上⾯加上@EnableAsync</p>
 </li>
-<li><p>创建 AsyncTask类，分别在⽅法上配置 @Async 注解，将原来的<strong>同步⽅法</strong>变为<strong>异步⽅法</strong>。</p>
+<li><p>创建 AsyncTask 类，分别在⽅法上配置 @Async 注解，将原来的<strong>同步⽅法</strong>变为<strong>异步⽅法</strong>。</p>
 </li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
@@ -581,7 +581,7 @@
    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>在<strong>单元测试</strong>⽤例中，注⼊ AsyncTask 对象，并在测试⽤例中执⾏ doTaskOne()，doTaskTwo()，doTaskThree() 三个⽅法。 </p>
+<p>在<strong>单元测试</strong>⽤例中，注⼊ AsyncTask 对象，并在测试⽤例中执⾏ doTaskOne()，doTaskTwo()，doTaskThree() 三个⽅法。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootTest</span>
 <span class="token annotation punctuation">@ExtendWith</span><span class="token punctuation">(</span><span class="token class-name">SpringExtension</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
 <span class="token keyword">class</span> <span class="token class-name">AsyncTaskTest</span> <span class="token punctuation">&#123;</span>
@@ -597,30 +597,30 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>执⾏单元测试，可以看到类似如下输出： </li>
+<li>执⾏单元测试，可以看到类似如下输出：</li>
 </ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">开始做任务三 
-开始做任务⼀ 
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">开始做任务三
+开始做任务⼀
 开始做任务⼆<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>如果反复执⾏单元测试，可能会遇到各种不同的结果，⽐如： </p>
+<p>如果反复执⾏单元测试，可能会遇到各种不同的结果，⽐如：</p>
 <ol>
-<li><p>没有任何任务相关的输出 </p>
+<li><p>没有任何任务相关的输出</p>
 </li>
-<li><p>有部分任务相关的输出 </p>
+<li><p>有部分任务相关的输出</p>
 </li>
-<li><p>乱序的任务相关的输出 </p>
+<li><p>乱序的任务相关的输出</p>
 </li>
 </ol>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/L9U836.png"></p>
 <p>原因是⽬前 doTaskOne()，doTaskTwo()，doTaskThree() 这三个⽅法已经异步并发执⾏了。主程序在<strong>异步调⽤</strong>之后，主程序并不会理会这三个函数是否执⾏完成了，由于没有其他需要执⾏的内容，所以程序就<strong>⾃动结束</strong>了，导致了任务<strong>不完整</strong>或是<strong>没有输出</strong>相关内容的情况。</p>
 <blockquote>
-<p>注意：@Async所修饰的函数不要定义为static类型，这样异步调⽤不会⽣效。 </p>
+<p>注意：@Async 所修饰的函数不要定义为 static 类型，这样异步调⽤不会⽣效。</p>
 </blockquote>
-<h3 id="四、-异步回调"><a href="#四、-异步回调" class="headerlink" title="四、 异步回调"></a>四、 异步回调</h3><p>为了让 doTaskOne()，doTaskTwo()，doTaskThree() 能正常结束，假设我们需要统计⼀下三个任务<strong>并发执⾏</strong>共耗时多少，这就需要等到上述三个函数都完成动⽤之后记录时间，并计算结果。 </p>
-<p>那么我们如何判断上述三个<strong>异步调⽤</strong>是否已经执⾏完成呢？我们需要使⽤<code>Future&lt;T&gt;</code>来返回<strong>异步调⽤</strong>的<strong>结果</strong>。 </p>
+<h3 id="四、-异步回调"><a href="#四、-异步回调" class="headerlink" title="四、 异步回调"></a>四、 异步回调</h3><p>为了让 doTaskOne()，doTaskTwo()，doTaskThree() 能正常结束，假设我们需要统计⼀下三个任务<strong>并发执⾏</strong>共耗时多少，这就需要等到上述三个函数都完成动⽤之后记录时间，并计算结果。</p>
+<p>那么我们如何判断上述三个<strong>异步调⽤</strong>是否已经执⾏完成呢？我们需要使⽤<code>Future&lt;T&gt;</code>来返回<strong>异步调⽤</strong>的<strong>结果</strong>。</p>
 <ul>
-<li>创建 AsyncCallBackTask 类， 声明 doTaskOneCallback()，doTaskTwoCallback()，doTaskThreeCallback() 三个⽅法，对原有的 三个⽅法进⾏包装。 </li>
+<li>创建 AsyncCallBackTask 类， 声明 doTaskOneCallback()，doTaskTwoCallback()，doTaskThreeCallback() 三个⽅法，对原有的 三个⽅法进⾏包装。</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AsyncCallBackTask</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractTask</span> <span class="token punctuation">&#123;</span>
@@ -641,7 +641,7 @@
    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>在<strong>单元测试</strong>⽤例中，注⼊AsyncCallBackTask对象，并在测试⽤例中执⾏doTaskOneCallback()，doTaskTwoCallback()，doTaskThreeCallback() 三个⽅法。循环调⽤Future的 isDone() ⽅法 等待三个<strong>并发任务</strong>执⾏完成，记录最终执⾏时间。</p>
+<p>在<strong>单元测试</strong>⽤例中，注⼊ AsyncCallBackTask 对象，并在测试⽤例中执⾏ doTaskOneCallback()，doTaskTwoCallback()，doTaskThreeCallback() 三个⽅法。循环调⽤ Future 的 isDone() ⽅法 等待三个<strong>并发任务</strong>执⾏完成，记录最终执⾏时间。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Autowired</span>
 <span class="token keyword">private</span> <span class="token class-name">AsyncCallBackTask</span> asyncCallBackTask<span class="token punctuation">;</span>
 <span class="token annotation punctuation">@Test</span>
@@ -658,28 +658,27 @@
     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"任务全部完成，总耗时："</span> <span class="token operator">+</span> <span class="token punctuation">(</span>end <span class="token operator">-</span> start<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"毫秒"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>看看都做了哪些改变： </p>
+<p>看看都做了哪些改变：</p>
 <ul>
-<li><p>在测试⽤例⼀开始记录开始时间； </p>
+<li><p>在测试⽤例⼀开始记录开始时间；</p>
 </li>
-<li><p>在调⽤三个异步函数的时候，返回Future类型的结果对象； </p>
+<li><p>在调⽤三个异步函数的时候，返回 Future 类型的结果对象；</p>
 </li>
-<li><p>在调⽤完三个异步函数之后，开启⼀个循环，根据返回的Future对象来判断三个异步函数是否都结束了。若都结束，就结束循环；若没有都结束，就等1秒后再判断。 </p>
+<li><p>在调⽤完三个异步函数之后，开启⼀个循环，根据返回的 Future 对象来判断三个异步函数是否都结束了。若都结束，就结束循环；若没有都结束，就等 1 秒后再判断。</p>
 </li>
-<li><p>跳出循环之后，根据结束时间 - 开始时间，计算出三个任务并发执⾏的总耗时。 </p>
+<li><p>跳出循环之后，根据结束时间 - 开始时间，计算出三个任务并发执⾏的总耗时。</p>
 </li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/2vqFvR.png"></p>
 <p>执⾏⼀下上述的单元测试，可以看到如下结果：</p>
-<p>开始做任务三 开始做任务⼀ 开始做任务⼆ 完成任务⼆，耗时：2572毫秒 完成任务⼀，耗时：7333毫秒完成任务三，耗时：7647毫秒 任务全部完成，总耗时：8013毫秒</p>
+<p>开始做任务三 开始做任务⼀ 开始做任务⼆ 完成任务⼆，耗时：2572 毫秒 完成任务⼀，耗时：7333 毫秒完成任务三，耗时：7647 毫秒 任务全部完成，总耗时：8013 毫秒</p>
 <p>可以看到，通过<strong>异步调⽤</strong>，让任务⼀、任务⼆、任务三<strong>并发执⾏</strong>，有效减少了程序的<strong>运⾏总时间</strong>。</p>
-<h2 id="2-为异步任务规划线程池"><a href="#2-为异步任务规划线程池" class="headerlink" title="2. 为异步任务规划线程池"></a>2. 为异步任务规划线程池</h2><h3 id="一、Spring-Boot任务线程池"><a href="#一、Spring-Boot任务线程池" class="headerlink" title="一、Spring Boot任务线程池"></a>一、Spring Boot任务线程池</h3><p><strong>线程池的作用</strong></p>
+<h2 id="2-为异步任务规划线程池"><a href="#2-为异步任务规划线程池" class="headerlink" title="2. 为异步任务规划线程池"></a>2. 为异步任务规划线程池</h2><h3 id="一、Spring-Boot-任务线程池"><a href="#一、Spring-Boot-任务线程池" class="headerlink" title="一、Spring Boot 任务线程池"></a>一、Spring Boot 任务线程池</h3><p><strong>线程池的作用</strong></p>
 <ol>
 <li>防止资源占用无限的扩张</li>
-<li> 调用过程省去资源的创建和销毀所占用的时间</li>
+<li>调用过程省去资源的创建和销毀所占用的时间</li>
 </ol>
-<p>在上⼀节中，我们的⼀个异步任务打开了⼀个线程，完成后销毁。在⾼并发环境下，不断的分配新资 </p>
-<p>源，可能导致系统资源耗尽。所以为了避免这个问题，我们为异步任务规划⼀个线程池。当然，如果没有配置线程池的话，springboot会⾃动配置⼀个ThreadPoolTaskExecutor 线程池到bean当中。</p>
+<p>在上⼀节中，我们的⼀个异步任务打开了⼀个线程，完成后销毁。在⾼并发环境下，不断的分配新资源，可能导致系统资源耗尽。所以为了避免这个问题，我们为异步任务规划⼀个线程池。当然，如果没有配置线程池的话，springboot 会⾃动配置⼀个 ThreadPoolTaskExecutor 线程池到 bean 当中。</p>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># 核⼼线程数</span>
 <span class="token key attr-name">spring.task.execution.pool.core-size</span><span class="token punctuation">=</span><span class="token value attr-value">8  </span>
 <span class="token comment"># 最⼤线程数</span>
@@ -696,8 +695,8 @@
 <span class="token comment"># 线程名称前缀</span>
 <span class="token key attr-name">spring.task.execution.thread-name-prefix</span><span class="token punctuation">=</span><span class="token value attr-value">task-</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="⼆、⾃定义线程池"><a href="#⼆、⾃定义线程池" class="headerlink" title="⼆、⾃定义线程池"></a>⼆、⾃定义线程池</h3><p>有的时候，我们希望将系统内的⼀类任务放到⼀个线程池，另⼀类任务放到另外⼀个线程池，所以使⽤Spring Boot⾃带的任务线程池就捉襟⻅肘了。下⾯介绍⾃定义线程池的⽅法。 </p>
-<p>创建⼀个<strong>线程池配置类</strong>TaskConfiguration ，并配置⼀个<strong>任务线程池对象</strong>taskExecutor。 </p>
+<h3 id="⼆、⾃定义线程池"><a href="#⼆、⾃定义线程池" class="headerlink" title="⼆、⾃定义线程池"></a>⼆、⾃定义线程池</h3><p>有的时候，我们希望将系统内的⼀类任务放到⼀个线程池，另⼀类任务放到另外⼀个线程池，所以使⽤ Spring Boot ⾃带的任务线程池就捉襟⻅肘了。下⾯介绍⾃定义线程池的⽅法。</p>
+<p>创建⼀个<strong>线程池配置类</strong>TaskConfiguration ，并配置⼀个<strong>任务线程池对象</strong>taskExecutor。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TaskConfiguration</span> <span class="token punctuation">&#123;</span>
     <span class="token annotation punctuation">@Bean</span><span class="token punctuation">(</span><span class="token string">"taskExecutor"</span><span class="token punctuation">)</span>
@@ -724,24 +723,24 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>核⼼线程数CorePoolSize</td>
+<td>核⼼线程数 CorePoolSize</td>
 <td>线程池创建时候初始化的线程</td>
 <td>10</td>
 </tr>
 <tr>
-<td>最⼤线程数MaxPoolSize</td>
+<td>最⼤线程数 MaxPoolSize</td>
 <td>线程池最大的线程数，只有在缓冲队列满了之后，才会利请超过核心线程数的线程</td>
 <td>20</td>
 </tr>
 <tr>
-<td>缓冲任务队列QueueCapacity</td>
+<td>缓冲任务队列 QueueCapacity</td>
 <td>用来缓冲执行任务的队列</td>
 <td>200</td>
 </tr>
 <tr>
 <td>允许线程的空闲时间 KeepAliveSeconds</td>
 <td>超过了核心线程之外的线程，在空闲时间到达之后，没活干的线程会被销毀</td>
-<td>60秒</td>
+<td>60 秒</td>
 </tr>
 <tr>
 <td>线程池名的前缀 ThreadNamePrefix</td>
@@ -749,23 +748,23 @@
 <td>taskExecutor-</td>
 </tr>
 <tr>
-<td>线程池对任务的Reject策略RejectedExecutionHandler</td>
-<td>当线程池运行饱和，或者线程池处于shutdown临界状态时，用来拒绝一个任务的执行</td>
+<td>线程池对任务的 Reject 策略 RejectedExecutionHandler</td>
+<td>当线程池运行饱和，或者线程池处于 shutdown 临界状态时，用来拒绝一个任务的执行</td>
 <td>CallerRunsPolicy</td>
 </tr>
 </tbody></table>
-<p>Reject策略预定义有四种： </p>
+<p>Reject 策略预定义有四种：</p>
 <ul>
-<li><p>AbortPolicy，⽤于被拒绝任务的处理程序，它将抛出RejectedExecutionException。 </p>
+<li><p>AbortPolicy，⽤于被拒绝任务的处理程序，它将抛出 RejectedExecutionException。</p>
 </li>
-<li><p>CallerRunsPolicy，⽤于被拒绝任务的处理程序，它直接在execute⽅法的调⽤线程中运⾏被拒绝的任务。</p>
+<li><p>CallerRunsPolicy，⽤于被拒绝任务的处理程序，它直接在 execute ⽅法的调⽤线程中运⾏被拒绝的任务。</p>
 </li>
-<li><p>DiscardOldestPolicy，⽤于被拒绝任务的处理程序，它放弃最旧的未处理请求，然后重试execute。 </p>
+<li><p>DiscardOldestPolicy，⽤于被拒绝任务的处理程序，它放弃最旧的未处理请求，然后重试 execute。</p>
 </li>
 <li><p>DiscardPolicy，⽤于被拒绝任务的处理程序，默认情况下它将丢弃被拒绝的任务。</p>
 </li>
 </ul>
-<p>创建 AsyncExecutorTask类，三个任务的配置和 AsyncTask ⼀样，不同的是 @Async 注解需要指定前⾯配置的<strong>线程池的名称</strong>taskExecutor。</p>
+<p>创建 AsyncExecutorTask 类，三个任务的配置和 AsyncTask ⼀样，不同的是 @Async 注解需要指定前⾯配置的<strong>线程池的名称</strong>taskExecutor。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AsyncExecutorTask</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractTask</span> <span class="token punctuation">&#123;</span>
     <span class="token annotation punctuation">@Async</span><span class="token punctuation">(</span><span class="token string">"taskExecutor"</span><span class="token punctuation">)</span>
@@ -778,20 +777,18 @@
     <span class="token annotation punctuation">@Async</span><span class="token punctuation">(</span><span class="token string">"taskExecutor"</span><span class="token punctuation">)</span>
     <span class="token keyword">public</span> <span class="token class-name">Future</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token function">doTaskTwoCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">doTaskTwo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"任务⼆，当前线程："</span> <span class="token operator">+</span>
-<span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"任务⼆，当前线程："</span> <span class="token operator">+</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">AsyncResult</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token string">"任务⼆完成"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token punctuation">&#125;</span>
     <span class="token annotation punctuation">@Async</span><span class="token punctuation">(</span><span class="token string">"taskExecutor"</span><span class="token punctuation">)</span>
     <span class="token keyword">public</span> <span class="token class-name">Future</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token function">doTaskThreeCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">doTaskThree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"任务三，当前线程："</span> <span class="token operator">+</span>
-<span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"任务三，当前线程："</span> <span class="token operator">+</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">AsyncResult</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token string">"任务三完成"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>在<strong>单元测试</strong>⽤例中，注⼊ AsyncExecutorTask 对象，并在测试⽤例中执⾏ doTaskOne()，doTaskTwo()，doTaskThree() 三个⽅法。 </p>
+<p>在<strong>单元测试</strong>⽤例中，注⼊ AsyncExecutorTask 对象，并在测试⽤例中执⾏ doTaskOne()，doTaskTwo()，doTaskThree() 三个⽅法。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootTest</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AsyncExecutorTaskTest</span> <span class="token punctuation">&#123;</span>
     <span class="token annotation punctuation">@Autowired</span>
@@ -806,7 +803,6 @@
         <span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">30</span> <span class="token operator">*</span> <span class="token number">1000L</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 
                 
             </div>
@@ -1345,7 +1341,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">43.9k</span>&nbsp;字
+                class="white-color">44k</span>&nbsp;字
             
             
             

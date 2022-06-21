@@ -499,14 +499,14 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="统⼀全局异常处理"><a href="#统⼀全局异常处理" class="headerlink" title="统⼀全局异常处理"></a>统⼀全局异常处理</h1><h2 id="1-设计⼀个优秀的异常处理机制"><a href="#1-设计⼀个优秀的异常处理机制" class="headerlink" title="1.设计⼀个优秀的异常处理机制"></a>1.设计⼀个优秀的异常处理机制</h2><h3 id="⼀、异常处理的乱象例举"><a href="#⼀、异常处理的乱象例举" class="headerlink" title="⼀、异常处理的乱象例举"></a>⼀、异常处理的乱象例举</h3><h4 id="乱象⼀：捕获异常后只输出到控制台"><a href="#乱象⼀：捕获异常后只输出到控制台" class="headerlink" title="乱象⼀：捕获异常后只输出到控制台"></a><strong>乱象⼀：捕获异常后只输出到控制台</strong></h4><p>前端js-ajax代码</p>
+                <h1 id="统⼀全局异常处理"><a href="#统⼀全局异常处理" class="headerlink" title="统⼀全局异常处理"></a>统⼀全局异常处理</h1><h2 id="1-设计⼀个优秀的异常处理机制"><a href="#1-设计⼀个优秀的异常处理机制" class="headerlink" title="1.设计⼀个优秀的异常处理机制"></a>1.设计⼀个优秀的异常处理机制</h2><h3 id="⼀、异常处理的乱象例举"><a href="#⼀、异常处理的乱象例举" class="headerlink" title="⼀、异常处理的乱象例举"></a>⼀、异常处理的乱象例举</h3><h4 id="乱象⼀：捕获异常后只输出到控制台"><a href="#乱象⼀：捕获异常后只输出到控制台" class="headerlink" title="乱象⼀：捕获异常后只输出到控制台"></a><strong>乱象⼀：捕获异常后只输出到控制台</strong></h4><p>前端 js-ajax 代码</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">$<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
   <span class="token literal-property property">type</span><span class="token operator">:</span> <span class="token string">"GET"</span><span class="token punctuation">,</span>
   <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">"/user/add"</span><span class="token punctuation">,</span>
   <span class="token literal-property property">dataType</span><span class="token operator">:</span> <span class="token string">"json"</span><span class="token punctuation">,</span>
-  <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+  <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"添加成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>后端业务代码</p>
@@ -520,7 +520,7 @@
 <ol>
 <li>后端直接将异常捕获，⽽且只做了⽇志打印。⽤户体验⾮常差，⼀旦后台出错，⽤户没有任何感知， ⻚⾯⽆状态。</li>
 <li>后端只给出前端异常结果，没有给出异常的原因的描述。⽤户不知道是⾃⼰操作输⼊错误，还是系统 bug。⽤户⽆法判断⾃⼰需要等⼀下再操作？还是继续下⼀步？</li>
-<li> 如果没有⼈去经常关注服务端⽇志，不会有⼈发现系统出现异常。</li>
+<li>如果没有⼈去经常关注服务端⽇志，不会有⼈发现系统出现异常。</li>
 </ol>
 <h4 id="乱象⼆：混乱的返回⽅式"><a href="#乱象⼆：混乱的返回⽅式" class="headerlink" title="乱象⼆：混乱的返回⽅式"></a>乱象⼆：混乱的返回⽅式</h4><p>前端代码</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">$<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
@@ -547,44 +547,44 @@
     <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
         <span class="token comment">// do something</span>
         map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>flag<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"flag"</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"message"</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
     reutrn map<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>问题：</p>
 <ol>
-<li>每个⼈返回的数据有每个⼈⾃⼰的规范，你叫flag他叫isOK，你的成功code是0，它的成功code是 0000。这样导致后端书写了⼤量的异常返回逻辑代码，前端也随之每⼀个请求⼀套异常处理逻辑。 很多重复代码。</li>
+<li>每个⼈返回的数据有每个⼈⾃⼰的规范，你叫 flag 他叫 isOK，你的成功 code 是 0，它的成功 code 是 0000。这样导致后端书写了⼤量的异常返回逻辑代码，前端也随之每⼀个请求⼀套异常处理逻辑。 很多重复代码。</li>
 <li>如果是前端后端⼀个⼈开发还勉强能⽤，如果前后端分离，这就是系统灾难。</li>
 </ol>
 <h3 id="⼆、该如何设计异常处理"><a href="#⼆、该如何设计异常处理" class="headerlink" title="⼆、该如何设计异常处理"></a>⼆、该如何设计异常处理</h3><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/nlKLCJ.png"></p>
 <h4 id="⾯向相关⽅友好"><a href="#⾯向相关⽅友好" class="headerlink" title="⾯向相关⽅友好"></a>⾯向相关⽅友好</h4><ol>
 <li>后端开发⼈员职责单⼀，只需要将异常捕获并转换为⾃定义异常⼀直对外抛出。不需要去想⻚⾯跳转 404，以及异常响应的数据结构的设计。</li>
 <li>⾯向前端⼈员友好，后端返回给前端的数据应该有统⼀的数据结构，统⼀的规范。不能⼀个⼈⼀个响 应的数据结构。⽽在此过程中不需要后端开发⼈员做更多的⼯作，交给全局异常处理器去处理“异 常”到“响应数据结构”的转换。</li>
-<li>⾯向⽤户友好，⽤户能够清楚的知道异常产⽣的原因。这就要求⾃定义异常，全局统⼀处理，ajax接 ⼝请求响应统⼀的异常数据结构，⻚⾯模板请求统⼀跳转到404⻚⾯。</li>
+<li>⾯向⽤户友好，⽤户能够清楚的知道异常产⽣的原因。这就要求⾃定义异常，全局统⼀处理，ajax 接 ⼝请求响应统⼀的异常数据结构，⻚⾯模板请求统⼀跳转到 404 ⻚⾯。</li>
 <li>⾯向运维友好，将异常信息合理规范的持久化，以⽇志的形式存储起来，以便查询。</li>
 </ol>
 <p><strong>为什么要将系统运⾏时异常捕获，转换为⾃定义异常抛出？</strong></p>
-<p>因为⽤户不认识ConnectionTimeOutException类似这种异常是什么东⻄，但是转换为⾃定义异常就要求 程序员对运⾏时异常进⾏⼀个翻译，⽐如：⾃定义异常⾥⾯应该有message字段，后端程序员应该明确 的在message字段⾥⾯⽤⾯向⽤户的友好语⾔，说明服务端发⽣了什么。</p>
+<p>因为⽤户不认识 ConnectionTimeOutException 类似这种异常是什么东⻄，但是转换为⾃定义异常就要求 程序员对运⾏时异常进⾏⼀个翻译，⽐如：⾃定义异常⾥⾯应该有 message 字段，后端程序员应该明确 的在 message 字段⾥⾯⽤⾯向⽤户的友好语⾔，说明服务端发⽣了什么。</p>
 <h3 id="三、开发规范"><a href="#三、开发规范" class="headerlink" title="三、开发规范"></a>三、开发规范</h3><ol>
-<li>Controller、Service、DAO层拦截异常转换为⾃定义异常，不允许将异常私⾃截留。必须对外抛出。</li>
-<li>统⼀数据响应代码，使⽤http状态码，不要⾃定义。⾃定义不⽅便记忆，HTTP状态码程序员都知道。但是太多了程序员也记不住，在项⽬组规定范围内使⽤⼏个就可以。⽐如：200请求成功，400 ⽤户输⼊错误导致的异常，500系统内部异常，999未知异常。</li>
-<li>⾃定义异常⾥⾯有message属性，⽤对⽤户友好的语⾔描述异常的发⽣情况，并赋值给message。</li>
-<li>不允许对⽗类Exception统⼀catch，要分⼩类catch，这样能够清楚地将异常转换为⾃定义异常传递给前端。</li>
+<li>Controller、Service、DAO 层拦截异常转换为⾃定义异常，不允许将异常私⾃截留。必须对外抛出。</li>
+<li>统⼀数据响应代码，使⽤ http 状态码，不要⾃定义。⾃定义不⽅便记忆，HTTP 状态码程序员都知道。但是太多了程序员也记不住，在项⽬组规定范围内使⽤⼏个就可以。⽐如：200 请求成功，400 ⽤户输⼊错误导致的异常，500 系统内部异常，999 未知异常。</li>
+<li>⾃定义异常⾥⾯有 message 属性，⽤对⽤户友好的语⾔描述异常的发⽣情况，并赋值给 message。</li>
+<li>不允许对⽗类 Exception 统⼀ catch，要分⼩类 catch，这样能够清楚地将异常转换为⾃定义异常传递给前端。</li>
 </ol>
 <h2 id="2-⾃定义异常和相关数据结构"><a href="#2-⾃定义异常和相关数据结构" class="headerlink" title="2.⾃定义异常和相关数据结构"></a>2.⾃定义异常和相关数据结构</h2><h3 id="⼀、该如何设计数据结构"><a href="#⼀、该如何设计数据结构" class="headerlink" title="⼀、该如何设计数据结构"></a>⼀、该如何设计数据结构</h3><ol>
 <li>CustomException ⾃定义异常。核⼼要素包含异常错误编码（400,500）、异常错误信息 message。</li>
 <li>ExceptionTypeEnum 枚举异常分类，将异常分类固化下来，防⽌开发⼈员思维发散。</li>
-<li>AjaxResponse ⽤于响应HTTP 请求的统⼀数据结构。</li>
+<li>AjaxResponse ⽤于响应 HTTP 请求的统⼀数据结构。</li>
 </ol>
 <h3 id="⼆、枚举异常的类型"><a href="#⼆、枚举异常的类型" class="headerlink" title="⼆、枚举异常的类型"></a>⼆、枚举异常的类型</h3><p>为了防⽌开发⼈员⼤脑发散，每个开发⼈员都不断的发明⾃⼰的异常类型，我们需要规定好异常的类型 (枚举)。⽐如：系统异常、⽤户（输⼊）操作导致的异常、其他异常等。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>enums</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>enums</span><span class="token punctuation">;</span>
 <span class="token comment">/**
 * @description: 异常类型枚举
-* @author: mqxu
+* @author: syhan
 * @date: 2022-04-11
 **/</span>
 <span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">CustomExceptionType</span> <span class="token punctuation">&#123;</span>
@@ -592,54 +592,55 @@
      * 客户端异常
      */</span>
     <span class="token function">USER_INPUT_ERROR</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span> <span class="token string">"您输⼊的数据错误或您没有权限访问资源！"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    
+
     <span class="token comment">/**
      * 服务器异常
      */</span>
     <span class="token function">SYSTEM_ERROR</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">,</span> <span class="token string">"系统出现异常，请您稍后再试或联系管理员！"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    
+
     <span class="token comment">/**
      * 未知异常
      */</span>
     <span class="token function">OTHER_ERROR</span><span class="token punctuation">(</span><span class="token number">999</span><span class="token punctuation">,</span> <span class="token string">"系统出现未知异常，请联系管理员！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
+
     <span class="token class-name">CustomExceptionType</span><span class="token punctuation">(</span><span class="token keyword">int</span> code<span class="token punctuation">,</span> <span class="token class-name">String</span> desc<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       	<span class="token keyword">this</span><span class="token punctuation">.</span>code <span class="token operator">=</span> code<span class="token punctuation">;</span>
       	<span class="token keyword">this</span><span class="token punctuation">.</span>desc <span class="token operator">=</span> desc<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-   
+
     <span class="token comment">/**
      * 异常类型状态码
      */</span>
     <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> code<span class="token punctuation">;</span>
-    
+
     <span class="token comment">/**
      * 异常类型中⽂描述
      */</span>
     <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span> desc<span class="token punctuation">;</span>
-    
+
     <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getDesc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-				<span class="token keyword">return</span> desc<span class="token punctuation">;</span>
+		<span class="token keyword">return</span> desc<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
+
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       	<span class="token keyword">return</span> code<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>最好不要超过5个，否则开发⼈员将会记不住，也不愿意去记。</li>
-<li>这⾥的code表示异常类型的唯⼀编码，为了⽅便⼤家记忆，就使⽤Http状态码400、500。</li>
-<li>这⾥的desc是通⽤的异常描述，在创建⾃定义异常的时候，为了给⽤户更友好的回复，通常异常信 息描述应该更具体更友好。</li>
+<li>最好不要超过 5 个，否则开发⼈员将会记不住，也不愿意去记。</li>
+<li>这⾥的 code 表示异常类型的唯⼀编码，为了⽅便⼤家记忆，就使⽤ Http 状态码 400、500。</li>
+<li>这⾥的 desc 是通⽤的异常描述，在创建⾃定义异常的时候，为了给⽤户更友好的回复，通常异常信 息描述应该更具体更友好。</li>
 </ul>
 <h3 id="三、⾃定义异常"><a href="#三、⾃定义异常" class="headerlink" title="三、⾃定义异常"></a>三、⾃定义异常</h3><ul>
-<li>⾃定义异常有两个核⼼内容，⼀个是code。使⽤CustomExceptionType 来限定范围。</li>
-<li>另外⼀个是message，这个message信息是要最后返回给前端的，所以需要⽤友好的提示来表达异常发⽣的原因或内容</li>
+<li>⾃定义异常有两个核⼼内容，⼀个是 code。使⽤ CustomExceptionType 来限定范围。</li>
+<li>另外⼀个是 message，这个 message 信息是要最后返回给前端的，所以需要⽤友好的提示来表达异常发⽣的原因或内容</li>
 </ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>exception</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>enums<span class="token punctuation">.</span></span><span class="token class-name">CustomExceptionType</span></span><span class="token punctuation">;</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>exception</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>enums<span class="token punctuation">.</span></span><span class="token class-name">CustomExceptionType</span></span><span class="token punctuation">;</span>
 <span class="token comment">/**
 * @description: ⾃定义异常
-* @author: mqxu
+* @author: syhan
 * @date: 2022-04-11
 **/</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CustomException</span> <span class="token keyword">extends</span> <span class="token class-name">RuntimeException</span> <span class="token punctuation">&#123;</span>
@@ -647,51 +648,49 @@
      * 异常错误编码
      */</span>
     <span class="token keyword">private</span> <span class="token keyword">int</span> code<span class="token punctuation">;</span>
-  	
+
     <span class="token comment">/**
      * 异常信息
      */</span>
     <span class="token keyword">private</span> <span class="token class-name">String</span> message<span class="token punctuation">;</span>
-  
+
     <span class="token keyword">private</span> <span class="token class-name">CustomException</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token keyword">public</span> <span class="token class-name">CustomException</span><span class="token punctuation">(</span><span class="token class-name">CustomExceptionType</span> customExceptionType<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>code <span class="token operator">=</span> customExceptionType<span class="token punctuation">.</span><span class="token function">getCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>message <span class="token operator">=</span> customExceptionType<span class="token punctuation">.</span><span class="token function">getDesc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token keyword">public</span> <span class="token class-name">CustomException</span><span class="token punctuation">(</span><span class="token class-name">CustomExceptionType</span> customExceptionType<span class="token punctuation">,</span> <span class="token class-name">String</span> message<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>code <span class="token operator">=</span> customExceptionType<span class="token punctuation">.</span><span class="token function">getCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>message <span class="token operator">=</span> message<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">return</span> code<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-  s
-		<span class="token annotation punctuation">@Override</span>
+
+	<span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">return</span> message<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
 <h3 id="四、请求接⼝统⼀响应数据结构"><a href="#四、请求接⼝统⼀响应数据结构" class="headerlink" title="四、请求接⼝统⼀响应数据结构"></a>四、请求接⼝统⼀响应数据结构</h3><p>为了解决不同的开发⼈员使⽤不同的结构来响应给前端，导致规范不统⼀，开发混乱的问题。我们使⽤ 如下代码定义统⼀数据响应结构。</p>
 <ul>
-<li>isok表示该请求是否处理成功（即是否发⽣异常）。true表示请求处理成功，false表示处理失败。</li>
-<li>code对响应结果进⼀步细化，200表示请求成功，400表示⽤户操作导致的异常，500表示系统异 常，999表示其他异常。与CustomExceptionType枚举⼀致。</li>
+<li>isok 表示该请求是否处理成功（即是否发⽣异常）。true 表示请求处理成功，false 表示处理失败。</li>
+<li>code 对响应结果进⼀步细化，200 表示请求成功，400 表示⽤户操作导致的异常，500 表示系统异 常，999 表示其他异常。与 CustomExceptionType 枚举⼀致。</li>
 <li>message：友好的提示信息，或者请求结果提示信息。如果请求成功这个信息通常没什么⽤，如果 请求失败，该信息需要展示给⽤户。</li>
 <li>data：通常⽤于查询数据请求，成功之后将查询数据响应给前端。</li>
 </ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>utils</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>enums<span class="token punctuation">.</span></span><span class="token class-name">CustomExceptionType</span></span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>exception<span class="token punctuation">.</span></span><span class="token class-name">CustomException</span></span><span class="token punctuation">;</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>utils</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>enums<span class="token punctuation">.</span></span><span class="token class-name">CustomExceptionType</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>exception<span class="token punctuation">.</span></span><span class="token class-name">CustomException</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">Data</span></span><span class="token punctuation">;</span>
 <span class="token comment">/**
 * @description: 请求接⼝统⼀响应数据结构
-* @author: mqxu
+* @author: syhan
 * @date: 2022-04-11
 **/</span>
 <span class="token annotation punctuation">@Data</span>
@@ -700,20 +699,20 @@
      * 请求响应状态码
      */</span>
     <span class="token keyword">private</span> <span class="token keyword">int</span> code<span class="token punctuation">;</span>
-    
+
     <span class="token comment">/**
      * 请求结果描述信息
      */</span>
     <span class="token keyword">private</span> <span class="token class-name">String</span> message<span class="token punctuation">;</span>
-    
+
     <span class="token comment">/**
      * 请求结果数据（通常⽤于查询操作）
      */</span>
     <span class="token keyword">private</span> <span class="token class-name">Object</span> data<span class="token punctuation">;</span>
-    
+
     <span class="token keyword">private</span> <span class="token class-name">AjaxResponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token punctuation">&#125;</span>
-   
+
     <span class="token comment">/**
      * 请求出现异常时的响应数据封装
      *
@@ -726,7 +725,7 @@
         resultBean<span class="token punctuation">.</span><span class="token function">setMessage</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> resultBean<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    
+
     <span class="token comment">/**
      * 请求出现异常时的响应数据封装
        * @param customExceptionType customExceptionType
@@ -739,7 +738,7 @@
         resultBean<span class="token punctuation">.</span><span class="token function">setMessage</span><span class="token punctuation">(</span>errorMessage<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> resultBean<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    
+
     <span class="token comment">/**
      * 请求成功的响应，不带查询数据（⽤于删除、修改、新增接⼝）
      *
@@ -751,7 +750,7 @@
         ajaxResponse<span class="token punctuation">.</span><span class="token function">setMessage</span><span class="token punctuation">(</span><span class="token string">"请求响应成功!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> ajaxResponse<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    
+
     <span class="token comment">/**
      * 请求成功的响应，带有查询数据（⽤于数据查询接⼝）
      *
@@ -765,7 +764,7 @@
         ajaxResponse<span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> ajaxResponse<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    
+
     <span class="token comment">/**
      * 请求成功的响应，带有查询数据（⽤于数据查询接⼝）
      *
@@ -782,31 +781,29 @@
    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>对于不同的场景，提供了四种构建AjaxResponse 的⽅法。</p>
+<p>对于不同的场景，提供了四种构建 AjaxResponse 的⽅法。</p>
 <ul>
-<li>当请求成功的情况下，可以使⽤AjaxResponse.success()构建返回结果给前端。</li>
-<li>当查询请求等需要返回业务数据，请求成功的情况下，可以使⽤AjaxResponse.success(data)构建 返回结果给前端。携带结果数据。</li>
-<li>当请求处理过程中发⽣异常，需要将异常转换为CustomException ，然后在控制层使⽤ AjaxResponse error(CustomException)构建返回结果给前端。</li>
-<li>在某些情况下，没有任何异常产⽣，我们判断某些条件也认为请求失败。这种使⽤AjaxResponse error(customExceptionType,errorMessage)构建响应结果。</li>
+<li>当请求成功的情况下，可以使⽤ AjaxResponse.success()构建返回结果给前端。</li>
+<li>当查询请求等需要返回业务数据，请求成功的情况下，可以使⽤ AjaxResponse.success(data)构建 返回结果给前端。携带结果数据。</li>
+<li>当请求处理过程中发⽣异常，需要将异常转换为 CustomException ，然后在控制层使⽤ AjaxResponse error(CustomException)构建返回结果给前端。</li>
+<li>在某些情况下，没有任何异常产⽣，我们判断某些条件也认为请求失败。这种使⽤ AjaxResponse error(customExceptionType,errorMessage)构建响应结果。</li>
 </ul>
-<h3 id="五、使⽤示例如下："><a href="#五、使⽤示例如下：" class="headerlink" title="五、使⽤示例如下："></a>五、使⽤示例如下：</h3><p>例如：更新操作，Controller⽆需返回额外的数据</p>
+<h3 id="五、使⽤示例如下："><a href="#五、使⽤示例如下：" class="headerlink" title="五、使⽤示例如下："></a>五、使⽤示例如下：</h3><p>例如：更新操作，Controller ⽆需返回额外的数据</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">return</span> <span class="token class-name">AjaxResponse</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>查询接⼝，Controller需返回结果数据(data可以是任何类型数据)</p>
+<p>查询接⼝，Controller 需返回结果数据(data 可以是任何类型数据)</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">return</span> <span class="token class-name">AjaxResponse</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-
-
-<h2 id="3-通⽤全局异常处理逻辑"><a href="#3-通⽤全局异常处理逻辑" class="headerlink" title="3.通⽤全局异常处理逻辑"></a>3.通⽤全局异常处理逻辑</h2><h3 id="⼀、通⽤异常处理逻辑"><a href="#⼀、通⽤异常处理逻辑" class="headerlink" title="⼀、通⽤异常处理逻辑"></a>⼀、通⽤异常处理逻辑</h3><p>程序员的异常处理逻辑要⼗分的单⼀：⽆论在Controller层、Service层还是什么其他位置，程序员只负 责⼀件事：<strong>那就是捕获异常，并将异常转换为⾃定义异常。使⽤⽤户友好的信息去填充。</strong></p>
-<p>CustomException的message,并将CustomException抛出去。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>service</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>consts<span class="token punctuation">.</span></span><span class="token class-name">MsgConsts</span></span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>enums<span class="token punctuation">.</span></span><span class="token class-name">CustomExceptionType</span></span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>exception<span class="token punctuation">.</span></span><span class="token class-name">CustomException</span></span><span class="token punctuation">;</span>
+<h2 id="3-通⽤全局异常处理逻辑"><a href="#3-通⽤全局异常处理逻辑" class="headerlink" title="3.通⽤全局异常处理逻辑"></a>3.通⽤全局异常处理逻辑</h2><h3 id="⼀、通⽤异常处理逻辑"><a href="#⼀、通⽤异常处理逻辑" class="headerlink" title="⼀、通⽤异常处理逻辑"></a>⼀、通⽤异常处理逻辑</h3><p>程序员的异常处理逻辑要⼗分的单⼀：⽆论在 Controller 层、Service 层还是什么其他位置，程序员只负 责⼀件事：<strong>那就是捕获异常，并将异常转换为⾃定义异常。使⽤⽤户友好的信息去填充。</strong></p>
+<p>CustomException 的 message,并将 CustomException 抛出去。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>service</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>consts<span class="token punctuation">.</span></span><span class="token class-name">MsgConsts</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>enums<span class="token punctuation">.</span></span><span class="token class-name">CustomExceptionType</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>exception<span class="token punctuation">.</span></span><span class="token class-name">CustomException</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Service</span></span><span class="token punctuation">;</span>
 <span class="token comment">/**
 * @description: 通⽤异常处理逻辑
-* @author: mqxu
+* @author: syhan
 * @date: 2022-04-11
 **/</span>
 <span class="token annotation punctuation">@Service</span>
@@ -837,13 +834,11 @@
    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-<h3 id="⼆、全局异常处理器"><a href="#⼆、全局异常处理器" class="headerlink" title="⼆、全局异常处理器"></a>⼆、全局异常处理器</h3><p>通过团队内的编码规范的要求，我们已经知道了：不允许程序员截留处理Exception，必须把异常转换为 ⾃定义异常CustomException全都抛出去。那么程序员把异常跑出去之后由谁来处理？那就是 ControllerAdvice。 ControllerAdvice注解的作⽤就是监听所有的Controller，⼀旦Controller抛出CustomException，就会 在@ExceptionHandler(CustomException.class)注解的⽅法⾥⾯对该异常进⾏处理。处理⽅法很简单就是<strong>使⽤AjaxResponse.error(e)包装为通⽤的接⼝数据结构返回给前端</strong>。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>handler</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>enums<span class="token punctuation">.</span></span><span class="token class-name">CustomExceptionType</span></span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>exception<span class="token punctuation">.</span></span><span class="token class-name">CustomException</span></span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>utils<span class="token punctuation">.</span></span><span class="token class-name">AjaxResponse</span></span><span class="token punctuation">;</span>
+<h3 id="⼆、全局异常处理器"><a href="#⼆、全局异常处理器" class="headerlink" title="⼆、全局异常处理器"></a>⼆、全局异常处理器</h3><p>通过团队内的编码规范的要求，我们已经知道了：不允许程序员截留处理 Exception，必须把异常转换为 ⾃定义异常 CustomException 全都抛出去。那么程序员把异常跑出去之后由谁来处理？那就是 ControllerAdvice。 ControllerAdvice 注解的作⽤就是监听所有的 Controller，⼀旦 Controller 抛出 CustomException，就会 在@ExceptionHandler(CustomException.class)注解的⽅法⾥⾯对该异常进⾏处理。处理⽅法很简单就是<strong>使⽤ AjaxResponse.error(e)包装为通⽤的接⼝数据结构返回给前端</strong>。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>handler</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>enums<span class="token punctuation">.</span></span><span class="token class-name">CustomExceptionType</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>exception<span class="token punctuation">.</span></span><span class="token class-name">CustomException</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>utils<span class="token punctuation">.</span></span><span class="token class-name">AjaxResponse</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>validation<span class="token punctuation">.</span></span><span class="token class-name">BindException</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>validation<span class="token punctuation">.</span></span><span class="token class-name">FieldError</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span></span><span class="token class-name">MethodArgumentNotValidException</span></span><span class="token punctuation">;</span>
@@ -852,7 +847,7 @@
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">ResponseBody</span></span><span class="token punctuation">;</span>
 <span class="token comment">/**
 * @description: 全局异常处理器
-* @author: mqxu
+* @author: syhan
 * @date: 2022-04-11
 **/</span>
 <span class="token annotation punctuation">@ControllerAdvice</span>
@@ -872,7 +867,7 @@
        <span class="token punctuation">&#125;</span>
         <span class="token keyword">return</span> <span class="token class-name">AjaxResponse</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    
+
     <span class="token comment">/**
      * 处理程序员在程序中未能捕获（遗漏的）异常
      *
@@ -885,7 +880,7 @@
 	  <span class="token comment">//TODO 将异常信息持久化处理，⽅便运维⼈员处理</span>
         <span class="token keyword">return</span> <span class="token class-name">AjaxResponse</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CustomException</span><span class="token punctuation">(</span><span class="token class-name">CustomExceptionType</span><span class="token punctuation">.</span>OTHER_ERROR<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    
+
     <span class="token annotation punctuation">@ExceptionHandler</span><span class="token punctuation">(</span><span class="token class-name">MethodArgumentNotValidException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
     <span class="token annotation punctuation">@ResponseBody</span>
     <span class="token keyword">public</span> <span class="token class-name">AjaxResponse</span> <span class="token function">handleBindException</span><span class="token punctuation">(</span><span class="token class-name">MethodArgumentNotValidException</span> ex<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -893,34 +888,31 @@
         <span class="token keyword">assert</span> fieldError <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token class-name">AjaxResponse</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CustomException</span><span class="token punctuation">(</span><span class="token class-name">CustomExceptionType</span><span class="token punctuation">.</span>USER_INPUT_ERROR<span class="token punctuation">,</span> fieldError<span class="token punctuation">.</span><span class="token function">getDefaultMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    
+
     <span class="token annotation punctuation">@ExceptionHandler</span><span class="token punctuation">(</span><span class="token class-name">BindException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
     <span class="token annotation punctuation">@ResponseBody</span>
     <span class="token keyword">public</span> <span class="token class-name">AjaxResponse</span> <span class="token function">handleBindException</span><span class="token punctuation">(</span><span class="token class-name">BindException</span> ex<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">FieldError</span> fieldError <span class="token operator">=</span> ex<span class="token punctuation">.</span><span class="token function">getBindingResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getFieldError</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">assert</span> fieldError <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token class-name">AjaxResponse</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CustomException</span><span class="token punctuation">(</span><span class="token class-name">CustomExceptionType</span><span class="token punctuation">.</span>USER_INPUT_ERROR<span class="token punctuation">,</span>
-fieldError<span class="token punctuation">.</span><span class="token function">getDefaultMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token class-name">AjaxResponse</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CustomException</span><span class="token punctuation">(</span><span class="token class-name">CustomExceptionType</span><span class="token punctuation">.</span>USER_INPUT_ERROR<span class="token punctuation">,</span> fieldError<span class="token punctuation">.</span><span class="token function">getDefaultMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    
+
     <span class="token annotation punctuation">@ExceptionHandler</span><span class="token punctuation">(</span><span class="token class-name">IllegalArgumentException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
     <span class="token annotation punctuation">@ResponseBody</span>
     <span class="token keyword">public</span> <span class="token class-name">AjaxResponse</span> <span class="token function">handleIllegalArgumentException</span><span class="token punctuation">(</span><span class="token class-name">IllegalArgumentException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">return</span> <span class="token class-name">AjaxResponse</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CustomException</span><span class="token punctuation">(</span><span class="token class-name">CustomExceptionType</span><span class="token punctuation">.</span>USER_INPUT_ERROR<span class="token punctuation">,</span> e<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-<h3 id="三、测试⼀下"><a href="#三、测试⼀下" class="headerlink" title="三、测试⼀下"></a>三、测试⼀下</h3><p>随便找⼀个API，注⼊ExceptionService访问测试⼀下</p>
+<h3 id="三、测试⼀下"><a href="#三、测试⼀下" class="headerlink" title="三、测试⼀下"></a>三、测试⼀下</h3><p>随便找⼀个 API，注⼊ ExceptionService 访问测试⼀下</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/ymSGh3.png"></p>
-<h3 id="四、业务状态与HTTP协议状态⼀致"><a href="#四、业务状态与HTTP协议状态⼀致" class="headerlink" title="四、业务状态与HTTP协议状态⼀致"></a>四、业务状态与HTTP协议状态⼀致</h3><p>不知道⼤家有没有注意到⼀个问题(看上图)？这个问题就是我们的AjaxResponse的code是400，但是真正的HTTP协议状态码是200。</p>
+<h3 id="四、业务状态与-HTTP-协议状态⼀致"><a href="#四、业务状态与-HTTP-协议状态⼀致" class="headerlink" title="四、业务状态与 HTTP 协议状态⼀致"></a>四、业务状态与 HTTP 协议状态⼀致</h3><p>不知道⼤家有没有注意到⼀个问题(看上图)？这个问题就是我们的 AjaxResponse 的 code 是 400，但是真正的 HTTP 协议状态码是 200。</p>
 <ul>
-<li>AjaxResponse的code是400代表的是业务状态，也就是说⽤户的请求业务失败了</li>
-<li>但是HTTP请求是成功的，也就是说数据是正常返回的。</li>
+<li>AjaxResponse 的 code 是 400 代表的是业务状态，也就是说⽤户的请求业务失败了</li>
+<li>但是 HTTP 请求是成功的，也就是说数据是正常返回的。</li>
 </ul>
-<p>在很多的公司开发RESTful服务时，要求HTTP状态码能够体现业务的最终执⾏状态，所以说：我们有必要让业务状态与HTTP协议Response状态码⼀致。</p>
+<p>在很多的公司开发 RESTful 服务时，要求 HTTP 状态码能够体现业务的最终执⾏状态，所以说：我们有必要让业务状态与 HTTP 协议 Response 状态码⼀致。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
 <span class="token annotation punctuation">@ControllerAdvice</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GlobalResponseAdvice</span> <span class="token keyword">implements</span> <span class="token class-name">ResponseBodyAdvice</span> <span class="token punctuation">&#123;</span>
@@ -929,10 +921,9 @@ fieldError<span class="token punctuation">.</span><span class="token function">g
         <span class="token comment">//return returnType.hasMethodAnnotation(ResponseBody.class);</span>
         <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    
+
     <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">beforeBodyWrite</span><span class="token punctuation">(</span><span class="token class-name">Object</span> body<span class="token punctuation">,</span> <span class="token class-name">MethodParameter</span> returnType<span class="token punctuation">,</span> <span class="token class-name">MediaType</span> selectedContentType<span class="token punctuation">,</span>
-<span class="token class-name">Class</span> selectedConverterType<span class="token punctuation">,</span> <span class="token class-name">ServerHttpRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">ServerHttpResponse</span> response<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">beforeBodyWrite</span><span class="token punctuation">(</span><span class="token class-name">Object</span> body<span class="token punctuation">,</span> <span class="token class-name">MethodParameter</span> returnType<span class="token punctuation">,</span> <span class="token class-name">MediaType</span> selectedContentType<span class="token punctuation">,</span> <span class="token class-name">Class</span> selectedConverterType<span class="token punctuation">,</span> <span class="token class-name">ServerHttpRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">ServerHttpResponse</span> response<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token comment">//如果响应结果是JSON数据类型</span>
         <span class="token keyword">if</span><span class="token punctuation">(</span>selectedContentType<span class="token punctuation">.</span><span class="token function">equalsTypeAndSubtype</span><span class="token punctuation">(</span>
                 <span class="token class-name">MediaType</span><span class="token punctuation">.</span>APPLICATION_JSON<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
@@ -944,26 +935,26 @@ fieldError<span class="token punctuation">.</span><span class="token function">g
         <span class="token punctuation">&#125;</span>
         <span class="token keyword">return</span> body<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>实现ResponseBodyAdvice 接⼝的作⽤是：在将数据返回给⽤户之前，做最后⼀步的处理。也就是说，ResponseBodyAdvice 的处理过程在全局异常处理的后⾯。</li>
+<li>实现 ResponseBodyAdvice 接⼝的作⽤是：在将数据返回给⽤户之前，做最后⼀步的处理。也就是说，ResponseBodyAdvice 的处理过程在全局异常处理的后⾯。</li>
 </ul>
-<h3 id="五、进⼀步优化"><a href="#五、进⼀步优化" class="headerlink" title="五、进⼀步优化"></a>五、进⼀步优化</h3><p>我们已经知道了，ResponseBodyAdvice 接⼝的作⽤是：在将数据返回给⽤户之前，做最后⼀步的处理。将上⽂的GlobalResponseAdvice 中beforeBodyWrite⽅法代码优化如下。</p>
+<h3 id="五、进⼀步优化"><a href="#五、进⼀步优化" class="headerlink" title="五、进⼀步优化"></a>五、进⼀步优化</h3><p>我们已经知道了，ResponseBodyAdvice 接⼝的作⽤是：在将数据返回给⽤户之前，做最后⼀步的处理。将上⽂的 GlobalResponseAdvice 中 beforeBodyWrite ⽅法代码优化如下。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/DRqfmu.png"></p>
 <ul>
-<li>如果Controller或全局异常处理响应的结果body是AjaxResponse，就直接return给前端。</li>
-<li>如果Controller或全局异常处理响应的结果body不是AjaxResponse，就将body封装为AjaxResponse之后再return给前端。</li>
+<li>如果 Controller 或全局异常处理响应的结果 body 是 AjaxResponse，就直接 return 给前端。</li>
+<li>如果 Controller 或全局异常处理响应的结果 body 不是 AjaxResponse，就将 body 封装为 AjaxResponse 之后再 return 给前端。</li>
 </ul>
-<p>我们之前的代码是这样写的，⽐如：某个controller⽅法返回值</p>
+<p>我们之前的代码是这样写的，⽐如：某个 controller ⽅法返回值</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">return</span> <span class="token class-name">AjaxResponse</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>objList<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>现在就可以这样写了，因为在GlobalResponseAdvice ⾥⾯会统⼀再封装为AjaxResponse。</p>
+<p>现在就可以这样写了，因为在 GlobalResponseAdvice ⾥⾯会统⼀再封装为 AjaxResponse。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">return</span> objList<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>最终代码如下：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>advice</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>mqxu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>utils<span class="token punctuation">.</span></span><span class="token class-name">AjaxResponse</span></span><span class="token punctuation">;</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>advice</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>exception<span class="token punctuation">.</span>utils<span class="token punctuation">.</span></span><span class="token class-name">AjaxResponse</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>core<span class="token punctuation">.</span></span><span class="token class-name">MethodParameter</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>http<span class="token punctuation">.</span></span><span class="token class-name">HttpStatus</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>http<span class="token punctuation">.</span></span><span class="token class-name">MediaType</span></span><span class="token punctuation">;</span>
@@ -971,29 +962,23 @@ fieldError<span class="token punctuation">.</span><span class="token function">g
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>http<span class="token punctuation">.</span>server<span class="token punctuation">.</span></span><span class="token class-name">ServerHttpResponse</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Component</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">ControllerAdvice</span></span><span class="token punctuation">;</span>
-<span class="token keyword">import</span>
-<span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>mvc<span class="token punctuation">.</span>method<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">ResponseBodyAdvice</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>mvc<span class="token punctuation">.</span>method<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">ResponseBodyAdvice</span></span><span class="token punctuation">;</span>
 <span class="token comment">/**
 * @description: 全局业务状态通知
-* @author: mqxu
+* @author: syhan
 * @date: 2022-04-11
 **/</span>
 <span class="token annotation punctuation">@Component</span>
 <span class="token annotation punctuation">@ControllerAdvice</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GlobalResponseAdvice</span> <span class="token keyword">implements</span> <span class="token class-name">ResponseBodyAdvice</span> <span class="token punctuation">&#123;</span>
     <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">supports</span><span class="token punctuation">(</span><span class="token class-name">MethodParameter</span> methodParameter<span class="token punctuation">,</span> <span class="token class-name">Class</span>
-aClass<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">supports</span><span class="token punctuation">(</span><span class="token class-name">MethodParameter</span> methodParameter<span class="token punctuation">,</span> <span class="token class-name">Class</span> aClass<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-   <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
     <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">beforeBodyWrite</span><span class="token punctuation">(</span><span class="token class-name">Object</span> body<span class="token punctuation">,</span>
-                                  <span class="token class-name">MethodParameter</span> methodParameter<span class="token punctuation">,</span>
-<span class="token class-name">MediaType</span> mediaType<span class="token punctuation">,</span>
-<span class="token class-name">Class</span> aClass<span class="token punctuation">,</span>
-<span class="token class-name">ServerHttpRequest</span> serverHttpRequest<span class="token punctuation">,</span>
-<span class="token class-name">ServerHttpResponse</span> serverHttpResponse<span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">beforeBodyWrite</span><span class="token punctuation">(</span><span class="token class-name">Object</span> body<span class="token punctuation">,</span> <span class="token class-name">MethodParameter</span> methodParameter<span class="token punctuation">,</span> <span class="token class-name">MediaType</span> mediaType<span class="token punctuation">,</span> <span class="token class-name">Class</span> aClass<span class="token punctuation">,</span> <span class="token class-name">ServerHttpRequest</span> serverHttpRequest<span class="token punctuation">,</span> <span class="token class-name">ServerHttpResponse</span> serverHttpResponse<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
         <span class="token comment">//如果响应结果是JSON数据类型</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>mediaType<span class="token punctuation">.</span><span class="token function">equalsTypeAndSubtype</span><span class="token punctuation">(</span>
                 <span class="token class-name">MediaType</span><span class="token punctuation">.</span>APPLICATION_JSON<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -1005,19 +990,17 @@ aClass<span class="token punctuation">)</span> <span class="token punctuation">&
                    <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                     <span class="token punctuation">&#125;</span>
                 <span class="token keyword">return</span> body<span class="token punctuation">;</span>
-           <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
                 serverHttpResponse<span class="token punctuation">.</span><span class="token function">setStatusCode</span><span class="token punctuation">(</span><span class="token class-name">HttpStatus</span><span class="token punctuation">.</span>OK<span class="token punctuation">)</span><span class="token punctuation">;</span>
                 <span class="token keyword">return</span> <span class="token class-name">AjaxResponse</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>body<span class="token punctuation">)</span><span class="token punctuation">;</span>
-           <span class="token punctuation">&#125;</span>
-       <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
         <span class="token keyword">return</span> body<span class="token punctuation">;</span>
-   <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-<h2 id="4-服务端数据校验异常处理逻辑"><a href="#4-服务端数据校验异常处理逻辑" class="headerlink" title="4.服务端数据校验异常处理逻辑"></a>4.服务端数据校验异常处理逻辑</h2><h3 id="⼀、异常校验的规范及常⽤注解"><a href="#⼀、异常校验的规范及常⽤注解" class="headerlink" title="⼀、异常校验的规范及常⽤注解"></a>⼀、异常校验的规范及常⽤注解</h3><p>在Web开发时，对于请求参数，⼀般上都需要进⾏参数合法性校验的，原先的写法是⼀个个字段⼀个个 去判断，这种⽅式太不通⽤了，Java的JSR 303: Bean Validation规范就是解决这个问题的。 JSR 303只是个规范，并没有具体的实现，⽬前通常是⽤ hibernate-validator进⾏统⼀参数校验。</p>
-<p>JSR303定义的校验类型</p>
+<h2 id="4-服务端数据校验异常处理逻辑"><a href="#4-服务端数据校验异常处理逻辑" class="headerlink" title="4.服务端数据校验异常处理逻辑"></a>4.服务端数据校验异常处理逻辑</h2><h3 id="⼀、异常校验的规范及常⽤注解"><a href="#⼀、异常校验的规范及常⽤注解" class="headerlink" title="⼀、异常校验的规范及常⽤注解"></a>⼀、异常校验的规范及常⽤注解</h3><p>在 Web 开发时，对于请求参数，⼀般上都需要进⾏参数合法性校验的，原先的写法是⼀个个字段⼀个个 去判断，这种⽅式太不通⽤了，Java 的 JSR 303: Bean Validation 规范就是解决这个问题的。 JSR 303 只是个规范，并没有具体的实现，⽬前通常是⽤ hibernate-validator 进⾏统⼀参数校验。</p>
+<p>JSR303 定义的校验类型</p>
 <table>
 <thead>
 <tr>
@@ -1103,11 +1086,11 @@ aClass<span class="token punctuation">)</span> <span class="token punctuation">&
 <td>被注释的元素必须在合适的范围内</td>
 </tr>
 </tbody></table>
-<p><strong>⽤法:把以上注解加在ArticleVO的属性字段上，然后在参数校验的⽅法上加@Valid注解</strong> 如:</p>
+<p><strong>⽤法:把以上注解加在 ArticleVO 的属性字段上，然后在参数校验的⽅法上加@Valid 注解</strong> 如:</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/vAYP87.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/mzxQtY.png"></p>
-<p>当⽤户输⼊参数不符合注解给出的校验规则的时候，会抛出BindException或MethodArgumentNotValidException。</p>
-<h3 id="⼆、Assert断⾔与IllegalArgumentException"><a href="#⼆、Assert断⾔与IllegalArgumentException" class="headerlink" title="⼆、Assert断⾔与IllegalArgumentException"></a>⼆、Assert断⾔与IllegalArgumentException</h3><p>之前给⼤家讲通⽤异常处理的时候，⽤户输⼊异常判断是这样处理的。这种⽅法也是可以⽤的，但是我 们学了这么多的知识，可以优化⼀下。</p>
+<p>当⽤户输⼊参数不符合注解给出的校验规则的时候，会抛出 BindException 或 MethodArgumentNotValidException。</p>
+<h3 id="⼆、Assert-断⾔与-IllegalArgumentException"><a href="#⼆、Assert-断⾔与-IllegalArgumentException" class="headerlink" title="⼆、Assert 断⾔与 IllegalArgumentException"></a>⼆、Assert 断⾔与 IllegalArgumentException</h3><p>之前给⼤家讲通⽤异常处理的时候，⽤户输⼊异常判断是这样处理的。这种⽅法也是可以⽤的，但是我 们学了这么多的知识，可以优化⼀下。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//服务层，模拟⽤户输⼊数据导致的校验异常</span>
 <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">userBizError</span><span class="token punctuation">(</span><span class="token keyword">int</span> input<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span>input <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span> <span class="token comment">//模拟业务校验失败逻辑</span>
@@ -1115,44 +1098,41 @@ aClass<span class="token punctuation">)</span> <span class="token punctuation">&
                 <span class="token class-name">CustomExceptionType</span><span class="token punctuation">.</span>USER_INPUT_ERROR<span class="token punctuation">,</span>
                 <span class="token string">"您输⼊的数据不符合业务逻辑，请确认后重新输⼊！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    
+
     <span class="token comment">//…… 其他的业务</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>更好的写法是下⾯这样的，使⽤org.springframework.util.Assert断⾔input &gt;= 0，如果不满⾜条件就抛 出IllegalArgumentException，参数不合法的异常。</p>
+<p>更好的写法是下⾯这样的，使⽤ org.springframework.util.Assert 断⾔ input &gt;= 0，如果不满⾜条件就抛 出 IllegalArgumentException，参数不合法的异常。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//服务层，模拟⽤户输⼊数据导致的校验异常</span>
 <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">userBizError</span><span class="token punctuation">(</span><span class="token keyword">int</span> input<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token class-name">Assert</span><span class="token punctuation">.</span><span class="token function">isTrue</span><span class="token punctuation">(</span>input <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token string">"您输⼊的数据不符合业务逻辑，请确认后重新输⼊！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment">//…… 其他的业务</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>org.springframework.util.Assert断⾔提供了⼤量的断⾔⽅法，针对各种数据类型进⾏数据合法性校验， 使⽤它我们编写代码更⽅便。</p>
-<h3 id="三、友好的数据校验异常处理（⽤户输⼊异常的全局处理）"><a href="#三、友好的数据校验异常处理（⽤户输⼊异常的全局处理）" class="headerlink" title="三、友好的数据校验异常处理（⽤户输⼊异常的全局处理）"></a>三、友好的数据校验异常处理（⽤户输⼊异常的全局处理）</h3><p>我们已知当数据校验失败的时候，会抛出异常BindException或MethodArgumentNotValidException。 所以我们对这两种异常做全局处理，防⽌程序员重复编码带来困扰。</p>
+<p>org.springframework.util.Assert 断⾔提供了⼤量的断⾔⽅法，针对各种数据类型进⾏数据合法性校验， 使⽤它我们编写代码更⽅便。</p>
+<h3 id="三、友好的数据校验异常处理（⽤户输⼊异常的全局处理）"><a href="#三、友好的数据校验异常处理（⽤户输⼊异常的全局处理）" class="headerlink" title="三、友好的数据校验异常处理（⽤户输⼊异常的全局处理）"></a>三、友好的数据校验异常处理（⽤户输⼊异常的全局处理）</h3><p>我们已知当数据校验失败的时候，会抛出异常 BindException 或 MethodArgumentNotValidException。 所以我们对这两种异常做全局处理，防⽌程序员重复编码带来困扰。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@ExceptionHandler</span><span class="token punctuation">(</span><span class="token class-name">MethodArgumentNotValidException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
 <span class="token annotation punctuation">@ResponseBody</span>
 <span class="token keyword">public</span> <span class="token class-name">AjaxResponse</span> <span class="token function">handleBindException</span><span class="token punctuation">(</span><span class="token class-name">MethodArgumentNotValidException</span> ex<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token class-name">FieldError</span> fieldError <span class="token operator">=</span> ex<span class="token punctuation">.</span><span class="token function">getBindingResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getFieldError</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">return</span> <span class="token class-name">AjaxResponse</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CustomException</span><span class="token punctuation">(</span><span class="token class-name">CustomExceptionType</span><span class="token punctuation">.</span>USER_INPUT_ERROR<span class="token punctuation">,</span>
-          fieldError<span class="token punctuation">.</span><span class="token function">getDefaultMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">FieldError</span> fieldError <span class="token operator">=</span> ex<span class="token punctuation">.</span><span class="token function">getBindingResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getFieldError</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token class-name">AjaxResponse</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CustomException</span><span class="token punctuation">(</span><span class="token class-name">CustomExceptionType</span><span class="token punctuation">.</span>USER_INPUT_ERROR<span class="token punctuation">,</span> fieldError<span class="token punctuation">.</span><span class="token function">getDefaultMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
 <span class="token annotation punctuation">@ExceptionHandler</span><span class="token punctuation">(</span><span class="token class-name">BindException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
 <span class="token annotation punctuation">@ResponseBody</span>
 <span class="token keyword">public</span> <span class="token class-name">AjaxResponse</span> <span class="token function">handleBindException</span><span class="token punctuation">(</span><span class="token class-name">BindException</span> ex<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token class-name">FieldError</span> fieldError <span class="token operator">=</span> ex<span class="token punctuation">.</span><span class="token function">getBindingResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getFieldError</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">return</span> <span class="token class-name">AjaxResponse</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CustomException</span><span class="token punctuation">(</span><span class="token class-name">CustomExceptionType</span><span class="token punctuation">.</span>USER_INPUT_ERROR<span class="token punctuation">,</span>
-          fieldError<span class="token punctuation">.</span><span class="token function">getDefaultMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token class-name">FieldError</span> fieldError <span class="token operator">=</span> ex<span class="token punctuation">.</span><span class="token function">getBindingResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getFieldError</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token class-name">AjaxResponse</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CustomException</span><span class="token punctuation">(</span><span class="token class-name">CustomExceptionType</span><span class="token punctuation">.</span>USER_INPUT_ERROR<span class="token punctuation">,</span> fieldError<span class="token punctuation">.</span><span class="token function">getDefaultMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>我们已知使⽤org.springframework.util.Assert断⾔，如果不满⾜条件就抛出 IllegalArgumentException。可以使⽤下⾯的全局异常处理函数。</p>
+<p>我们已知使⽤ org.springframework.util.Assert 断⾔，如果不满⾜条件就抛出 IllegalArgumentException。可以使⽤下⾯的全局异常处理函数。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@ExceptionHandler</span><span class="token punctuation">(</span><span class="token class-name">IllegalArgumentException</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
 <span class="token annotation punctuation">@ResponseBody</span>
 <span class="token keyword">public</span> <span class="token class-name">AjaxResponse</span>
 <span class="token function">handleIllegalArgumentException</span><span class="token punctuation">(</span><span class="token class-name">IllegalArgumentException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">return</span> <span class="token class-name">AjaxResponse</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CustomException</span><span class="token punctuation">(</span><span class="token class-name">CustomExceptionType</span><span class="token punctuation">.</span>USER_INPUT_ERROR<span class="token punctuation">,</span> e<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
- <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token class-name">AjaxResponse</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CustomException</span><span class="token punctuation">(</span><span class="token class-name">CustomExceptionType</span><span class="token punctuation">.</span>USER_INPUT_ERROR<span class="token punctuation">,</span> e<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 
                 
             </div>
@@ -1691,7 +1671,7 @@ aClass<span class="token punctuation">)</span> <span class="token punctuation">&
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">43.9k</span>&nbsp;字
+                class="white-color">44k</span>&nbsp;字
             
             
             

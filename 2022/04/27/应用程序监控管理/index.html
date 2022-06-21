@@ -499,28 +499,27 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="应用程序监控管理"><a href="#应用程序监控管理" class="headerlink" title="应用程序监控管理"></a>应用程序监控管理</h1><h2 id="1-Actuator应用监控快速入门"><a href="#1-Actuator应用监控快速入门" class="headerlink" title="1. Actuator应用监控快速入门"></a>1. Actuator应用监控快速入门</h2><h3 id="一、大纲"><a href="#一、大纲" class="headerlink" title="一、大纲"></a>一、大纲</h3><ul>
-<li>Spring Boot Actuator简介</li>
-<li>Actuator开启与配置</li>
+                <h1 id="应用程序监控管理"><a href="#应用程序监控管理" class="headerlink" title="应用程序监控管理"></a>应用程序监控管理</h1><h2 id="1-Actuator-应用监控快速入门"><a href="#1-Actuator-应用监控快速入门" class="headerlink" title="1. Actuator 应用监控快速入门"></a>1. Actuator 应用监控快速入门</h2><h3 id="一、大纲"><a href="#一、大纲" class="headerlink" title="一、大纲"></a>一、大纲</h3><ul>
+<li>Spring Boot Actuator 简介</li>
+<li>Actuator 开启与配置</li>
 <li>常用监控端点说明</li>
 </ul>
-<h3 id="二、Spring-Boot-Actuator简介"><a href="#二、Spring-Boot-Actuator简介" class="headerlink" title="二、Spring Boot Actuator简介"></a>二、Spring Boot Actuator简介</h3><p>Spring Boot作为构建微服务节点的方案，一定要提供全面而且细致的监控指标，使微服务更易于管理！微服务不同于单体应用，微服务的每个服务节点都单独部署，独立运行，大型的微服务项目甚至有成百上干个服务节点。这就为我们进行系统监控与运维提出了挑战。为了应对这个挑战，其中最重要的工作之一就是：微服务节点能够合理的暴露服务的相关监控指标，用以对服务进行健康检查、监控管理，从而进行合理的流量规划与安排系统运维工作！</p>
+<h3 id="二、Spring-Boot-Actuator-简介"><a href="#二、Spring-Boot-Actuator-简介" class="headerlink" title="二、Spring Boot Actuator 简介"></a>二、Spring Boot Actuator 简介</h3><p>Spring Boot 作为构建微服务节点的方案，一定要提供全面而且细致的监控指标，使微服务更易于管理！微服务不同于单体应用，微服务的每个服务节点都单独部署，独立运行，大型的微服务项目甚至有成百上干个服务节点。这就为我们进行系统监控与运维提出了挑战。为了应对这个挑战，其中最重要的工作之一就是：微服务节点能够合理的暴露服务的相关监控指标，用以对服务进行健康检查、监控管理，从而进行合理的流量规划与安排系统运维工作！</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-27_11-19-32.png" alt="图片描述"></p>
-<p>Spring Boot Actuator 模块提供了生产级别的功能，比如健康检查，审计，指标收集，HTTP 跟踪等，帮助我们监控和管理Spring Boot 应用、Bean加载情况、环境变量、日志信息、线程信息，JVM堆信息等。这个模块是一个采集应用内部信息暴露给外部的模块，上述的功能都可以通过HTTP 和JMX访问。</p>
-<p>![图片描述](/Users/apple/Library/Application Support/typora-user-images/image-20220427112354502.png)</p>
-<p>Actuator 也可以和⼀些外部的应⽤监控系统整合（Prometheus, Graphite, DataDog, Influx, Wavefront, New Relic等）。这些监控系统提供了出⾊的仪表板，图形，分析和警报，可帮助你通过⼀个统⼀友好的 界⾯，监视和管理你的应⽤程序。 </p>
-<h3 id="三、Actuator开启与配置"><a href="#三、Actuator开启与配置" class="headerlink" title="三、Actuator开启与配置"></a>三、Actuator开启与配置</h3><blockquote>
-<p>新建 boot-actuator模块</p>
+<p>Spring Boot Actuator 模块提供了生产级别的功能，比如健康检查，审计，指标收集，HTTP 跟踪等，帮助我们监控和管理 Spring Boot 应用、Bean 加载情况、环境变量、日志信息、线程信息，JVM 堆信息等。这个模块是一个采集应用内部信息暴露给外部的模块，上述的功能都可以通过 HTTP 和 JMX 访问。</p>
+<p>Actuator 也可以和⼀些外部的应⽤监控系统整合（Prometheus, Graphite, DataDog, Influx, Wavefront, New Relic 等）。这些监控系统提供了出⾊的仪表板，图形，分析和警报，可帮助你通过⼀个统⼀友好的 界⾯，监视和管理你的应⽤程序。</p>
+<h3 id="三、Actuator-开启与配置"><a href="#三、Actuator-开启与配置" class="headerlink" title="三、Actuator 开启与配置"></a>三、Actuator 开启与配置</h3><blockquote>
+<p>新建 boot-actuator 模块</p>
 </blockquote>
-<h4 id="3-1-开启监控"><a href="#3-1-开启监控" class="headerlink" title="3.1 开启监控"></a>3.1 开启监控</h4><p>在Spring Boot 项目中开启Actuator非常简单，只需要引入如下的maven坐标即可。</p>
+<h4 id="3-1-开启监控"><a href="#3-1-开启监控" class="headerlink" title="3.1 开启监控"></a>3.1 开启监控</h4><p>在 Spring Boot 项目中开启 Actuator 非常简单，只需要引入如下的 maven 坐标即可。</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-actuator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="3-2-默认开放访问的监控端点"><a href="#3-2-默认开放访问的监控端点" class="headerlink" title="3.2 默认开放访问的监控端点"></a>3.2 默认开放访问的监控端点</h4><p>Spring Boot Actuator启⽤之后，HTTP协议下默认开放了两个端点的访问：</p>
+<h4 id="3-2-默认开放访问的监控端点"><a href="#3-2-默认开放访问的监控端点" class="headerlink" title="3.2 默认开放访问的监控端点"></a>3.2 默认开放访问的监控端点</h4><p>Spring Boot Actuator 启⽤之后，HTTP 协议下默认开放了两个端点的访问：</p>
 <ul>
-<li>/actuator/health⽤以监控应⽤状态。返回值是应⽤状态信息，包含四种状态DOWN(应⽤不正常), OUT_OF_SERVICE(服务不可⽤),UP(状态正常), UNKNOWN(状态未知)。如果服务状态正常，我们访问http:/host:port/actuator/health得到如下响应信息： </li>
+<li>/actuator/health ⽤以监控应⽤状态。返回值是应⽤状态信息，包含四种状态 DOWN(应⽤不正常), OUT_OF_SERVICE(服务不可⽤),UP(状态正常), UNKNOWN(状态未知)。如果服务状态正常，我们访问 http:/host:port/actuator/health 得到如下响应信息：</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token punctuation">&#123;</span>
   <span class="token string">"status"</span><span class="token operator">:</span> <span class="token string">"UP"</span>
@@ -530,7 +529,7 @@
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">management.endpoint.health.show-details</span><span class="token punctuation">=</span><span class="token value attr-value">always</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
-<li>/actuator/info ⽤来响应应⽤相关信息，默认为空。可以根据我们⾃⼰的需要，向服务调⽤者暴露相 关信息。如下所示,配置属性可以随意起名，但都要挂在info下⾯：</li>
+<li>/actuator/info ⽤来响应应⽤相关信息，默认为空。可以根据我们⾃⼰的需要，向服务调⽤者暴露相 关信息。如下所示,配置属性可以随意起名，但都要挂在 info 下⾯：</li>
 </ul>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">info.app-name</span><span class="token punctuation">=</span><span class="token value attr-value">spring-boot-actuator-demo</span>
 <span class="token key attr-name">info.description</span><span class="token punctuation">=</span><span class="token value attr-value">spring-boot-actuator-demo indexs monitor</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -542,20 +541,20 @@
 <span class="token comment">## 不暴露对外开放的服务端点</span>
 <span class="token key attr-name">management.endpoints.web.exposure.exclude</span><span class="token punctuation">=</span><span class="token value attr-value">mappings</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>开放所有监控端点: </p>
+<p>开放所有监控端点:</p>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">management.endpoints.web.exposure.include</span><span class="token punctuation">=</span><span class="token value attr-value">*</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>星号在YAML配置⽂件中中有特殊的含义，所以在YAML配置⽂件使⽤星号⼀定要加引号，如下所示： </p>
+<p>星号在 YAML 配置⽂件中中有特殊的含义，所以在 YAML 配置⽂件使⽤星号⼀定要加引号，如下所示：</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">management</span><span class="token punctuation">:</span>
- <span class="token key atrule">endpoints</span><span class="token punctuation">:</span>
-   web<span class="token punctuation">:</span>
-     exposure<span class="token punctuation">:</span>
-       include<span class="token punctuation">:</span> <span class="token string">'*'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token key atrule">endpoints</span><span class="token punctuation">:</span>
+    web<span class="token punctuation">:</span>
+      exposure<span class="token punctuation">:</span>
+        include<span class="token punctuation">:</span> <span class="token string">"*"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="3-4-开启端点配置（enabled）"><a href="#3-4-开启端点配置（enabled）" class="headerlink" title="3.4.开启端点配置（enabled）"></a>3.4.开启端点配置（enabled）</h4><ul>
-<li><p>针对actuator提供的服务端点，开启启⽤(enabled)不等于开放访问(include)。 </p>
+<li><p>针对 actuator 提供的服务端点，开启启⽤(enabled)不等于开放访问(include)。</p>
 </li>
-<li><p>绝⼤部分的监控端点是默认开启的（下图中的Yes），少部分监控端点默认是不开启的，⽐如：shutdown。 </p>
+<li><p>绝⼤部分的监控端点是默认开启的（下图中的 Yes），少部分监控端点默认是不开启的，⽐如：shutdown。</p>
 </li>
 <li><p>对于默认不启⽤的监控服务端点，⼀定要先开启(enabled)，开启的配置⽅法如下：</p>
 </li>
@@ -563,13 +562,13 @@
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># shutdown是服务端点名称，可以替换</span>
 <span class="token key attr-name">management.endpoint.shutdown.enabled</span><span class="token punctuation">=</span><span class="token value attr-value">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="四、常⽤监控端点说明"><a href="#四、常⽤监控端点说明" class="headerlink" title="四、常⽤监控端点说明"></a>四、常⽤监控端点说明</h3><p>Spring Boot Actuator监控端点的分类 </p>
+<h3 id="四、常⽤监控端点说明"><a href="#四、常⽤监控端点说明" class="headerlink" title="四、常⽤监控端点说明"></a>四、常⽤监控端点说明</h3><p>Spring Boot Actuator 监控端点的分类</p>
 <ul>
-<li><p>静态配置类：主要是⼀些静态配置信息，⽐如： Spring Bean 加载信息、yml 或properties配置信息、环境变量信息、请求接⼝关系映射信息等； </p>
+<li><p>静态配置类：主要是⼀些静态配置信息，⽐如： Spring Bean 加载信息、yml 或 properties 配置信息、环境变量信息、请求接⼝关系映射信息等；</p>
 </li>
-<li><p>动态指标类：主要⽤于展现程序运⾏期状态，例如内存堆栈信息、请求链信息、健康指标信息等； </p>
+<li><p>动态指标类：主要⽤于展现程序运⾏期状态，例如内存堆栈信息、请求链信息、健康指标信息等；</p>
 </li>
-<li><p>操作控制类：主要是shutdown功能，⽤户可以远程发送HTTP请求，从⽽关闭监控功能。 </p>
+<li><p>操作控制类：主要是 shutdown 功能，⽤户可以远程发送 HTTP 请求，从⽽关闭监控功能。</p>
 </li>
 </ul>
 <table>
@@ -587,7 +586,7 @@
 </tr>
 <tr>
 <td>beans</td>
-<td>应⽤中所有Spring Beans的完整列表</td>
+<td>应⽤中所有 Spring Beans 的完整列表</td>
 <td>Yes</td>
 </tr>
 <tr>
@@ -597,12 +596,12 @@
 </tr>
 <tr>
 <td>configprops</td>
-<td>@ConfigurationProperties的集合列表</td>
+<td>@ConfigurationProperties 的集合列表</td>
 <td>Yes</td>
 </tr>
 <tr>
 <td>env</td>
-<td>Spring的 ConfigurableEnvironment的属性</td>
+<td>Spring 的 ConfigurableEnvironment 的属性</td>
 <td>Yes</td>
 </tr>
 <tr>
@@ -612,17 +611,17 @@
 </tr>
 <tr>
 <td>liquibase</td>
-<td>Liquibase数据库迁移路径，如果有的话</td>
+<td>Liquibase 数据库迁移路径，如果有的话</td>
 <td>Yes</td>
 </tr>
 <tr>
 <td>metrics</td>
-<td>应⽤的metrics指标信息</td>
+<td>应⽤的 metrics 指标信息</td>
 <td>Yes</td>
 </tr>
 <tr>
 <td>mappings</td>
-<td>所有@RequestMapping路径的集合列表</td>
+<td>所有@RequestMapping 路径的集合列表</td>
 <td>Yes</td>
 </tr>
 <tr>
@@ -632,7 +631,7 @@
 </tr>
 <tr>
 <td>sessions</td>
-<td>允许从Spring会话支持的会话存储中检索和删除(retrieval and deletion)用户会话.使用Spring Session对反应性Web应用程序的支持时不可用</td>
+<td>允许从 Spring 会话支持的会话存储中检索和删除(retrieval and deletion)用户会话.使用 Spring Session 对反应性 Web 应用程序的支持时不可用</td>
 <td>Yes</td>
 </tr>
 <tr>
@@ -642,16 +641,16 @@
 </tr>
 <tr>
 <td>threaddump</td>
-<td>线程名、线程ID、线程的状态、是否等待锁资源、线程堆栈等信息</td>
+<td>线程名、线程 ID、线程的状态、是否等待锁资源、线程堆栈等信息</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>httptrace显示</td>
-<td>HTTP跟踪信息（默认显示最后100个HTTP请求-响应交换）</td>
+<td>httptrace 显示</td>
+<td>HTTP 跟踪信息（默认显示最后 100 个 HTTP 请求-响应交换）</td>
 <td>Yes</td>
 </tr>
 </tbody></table>
-<p>如果使⽤web应⽤(Spring MVC, Spring WebFlux, 或者 Jersey)，还可以使⽤以下端点：</p>
+<p>如果使⽤ web 应⽤(Spring MVC, Spring WebFlux, 或者 Jersey)，还可以使⽤以下端点：</p>
 <table>
 <thead>
 <tr>
@@ -662,91 +661,90 @@
 </thead>
 <tbody><tr>
 <td>heapdump</td>
-<td>返回⼀个GZip压缩的hprof堆dump⽂件</td>
+<td>返回⼀个 GZip 压缩的 hprof 堆 dump ⽂件</td>
 <td>Yes</td>
 </tr>
 <tr>
 <td>jolokia</td>
-<td>通过HTTP暴露JMX beans(当Jolokia在类路径上时,WebFlux不可用）</td>
+<td>通过 HTTP 暴露 JMX beans(当 Jolokia 在类路径上时,WebFlux 不可用）</td>
 <td>Yes</td>
 </tr>
 <tr>
 <td>logfile</td>
-<td>返回日志文件内容（如果设置了logging.file或logging。path展性的话），支持使用HTTPRange头接收日志文件内容的部分信息</td>
+<td>返回日志文件内容（如果设置了 logging.file 或 logging。path 展性的话），支持使用 HTTPRange 头接收日志文件内容的部分信息</td>
 <td>Yes</td>
 </tr>
 <tr>
 <td>prometheus</td>
-<td>以可以被Prometheus服务器抓取的格式显示metrics信息</td>
+<td>以可以被 Prometheus 服务器抓取的格式显示 metrics 信息</td>
 <td>Yes</td>
 </tr>
 </tbody></table>
-<h2 id="2-SpringBootAdmin界面化监控"><a href="#2-SpringBootAdmin界面化监控" class="headerlink" title="2. SpringBootAdmin界面化监控"></a>2. SpringBootAdmin界面化监控</h2><p>在之前的内容中，我们学习了如何使用 Spring Boot Actuator对单个Spring Boot应用进行监控。通过浏览器访问url可以各个监控应用端点，可以知道应用的运行状态信息。但是这种方式返回的数据都是JSON的格式，各种指标需要单独访问查看。我们迫切希望有一种方式：可以通过方便地通过鼠标点击和友好的U！界面的展现方式查看应用的各种运行指标。Spring Boot Admin应运而生！</p>
+<h2 id="2-SpringBootAdmin-界面化监控"><a href="#2-SpringBootAdmin-界面化监控" class="headerlink" title="2. SpringBootAdmin 界面化监控"></a>2. SpringBootAdmin 界面化监控</h2><p>在之前的内容中，我们学习了如何使用 Spring Boot Actuator 对单个 Spring Boot 应用进行监控。通过浏览器访问 url 可以各个监控应用端点，可以知道应用的运行状态信息。但是这种方式返回的数据都是 JSON 的格式，各种指标需要单独访问查看。我们迫切希望有一种方式：可以通过方便地通过鼠标点击和友好的 U！界面的展现方式查看应用的各种运行指标。Spring Boot Admin 应运而生！</p>
 <h3 id="⼀、Spring-Boot-Admin-介绍"><a href="#⼀、Spring-Boot-Admin-介绍" class="headerlink" title="⼀、Spring Boot Admin 介绍"></a>⼀、Spring Boot Admin 介绍</h3><ul>
-<li><p>Spring Boot Admin是⼀个针对Spring Boot Actuator的JSON数据响应结果进⾏UI美化封装的监控⼯具</p>
+<li><p>Spring Boot Admin 是⼀个针对 Spring Boot Actuator 的 JSON 数据响应结果进⾏ UI 美化封装的监控⼯具</p>
 </li>
-<li><p>通过Spring Boot Admin，可以在可视化⻚⾯中浏览所有被监控的spring-boot项⽬的Actuator运⾏时信息，甚⾄还可以直接修改logger的level</p>
+<li><p>通过 Spring Boot Admin，可以在可视化⻚⾯中浏览所有被监控的 spring-boot 项⽬的 Actuator 运⾏时信息，甚⾄还可以直接修改 logger 的 level</p>
 </li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-27_11-48-34.png" alt="图片描述"></p>
 <ul>
-<li>Spring Boot Admin包括客户端和服务端两个部分，⼀个服务端可以展示多个客户端的监控结果：<ul>
-<li>客户端：<strong>即需要监控的应⽤服务</strong>，需集成spring-boot-admin-starter-client,通过HTTP协议注册到Spring Boot Admin服务端,从⽽进⾏集中展示。（也可以结合Spring Cloud服务注册中⼼） </li>
-<li>服务端：访问客户端的Actuator运⾏时数据，并使⽤UI界⾯进⾏展示。<strong>是⼀个独⽴的Spring Boot应⽤</strong>,需集成spring-boot-admin-starter-server </li>
+<li>Spring Boot Admin 包括客户端和服务端两个部分，⼀个服务端可以展示多个客户端的监控结果：<ul>
+<li>客户端：<strong>即需要监控的应⽤服务</strong>，需集成 spring-boot-admin-starter-client,通过 HTTP 协议注册到 Spring Boot Admin 服务端,从⽽进⾏集中展示。（也可以结合 Spring Cloud 服务注册中⼼）</li>
+<li>服务端：访问客户端的 Actuator 运⾏时数据，并使⽤ UI 界⾯进⾏展示。<strong>是⼀个独⽴的 Spring Boot 应⽤</strong>,需集成 spring-boot-admin-starter-server</li>
 </ul>
 </li>
 </ul>
-<h3 id="⼆、创建SpringBoot-Admin服务端"><a href="#⼆、创建SpringBoot-Admin服务端" class="headerlink" title="⼆、创建SpringBoot Admin服务端"></a>⼆、创建SpringBoot Admin服务端</h3><p>新建⼀个模块：boot-admin ，maven坐标引⼊ </p>
+<h3 id="⼆、创建-SpringBoot-Admin-服务端"><a href="#⼆、创建-SpringBoot-Admin-服务端" class="headerlink" title="⼆、创建 SpringBoot Admin 服务端"></a>⼆、创建 SpringBoot Admin 服务端</h3><p>新建⼀个模块：boot-admin ，maven 坐标引⼊</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>de.codecentric<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-admin-starter-server<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>在项⽬启动类上⾯加上@EnableAdminServer注解 </p>
+<p>在项⽬启动类上⾯加上@EnableAdminServer 注解</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@EnableAdminServer</span>
 <span class="token annotation punctuation">@SpringBootApplication</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BootActuatorAdminApplication</span> <span class="token punctuation">&#123;</span>
    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">BootLaunchActuatorAdminApplication</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span>
-args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">BootLaunchActuatorAdminApplication</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>指定访问端⼝</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
- <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8081</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8081</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>访问 <a target="_blank" rel="noopener" href="http://localhost:8081/">http://localhost:8081/</a> ，因为⽬前没有任何的客户端应⽤注册上来，所以界⾯上没有相关的展示信息。</p>
+<p>访问 <code>http://localhost:8081/</code>，因为⽬前没有任何的客户端应⽤注册上来，所以界⾯上没有相关的展示信息。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-27_11-51-46.png"></p>
-<h3 id="三、集成SpringBoot-Admin客户端"><a href="#三、集成SpringBoot-Admin客户端" class="headerlink" title="三、集成SpringBoot Admin客户端"></a>三、集成SpringBoot Admin客户端</h3><p>在我们之前的项⽬boot-actuator⾥⾯引⼊下⾯的依赖，作为被SpringBoot Admin监控的客户端存在。 </p>
+<h3 id="三、集成-SpringBoot-Admin-客户端"><a href="#三、集成-SpringBoot-Admin-客户端" class="headerlink" title="三、集成 SpringBoot Admin 客户端"></a>三、集成 SpringBoot Admin 客户端</h3><p>在我们之前的项⽬ boot-actuator ⾥⾯引⼊下⾯的依赖，作为被 SpringBoot Admin 监控的客户端存在。</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>de.codecentric<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-admin-starter-client<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>进⾏application.yml配置 </p>
+<p>进⾏ application.yml 配置</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
- <span class="token key atrule">boot</span><span class="token punctuation">:</span>
-   admin<span class="token punctuation">:</span>
-     client<span class="token punctuation">:</span>
-       url<span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span><span class="token number">8081</span>
+  <span class="token key atrule">boot</span><span class="token punctuation">:</span>
+    admin<span class="token punctuation">:</span>
+      client<span class="token punctuation">:</span>
+        url<span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span><span class="token number">8081</span>
 <span class="token key atrule">management</span><span class="token punctuation">:</span>
- <span class="token key atrule">endpoint</span><span class="token punctuation">:</span>
-   health<span class="token punctuation">:</span>
-     show<span class="token punctuation">-</span><span class="token key atrule">details</span><span class="token punctuation">:</span> always
- <span class="token key atrule">endpoints</span><span class="token punctuation">:</span>
-   web<span class="token punctuation">:</span>
-     exposure<span class="token punctuation">:</span>
-       include<span class="token punctuation">:</span> <span class="token string">'*'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token key atrule">endpoint</span><span class="token punctuation">:</span>
+    health<span class="token punctuation">:</span>
+      show<span class="token punctuation">-</span><span class="token key atrule">details</span><span class="token punctuation">:</span> always
+  <span class="token key atrule">endpoints</span><span class="token punctuation">:</span>
+    web<span class="token punctuation">:</span>
+      exposure<span class="token punctuation">:</span>
+        include<span class="token punctuation">:</span> <span class="token string">"*"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li><p>spring.boot.admin.client.url体现的是服务端的访问地址，也就是监控注册的地址。 </p>
+<li><p>spring.boot.admin.client.url 体现的是服务端的访问地址，也就是监控注册的地址。</p>
 </li>
-<li><p>当客户端注册到spring boot admin服务端之后，admin服务端就会访问客户端应⽤的”/actuator”访问端点信息，因为我们为boot-launch配置了⽤户密码的访问权限(上⼀节)，所以需要将⽤户名密码告知服务端，它才能正确的获取”/actuator”访问端点信息。这就是metadata.user配置段的作⽤</p>
+<li><p>当客户端注册到 spring boot admin 服务端之后，admin 服务端就会访问客户端应⽤的”/actuator”访问端点信息，因为我们为 boot-launch 配置了⽤户密码的访问权限(上⼀节)，所以需要将⽤户名密码告知服务端，它才能正确的获取”/actuator”访问端点信息。这就是 metadata.user 配置段的作⽤</p>
 </li>
 </ul>
-<p>另外，为了让Spring Boot Admin 展示的内容更加丰富，我们将所有的服务端点都开放出来。如果不开放，spring boot admin只能获取健康检查”/health”和“/info”两个默认开放访问的基础信息，也就失去了使⽤Spring Boot Admin的意义。 </p>
-<p>再次访问 <a target="_blank" rel="noopener" href="http://localhost:8081/">http://localhost:8081/</a> ，这次展示的监控信息内容就很多了： </p>
+<p>另外，为了让 Spring Boot Admin 展示的内容更加丰富，我们将所有的服务端点都开放出来。如果不开放，spring boot admin 只能获取健康检查”/health”和“/info”两个默认开放访问的基础信息，也就失去了使⽤ Spring Boot Admin 的意义。</p>
+<p>再次访问 <code>http://localhost:8081/</code> ，这次展示的监控信息内容就很多了：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-27_11-54-24.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-27_11-54-58.png"></p>
 
@@ -1287,7 +1285,7 @@ args<span class="token punctuation">)</span><span class="token punctuation">;</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">43.9k</span>&nbsp;字
+                class="white-color">44k</span>&nbsp;字
             
             
             
