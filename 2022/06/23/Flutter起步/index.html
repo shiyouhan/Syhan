@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="应用程序监控管理, syhan&#39;s blog">
+    <meta name="keywords" content="Flutter起步, syhan&#39;s blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>应用程序监控管理 | syhan&#39;s blog</title>
+    <title>Flutter起步 | syhan&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -320,12 +320,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">应用程序监控管理</h1>
+                    <h1 class="description center-align post-title">Flutter起步</h1>
                 </div>
             </div>
         </div>
@@ -441,12 +441,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/spring/">
-                                <span class="chip bg-color">spring</span>
-                            </a>
-                        
-                            <a href="/tags/java/">
-                                <span class="chip bg-color">java</span>
+                            <a href="/tags/flutter/">
+                                <span class="chip bg-color">flutter</span>
                             </a>
                         
                     </div>
@@ -457,8 +453,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Java/" class="post-category">
-                                Java
+                            <a href="/categories/Flutter/" class="post-category">
+                                Flutter
                             </a>
                         
                     </div>
@@ -470,7 +466,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-27
+                    2022-06-23
                 </div>
                 
 
@@ -479,7 +475,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    1.5k
                 </div>
                 
 
@@ -499,254 +495,211 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="应用程序监控管理"><a href="#应用程序监控管理" class="headerlink" title="应用程序监控管理"></a>应用程序监控管理</h1><h2 id="1-Actuator-应用监控快速入门"><a href="#1-Actuator-应用监控快速入门" class="headerlink" title="1. Actuator 应用监控快速入门"></a>1. Actuator 应用监控快速入门</h2><h3 id="一、大纲"><a href="#一、大纲" class="headerlink" title="一、大纲"></a>一、大纲</h3><ul>
-<li>Spring Boot Actuator 简介</li>
-<li>Actuator 开启与配置</li>
-<li>常用监控端点说明</li>
+                <h2 id="Flutter-介绍"><a href="#Flutter-介绍" class="headerlink" title="Flutter 介绍"></a>Flutter 介绍</h2><h3 id="1-1、跨平台开发对比"><a href="#1-1、跨平台开发对比" class="headerlink" title="1.1、跨平台开发对比"></a>1.1、跨平台开发对比</h3><ul>
+<li><strong>Web 容器 ：Cordova Ionic</strong></li>
 </ul>
-<h3 id="二、Spring-Boot-Actuator-简介"><a href="#二、Spring-Boot-Actuator-简介" class="headerlink" title="二、Spring Boot Actuator 简介"></a>二、Spring Boot Actuator 简介</h3><p>Spring Boot 作为构建微服务节点的方案，一定要提供全面而且细致的监控指标，使微服务更易于管理！微服务不同于单体应用，微服务的每个服务节点都单独部署，独立运行，大型的微服务项目甚至有成百上干个服务节点。这就为我们进行系统监控与运维提出了挑战。为了应对这个挑战，其中最重要的工作之一就是：微服务节点能够合理的暴露服务的相关监控指标，用以对服务进行健康检查、监控管理，从而进行合理的流量规划与安排系统运维工作！</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-27_11-19-32.png" alt="图片描述"></p>
-<p>Spring Boot Actuator 模块提供了生产级别的功能，比如健康检查，审计，指标收集，HTTP 跟踪等，帮助我们监控和管理 Spring Boot 应用、Bean 加载情况、环境变量、日志信息、线程信息，JVM 堆信息等。这个模块是一个采集应用内部信息暴露给外部的模块，上述的功能都可以通过 HTTP 和 JMX 访问。</p>
-<p>Actuator 也可以和⼀些外部的应⽤监控系统整合（Prometheus, Graphite, DataDog, Influx, Wavefront, New Relic 等）。这些监控系统提供了出⾊的仪表板，图形，分析和警报，可帮助你通过⼀个统⼀友好的 界⾯，监视和管理你的应⽤程序。</p>
-<h3 id="三、Actuator-开启与配置"><a href="#三、Actuator-开启与配置" class="headerlink" title="三、Actuator 开启与配置"></a>三、Actuator 开启与配置</h3><blockquote>
-<p>新建 boot-actuator 模块</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/uPic/Cordova%20%20ionic.png" alt="Cordova  ionic"></p>
+<ul>
+<li><strong>泛 Web 容器: React Native</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/uPic/ReactNative.png" alt="React Native"></p>
+<ul>
+<li><strong>自绘引擎：Flutter</strong></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/uPic/JIT.png" alt="JIT"></p>
+<blockquote>
+<p><strong>自己去了解一下：AOT 和 JIT</strong></p>
 </blockquote>
-<h4 id="3-1-开启监控"><a href="#3-1-开启监控" class="headerlink" title="3.1 开启监控"></a>3.1 开启监控</h4><p>在 Spring Boot 项目中开启 Actuator 非常简单，只需要引入如下的 maven 坐标即可。</p>
-<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-actuator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="3-2-默认开放访问的监控端点"><a href="#3-2-默认开放访问的监控端点" class="headerlink" title="3.2 默认开放访问的监控端点"></a>3.2 默认开放访问的监控端点</h4><p>Spring Boot Actuator 启⽤之后，HTTP 协议下默认开放了两个端点的访问：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/uPic/%E6%96%B9%E6%A1%88%E5%AF%B9%E6%AF%94.png" alt="方案对比"></p>
+<p><strong>方案对比</strong></p>
+<h3 id="1-2、Flutter-介绍"><a href="#1-2、Flutter-介绍" class="headerlink" title="1.2、Flutter 介绍"></a>1.2、Flutter 介绍</h3><blockquote>
+<p>Flutter 是 Google 推出并开源的移动应用开发 UI 框架，主打跨平台、高保真、高性能。开发者可以通过 Dart 语言开发 App，一套代码同时运行在多个平台。 Flutter 提供了丰富的组件、接口，开发者可以很快地为 Flutter 添加 Native 扩展。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/uPic/Flutter%E4%BB%8B%E7%BB%8D.png" alt="Flutter介绍"></p>
+<p><strong>Flutter 架构分层</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/uPic/Flutter%E6%9E%B6%E6%9E%84%E5%88%86%E5%B1%82.png" alt="Flutter架构分层"></p>
+<h2 id="Flutter-环境"><a href="#Flutter-环境" class="headerlink" title="Flutter 环境"></a>Flutter 环境</h2><h3 id="2-1、环境搭建"><a href="#2-1、环境搭建" class="headerlink" title="2.1、环境搭建"></a>2.1、环境搭建</h3><p>参考：</p>
 <ul>
-<li>/actuator/health ⽤以监控应⽤状态。返回值是应⽤状态信息，包含四种状态 DOWN(应⽤不正常), OUT_OF_SERVICE(服务不可⽤),UP(状态正常), UNKNOWN(状态未知)。如果服务状态正常，我们访问 http:/host:port/actuator/health 得到如下响应信息：</li>
+<li><a target="_blank" rel="noopener" href="https://book.flutterchina.club/chapter1/install_flutter.html#_1-3-1-%E5%AE%89%E8%A3%85flutter">https://book.flutterchina.club/chapter1/install_flutter.html#_1-3-1-%E5%AE%89%E8%A3%85flutter</a></li>
+<li><a target="_blank" rel="noopener" href="https://doc.flutterchina.club/get-started/install/">https://doc.flutterchina.club/get-started/install/</a></li>
 </ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token punctuation">&#123;</span>
-  <span class="token string">"status"</span><span class="token operator">:</span> <span class="token string">"UP"</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>从上⾯的响应结果看，该监控端点的监控信息⾮常有限，如果我们想让展示信息更加丰富的话，可以做如下配置。</p>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">management.endpoint.health.show-details</span><span class="token punctuation">=</span><span class="token value attr-value">always</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<ul>
-<li>/actuator/info ⽤来响应应⽤相关信息，默认为空。可以根据我们⾃⼰的需要，向服务调⽤者暴露相 关信息。如下所示,配置属性可以随意起名，但都要挂在 info 下⾯：</li>
-</ul>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">info.app-name</span><span class="token punctuation">=</span><span class="token value attr-value">spring-boot-actuator-demo</span>
-<span class="token key attr-name">info.description</span><span class="token punctuation">=</span><span class="token value attr-value">spring-boot-actuator-demo indexs monitor</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-27_11-27-38.png"></p>
-<h4 id="3-3-开放端点配置（exposure）"><a href="#3-3-开放端点配置（exposure）" class="headerlink" title="3.3 开放端点配置（exposure）"></a>3.3 开放端点配置（exposure）</h4><p>如果我们希望开放更多的监控端点给服务调⽤者，需要配置：<strong>开放部分监控端点</strong>，端点名称⽤逗号分隔。</p>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment">## 开放访问的服务端点</span>
-<span class="token key attr-name">management.endpoints.web.exposure.include</span><span class="token punctuation">=</span><span class="token value attr-value">beans,env</span>
-<span class="token comment">## 不暴露对外开放的服务端点</span>
-<span class="token key attr-name">management.endpoints.web.exposure.exclude</span><span class="token punctuation">=</span><span class="token value attr-value">mappings</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>开放所有监控端点:</p>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">management.endpoints.web.exposure.include</span><span class="token punctuation">=</span><span class="token value attr-value">*</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>星号在 YAML 配置⽂件中中有特殊的含义，所以在 YAML 配置⽂件使⽤星号⼀定要加引号，如下所示：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">management</span><span class="token punctuation">:</span>
-  <span class="token key atrule">endpoints</span><span class="token punctuation">:</span>
-    web<span class="token punctuation">:</span>
-      exposure<span class="token punctuation">:</span>
-        include<span class="token punctuation">:</span> <span class="token string">"*"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="3-4-开启端点配置（enabled）"><a href="#3-4-开启端点配置（enabled）" class="headerlink" title="3.4.开启端点配置（enabled）"></a>3.4.开启端点配置（enabled）</h4><ul>
-<li><p>针对 actuator 提供的服务端点，开启启⽤(enabled)不等于开放访问(include)。</p>
-</li>
-<li><p>绝⼤部分的监控端点是默认开启的（下图中的 Yes），少部分监控端点默认是不开启的，⽐如：shutdown。</p>
-</li>
-<li><p>对于默认不启⽤的监控服务端点，⼀定要先开启(enabled)，开启的配置⽅法如下：</p>
-</li>
-</ul>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment"># shutdown是服务端点名称，可以替换</span>
-<span class="token key attr-name">management.endpoint.shutdown.enabled</span><span class="token punctuation">=</span><span class="token value attr-value">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3 id="四、常⽤监控端点说明"><a href="#四、常⽤监控端点说明" class="headerlink" title="四、常⽤监控端点说明"></a>四、常⽤监控端点说明</h3><p>Spring Boot Actuator 监控端点的分类</p>
-<ul>
-<li><p>静态配置类：主要是⼀些静态配置信息，⽐如： Spring Bean 加载信息、yml 或 properties 配置信息、环境变量信息、请求接⼝关系映射信息等；</p>
-</li>
-<li><p>动态指标类：主要⽤于展现程序运⾏期状态，例如内存堆栈信息、请求链信息、健康指标信息等；</p>
-</li>
-<li><p>操作控制类：主要是 shutdown 功能，⽤户可以远程发送 HTTP 请求，从⽽关闭监控功能。</p>
-</li>
+<h3 id="2-2、常用命令"><a href="#2-2、常用命令" class="headerlink" title="2.2、常用命令"></a>2.2、常用命令</h3><ul>
+<li>查询环境配置：flutter doctor</li>
+<li>获取模拟器：flutter emulators</li>
+<li>启动模拟器：flutter emulators –launch 模拟器名</li>
+<li>获取所有真机设备列表：flutter devices</li>
+<li>运行在所有设备：flutter run -d all</li>
+<li>运行在指定设备：flutter run -d <device Id></li>
+<li>打包 apk：flutter build apk</li>
+<li>打包 ipa：flutter build ios</li>
+<li>打包 exe：flutter build windows</li>
+<li>打包 pkg：flutter build mac</li>
+<li>拉取 flutter 项目中的第三方包，不包括 flutter 的 sdk：flutter packages get</li>
+<li>更新 flutter 项目所有依赖包，不包括 flutter sdk：flutter packages upgrade</li>
+<li>配置打包信息：flutter config -x</li>
+<li>查看 flutter sdk 的所有分支：flutter channel</li>
+<li>切换 sdk 分支：flutter channel stable</li>
+<li>分析代码：flutter analyze</li>
+<li>获取 flutter 所有命令: flutter</li>
+<li>查看命令的帮助信息: flutter help</li>
+<li>查看 Flutter 版本: flutter –version</li>
 </ul>
 <table>
 <thead>
 <tr>
-<th>ID(监控端点名称)</th>
-<th>描述</th>
-<th>服务是否默认启⽤</th>
+<th align="center">常用命令</th>
+<th align="center">说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>auditevents</td>
-<td>应⽤程序的审计事件相关信息</td>
-<td>Yes</td>
+<td align="center">–version</td>
+<td align="center">查看 Flutter 版本</td>
 </tr>
 <tr>
-<td>beans</td>
-<td>应⽤中所有 Spring Beans 的完整列表</td>
-<td>Yes</td>
+<td align="center">-h 或者–help</td>
+<td align="center">打印所有命令行用法信息</td>
 </tr>
 <tr>
-<td>conditions</td>
-<td>(confguration and auto-confgurationclasses)的状态及它们被应用或未被应用的原因</td>
-<td>Yes</td>
+<td align="center">analyze</td>
+<td align="center">分析项目的 Dart 代码</td>
 </tr>
 <tr>
-<td>configprops</td>
-<td>@ConfigurationProperties 的集合列表</td>
-<td>Yes</td>
+<td align="center">build</td>
+<td align="center">Flutter 构建命令</td>
 </tr>
 <tr>
-<td>env</td>
-<td>Spring 的 ConfigurableEnvironment 的属性</td>
-<td>Yes</td>
+<td align="center">channel</td>
+<td align="center">列表或开关 Flutter 通道</td>
 </tr>
 <tr>
-<td>flyway</td>
-<td>flyway 数据库迁移路径，如果有的话</td>
-<td>Yes</td>
+<td align="center">clean</td>
+<td align="center">删除构建/目录</td>
 </tr>
 <tr>
-<td>liquibase</td>
-<td>Liquibase 数据库迁移路径，如果有的话</td>
-<td>Yes</td>
+<td align="center">config</td>
+<td align="center">配置 Flutter</td>
 </tr>
 <tr>
-<td>metrics</td>
-<td>应⽤的 metrics 指标信息</td>
-<td>Yes</td>
+<td align="center">create</td>
+<td align="center">创建一个新的 Flutter 项目</td>
 </tr>
 <tr>
-<td>mappings</td>
-<td>所有@RequestMapping 路径的集合列表</td>
-<td>Yes</td>
+<td align="center">devices</td>
+<td align="center">列出所有连接的设备</td>
 </tr>
 <tr>
-<td>scheduledtasks</td>
-<td>应⽤程序中的计划任务</td>
-<td>Yes</td>
+<td align="center">doctor</td>
+<td align="center">展示有关安装工具的信息</td>
 </tr>
 <tr>
-<td>sessions</td>
-<td>允许从 Spring 会话支持的会话存储中检索和删除(retrieval and deletion)用户会话.使用 Spring Session 对反应性 Web 应用程序的支持时不可用</td>
-<td>Yes</td>
+<td align="center">drive</td>
+<td align="center">为当前项目运行 Flutter 驱动程序测试</td>
 </tr>
 <tr>
-<td>shutdown</td>
-<td>允许应⽤以优雅的⽅式关闭（默认情况下不启⽤）</td>
-<td>No</td>
+<td align="center">format</td>
+<td align="center">格式一个或多个 Dart 文件</td>
 </tr>
 <tr>
-<td>threaddump</td>
-<td>线程名、线程 ID、线程的状态、是否等待锁资源、线程堆栈等信息</td>
-<td>Yes</td>
+<td align="center">fuchsia_reload</td>
+<td align="center">在 Fuchsia 上进行热重载</td>
 </tr>
 <tr>
-<td>httptrace 显示</td>
-<td>HTTP 跟踪信息（默认显示最后 100 个 HTTP 请求-响应交换）</td>
-<td>Yes</td>
+<td align="center">help</td>
+<td align="center">显示 Flutter 帮助信息</td>
+</tr>
+<tr>
+<td align="center">install</td>
+<td align="center">在附加设备上安装 Flutter 应用程序</td>
+</tr>
+<tr>
+<td align="center">logs</td>
+<td align="center">显示用于运行 Flutter 应用程序的日志输出</td>
+</tr>
+<tr>
+<td align="center">packages</td>
+<td align="center">用于管理 Flutter 包</td>
+</tr>
+<tr>
+<td align="center">precache</td>
+<td align="center">填充 Flutter 工具的二进制工件缓存</td>
+</tr>
+<tr>
+<td align="center">run</td>
+<td align="center">在附加设备上运行 Flutter 应用程序</td>
+</tr>
+<tr>
+<td align="center">screenshot</td>
+<td align="center">从一个连接的设备截图</td>
+</tr>
+<tr>
+<td align="center">stop</td>
+<td align="center">停止在附加设备上的 Flutter 应用</td>
+</tr>
+<tr>
+<td align="center">test</td>
+<td align="center">对当前项目的 Flutter 单元测试</td>
+</tr>
+<tr>
+<td align="center">trace</td>
+<td align="center">开始并停止跟踪运行的 Flutter 应用程序</td>
+</tr>
+<tr>
+<td align="center">upgrade</td>
+<td align="center">升级 Flutter 副本</td>
 </tr>
 </tbody></table>
-<p>如果使⽤ web 应⽤(Spring MVC, Spring WebFlux, 或者 Jersey)，还可以使⽤以下端点：</p>
-<table>
-<thead>
-<tr>
-<th>ID (监控端点名称)</th>
-<th>描述</th>
-<th>默认启⽤</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>heapdump</td>
-<td>返回⼀个 GZip 压缩的 hprof 堆 dump ⽂件</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>jolokia</td>
-<td>通过 HTTP 暴露 JMX beans(当 Jolokia 在类路径上时,WebFlux 不可用）</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>logfile</td>
-<td>返回日志文件内容（如果设置了 logging.file 或 logging。path 展性的话），支持使用 HTTPRange 头接收日志文件内容的部分信息</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>prometheus</td>
-<td>以可以被 Prometheus 服务器抓取的格式显示 metrics 信息</td>
-<td>Yes</td>
-</tr>
-</tbody></table>
-<h2 id="2-SpringBootAdmin-界面化监控"><a href="#2-SpringBootAdmin-界面化监控" class="headerlink" title="2. SpringBootAdmin 界面化监控"></a>2. SpringBootAdmin 界面化监控</h2><p>在之前的内容中，我们学习了如何使用 Spring Boot Actuator 对单个 Spring Boot 应用进行监控。通过浏览器访问 url 可以各个监控应用端点，可以知道应用的运行状态信息。但是这种方式返回的数据都是 JSON 的格式，各种指标需要单独访问查看。我们迫切希望有一种方式：可以通过方便地通过鼠标点击和友好的 U！界面的展现方式查看应用的各种运行指标。Spring Boot Admin 应运而生！</p>
-<h3 id="⼀、Spring-Boot-Admin-介绍"><a href="#⼀、Spring-Boot-Admin-介绍" class="headerlink" title="⼀、Spring Boot Admin 介绍"></a>⼀、Spring Boot Admin 介绍</h3><ul>
-<li><p>Spring Boot Admin 是⼀个针对 Spring Boot Actuator 的 JSON 数据响应结果进⾏ UI 美化封装的监控⼯具</p>
-</li>
-<li><p>通过 Spring Boot Admin，可以在可视化⻚⾯中浏览所有被监控的 spring-boot 项⽬的 Actuator 运⾏时信息，甚⾄还可以直接修改 logger 的 level</p>
-</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-27_11-48-34.png" alt="图片描述"></p>
+<h2 id="Android-Studio-开发-Flutter-实用技巧"><a href="#Android-Studio-开发-Flutter-实用技巧" class="headerlink" title="Android Studio 开发 Flutter 实用技巧"></a>Android Studio 开发 Flutter 实用技巧</h2><blockquote>
+<p>初次使用 AS 的小伙伴可以看下 Flutter 官方的这篇<a target="_blank" rel="noopener" href="https://flutter.cn/docs/development/tools/android-studio">在 Android Studio 或 IntelliJ 里开发 Flutter 应用</a></p>
+</blockquote>
+<h3 id="3-1-快捷键"><a href="#3-1-快捷键" class="headerlink" title="3.1 快捷键"></a>3.1 快捷键</h3><p><strong>以 Android Studio + Mac 为例：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">- 快速创建Widget：在dart文件中输入stf或stl出现提示后按回车即可
+- 快速修复：command + .
+- 自动生成构造函数：选中 final 参数，快捷键：option + 回车
+- 添加父组件、变为子组件、删除子组件：option+回车
+- 万能的搜索：双击shift
+- 查看最近打开的文件：command + E
+- 重命名：fn+shift+f6
+- 查看当前类结构：command + fn + f12
+- 查看源码：将光标放到要查看源码的类名或方法名上，长按command 然后的点击
+- 查看类的子类：选中要查看的类，然后：command + B 或 option + command + B
+- 将代码更新到模拟器上：选中模拟器然后 command + R
+- 导入类的快捷键：将光标放在要导入类的上面，然后按 option + enter
+- 前进后退：当跟踪代码的时候，经常跳转到其他类，后退快捷键：option+command+方向左键，前进快捷键：option+command+方向右键
+- 全局搜索：command + shift + F
+- 全局替换：command + shift + R
+- 查找引用： option + shift + F7<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>以上快捷键是 Android Studio 的 macOS 的 keymap，如果是 Windows 系统，将 command 换成 Ctrl，option 换成 Alt 即可。</p>
+</blockquote>
+<p>更多快捷键可参考：<a target="_blank" rel="noopener" href="https://developer.android.com/studio/intro/keyboard-shortcuts?hl=zh-CN">keyboard-shortcuts</a></p>
+<h3 id="3-2-自动补全"><a href="#3-2-自动补全" class="headerlink" title="3.2 自动补全"></a>3.2 自动补全</h3><blockquote>
+<p>通过自动补全功能能够让开发效率提升不少，那么如何使用自动补全功能呢？</p>
+</blockquote>
+<p>可以在 Android Studio 的 Plugin 中搜索<code>Flutter Snippets</code>这个插件然后进行安装：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/uPic/image-20220622132735043.png"></p>
+<p>有了这个插件后，Android Studio 可以帮你自动补全主流 widget 的代码。以下是触发自动补全各种 widget 的缩写：</p>
 <ul>
-<li>Spring Boot Admin 包括客户端和服务端两个部分，⼀个服务端可以展示多个客户端的监控结果：<ul>
-<li>客户端：<strong>即需要监控的应⽤服务</strong>，需集成 spring-boot-admin-starter-client,通过 HTTP 协议注册到 Spring Boot Admin 服务端,从⽽进⾏集中展示。（也可以结合 Spring Cloud 服务注册中⼼）</li>
-<li>服务端：访问客户端的 Actuator 运⾏时数据，并使⽤ UI 界⾯进⾏展示。<strong>是⼀个独⽴的 Spring Boot 应⽤</strong>,需集成 spring-boot-admin-starter-server</li>
+<li>stful: 创建一个有状态的 Widget</li>
+<li>stless：创建一个无状态的 Widget</li>
+<li>column：创建一个 Column Widget</li>
+<li>container：创建一个 Container Widget</li>
+<li>row：创建一个 Row Widget</li>
+<li>showDialog：创建一个 AlertDialog</li>
 </ul>
-</li>
-</ul>
-<h3 id="⼆、创建-SpringBoot-Admin-服务端"><a href="#⼆、创建-SpringBoot-Admin-服务端" class="headerlink" title="⼆、创建 SpringBoot Admin 服务端"></a>⼆、创建 SpringBoot Admin 服务端</h3><p>新建⼀个模块：boot-admin ，maven 坐标引⼊</p>
-<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>de.codecentric<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-admin-starter-server<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>在项⽬启动类上⾯加上@EnableAdminServer 注解</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@EnableAdminServer</span>
-<span class="token annotation punctuation">@SpringBootApplication</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BootActuatorAdminApplication</span> <span class="token punctuation">&#123;</span>
-   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">BootLaunchActuatorAdminApplication</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
-   <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>指定访问端⼝</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
-  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8081</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>访问 <code>http://localhost:8081/</code>，因为⽬前没有任何的客户端应⽤注册上来，所以界⾯上没有相关的展示信息。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-27_11-51-46.png"></p>
-<h3 id="三、集成-SpringBoot-Admin-客户端"><a href="#三、集成-SpringBoot-Admin-客户端" class="headerlink" title="三、集成 SpringBoot Admin 客户端"></a>三、集成 SpringBoot Admin 客户端</h3><p>在我们之前的项⽬ boot-actuator ⾥⾯引⼊下⾯的依赖，作为被 SpringBoot Admin 监控的客户端存在。</p>
-<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>de.codecentric<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-admin-starter-client<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>进⾏ application.yml 配置</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
-  <span class="token key atrule">boot</span><span class="token punctuation">:</span>
-    admin<span class="token punctuation">:</span>
-      client<span class="token punctuation">:</span>
-        url<span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span><span class="token number">8081</span>
-<span class="token key atrule">management</span><span class="token punctuation">:</span>
-  <span class="token key atrule">endpoint</span><span class="token punctuation">:</span>
-    health<span class="token punctuation">:</span>
-      show<span class="token punctuation">-</span><span class="token key atrule">details</span><span class="token punctuation">:</span> always
-  <span class="token key atrule">endpoints</span><span class="token punctuation">:</span>
-    web<span class="token punctuation">:</span>
-      exposure<span class="token punctuation">:</span>
-        include<span class="token punctuation">:</span> <span class="token string">"*"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
-<li><p>spring.boot.admin.client.url 体现的是服务端的访问地址，也就是监控注册的地址。</p>
-</li>
-<li><p>当客户端注册到 spring boot admin 服务端之后，admin 服务端就会访问客户端应⽤的”/actuator”访问端点信息，因为我们为 boot-launch 配置了⽤户密码的访问权限(上⼀节)，所以需要将⽤户名密码告知服务端，它才能正确的获取”/actuator”访问端点信息。这就是 metadata.user 配置段的作⽤</p>
-</li>
-</ul>
-<p>另外，为了让 Spring Boot Admin 展示的内容更加丰富，我们将所有的服务端点都开放出来。如果不开放，spring boot admin 只能获取健康检查”/health”和“/info”两个默认开放访问的基础信息，也就失去了使⽤ Spring Boot Admin 的意义。</p>
-<p>再次访问 <code>http://localhost:8081/</code> ，这次展示的监控信息内容就很多了：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-27_11-54-24.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-27_11-54-58.png"></p>
+<p>更多自动补全快捷键可查阅：<a target="_blank" rel="noopener" href="https://github.com/georgeherby/flutter-snippets/blob/master/README.md">flutter-snippets</a>。</p>
+<h3 id="3-3-代码自动格式化"><a href="#3-3-代码自动格式化" class="headerlink" title="3.3 代码自动格式化"></a>3.3 代码自动格式化</h3><p>虽然我们可以通过快捷键<code>option(alt)+command(ctrl)+L</code>来在提交代码是格式化，但是这种手动的方式显然不够效率。</p>
+<p>可以借助 AS 的保存时代码自动格式化功能来释放我们的双手：</p>
+<p>在 Settings &gt; Language &amp; Frameworks &gt; Flutter 中勾选 “Format Code on Save”这个选项：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/uPic/image-20220622131711130.png"></p>
+<p>另外建议勾选<code>Organize imports on save</code>这个选项，它会帮你移除没有使用的导入。</p>
+<h3 id="3-4-提取-Flutter-代码"><a href="#3-4-提取-Flutter-代码" class="headerlink" title="3.4 提取 Flutter 代码"></a>3.4 提取 Flutter 代码</h3><p>Flutter 最让人头疼的一点是的布局的嵌套，对于复杂的布局如果不进行任何重构的情况下会嵌套的非常深，从而降低代码的可读性不利于后期的维护。</p>
+<p>推荐的做法是将复杂的布局提取成一个函数或者一个组件，这里分享一个提取 Flutter 代码的技巧：</p>
+<p>选中一个比较复杂的 widget，鼠标右键单击，选择 Refactor &gt; Extract Method ，然后给这个方法取一个名字，AS 可以自动把这块代码抽离出一个<code>Method</code>，并为它添加对于对应的参数：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/uPic/image-20220622131925784.png"></p>
+<blockquote>
+<p>除此之外，我们还可以借助 AS 来将符合条件的代码块提取成一个 Widget，只需要在 Refactor 中选择 <strong>Extract Flutter Widget</strong>即可。</p>
+</blockquote>
 
                 
             </div>
@@ -773,7 +726,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://syhan.top/2022/04/27/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9B%91%E6%8E%A7%E7%AE%A1%E7%90%86/">http://syhan.top/2022/04/27/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9B%91%E6%8E%A7%E7%AE%A1%E7%90%86/</a>
+                    <a href="http://syhan.top/2022/06/23/Flutter%E8%B5%B7%E6%AD%A5/">http://syhan.top/2022/06/23/Flutter%E8%B5%B7%E6%AD%A5/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -811,12 +764,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/spring/">
-                                    <span class="chip bg-color">spring</span>
-                                </a>
-                            
-                                <a href="/tags/java/">
-                                    <span class="chip bg-color">java</span>
+                                <a href="/tags/flutter/">
+                                    <span class="chip bg-color">flutter</span>
                                 </a>
                             
                         </div>
@@ -986,17 +935,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/04/27/%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81%E7%9A%84%E6%95%B4%E5%90%88%E4%B8%8E%E4%BD%BF%E7%94%A8/">
+                <a href="/2022/06/23/Flutter%E8%B5%B7%E6%AD%A5/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="邮件发送的整合与使用">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Flutter起步">
                         
-                        <span class="card-title">邮件发送的整合与使用</span>
+                        <span class="card-title">Flutter起步</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1006,9 +956,59 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-27
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Flutter/" class="post-category">
+                                    Flutter
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/flutter/">
+                        <span class="chip bg-color">flutter</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/06/20/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%AE%B9%E5%99%A8%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E5%BA%94%E7%94%A8/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="嵌入式容器的配置与应用">
+                        
+                        <span class="card-title">嵌入式容器的配置与应用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1030,59 +1030,6 @@
                     
                     <a href="/tags/java/">
                         <span class="chip bg-color">java</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/04/21/8-%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="8-动态路由">
-                        
-                        <span class="card-title">8-动态路由</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-21
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Vue/" class="post-category">
-                                    Vue
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/vue3/">
-                        <span class="chip bg-color">vue3</span>
-                    </a>
-                    
-                    <a href="/tags/router/">
-                        <span class="chip bg-color">router</span>
                     </a>
                     
                 </div>
