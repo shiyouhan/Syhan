@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-06-26
+                    2022-06-27
                 </div>
                 
 
@@ -479,7 +479,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    10.7k
+                    10.8k
                 </div>
                 
 
@@ -499,13 +499,13 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="整合数据库开发框架"><a href="#整合数据库开发框架" class="headerlink" title="整合数据库开发框架"></a>整合数据库开发框架</h1><h2 id="1-整合Spring-JDBC操作数据"><a href="#1-整合Spring-JDBC操作数据" class="headerlink" title="1. 整合Spring JDBC操作数据"></a>1. 整合Spring JDBC操作数据</h2><h3 id="⼀、JDBC简介"><a href="#⼀、JDBC简介" class="headerlink" title="⼀、JDBC简介"></a>⼀、JDBC简介</h3><p>JDBC（Java DataBase Connectivity）是⼀种⽤于执⾏ SQL 语句的 Java API ，可以为多种关系数 据库提供统⼀访问，它由⼀组⽤ Java 语⾔编写的类和接⼝组成。JDBC 提供了⼀种基准，据此可以 构建更⾼级的⼯具和接⼝，使数据库开发⼈员能够编写数据库应⽤程序。</p>
+                <h1 id="整合数据库开发框架"><a href="#整合数据库开发框架" class="headerlink" title="整合数据库开发框架"></a>整合数据库开发框架</h1><h2 id="1-整合-Spring-JDBC-操作数据"><a href="#1-整合-Spring-JDBC-操作数据" class="headerlink" title="1. 整合 Spring JDBC 操作数据"></a>1. 整合 Spring JDBC 操作数据</h2><h3 id="⼀、JDBC-简介"><a href="#⼀、JDBC-简介" class="headerlink" title="⼀、JDBC 简介"></a>⼀、JDBC 简介</h3><p>JDBC（Java DataBase Connectivity）是⼀种⽤于执⾏ SQL 语句的 Java API ，可以为多种关系数 据库提供统⼀访问，它由⼀组⽤ Java 语⾔编写的类和接⼝组成。JDBC 提供了⼀种基准，据此可以 构建更⾼级的⼯具和接⼝，使数据库开发⼈员能够编写数据库应⽤程序。</p>
 <blockquote>
 <p>什么是持久层：持久层就是指对数据进⾏持久化操作的代码，⽐如将数据保存到数据库、⽂件、 磁盘等操作都是持久层操作。所谓持久就是保存起来的意思。对于 web 应⽤最常⽤的持久层框架就是 JDBC、Mybatis、JPA。</p>
 </blockquote>
-<h3 id="⼆、使⽤JDBC操作数据库的步骤"><a href="#⼆、使⽤JDBC操作数据库的步骤" class="headerlink" title="⼆、使⽤JDBC操作数据库的步骤"></a>⼆、使⽤JDBC操作数据库的步骤</h3><p>直接在 Java 程序中使⽤ JDBC ⽐较复杂，需要 7 步才能完成数据库的操作：</p>
+<h3 id="⼆、使⽤-JDBC-操作数据库的步骤"><a href="#⼆、使⽤-JDBC-操作数据库的步骤" class="headerlink" title="⼆、使⽤ JDBC 操作数据库的步骤"></a>⼆、使⽤ JDBC 操作数据库的步骤</h3><p>直接在 Java 程序中使⽤ JDBC ⽐较复杂，需要 7 步才能完成数据库的操作：</p>
 <ol>
-<li>加载数据库驱动 </li>
+<li>加载数据库驱动</li>
 <li>建⽴数据库连接</li>
 <li>创建数据库操作对象</li>
 <li>定义操作的 SQL 语句</li>
@@ -537,11 +537,11 @@
 
 <p>可以看出直接使⽤ JDBC 来操作数据库⽐较复杂。</p>
 <p>为此，Spring Boot 针对 JDBC 的使⽤提供了对应的 Starter 包：<strong>spring-boot-starter-jdbc</strong>，它 其实就是在 Spring JDBC 上做了进⼀步的封装，⽅便在 Spring Boot ⽣态中更好的使⽤ JDBC。</p>
-<p>SpringBoot JDBC参考: <a target="_blank" rel="noopener" href="https://www.yiibai.com/springjdbc">https://www.yiibai.com/springjdbc</a></p>
+<p>SpringBoot JDBC 参考: <a target="_blank" rel="noopener" href="https://www.yiibai.com/springjdbc">https://www.yiibai.com/springjdbc</a></p>
 <blockquote>
-<p>不论是JDBC，还是封装之后的Spring JDBC，直接操作数据库都⽐较麻烦，实际开发不建议直接 使⽤JDBC操作数据库。</p>
+<p>不论是 JDBC，还是封装之后的 Spring JDBC，直接操作数据库都⽐较麻烦，实际开发不建议直接 使⽤ JDBC 操作数据库。</p>
 </blockquote>
-<h3 id="三、-将Spring-JDBC集成到Spring-boot项⽬"><a href="#三、-将Spring-JDBC集成到Spring-boot项⽬" class="headerlink" title="三、 将Spring JDBC集成到Spring boot项⽬"></a>三、 将Spring JDBC集成到Spring boot项⽬</h3><p>第⼀步：引⼊Maven依赖包，包括Spring JDBC和MySQL驱动。</p>
+<h3 id="三、-将-Spring-JDBC-集成到-Spring-boot-项⽬"><a href="#三、-将-Spring-JDBC-集成到-Spring-boot-项⽬" class="headerlink" title="三、 将 Spring JDBC 集成到 Spring boot 项⽬"></a>三、 将 Spring JDBC 集成到 Spring boot 项⽬</h3><p>第⼀步：引⼊ Maven 依赖包，包括 Spring JDBC 和 MySQL 驱动。</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-jdbc<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
@@ -560,13 +560,13 @@
    <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.cj.jdbc.Driver<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li><p>mysql-connector-java 5.5版本及其以下，使⽤ com.mysql.jdbc.Driver</p>
+<li><p>mysql-connector-java 5.5 版本及其以下，使⽤ com.mysql.jdbc.Driver</p>
 </li>
-<li><p>mysql-connector-java 5.7版本及以上，使⽤ com.mysql.cj.jdbc.Driver</p>
+<li><p>mysql-connector-java 5.7 版本及以上，使⽤ com.mysql.cj.jdbc.Driver</p>
 </li>
 </ul>
-<h3 id="四、-spring-boot-jdbc-基础代码"><a href="#四、-spring-boot-jdbc-基础代码" class="headerlink" title="四、 spring boot jdbc 基础代码"></a>四、 spring boot jdbc 基础代码</h3><p>spring jdbc集成完毕之后，我们来写代码做⼀个基本的测试。 </p>
-<p>⾸先我们新建⼀张测试表t_article</p>
+<h3 id="四、-spring-boot-jdbc-基础代码"><a href="#四、-spring-boot-jdbc-基础代码" class="headerlink" title="四、 spring boot jdbc 基础代码"></a>四、 spring boot jdbc 基础代码</h3><p>spring jdbc 集成完毕之后，我们来写代码做⼀个基本的测试。</p>
+<p>⾸先我们新建⼀张测试表 t_article</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>t_article<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
  <span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span> <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">AUTO_INCREMENT</span> <span class="token keyword">COMMENT</span> <span class="token string">'主键'</span><span class="token punctuation">,</span>
  <span class="token identifier"><span class="token punctuation">`</span>author<span class="token punctuation">`</span></span> <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'作者'</span><span class="token punctuation">,</span>
@@ -578,9 +578,9 @@
 <span class="token keyword">COMMENT</span><span class="token operator">=</span><span class="token string">'⽂章'</span>
 <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">InnoDB</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>DAO层代码:</p>
+<p>DAO 层代码:</p>
 <ul>
-<li>jdbcTemplate.update 适合于 insert 、update和delete 操作</li>
+<li>jdbcTemplate.update 适合于 insert 、update 和 delete 操作</li>
 <li>jdbcTemplate.queryForObject ⽤于查询单条记录返回结果</li>
 <li>jdbcTemplate.query ⽤于查询结果列表</li>
 <li>BeanPropertyRowMapper 可以将数据库字段的值向 Article 对象映射，满⾜驼峰标识也可以⾃动映射。如:数据库 create_time 字段映射到 createTime 属性。</li>
@@ -589,7 +589,7 @@
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ArticleJDBCDAO</span> <span class="token punctuation">&#123;</span>
     <span class="token annotation punctuation">@Resource</span>
     <span class="token keyword">private</span> <span class="token class-name">JdbcTemplate</span> jdbcTemplate<span class="token punctuation">;</span>
-  
+
     <span class="token comment">//保存⽂章</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">save</span><span class="token punctuation">(</span><span class="token class-name">Article</span> article<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token comment">//jdbcTemplate.update适合于insert 、update和delete操作；</span>
@@ -599,13 +599,13 @@
                 article<span class="token punctuation">.</span><span class="token function">getContent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
                 article<span class="token punctuation">.</span><span class="token function">getCreateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token comment">//删除⽂章</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">deleteById</span><span class="token punctuation">(</span><span class="token class-name">Long</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token comment">//jdbcTemplate.update适合于insert 、update和delete操作；</span>
         jdbcTemplate<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token string">"DELETE FROM article WHERE id = ?"</span><span class="token punctuation">,</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token comment">//更新⽂章</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">updateById</span><span class="token punctuation">(</span><span class="token class-name">Article</span> article<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token comment">//jdbcTemplate.update适合于insert 、update和delete操作；</span>
@@ -616,14 +616,14 @@
                 article<span class="token punctuation">.</span><span class="token function">getCreateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
                 article<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token comment">//根据id查找⽂章</span>
     <span class="token keyword">public</span> <span class="token class-name">Article</span> <span class="token function">findById</span><span class="token punctuation">(</span><span class="token class-name">Long</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token comment">//queryForObject⽤于查询单条记录返回结果</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token class-name">Article</span><span class="token punctuation">)</span> jdbcTemplate<span class="token punctuation">.</span><span class="token function">queryForObject</span><span class="token punctuation">(</span><span class="token string">"SELECT * FROM article WHERE id=?"</span><span class="token punctuation">,</span>
         <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">&#123;</span>id<span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token keyword">new</span> <span class="token class-name">BeanPropertyRowMapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token class-name">Article</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token comment">//查询所有</span>
     <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Article</span><span class="token punctuation">></span></span> <span class="token function">findAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
  				<span class="token comment">//query⽤于查询结果列表</span>
@@ -631,7 +631,7 @@
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>service层接⼝</p>
+<p>service 层接⼝</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ArticleService</span> <span class="token punctuation">&#123;</span>
      <span class="token keyword">void</span> <span class="token function">saveArticle</span><span class="token punctuation">(</span><span class="token class-name">Article</span> article<span class="token punctuation">)</span><span class="token punctuation">;</span>
      <span class="token keyword">void</span> <span class="token function">deleteArticle</span><span class="token punctuation">(</span><span class="token class-name">Long</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -640,7 +640,7 @@
      <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Article</span><span class="token punctuation">></span></span> <span class="token function">getAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>service层操作JDBC持久层</p>
+<p>service 层操作 JDBC 持久层</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
 <span class="token annotation punctuation">@Service</span>   <span class="token comment">//服务层依赖注⼊注解</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ArticlleJDBCService</span>  <span class="token keyword">implements</span>  <span class="token class-name">ArticleService</span> <span class="token punctuation">&#123;</span>
@@ -669,13 +669,13 @@
 
 <p>最后，在之前的 ArticleController 中调⽤ ArticleRestJDBCService 实现⽅法，进⾏从 Controller 到 Service 到 DAO 层的全流程测试。</p>
 <ul>
-<li>重点测试⼀下事务的回滚，⼈为制造⼀个被除数为0的异常。</li>
+<li>重点测试⼀下事务的回滚，⼈为制造⼀个被除数为 0 的异常。</li>
 <li>在 saveArticle ⽅法上使⽤了@Trasactional 注解，该注解基本功能为事务管理，保证 saveArticle ⽅法⼀旦有异常，所有的数据库操作就回滚。</li>
 </ul>
-<h2 id="2-主流ORM持久层框架选型"><a href="#2-主流ORM持久层框架选型" class="headerlink" title="2. 主流ORM持久层框架选型"></a>2. 主流ORM持久层框架选型</h2><h3 id="⼀、现状描述"><a href="#⼀、现状描述" class="headerlink" title="⼀、现状描述"></a>⼀、现状描述</h3><p>⽬前 Java 持久层 ORM 框架应⽤最⼴泛的就是 JPA 和 Mybatis。JPA 只是⼀个 ORM 框架的规范, 对该 规范的实现⽐较完整就是 Spring Data JPA（底层基于 Hibernate 实现），是基于 Spring 的数据持久 层框架，也就是说它只能⽤在 Spring 环境内。 </p>
+<h2 id="2-主流-ORM-持久层框架选型"><a href="#2-主流-ORM-持久层框架选型" class="headerlink" title="2. 主流 ORM 持久层框架选型"></a>2. 主流 ORM 持久层框架选型</h2><h3 id="⼀、现状描述"><a href="#⼀、现状描述" class="headerlink" title="⼀、现状描述"></a>⼀、现状描述</h3><p>⽬前 Java 持久层 ORM 框架应⽤最⼴泛的就是 JPA 和 Mybatis。JPA 只是⼀个 ORM 框架的规范, 对该 规范的实现⽐较完整就是 Spring Data JPA（底层基于 Hibernate 实现），是基于 Spring 的数据持久 层框架，也就是说它只能⽤在 Spring 环境内。</p>
 <p>Mybatis 也是⼀个优秀的数据持久层框架，能⽐较好的⽀持 ORM 实体关系映射、动态 SQL 等。 为什么国内的开发⼈员或者开发团队较少使⽤ JPA ？国内某度指数搜索如下。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/UA3o10.png"></p>
-<p>图中蓝⾊线条为 Mybatis 搜索量，绿⾊为 JPA 搜索量。如果换⼀个国外的搜索指数，你会得到⼀个完全不同的结果。 </p>
+<p>图中蓝⾊线条为 Mybatis 搜索量，绿⾊为 JPA 搜索量。如果换⼀个国外的搜索指数，你会得到⼀个完全不同的结果。</p>
 <p>这是为什么呢？我们还要从 JPA 的特点说起：</p>
 <ul>
 <li>JPA 对于单表的或者简单的 SQL 查询⾮常友好，甚⾄可以说⾮常智能。它为你准备好了⼤量拿来 即⽤的持久层操作⽅法。甚⾄只要写 findByName 这样⼀个接⼝⽅法，就能智能的帮你执⾏根据 名称查找实体类对应的表数据，完全不⽤写 SQL 。</li>
@@ -685,7 +685,7 @@
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">JPAQueryFactory</span> queryFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JPAQueryFactory</span><span class="token punctuation">(</span>em<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">JPAQuery</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Tuple</span><span class="token punctuation">></span></span> jpaQuery <span class="token operator">=</span> queryFactory<span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token class-name">QTCity</span><span class="token punctuation">.</span>tCity<span class="token punctuation">,</span><span class="token class-name">QTHotel</span><span class="token punctuation">.</span>tHotel<span class="token punctuation">)</span>
                                <span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token class-name">QTCity</span><span class="token punctuation">.</span>tCity<span class="token punctuation">)</span>
-                               <span class="token punctuation">.</span><span class="token function">leftJoin</span><span class="token punctuation">(</span><span class="token class-name">QTHotel</span><span class="token punctuation">.</span>tHotel<span class="token punctuation">)</span>                           
+                               <span class="token punctuation">.</span><span class="token function">leftJoin</span><span class="token punctuation">(</span><span class="token class-name">QTHotel</span><span class="token punctuation">.</span>tHotel<span class="token punctuation">)</span>
 <span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token class-name">QTHotel</span><span class="token punctuation">.</span>tHotel<span class="token punctuation">.</span>city<span class="token punctuation">.</span><span class="token function">longValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">eq</span><span class="token punctuation">(</span><span class="token class-name">QTCity</span><span class="token punctuation">.</span>tCity<span class="token punctuation">.</span>id<span class="token punctuation">.</span><span class="token function">longValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">//添加查询条件</span>
 jpaQuery<span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span>predicate<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -717,7 +717,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <ul>
 <li>⾸先，国外程序员习惯使⽤ JPA 的⼀个原因，真的是因为他们国家的应⽤规模太⼩了，⽐起国内 的⼀个应⽤动则上百万的⽤户相⽐，他们在数据库设计与调优的需求上显然更从容。</li>
 <li>国外的应⽤设计往往更简洁，⽽国内的应⽤需求往往功能性更强。可以去看看⼯作流，什么会签、流程回退什么的都是我们发明的，他们没有。你让他们⽤ JPA 写⼀个我们的⼯作流应⽤试⼀试，累吐⾎他们也做不到。</li>
-<li>异化SQL或者代码⾥⾯写SQL，⼀定程度上增加了学习成本和使⽤成本。所以⽤的⼈少，⽤的⼈少你就得迁就团队中的⼤部分⼈。</li>
+<li>异化 SQL 或者代码⾥⾯写 SQL，⼀定程度上增加了学习成本和使⽤成本。所以⽤的⼈少，⽤的⼈少你就得迁就团队中的⼤部分⼈。</li>
 </ul>
 <p>说完以上⼏点，Mybatis 为什么在国内会有如此多的使⽤者及使⽤⼚商就不难理解了。Mybatis 还可 以使⽤如：Mybatis-plus 或者代码⾃动⽣成来弥补易⽤性上的不⾜。JPA 的身材、家室、性格样样 都是满分，就是脸⻓得磕碜点难以处理社交关系。Mybatis 虽说在各⽅⾯都不优秀，身材还可以、样 貌也还说得过去、性格也还好。关键是你说什么都听你的，还有愿意帮他化妆的朋友。要你说你选 哪⼀个？</p>
 <p>那么，有的⼈会说，你这是抬杠？国外就没有受众数量多、功能性强的互联⽹应⽤了么？恐怕⽐国 内还多吧，这个也是事实。但是从⽐例上讲还是国内更多，⽐例决定开发⼈员选择技术的⽅向。这 也导致了⼀个惯性思维，他们平时就⽤ JPA 学习训练，所以写⼤型服务应⽤的时候也⽤ JPA 。那么， 他们写 JPA 会写复杂 SQL 么？答案是很少会⽤到，甚⾄有的国外公司就明令禁⽌写关联查询 SQL 。 那怎么办？不⽤关联 SQL 怎么开发业务需求？不会啊。</p>
@@ -728,7 +728,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <li>如果我们做的是微服务接⼝，我们可能是先去根据⽤户 id 查询⽤户信息，在通过⽤户信息查询该⽤户的⻆⾊信息、最后通过⻆⾊信息查询权限信息。并且每⼀次调⽤ SQL 都可能是⼀个单独的 HTTP 服务接⼝。</li>
 </ul>
 <p>那么有的⼈会说，访问多个接⼝⼀定⽐访问⼀个接⼝更慢吧！这个真的不⼀定。如果我们做微服 务，⼀定是我们的应⽤规模及数据量到达了⼀定程度。也⼀定会考虑分表分库、负载均衡、服务拆分细化等问题，当分布式的开发⽅式被应⽤越多，多表关联查询使⽤的机会也就越少。拆分后的服 务由于功能单⼀、负载分流、数据分库存储量级更⼩等原因，访问速度往往⽐⼤数据量数据集中存储、多服务集中部署的应⽤会更快。</p>
-<p>问题回来了，不⽤关联 SQL 怎么开发程序？总的来说就是通过合理的服务拆分、数据库拆分、应⽤的界⾯数据的组织关系的合理的设计，团队拥有⽐较好的微服务落地经验，是可以实现不使⽤关联查询 SQL 开发应⽤的。⼤家也知道，NOSQL 越来越流⾏，绝⼤部分的NOSQL 数据库都没有所谓的 关联关系。</p>
+<p>问题回来了，不⽤关联 SQL 怎么开发程序？总的来说就是通过合理的服务拆分、数据库拆分、应⽤的界⾯数据的组织关系的合理的设计，团队拥有⽐较好的微服务落地经验，是可以实现不使⽤关联查询 SQL 开发应⽤的。⼤家也知道，NOSQL 越来越流⾏，绝⼤部分的 NOSQL 数据库都没有所谓的 关联关系。</p>
 <h3 id="四、框架对⽐选型"><a href="#四、框架对⽐选型" class="headerlink" title="四、框架对⽐选型"></a>四、框架对⽐选型</h3><table>
 <thead>
 <tr>
@@ -748,7 +748,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <td>友好，可以有⾮常直观的动态 SQL</td>
 </tr>
 <tr>
-<td>⾃定义SQL</td>
+<td>⾃定义 SQL</td>
 <td>SQL 写在注解⾥⾯，写动态 SQL 有些费劲</td>
 <td>SQL 可以写在 XML ⾥⾯，是书写动态 SQL 语法利器。也⽀持注解 SQL 。</td>
 </tr>
@@ -764,22 +764,22 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <li>如果你是开发⼤⽽全的企业级应⽤，当然要遵从团队的技术选型。这个技术选型在国内通常是 Mybatis 。</li>
 <li>如果你们公司的管理⾮常规范，微服务落地经验也⾮常成熟，可以考虑在团队项⽬中使⽤ JPA 。 少⽤或不⽤关联查询。</li>
 </ul>
-<h2 id="3-Java-bean的赋值转换"><a href="#3-Java-bean的赋值转换" class="headerlink" title="3. Java bean的赋值转换"></a>3. Java bean的赋值转换</h2><h3 id="⼀、为什么要做-Java-bean赋值转换"><a href="#⼀、为什么要做-Java-bean赋值转换" class="headerlink" title="⼀、为什么要做 Java bean赋值转换"></a>⼀、为什么要做 Java bean赋值转换</h3><p>在实际的开发过程中，由于业务的复杂性，通常并不能做到⼀个 model 实体贯穿持久层、服务层、 控制层。通常需要进⾏实体对象 java bean 的赋值转换。</p>
+<h2 id="3-Java-bean-的赋值转换"><a href="#3-Java-bean-的赋值转换" class="headerlink" title="3. Java bean 的赋值转换"></a>3. Java bean 的赋值转换</h2><h3 id="⼀、为什么要做-Java-bean-赋值转换"><a href="#⼀、为什么要做-Java-bean-赋值转换" class="headerlink" title="⼀、为什么要做 Java bean 赋值转换"></a>⼀、为什么要做 Java bean 赋值转换</h3><p>在实际的开发过程中，由于业务的复杂性，通常并不能做到⼀个 model 实体贯穿持久层、服务层、 控制层。通常需要进⾏实体对象 java bean 的赋值转换。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/pbcmQf.png"></p>
 <p><strong>PO</strong>: persistent object 持久对象，对应数据库中的 entity。通常在进⾏数据库数据存取操作时使⽤。可以简单的认为⼀个 PO 对应数据库中⼀张表中的⼀个记录。PO 对象⾥⾯只有基本数据类型和 String 类型的属性（如：int、String），与数据库字段是⼀⼀对应的。</p>
-<p><strong>BO</strong>: business object 业务对象，业务对象主要作⽤是把业务逻辑封装为⼀个对象。这个对象可以包括⼀个或多个其它的对象。通常⼀个BO 是多个 PO 的组合体，⽐如：PO 在查询出来之后，需要经过业务处理，处理过程中对象的属性逐渐变复杂，有嵌套的数组，对象数组等等。 </p>
-<p><strong>VO</strong>: view object，主要与web⻚⾯的展示结构相对应，所以 VO 也是前端与后端的数据交换定义。</p>
-<p>下图中是⼀个VO，⽤于返回给前端Web界⾯，⽤于渲染的数据内容：</p>
-<p> <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/7DKWl1.png"></p>
-<p>下图是⼀个PO，⽤于对数据库表的数据的存取。</p>
-<p> <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/vEXqGW.png"></p>
+<p><strong>BO</strong>: business object 业务对象，业务对象主要作⽤是把业务逻辑封装为⼀个对象。这个对象可以包括⼀个或多个其它的对象。通常⼀个 BO 是多个 PO 的组合体，⽐如：PO 在查询出来之后，需要经过业务处理，处理过程中对象的属性逐渐变复杂，有嵌套的数组，对象数组等等。</p>
+<p><strong>VO</strong>: view object，主要与 web ⻚⾯的展示结构相对应，所以 VO 也是前端与后端的数据交换定义。</p>
+<p>下图中是⼀个 VO，⽤于返回给前端 Web 界⾯，⽤于渲染的数据内容：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/7DKWl1.png"></p>
+<p>下图是⼀个 PO，⽤于对数据库表的数据的存取。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/vEXqGW.png"></p>
 <p>注意看⼆者的区别，⼀个 AricleVO 不仅包含了 Article 的数据，还包含了 Reader 读者的数据。</p>
 <ul>
 <li>当你需要向数据库⾥⾯插⼊数据的时候，需要将 Article(PO) 和 Reader(PO) 分别作为 PO 记录插 ⼊数据库。</li>
 <li>当你需要将⼀篇⽂章的数据和读者信息返回给⻚⾯做渲染的时候，需要从数据库⾥⾯查询 Article(PO) 和 Reader(PO) ,然后将⼆者组合映射转换为 AricleVO 返回给前端。</li>
 </ul>
 <p><strong>如果你的业务可以⽤⼀个实体类对象，就可以贯穿持久层到展现层，就没有必要做映射赋值转换， 也没有必要去分 VO、BO、PO。⽐如：单表表格数据展现、修改、新增。</strong></p>
-<h3 id="⼆、BeanUtils和Dozer？"><a href="#⼆、BeanUtils和Dozer？" class="headerlink" title="⼆、BeanUtils和Dozer？"></a>⼆、BeanUtils和Dozer？</h3><p>⽐较常⽤的 JavaBean 赋值转换⼯具是 BeanUtils和 Dozer ，如果没有 BeanUtils 和 Dozer 帮我们进⾏对象之间的转换赋值，我们会怎么做？</p>
+<h3 id="⼆、BeanUtils-和-Dozer？"><a href="#⼆、BeanUtils-和-Dozer？" class="headerlink" title="⼆、BeanUtils 和 Dozer？"></a>⼆、BeanUtils 和 Dozer？</h3><p>⽐较常⽤的 JavaBean 赋值转换⼯具是 BeanUtils 和 Dozer ，如果没有 BeanUtils 和 Dozer 帮我们进⾏对象之间的转换赋值，我们会怎么做？</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
 <span class="token annotation punctuation">@AllArgsConstructor</span>
 <span class="token annotation punctuation">@NoArgsConstructor</span>
@@ -829,11 +829,11 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
     userVo<span class="token punctuation">.</span><span class="token function">setPassword</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getPassword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     userVo<span class="token punctuation">.</span><span class="token function">setAvatar</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getAvatar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     userVo<span class="token punctuation">.</span><span class="token function">setCreateTime</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getCreateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
+
     log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>userVo<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>BeanUtils 是 Spring Boot 内⾃动集成的 JavaBean ⾃动转换⼯具（ apache 项⽬下也有⼀个 BeanUtils，这⾥专指 Spring 包下⾯的BeanUtils），使⽤⾮常⽅便。可以通过下⾯的⽅法将 user(PO) 转换为 userVo 。</p>
+<p>BeanUtils 是 Spring Boot 内⾃动集成的 JavaBean ⾃动转换⼯具（ apache 项⽬下也有⼀个 BeanUtils，这⾥专指 Spring 包下⾯的 BeanUtils），使⽤⾮常⽅便。可以通过下⾯的⽅法将 user(PO) 转换为 userVo 。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
 <span class="token keyword">void</span> <span class="token function">beanUtilsTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token class-name">User</span> user <span class="token operator">=</span> <span class="token class-name">User</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">id</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">phone</span><span class="token punctuation">(</span><span class="token string">"180****4983"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">password</span><span class="token punctuation">(</span><span class="token string">"123"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">avatar</span><span class="token punctuation">(</span><span class="token string">"1.jpg"</span><span class="token punctuation">)</span>
@@ -849,10 +849,10 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <p><strong>dozer 的功能⽐ BeanUtils 功能更强⼤，但是 BeanUtils 的性能更好。所以简单的同名同类型属性赋值转换使⽤ BeanUtils ，复杂的级联结构的属性赋值转换使⽤ Dozer 。</strong></p>
 <ul>
 <li>Dozer 可以实现 Integer 、Long 等基础类型与 String 数据类型的属性之间的转换（只要名字相同 就可以了,数据类型可以不同），BeanUtils 只能做到同数据类型同名的属性之间赋值。</li>
-<li>Dozer 可以实现递归级联结构的对象赋值，BeanUtils（Spring包下⾯的）也可以。</li>
-<li>Dozer 可以实现复杂的数据转换关系，通过 xml 配置的⽅式，BeanUtils做不到。</li>
+<li>Dozer 可以实现递归级联结构的对象赋值，BeanUtils（Spring 包下⾯的）也可以。</li>
+<li>Dozer 可以实现复杂的数据转换关系，通过 xml 配置的⽅式，BeanUtils 做不到。</li>
 </ul>
-<p>使⽤⽅法示例如下 </p>
+<p>使⽤⽅法示例如下</p>
 <p>引⼊依赖</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.github.dozermapper<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
@@ -870,16 +870,16 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>userVo<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>这段示例代码将 PO 对象 user ，转换为 VO 对象 userVo ，转换过程将所有同名同类型的数据⾃动赋值给 userVo 的成员变量，当然除了books (因为 PO ⾥⾯没有 books 数组数据)。 </p>
+<p>这段示例代码将 PO 对象 user ，转换为 VO 对象 userVo ，转换过程将所有同名同类型的数据⾃动赋值给 userVo 的成员变量，当然除了 books (因为 PO ⾥⾯没有 books 数组数据)。</p>
 <p>转换属性之间的映射，默认是根据属性名称来匹配的。</p>
-<h3 id="三、引⼊Dozer（6-5-2）"><a href="#三、引⼊Dozer（6-5-2）" class="headerlink" title="三、引⼊Dozer（6.5.2）"></a>三、引⼊Dozer（6.5.2）</h3><p>从6.2.0版本开始，dozer 官⽅为我们提供了 dozer-spring-boot-starter ，这样我们在 spring boot ⾥⾯使⽤ dozer 更⽅便了。</p>
+<h3 id="三、引⼊-Dozer（6-5-2）"><a href="#三、引⼊-Dozer（6-5-2）" class="headerlink" title="三、引⼊ Dozer（6.5.2）"></a>三、引⼊ Dozer（6.5.2）</h3><p>从 6.2.0 版本开始，dozer 官⽅为我们提供了 dozer-spring-boot-starter ，这样我们在 spring boot ⾥⾯使⽤ dozer 更⽅便了。</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.github.dozermapper<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>dozer-spring-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>6.5.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>在实际开发中，可能不只需要 PO 转 VO ，有时还需要 <code>List&lt;PO&gt;</code>转 <code>List&lt;VO&gt;</code> 写⼀个⼯具类，封装 Dozer 实现对象互转，List互转</p>
+<p>在实际开发中，可能不只需要 PO 转 VO ，有时还需要 <code>List&lt;PO&gt;</code>转 <code>List&lt;VO&gt;</code> 写⼀个⼯具类，封装 Dozer 实现对象互转，List 互转</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>orm<span class="token punctuation">.</span>util</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>github<span class="token punctuation">.</span>dozermapper<span class="token punctuation">.</span>core<span class="token punctuation">.</span></span><span class="token class-name">Mapper</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Autowired</span></span><span class="token punctuation">;</span>
@@ -903,19 +903,19 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
      * dozer转换的核⼼mapper对象
      */</span>
     <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Mapper</span> dozerMapper<span class="token punctuation">;</span>
-  
+
     <span class="token annotation punctuation">@Resource</span>
     <span class="token keyword">private</span> <span class="token class-name">Mapper</span> mapper<span class="token punctuation">;</span>
-  
+
     <span class="token annotation punctuation">@PostConstruct</span>
     <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">DozerUtils</span><span class="token punctuation">.</span><span class="token function">setDozerMapper</span><span class="token punctuation">(</span>mapper<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">setDozerMapper</span><span class="token punctuation">(</span><span class="token class-name">Mapper</span> dozerMapper<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">DozerUtils</span><span class="token punctuation">.</span>dozerMapper <span class="token operator">=</span> dozerMapper<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token comment">/**
      * 转换实体为另⼀个指定的实体
      * 任意⼀个参数为NULL时 会抛出NPE
@@ -930,7 +930,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token class-name">T</span> <span class="token function">convert</span><span class="token punctuation">(</span><span class="token annotation punctuation">@NonNull</span> <span class="token class-name">Object</span> source<span class="token punctuation">,</span> <span class="token annotation punctuation">@NonNull</span> <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> clazz<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">return</span> dozerMapper<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>source<span class="token punctuation">,</span> clazz<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token comment">/**
      * 转换List实体为另⼀个指定的实体
      * source如果为NULL 会使⽤空集合
@@ -952,9 +952,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-<h3 id="四、⾃定义类型转换（⾮对称类型转换）"><a href="#四、⾃定义类型转换（⾮对称类型转换）" class="headerlink" title="四、⾃定义类型转换（⾮对称类型转换）"></a>四、⾃定义类型转换（⾮对称类型转换）</h3><p>在平时的开发中，我们的 VO 和 PO 的同名字段尽量是类型⼀致的。 </p>
+<h3 id="四、⾃定义类型转换（⾮对称类型转换）"><a href="#四、⾃定义类型转换（⾮对称类型转换）" class="headerlink" title="四、⾃定义类型转换（⾮对称类型转换）"></a>四、⾃定义类型转换（⾮对称类型转换）</h3><p>在平时的开发中，我们的 VO 和 PO 的同名字段尽量是类型⼀致的。</p>
 <p>String 属性-&gt; String 属性，Date 属性 -&gt; Date 属性，但是也不排除由于最开始的设计失误。</p>
 <ul>
 <li>需要 String 属性 -&gt; Date 属性，或者 ClassA 转 ClassB 呢？这种我们该如何实现呢？</li>
@@ -975,7 +973,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
     <span class="token keyword">public</span> <span class="token class-name">Date</span> cDate<span class="token punctuation">;</span>    <span class="token comment">//注意这⾥名称不⼀样，类型不⼀样</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>然后我们需要⾃⼰去创建转换对应关系，⽐如：resources/dozer/dozer-mapping.xml。 </p>
+<p>然后我们需要⾃⼰去创建转换对应关系，⽐如：resources/dozer/dozer-mapping.xml。</p>
 <p>xml 内容看上去复杂，其实核⼼结构很简单。就是 class-a 到 classb 的转换，filed ⽤来定义特殊字段 （名称或类型不⼀致）。configuration 可以做全局的配置，date-format 对所有的⽇期字符串转换 ⽣效。</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mappings</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://dozermapper.github.io/schema/bean-mapping<span class="token punctuation">"</span></span>
@@ -997,7 +995,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 
 <p>然后把 dozer 转换配置⽂件通知 application.yml ，进⾏加载⽣效。</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">dozer</span><span class="token punctuation">:</span>
- <span class="token key atrule">mapping-files</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>/dozer/dozer<span class="token punctuation">-</span>mapping.xml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+  <span class="token key atrule">mapping-files</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>/dozer/dozer<span class="token punctuation">-</span>mapping.xml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>这样⼀个对象⾥⾯有 String 属性到 Date 属性转换的时候，就会⾃动应⽤这个转换规则， 不再报错。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
@@ -1010,13 +1008,11 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <p>输出：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">TestB<span class="token punctuation">(</span>name<span class="token operator">=</span>zhangsan, <span class="token assign-left variable">cDate</span><span class="token operator">=</span>FRI Mar <span class="token number">17</span> <span class="token number">12</span>:12:12 CST <span class="token number">2022</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-
-
-<h2 id="4-整合Spring-Data-JPA"><a href="#4-整合Spring-Data-JPA" class="headerlink" title="4. 整合Spring Data JPA"></a>4. 整合Spring Data JPA</h2><h3 id="⼀、-Sping-Data-JPA-简介"><a href="#⼀、-Sping-Data-JPA-简介" class="headerlink" title="⼀、 Sping Data JPA 简介"></a>⼀、 Sping Data JPA 简介</h3><p><strong>Spring Data JPA 是 Spring 基于 ORM 框架、JPA 规范的基础上封装的⼀套 JPA 应⽤框架</strong>，底层使⽤了 Hibernate 的 JPA 技术实现，可使开发者⽤极简的代码即可实现对数据的访问和操作。它提供了包括增删改查等在内的常⽤功能接⼝，且易于扩展。</p>
+<h2 id="4-整合-Spring-Data-JPA"><a href="#4-整合-Spring-Data-JPA" class="headerlink" title="4. 整合 Spring Data JPA"></a>4. 整合 Spring Data JPA</h2><h3 id="⼀、-Sping-Data-JPA-简介"><a href="#⼀、-Sping-Data-JPA-简介" class="headerlink" title="⼀、 Sping Data JPA 简介"></a>⼀、 Sping Data JPA 简介</h3><p><strong>Spring Data JPA 是 Spring 基于 ORM 框架、JPA 规范的基础上封装的⼀套 JPA 应⽤框架</strong>，底层使⽤了 Hibernate 的 JPA 技术实现，可使开发者⽤极简的代码即可实现对数据的访问和操作。它提供了包括增删改查等在内的常⽤功能接⼝，且易于扩展。</p>
 <p>学习并使⽤ Spring Data JPA 可以极⼤提⾼开发效率。</p>
 <p>由于微服务系统的⼴泛应⽤，服务粒度逐渐细化，多表关联查询的场景⼀定程度减少。</p>
-<p><strong>单表查询和单表的数据操作正是JPA的优势。</strong></p>
-<h3 id="⼆、-将Spring-Data-JPA集成到Spring-Boot"><a href="#⼆、-将Spring-Data-JPA集成到Spring-Boot" class="headerlink" title="⼆、 将Spring Data JPA集成到Spring Boot"></a>⼆、 将Spring Data JPA集成到Spring Boot</h3><p>第⼀步：引⼊ maven 依赖包，包括 Spring Data JPA 和 Mysql 的驱动</p>
+<p><strong>单表查询和单表的数据操作正是 JPA 的优势。</strong></p>
+<h3 id="⼆、-将-Spring-Data-JPA-集成到-Spring-Boot"><a href="#⼆、-将-Spring-Data-JPA-集成到-Spring-Boot" class="headerlink" title="⼆、 将 Spring Data JPA 集成到 Spring Boot"></a>⼆、 将 Spring Data JPA 集成到 Spring Boot</h3><p>第⼀步：引⼊ maven 依赖包，包括 Spring Data JPA 和 Mysql 的驱动</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-data-jpa<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
@@ -1042,7 +1038,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
    <span class="token key atrule">show-sql</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li><p><code>spring.jpa.database-platform=org.hibernate.dialect.MySQL5InnoDBDialect</code>  </p>
+<li><p><code>spring.jpa.database-platform=org.hibernate.dialect.MySQL5InnoDBDialect</code></p>
 <p>Hibernate 创建数据库表的时候，默认使⽤的数据库存储引擎是 MyISAM ，这个参数作⽤是在建表的时候，将存储引擎切换为 InnoDB 。</p>
 </li>
 <li><p><code>spring.jpa.show-sql=true</code> 在⽇志中打印出执⾏的 SQL 语句信息。</p>
@@ -1057,12 +1053,12 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 </li>
 </ul>
 <blockquote>
-<p>作为⼀个谨慎的程序员，应永远 </p>
-<p>将 <code>spring.jpa.properties.hibernate.hbm2ddl.auto</code> 的值设置为 validate 。在⽣产 环境上的任何⼀次配置失误都可能导致数据库表结构变化甚⾄ drop 数据丢失。 </p>
+<p>作为⼀个谨慎的程序员，应永远</p>
+<p>将 <code>spring.jpa.properties.hibernate.hbm2ddl.auto</code> 的值设置为 validate 。在⽣产 环境上的任何⼀次配置失误都可能导致数据库表结构变化甚⾄ drop 数据丢失。</p>
 <p>可能有⼈会觉得 JPA(hibernate) 的这种⽅式⾃动建表更新表结构，⾯向程序员很友好，但是在⽣ 产环境下这是最不友好的⽅式。表还是要通过模型去设计、通过 SQL 去创建，尽量不要⽤这种根据 model 类⽣成数据库表结构的⽅式。</p>
 </blockquote>
 <h3 id="三、-基础核⼼⽤法"><a href="#三、-基础核⼼⽤法" class="headerlink" title="三、 基础核⼼⽤法"></a>三、 基础核⼼⽤法</h3><p>我们来实现⼀个简单的使⽤ JPA 操作数据库的例⼦。</p>
-<h4 id="3-1-实体Model类"><a href="#3-1-实体Model类" class="headerlink" title="3.1 实体Model类"></a>3.1 实体Model类</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
+<h4 id="3-1-实体-Model-类"><a href="#3-1-实体-Model-类" class="headerlink" title="3.1 实体 Model 类"></a>3.1 实体 Model 类</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
 <span class="token annotation punctuation">@AllArgsConstructor</span>
 <span class="token annotation punctuation">@NoArgsConstructor</span>
 <span class="token annotation punctuation">@Builder</span>
@@ -1083,77 +1079,75 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 
 <ul>
 <li><code>@Entity</code>必选注解，表示这个类是⼀个实体类，接受 JPA 控制管理，对应数据库中的⼀个表。</li>
-<li><code>@Table</code> 可选注解，指定这个类对应数据库中的表名。如果这个类名和数据库表名符合驼峰及下划线规则，可以省略这个注解。如FlowType 类名对应表名 flow_type。</li>
+<li><code>@Table</code> 可选注解，指定这个类对应数据库中的表名。如果这个类名和数据库表名符合驼峰及下划线规则，可以省略这个注解。如 FlowType 类名对应表名 flow_type。</li>
 <li><code>@Id</code> 指定这个字段为表的主键。</li>
-<li><code>@GeneratedValue(strategy=GenerationType.IDENTITY) </code>指定主键的⽣成⽅式，⼀般主键为⾃增的话，就采⽤GenerationType.IDENTITY 的⽣成⽅式</li>
-<li><code>@Column</code> 注解针对⼀个字段，对应表中的⼀列。nullable = false 表示数据库字段不能为空, unique = true 表示数据库字段不能有重复值, length = 32 表示数据库字段最⼤程度为32。</li>
+<li><code>@GeneratedValue(strategy=GenerationType.IDENTITY) </code>指定主键的⽣成⽅式，⼀般主键为⾃增的话，就采⽤ GenerationType.IDENTITY 的⽣成⽅式</li>
+<li><code>@Column</code> 注解针对⼀个字段，对应表中的⼀列。nullable = false 表示数据库字段不能为空, unique = true 表示数据库字段不能有重复值, length = 32 表示数据库字段最⼤程度为 32。</li>
 </ul>
 <p>关于更多注解的详细⽤法，请参考：<a target="_blank" rel="noopener" href="https://docs.jboss.org/hibernate/annotations/3.4/reference/zh_cn/html_single/#entity"># Hibernate Annotations 参考⽂档</a></p>
 <h4 id="3-2-数据操作接⼝"><a href="#3-2-数据操作接⼝" class="headerlink" title="3.2 数据操作接⼝"></a>3.2 数据操作接⼝</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ArticleRepository</span> <span class="token keyword">extends</span> <span class="token class-name">JpaRepository</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Article</span><span class="token punctuation">,</span><span class="token class-name">Long</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
-  
+
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>XxxRepository 继承 JpaRepository 为我们提供了各种针对单表的数据操作⽅法：增删改查，通过调⽤接⼝的⽅法名称就能知道⽅法是做什么操作的。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Aee5rB.png"></p>
-<h3 id="四、写⼀个服务层调⽤的例⼦"><a href="#四、写⼀个服务层调⽤的例⼦" class="headerlink" title="四、写⼀个服务层调⽤的例⼦"></a>四、写⼀个服务层调⽤的例⼦</h3><h4 id="4-1-service层接⼝"><a href="#4-1-service层接⼝" class="headerlink" title="4.1 service层接⼝"></a>4.1 service层接⼝</h4><p>定义⼀个service层接⼝</p>
+<h3 id="四、写⼀个服务层调⽤的例⼦"><a href="#四、写⼀个服务层调⽤的例⼦" class="headerlink" title="四、写⼀个服务层调⽤的例⼦"></a>四、写⼀个服务层调⽤的例⼦</h3><h4 id="4-1-service-层接⼝"><a href="#4-1-service-层接⼝" class="headerlink" title="4.1 service 层接⼝"></a>4.1 service 层接⼝</h4><p>定义⼀个 service 层接⼝</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ArticleRestService</span> <span class="token punctuation">&#123;</span>
      <span class="token class-name">ArticleVO</span> <span class="token function">saveArticle</span><span class="token punctuation">(</span><span class="token class-name">ArticleVO</span> article<span class="token punctuation">)</span><span class="token punctuation">;</span>
-     
+
      <span class="token keyword">void</span> <span class="token function">deleteArticle</span><span class="token punctuation">(</span><span class="token class-name">Long</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
-     
+
      <span class="token keyword">void</span> <span class="token function">updateArticle</span><span class="token punctuation">(</span><span class="token class-name">ArticleVO</span> article<span class="token punctuation">)</span><span class="token punctuation">;</span>
-     
+
      <span class="token class-name">ArticleVO</span> <span class="token function">getArticle</span><span class="token punctuation">(</span><span class="token class-name">Long</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
-     
+
      <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ArticleVO</span><span class="token punctuation">></span></span> <span class="token function">getAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-<h4 id="4-2-service层接⼝实现"><a href="#4-2-service层接⼝实现" class="headerlink" title="4.2 service层接⼝实现"></a>4.2 service层接⼝实现</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Service</span>
+<h4 id="4-2-service-层接⼝实现"><a href="#4-2-service-层接⼝实现" class="headerlink" title="4.2 service 层接⼝实现"></a>4.2 service 层接⼝实现</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Service</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ArticleJPARestService</span> <span class="token keyword">implements</span>  <span class="token class-name">ArticleRestService</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">//将JPA仓库对象注⼊</span>
     <span class="token annotation punctuation">@Resource</span>
     <span class="token keyword">private</span> <span class="token class-name">ArticleRepository</span> articleRepository<span class="token punctuation">;</span>
-    
+
     <span class="token annotation punctuation">@Resource</span>
     <span class="token keyword">private</span> <span class="token class-name">Mapper</span> dozerMapper<span class="token punctuation">;</span>
     <span class="token keyword">public</span> <span class="token class-name">ArticleVO</span> <span class="token function">saveArticle</span><span class="token punctuation">(</span> <span class="token class-name">ArticleVO</span> article<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">Article</span> articlePO <span class="token operator">=</span> dozerMapper<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>article<span class="token punctuation">,</span><span class="token class-name">Article</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment">//保存⼀个对象到数据库，insert</span>
-        articleRepository<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>articlePO<span class="token punctuation">)</span><span class="token punctuation">;</span>    
+        articleRepository<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>articlePO<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span>  article<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">deleteArticle</span><span class="token punctuation">(</span><span class="token class-name">Long</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
          <span class="token comment">//根据id删除1条数据库记录</span>
-        articleRepository<span class="token punctuation">.</span><span class="token function">deleteById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+        articleRepository<span class="token punctuation">.</span><span class="token function">deleteById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">updateArticle</span><span class="token punctuation">(</span><span class="token class-name">ArticleVO</span> article<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">Article</span> articlePO <span class="token operator">=</span> dozerMapper<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>article<span class="token punctuation">,</span><span class="token class-name">Article</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment">//更新⼀个对象到数据库，仍然使⽤save⽅法，实际是根据articlePO.id去update</span>
-        articleRepository<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>articlePO<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+        articleRepository<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>articlePO<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> <span class="token class-name">ArticleVO</span> <span class="token function">getArticle</span><span class="token punctuation">(</span><span class="token class-name">Long</span> id<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">Optional</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Article</span><span class="token punctuation">></span></span> article <span class="token operator">=</span> articleRepository<span class="token punctuation">.</span><span class="token function">findById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
          <span class="token comment">//根据id查找⼀条数据</span>
         <span class="token keyword">return</span> dozerMapper<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>article<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token class-name">ArticleVO</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ArticleVO</span><span class="token punctuation">></span></span> <span class="token function">getAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Article</span><span class="token punctuation">></span></span> articleLis <span class="token operator">=</span> articleRepository<span class="token punctuation">.</span><span class="token function">findAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Article</span><span class="token punctuation">></span></span> articleLis <span class="token operator">=</span> articleRepository<span class="token punctuation">.</span><span class="token function">findAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token comment">//查询article表的所有数据</span>
         <span class="token keyword">return</span> <span class="token class-name">DozerUtils</span><span class="token punctuation">.</span><span class="token function">mapList</span><span class="token punctuation">(</span>articleLis<span class="token punctuation">,</span><span class="token class-name">ArticleVO</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>注意：虽然新增和修改都是使⽤的 save ⽅法，但是完成的功能是不⼀样的。当保存的对象有主键 id 的时候，save ⽅法会根据 id 更新记录；当保存的对象没有主键 id 的时候，save ⽅法会向数据库⾥⾯ insert ⼀条记录。 </p>
+<p>注意：虽然新增和修改都是使⽤的 save ⽅法，但是完成的功能是不⼀样的。当保存的对象有主键 id 的时候，save ⽅法会根据 id 更新记录；当保存的对象没有主键 id 的时候，save ⽅法会向数据库⾥⾯ insert ⼀条记录。</p>
 <p>可以在控制层调⽤⼀下 service 层⽅法，⽤ postman 测试⼀下。</p>
 <h3 id="五、关键字查询接⼝"><a href="#五、关键字查询接⼝" class="headerlink" title="五、关键字查询接⼝"></a>五、关键字查询接⼝</h3><p>除了 JpaRepository 为我们提供的增删改查的⽅法。我们还可以⾃定义⽅法，使⽤起来⾮常简单， 甚⾄可以说是强⼤。把下⾯的⽅法名放到 ArticleRepository ⾥⾯，它就⾃动为我们实现了通过 author 字段查找 article 表的所有数据。也就是说，我们使⽤了 find(查找) 关键字， JPA 就⾃动将⽅法 名为我们解析成数据库 SQL 操作，太智能了。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//注意这个⽅法的名称，jPA会根据⽅法名⾃动⽣成SQL执⾏</span>
@@ -1170,7 +1164,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <tr>
 <th>关键字</th>
 <th>接口函数例子</th>
-<th>JPQL片段</th>
+<th>JPQL 片段</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -1294,15 +1288,15 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <td>… where UPPER(x.firstame) = UPPER(?1)</td>
 </tr>
 </tbody></table>
-<p>可以看到我们这⾥没有任何类SQL语句就完成了两个条件查询⽅法。 </p>
-<p>这就是Spring-data-jpa的⼀⼤特性：<strong>通过解析⽅法名创建查询</strong>。 </p>
+<p>可以看到我们这⾥没有任何类 SQL 语句就完成了两个条件查询⽅法。</p>
+<p>这就是 Spring-data-jpa 的⼀⼤特性：<strong>通过解析⽅法名创建查询</strong>。</p>
 <p>针对单表的数据查询简单到令⼈发指，怎么可以这么简单，照这个趋势发展，程序员早晚失业。</p>
 <h3 id="六、测试关键字查询"><a href="#六、测试关键字查询" class="headerlink" title="六、测试关键字查询"></a>六、测试关键字查询</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@RunWith</span><span class="token punctuation">(</span><span class="token class-name">SpringRunner</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
 <span class="token annotation punctuation">@SpringBootTest</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JPAKeyWordTest</span> <span class="token punctuation">&#123;</span>
     <span class="token annotation punctuation">@Resource</span>
     <span class="token keyword">private</span> <span class="token class-name">ArticleRepository</span> articleRepository<span class="token punctuation">;</span>
-    
+
     <span class="token annotation punctuation">@Test</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">userTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">Article</span> article <span class="token operator">=</span> articleRepository<span class="token punctuation">.</span><span class="token function">findByAuthor</span><span class="token punctuation">(</span><span class="token string">"mqxu"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1310,12 +1304,10 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
    <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
 <h3 id="七、其他"><a href="#七、其他" class="headerlink" title="七、其他"></a>七、其他</h3><p>spring-data-jpa 的能⼒远不⽌这些，不建议使⽤ <strong>Query、NamedQuery、Specification、 QueryDSL</strong> 等，如果你⽤这些东⻄，还不如⾃⼰写 SQL。</p>
-<p>可参考下⽅⽂档进⾏更深⼊的学习： </p>
+<p>可参考下⽅⽂档进⾏更深⼊的学习：</p>
 <p><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference">Spring Data JPA 官⽅⽂档 </a></p>
-<h2 id="5-整合Mybatis"><a href="#5-整合Mybatis" class="headerlink" title="5. 整合Mybatis"></a>5. 整合Mybatis</h2><h3 id="⼀、数据库和数据表"><a href="#⼀、数据库和数据表" class="headerlink" title="⼀、数据库和数据表"></a>⼀、数据库和数据表</h3><p>建表脚本</p>
+<h2 id="5-整合-Mybatis"><a href="#5-整合-Mybatis" class="headerlink" title="5. 整合 Mybatis"></a>5. 整合 Mybatis</h2><h3 id="⼀、数据库和数据表"><a href="#⼀、数据库和数据表" class="headerlink" title="⼀、数据库和数据表"></a>⼀、数据库和数据表</h3><p>建表脚本</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">/*
  Navicat Premium Data Transfer
  Source Server         : local_conn
@@ -1411,8 +1403,6 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token identifier"><span class="token punctuation">`</span>t_course<span class="token punctuation">`</span></span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">20002</span><span class="token punctuation">,</span> <span class="token string">'前端⼯程化开发'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">COMMIT</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
 <h3 id="⼆、加依赖"><a href="#⼆、加依赖" class="headerlink" title="⼆、加依赖"></a>⼆、加依赖</h3><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
@@ -1438,24 +1428,21 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">></span></span>test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
 <h3 id="三、写配置"><a href="#三、写配置" class="headerlink" title="三、写配置"></a>三、写配置</h3><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
- <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
-   <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//127.0.0.1<span class="token punctuation">:</span>3306/spring_boot<span class="token punctuation">?</span>useUnicode=true<span class="token important">&amp;characterEncoding=utf-8&amp;useSSL=false</span>
-   <span class="token key atrule">username</span><span class="token punctuation">:</span> root
-   <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token number">123456</span>
-   <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.cj.jdbc.Driver
+  <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
+    <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//127.0.0.1<span class="token punctuation">:</span>3306/spring_boot<span class="token punctuation">?</span>useUnicode=true<span class="token important">&amp;characterEncoding=utf-8&amp;useSSL=false</span>
+    <span class="token key atrule">username</span><span class="token punctuation">:</span> root
+    <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token number">123456</span>
+    <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.cj.jdbc.Driver
 <span class="token key atrule">mybatis</span><span class="token punctuation">:</span>
   <span class="token comment"># 指定相应接⼝对应的xml⽂件所在⽬录</span>
- <span class="token key atrule">mapper-locations</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>mapper/<span class="token important">*.xml</span>
-  <span class="token comment"># 实体类所在包</span>
- <span class="token key atrule">type-aliases-package</span><span class="token punctuation">:</span> com.mqxu.boot.orm.mybatis.domain
- <span class="token key atrule">configuration</span><span class="token punctuation">:</span>
+  <span class="token key atrule">mapper-locations</span><span class="token punctuation">:</span>
+    classpath<span class="token punctuation">:</span>mapper/<span class="token important">*.xml</span>
+    <span class="token comment"># 实体类所在包</span>
+  <span class="token key atrule">type-aliases-package</span><span class="token punctuation">:</span> com.mqxu.boot.orm.mybatis.domain
+  <span class="token key atrule">configuration</span><span class="token punctuation">:</span>
     <span class="token comment"># mybatis开启驼峰式命名</span>
-   <span class="token key atrule">map-underscore-to-camel-case</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+    <span class="token key atrule">map-underscore-to-camel-case</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="四、综合示例"><a href="#四、综合示例" class="headerlink" title="四、综合示例"></a>四、综合示例</h3><blockquote>
 <p>以教师、班级、学⽣、课程等为例，来做⼀个综合的例⼦</p>
@@ -1497,7 +1484,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
      * @return int
      */</span>
     <span class="token keyword">int</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token class-name">Student</span> student<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
+
     <span class="token comment">/**
      * 根据id删除学⽣
      *
@@ -1505,7 +1492,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
      * @return int
      */</span>
     <span class="token keyword">int</span> <span class="token function">deleteByPrimaryKey</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> studentId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
+
     <span class="token comment">/**
      * 根据id查询学⽣
      *
@@ -1513,7 +1500,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
      * @return 查询到的学⽣对象
      */</span>
     <span class="token class-name">Student</span> <span class="token function">selectByPrimaryKey</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> studentId<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
+
     <span class="token comment">/**
      * 修改学⽣信息
      *
@@ -1528,7 +1515,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
      * @return int
      */</span>
     <span class="token keyword">int</span> <span class="token function">batchInsert</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"students"</span><span class="token punctuation">)</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Student</span><span class="token punctuation">></span></span> students<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
+
     <span class="token comment">/**
      * 批量删除
      *
@@ -1536,7 +1523,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
      * @return int
      */</span>
     <span class="token keyword">int</span> <span class="token function">batchDelete</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"idList"</span><span class="token punctuation">)</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> idList<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
+
     <span class="token comment">/**
      * 批量修改
      *
@@ -1544,7 +1531,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
      * @return int
      */</span>
     <span class="token keyword">int</span> <span class="token function">batchUpdate</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token string">"students"</span><span class="token punctuation">)</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Student</span><span class="token punctuation">></span></span> students<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
+
     <span class="token comment">/**
      * 按条件单表查询，结合动态SQL
      *
@@ -1684,17 +1671,17 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
         <span class="token keyword">int</span> n <span class="token operator">=</span> studentMapper<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>student<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token function">assertEquals</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token annotation punctuation">@Test</span>
     <span class="token keyword">void</span> <span class="token function">deleteByPrimaryKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token annotation punctuation">@Test</span>
     <span class="token keyword">void</span> <span class="token function">selectByPrimaryKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">Student</span> student <span class="token operator">=</span> studentMapper<span class="token punctuation">.</span><span class="token function">selectByPrimaryKey</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token string">"⾦晨星"</span><span class="token punctuation">,</span> student<span class="token punctuation">.</span><span class="token function">getStudentName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token annotation punctuation">@Test</span>
     <span class="token keyword">void</span> <span class="token function">updateByPrimaryKeySelective</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token class-name">Student</span> student <span class="token operator">=</span> <span class="token class-name">Student</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1705,7 +1692,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
         <span class="token keyword">int</span> n <span class="token operator">=</span> studentMapper<span class="token punctuation">.</span><span class="token function">updateByPrimaryKeySelective</span><span class="token punctuation">(</span>student<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token annotation punctuation">@Test</span>
     <span class="token keyword">void</span> <span class="token function">batchInsert</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Student</span><span class="token punctuation">></span></span> students <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1722,7 +1709,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
         <span class="token keyword">int</span> n <span class="token operator">=</span> studentMapper<span class="token punctuation">.</span><span class="token function">batchInsert</span><span class="token punctuation">(</span>students<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token annotation punctuation">@Test</span>
     <span class="token keyword">void</span> <span class="token function">batchUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Student</span><span class="token punctuation">></span></span> students <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1737,7 +1724,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
         <span class="token keyword">int</span> n <span class="token operator">=</span> studentMapper<span class="token punctuation">.</span><span class="token function">batchUpdate</span><span class="token punctuation">(</span>students<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token annotation punctuation">@Test</span>
     <span class="token keyword">void</span> <span class="token function">batchDelete</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> idList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1747,7 +1734,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
         <span class="token keyword">int</span> n <span class="token operator">=</span> studentMapper<span class="token punctuation">.</span><span class="token function">batchDelete</span><span class="token punctuation">(</span>idList<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-  
+
     <span class="token annotation punctuation">@Test</span>
     <span class="token keyword">void</span> <span class="token function">selectByDynamicSql</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">Student</span> student <span class="token operator">=</span> <span class="token class-name">Student</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hometown</span><span class="token punctuation">(</span><span class="token string">"江"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1765,7 +1752,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <li>配置⽂件的数据库连接串如下添加，让它⽀持批量操作</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/DWX7lQ.png"></p>
-<h3 id="五、Mybatis关联查询"><a href="#五、Mybatis关联查询" class="headerlink" title="五、Mybatis关联查询"></a>五、Mybatis关联查询</h3><h4 id="1、⼀对⼀"><a href="#1、⼀对⼀" class="headerlink" title="1、⼀对⼀"></a>1、⼀对⼀</h4><blockquote>
+<h3 id="五、Mybatis-关联查询"><a href="#五、Mybatis-关联查询" class="headerlink" title="五、Mybatis 关联查询"></a>五、Mybatis 关联查询</h3><h4 id="1、⼀对⼀"><a href="#1、⼀对⼀" class="headerlink" title="1、⼀对⼀"></a>1、⼀对⼀</h4><blockquote>
 <p>教师和班级</p>
 </blockquote>
 <ul>
@@ -1791,34 +1778,34 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Teacher</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">&#123;</span>
     <span class="token annotation punctuation">@Serial</span>
     <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">long</span> serialVersionUID <span class="token operator">=</span> <span class="token number">1L</span><span class="token punctuation">;</span>
-    
+
     <span class="token comment">/**
      * 教师id
      */</span>
     <span class="token keyword">private</span> <span class="token class-name">Integer</span> teacherId<span class="token punctuation">;</span>
-    
+
     <span class="token comment">/**
      * 教师姓名
      */</span>
     <span class="token keyword">private</span> <span class="token class-name">String</span> teacherName<span class="token punctuation">;</span>
-    
+
     <span class="token comment">/**
      * 教师管理的班级id
      */</span>
     <span class="token keyword">private</span> <span class="token class-name">Integer</span> clazzId<span class="token punctuation">;</span>
-    
+
     <span class="token comment">/**
      * 教师管理的班级对象
      */</span>
     <span class="token keyword">private</span> <span class="token class-name">Clazz</span> clazz<span class="token punctuation">;</span>
-    
+
 		<span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">printInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>teacherId <span class="token operator">+</span> <span class="token string">","</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>teacherName<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>TeacherMapper.java接⼝声明查询⽅法</li>
+<li>TeacherMapper.java 接⼝声明查询⽅法</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>orm<span class="token punctuation">.</span>mybatis<span class="token punctuation">.</span>mapper</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>orm<span class="token punctuation">.</span>mybatis<span class="token punctuation">.</span>domain<span class="token punctuation">.</span></span><span class="token class-name">Teacher</span></span><span class="token punctuation">;</span>
@@ -1839,7 +1826,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>TeacherMapper.xml实现⼀对⼀关联查询</li>
+<li>TeacherMapper.xml 实现⼀对⼀关联查询</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">&lt;</span><span class="token operator">?</span>xml version<span class="token operator">=</span><span class="token string">"1.0"</span> encoding<span class="token operator">=</span><span class="token string">"UTF-8"</span><span class="token operator">?</span><span class="token operator">></span>
 <span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE mapper
@@ -1864,7 +1851,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <span class="token operator">&lt;</span><span class="token operator">/</span>mapper<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>TeacherMapperTest测试</li>
+<li>TeacherMapperTest 测试</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>orm<span class="token punctuation">.</span>mybatis<span class="token punctuation">.</span>mapper</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>orm<span class="token punctuation">.</span>mybatis<span class="token punctuation">.</span>domain<span class="token punctuation">.</span></span><span class="token class-name">Teacher</span></span><span class="token punctuation">;</span>
@@ -1884,10 +1871,10 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <span class="token annotation punctuation">@ExtendWith</span><span class="token punctuation">(</span><span class="token class-name">SpringExtension</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
 <span class="token annotation punctuation">@Slf4j</span>
 <span class="token keyword">class</span> <span class="token class-name">TeacherMapperTest</span> <span class="token punctuation">&#123;</span>
-    
+
     <span class="token annotation punctuation">@Resource</span>
     <span class="token keyword">private</span> <span class="token class-name">TeacherMapper</span> teacherMapper<span class="token punctuation">;</span>
-    
+
     <span class="token annotation punctuation">@Test</span>
     <span class="token keyword">void</span> <span class="token function">selectOneByOne</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">Teacher</span> teacher <span class="token operator">=</span> teacherMapper<span class="token punctuation">.</span><span class="token function">selectOneByOne</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1910,17 +1897,17 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
    * 班级id
    */</span>
   <span class="token keyword">private</span> <span class="token class-name">Integer</span> clazzId<span class="token punctuation">;</span>
-  
+
   <span class="token comment">/**
    * 班级名称
    */</span>
   <span class="token keyword">private</span> <span class="token class-name">String</span> clazzName<span class="token punctuation">;</span>
-  
+
   <span class="token comment">/**
    * 班级管理老师的id
    */</span>
   <span class="token keyword">private</span> <span class="token class-name">Integer</span> teacherId<span class="token punctuation">;</span>
-  
+
   <span class="token comment">/**
    * 一方里声明多方的集合
    */</span>
@@ -1928,7 +1915,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>ClazzMapper.java接⼝</li>
+<li>ClazzMapper.java 接⼝</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">CLazzMapper</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">/**
@@ -1941,7 +1928,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>ClazzMapper.xml实现⼀对多关联查询</li>
+<li>ClazzMapper.xml 实现⼀对多关联查询</li>
 </ul>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">mapper</span>
@@ -1985,27 +1972,27 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
    * 学生id
    */</span>
   <span class="token keyword">private</span> <span class="token class-name">Integer</span> studentId<span class="token punctuation">;</span>
-  
+
   <span class="token comment">/**
    * 学生所属班级的id
    */</span>
   <span class="token keyword">private</span> <span class="token class-name">Integer</span> clazzId<span class="token punctuation">;</span>
-  
+
   <span class="token comment">/**
    * 学生姓名
    */</span>
   <span class="token keyword">private</span> <span class="token class-name">String</span> studentName<span class="token punctuation">;</span>
-  
+
   <span class="token comment">/**
    * 学生籍贯
    */</span>
   <span class="token keyword">private</span> <span class="token class-name">String</span> hometown<span class="token punctuation">;</span>
-  
+
   <span class="token comment">/**
    * 出生日期
    */</span>
   <span class="token keyword">private</span> <span class="token class-name">LocalDate</span> birthday<span class="token punctuation">;</span>
-  
+
   <span class="token comment">/**
    * 在多方里，声明一方的对象
    */</span>
@@ -2013,7 +2000,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>StudentMapper接⼝</li>
+<li>StudentMapper 接⼝</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">StudentMapper</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">/**
@@ -2026,7 +2013,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>StudentMapper.xml实现多对⼀关联查询</li>
+<li>StudentMapper.xml 实现多对⼀关联查询</li>
 </ul>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">mapper</span>
@@ -2062,9 +2049,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
   <span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> student<span class="token punctuation">.</span><span class="token function">getClazz</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClazzId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-<h4 id="4、综合"><a href="#4、综合" class="headerlink" title="4、综合"></a>4、综合</h4><h5 id="1-查询班级信息"><a href="#1-查询班级信息" class="headerlink" title="1)  查询班级信息"></a>1)  查询班级信息</h5><blockquote>
+<h4 id="4、综合"><a href="#4、综合" class="headerlink" title="4、综合"></a>4、综合</h4><h5 id="1-查询班级信息"><a href="#1-查询班级信息" class="headerlink" title="1) 查询班级信息"></a>1) 查询班级信息</h5><blockquote>
 <p>班级和教师存在⼀对⼀关系，同时⼜和学⽣存在⼀对多关系</p>
 <p>在查询⼀个班级的时候，同时关联查询出班级教师信息、班级所有学⽣信息</p>
 </blockquote>
@@ -2078,22 +2063,22 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
    * 班级id
    */</span>
   <span class="token keyword">private</span> <span class="token class-name">Integer</span> clazzId<span class="token punctuation">;</span>
-  
+
   <span class="token comment">/**
    * 班级名称
    */</span>
   <span class="token keyword">private</span> <span class="token class-name">String</span> clazzName<span class="token punctuation">;</span>
-  
+
   <span class="token comment">/**
    * 班级管理老师的id
    */</span>
   <span class="token keyword">private</span> <span class="token class-name">Integer</span> teacherId<span class="token punctuation">;</span>
-  
+
   <span class="token comment">/**
    * 管理班级的教师对象（一对一）
    */</span>
   <span class="token keyword">private</span> <span class="token class-name">Teacher</span> teacher<span class="token punctuation">;</span>
-  
+
   <span class="token comment">/**
    * 一方里声明多方的集合（一对多）
    */</span>
@@ -2106,7 +2091,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ClazzMapper</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">/**
    * 根据班级id查询班级
-   * 
+   *
    * @param clazzId 班级id
    * @return 查询到的班级对象（班级自身信息、班级教师信息、班级所有学生的信息）
    */</span>
@@ -2153,7 +2138,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <span class="token keyword">class</span> <span class="token class-name">ClazzMapperTest</span> <span class="token punctuation">&#123;</span>
   <span class="token annotation punctuation">@Resource</span>
   <span class="token keyword">private</span> <span class="token class-name">ClazzMapper</span> clazzMapper<span class="token punctuation">;</span>
-  
+
   <span class="token annotation punctuation">@Test</span>
   <span class="token keyword">void</span> <span class="token function">getClazz</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token class-name">Clazz</span> clazz <span class="token operator">=</span> clazzMapper<span class="token punctuation">.</span><span class="token function">getClazz</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -2162,7 +2147,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
     <span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> clazz<span class="token punctuation">.</span><span class="token function">getTeacher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTeacherId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token string">"许老师"</span><span class="token punctuation">,</span> clazz<span class="token punctuation">.</span><span class="token function">getTeacher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTeacherName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> clazz<span class="token punctuation">.</span><span class="token function">getStudents</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
+
     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"班级信息："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>clazz<span class="token punctuation">.</span><span class="token function">getClazzId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">","</span> <span class="token operator">+</span> clazz<span class="token punctuation">.</span><span class="token function">getClazzName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"班级教师信息："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -2172,14 +2157,12 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-<h5 id="2-查询学⽣信息"><a href="#2-查询学⽣信息" class="headerlink" title="2)  查询学⽣信息"></a>2)  查询学⽣信息</h5><blockquote>
-<p>学⽣和班级存在多对⼀关系，同时⼜和课程存在多对多关系 </p>
+<h5 id="2-查询学⽣信息"><a href="#2-查询学⽣信息" class="headerlink" title="2) 查询学⽣信息"></a>2) 查询学⽣信息</h5><blockquote>
+<p>学⽣和班级存在多对⼀关系，同时⼜和课程存在多对多关系</p>
 <p>在查询⼀个学⽣的时候，同时关联查询出该学⽣所在班级信息、以及学⽣选的所有课程信息</p>
 </blockquote>
 <ul>
-<li>Student.java实体类</li>
+<li>Student.java 实体类</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Builder</span>
 <span class="token annotation punctuation">@AllArgsConstructor</span>
@@ -2190,27 +2173,27 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
    * 学生所属班级的id
    */</span>
   <span class="token keyword">private</span> <span class="token class-name">Integer</span> clazzId<span class="token punctuation">;</span>
-  
+
   <span class="token comment">/**
    * 学生姓名
    */</span>
   <span class="token keyword">private</span> <span class="token class-name">String</span> studentName<span class="token punctuation">;</span>
-  
+
   <span class="token comment">/**
    * 学生籍贯
    */</span>
   <span class="token keyword">private</span> <span class="token class-name">String</span> hometown<span class="token punctuation">;</span>
-  
+
   <span class="token comment">/**
    * 出生日期
    */</span>
   <span class="token keyword">private</span> <span class="token class-name">LocalDate</span> birthday<span class="token punctuation">;</span>
-  
+
   <span class="token comment">/**
    * 学生和班级多对一
    */</span>
   <span class="token keyword">private</span> <span class="token class-name">Clazz</span> clazz<span class="token punctuation">;</span>
-  
+
   <span class="token comment">/**
    * 学生和课程多对多
    */</span>
@@ -2231,7 +2214,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>StudentMapper.xml实现</li>
+<li>StudentMapper.xml 实现</li>
 </ul>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">mapper</span>
@@ -2278,7 +2261,6 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
   <span class="token function">assertEquals</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> student<span class="token punctuation">.</span><span class="token function">getCourses</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
                 
             </div>
             <hr/>
@@ -2304,7 +2286,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://syhan.top/2022/06/26/%E6%95%B4%E5%90%88%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/">http://syhan.top/2022/06/26/%E6%95%B4%E5%90%88%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/</a>
+                    <a href="http://syhan.top/2022/06/27/%E6%95%B4%E5%90%88%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/">http://syhan.top/2022/06/27/%E6%95%B4%E5%90%88%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -2521,7 +2503,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/06/26/SpringBoot%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/">
+                <a href="/2022/06/28/SpringBoot%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/">
                     <div class="card-image">
                         
                         
@@ -2538,7 +2520,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-26
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-28
                         </span>
                         <span class="publish-author">
                             
@@ -2574,13 +2556,13 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/06/26/1-%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D%E3%80%81%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE%E5%8F%8A%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/">
+                <a href="/2022/06/26/2-UniAPP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="工具介绍、新建项目及插件配置">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="UniAPP基础知识">
                         
-                        <span class="card-title">工具介绍、新建项目及插件配置</span>
+                        <span class="card-title">UniAPP基础知识</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -2812,7 +2794,7 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">100.3k</span>&nbsp;字
+                class="white-color">108.3k</span>&nbsp;字
             
             
             
@@ -2833,6 +2815,10 @@ jpaQuery<span class="token punctuation">.</span><span class="token function">whe
             <br>
             
             <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="https://beian.miit.gov.cn" target="_blank">苏ICP备2022014590号</a>
+            </span>
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
