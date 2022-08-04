@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="页面导航、网络请求、数据缓存, Nice 2CU">
+    <meta name="keywords" content="VueCLI, Nice 2CU">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>页面导航、网络请求、数据缓存 | Nice 2CU</title>
+    <title>VueCLI | Nice 2CU</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -320,13 +320,13 @@
 
 
 
-    <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+    <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
         <div class="container" style="right: 0px;left: 0px;">
             <div class="row">
                 <div class="col s12 m12 l12">
                     <div class="brand">
                         <h3 class="description center-align post-title">
-                            页面导航、网络请求、数据缓存
+                            VueCLI
                         </h3>
                     </div>
                 </div>
@@ -442,8 +442,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/uni-app/">
-                                <span class="chip bg-color">uni-app</span>
+                            <a href="/tags/Vue/">
+                                <span class="chip bg-color">Vue</span>
                             </a>
                         
                     </div>
@@ -454,8 +454,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/uni-app/" class="post-category">
-                                uni-app
+                            <a href="/categories/Vue/" class="post-category">
+                                Vue
                             </a>
                         
                     </div>
@@ -467,7 +467,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-06-26
+                    2022-08-04
                 </div>
                 
 
@@ -476,7 +476,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.7k
+                    4.1k
                 </div>
                 
 
@@ -496,242 +496,266 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="页面导航、网络请求、数据缓存"><a href="#页面导航、网络请求、数据缓存" class="headerlink" title="页面导航、网络请求、数据缓存"></a>页面导航、网络请求、数据缓存</h1><h2 id="页面导航"><a href="#页面导航" class="headerlink" title="页面导航"></a>页面导航</h2><p>说到页面导航，我们可能首先想到的是页面跳转（页面A跳转到页面B），页面跳转在不同端之间有不同的区别：</p>
-<ul>
-<li>H5 通过 window.history 属性对其进行访问，改变路由记录从而实现跳转</li>
-<li>iOS/安卓 是改变根视图或操作导航控制器出栈进栈从而实现跳转</li>
-<li>小程序实现跳转采用的方式也是改变根视图或操作导航控制器出栈进栈</li>
+                <h1 id="VueCLI"><a href="#VueCLI" class="headerlink" title="VueCLI"></a>VueCLI</h1><h2 id="1-VueCLI-脚⼿架简介"><a href="#1-VueCLI-脚⼿架简介" class="headerlink" title="1.VueCLI 脚⼿架简介"></a>1.VueCLI 脚⼿架简介</h2><h3 id="⼀、本节⼤纲"><a href="#⼀、本节⼤纲" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
+<li>VueCLI 简介</li>
+<li>VueCLI 与 webpack 之间的关系</li>
+<li>VueCLI 的两个版本</li>
 </ul>
-<p>如果你要把用 Uniapp 开发的项目编译成 H5，那么该项目呈现的是单页面应用，单页面应用实现页面跳转是通过监测页面 url 的 hash 改变而加载不同页面。hash 模式背后的原理是 onhashchange 事件，可以在 window 对象上监听这个事件：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>hash <span class="token operator">=</span> <span class="token string">'list/list'</span> <span class="token comment">// 设置页面 url 的 hash，会在当前url后加上 '#list/list'</span>
+<h3 id="⼆、-VueCLI-简介"><a href="#⼆、-VueCLI-简介" class="headerlink" title="⼆、 VueCLI 简介"></a>⼆、 VueCLI 简介</h3><p>VueCLI 官⽅⽂档地址: <a target="_blank" rel="noopener" href="https://cli.vuejs.org/zh/">https://cli.vuejs.org/zh/</a></p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/UslvMX.png" width="60%">
 
-<span class="token keyword">let</span> hash <span class="token operator">=</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>hash <span class="token comment">// '#/pages/list/list'</span>
+<p>VueCLI（Vue Command-Line Interface ）致⼒于快速构建基于 webpack 的 vue 初始化项⽬。在前⾯的章节，我们已经给⼤家讲了⼀个系列内容《使⽤ webpack ⼿动搭建 vue 项⽬脚⼿架》，实际上就是在给⼤家讲 VueCLI ⽣成的项⽬脚⼿架的实现细节。</p>
+<p><strong>例⼦：组装电脑与品牌机</strong></p>
+<p>实际上 Vue CLI ⽣成的 Vue 项⽬初始化代码，就相当于是使⽤品牌电脑，快速上⼿，使⽤⽅便，兼容性好，⽽且有⽐较好的技术⽀持。那我们⾃⼰基于 webpack 实现 vue 项⽬脚⼿架，就相当于是在⾃⼰组装⼀台电脑，组装的过程⽐较繁琐，但是我们更能够了解内部的集成原理。也就是说：我们学习⼿动搭建基于 webpack 实现 vue 项⽬脚⼿架还是有必要的，当“品牌机”出现问题，我们能够⽐较快速的定位与维修调整。</p>
+<p><strong>那么，Vue CLI 品牌机都默认帮我们做了哪些核⼼功能？</strong></p>
+<ul>
+<li>Vue CLI 封装了完整的静态资源模块化打包⽅案</li>
+<li>Vue CLI 提供了本地的热加载调试服务</li>
+<li>Vue CLI 还提供了预处理，⽂件转译，⾃动化测试和静态检测等功能</li>
+<li>Vue CLI 提供了快速开始零配置的原型开发</li>
+</ul>
+<h3 id="三、VueCLI-与-webpack-之间的关系"><a href="#三、VueCLI-与-webpack-之间的关系" class="headerlink" title="三、VueCLI 与 webpack 之间的关系"></a>三、VueCLI 与 webpack 之间的关系</h3><p>简单地说就是：</p>
+<ul>
+<li>Vue CLI 是基于 webpack 配置实现，所以 Vue CLI 依赖于 webpack</li>
+<li>webpack 依赖于 NodeJS，所以使⽤ Vue CLI 之前要先安装好 NodeJS（包含 npm 包管理⼯具）</li>
+</ul>
+<p>VueCLI 的核⼼封装内容都是使⽤ webpack 来实现的。很多⼈说：Vue 并不难学，难学的是 Webpack 。 其实：Vue 并不难学，webpack 也不难学，难学的是前端⼯程化的思想和前端⼯程化的实践！⽽ Vue CLI 就是前端⼯程化的思想的集中体现。</p>
+<h3 id="四、VueCLI-的版本"><a href="#四、VueCLI-的版本" class="headerlink" title="四、VueCLI 的版本"></a>四、VueCLI 的版本</h3><p>⽬前有两个版本：Vue-CLI2.x 和 Vue-CLI3.x+。在 Vue CLI2 推出之后，很多初学者主要的学习难点在于：webpack 配置管理。由于对前端⼯程化理解不够，感觉学习成本⾼，难于配置。</p>
+<p>针对这个问题，Vue 团队从 Vue-CLI3.x 版本做了 2 个主要改进：</p>
+<ul>
+<li>隐藏 webpack 配置，因为 webpack 配置绝⼤部分都是模板配置，每个项⽬的配置⽅法都差不多。在此基础上，提供了个性化修改⼊⼝。从⽽简化了项⽬⽬录结构，使配置⽂件更加清晰。</li>
+<li>提供 UI 界⾯化配置的服务，使 Vue-CLI3+ 上⼿更加容易。</li>
+</ul>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/wtv3Vh.png" width="50%">
 
-window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'hashchange'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span> 
-    <span class="token comment">// 监听 hash 变化，点击浏览器的前进后退或者hash改变会触发</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>凡事都有两⾯性：</strong> 习惯了使⽤ Vue-CLI2.x 的开发者，对 Vue-CLI3.x+反⽽不满意：</p>
+<ul>
+<li>把配置⽂件都隐藏起来⼲嘛？看着是清爽了，是不是不⽤学 webpack 了？掩⽿盗铃。</li>
+<li>提供⼀个 UI 界⾯作什么？程序员还⽤ UI 界⾯？有没有点极客精神了？</li>
+</ul>
+<p>其实这就是⼀个仁者⻅仁智者⻅智的问题，有的⼈就是喜欢⽤轻量级 vim，有的⼈就是喜欢重型 IDE 。有 ⼈觉得 windows 的 UI 好⽤，有⼈就是觉得 linux、MacBook 的命令⾏好⽤。 实际上 Vue-CLI3.x+ 就是想在 Vue-CLI2.x 的基础上，做配置管理的减法。</p>
+<h2 id="2-使⽤-VueCLI2-快速搭建项⽬"><a href="#2-使⽤-VueCLI2-快速搭建项⽬" class="headerlink" title="2.使⽤ VueCLI2 快速搭建项⽬"></a>2.使⽤ VueCLI2 快速搭建项⽬</h2><h3 id="⼀、本节⼤纲-1"><a href="#⼀、本节⼤纲-1" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
+<li>使⽤ VueCLI2 的前提</li>
+<li>安装 Vue CLI2</li>
+<li>使⽤ Vue CLI2 初始化⼀个项⽬</li>
+<li>如何解决创建过程缓慢卡死的问题</li>
+</ul>
+<h3 id="⼆、使⽤-VueCLI2-的前提"><a href="#⼆、使⽤-VueCLI2-的前提" class="headerlink" title="⼆、使⽤ VueCLI2 的前提"></a>⼆、使⽤ VueCLI2 的前提</h3><ul>
+<li>需要安装 NodeJS ，NodeJS 的版本要⾼于 8.9 或以上版本</li>
+<li>安装 NodeJS 并随之安装了 NodeJS 的包管理⼯具 npm</li>
+<li>Vue CLI 脚⼿架默认使⽤ webpack 作为模块化资源打包⼯具，所以需要安装</li>
+</ul>
+<p>NodeJS 和 npm、webpack 的安装在之前的章节都已经提到，webpack 的安装命令如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> webpack -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>例如访问列表地址，# 后面的路径就是指向页面地址：</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html">http://localhost:8080/#/pages/list/list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="三、安装-Vue-CLI2"><a href="#三、安装-Vue-CLI2" class="headerlink" title="三、安装 Vue CLI2"></a>三、安装 Vue CLI2</h3><p>全局安装 Vue CLI2，在随意⼀个⽬录下，打开命令⾏⼯具输⼊命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g vue-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>如果不想要很丑的 hash，我们可以用路由的 history 模式，在项目的配置文件 【manifest.json】&gt;&gt;【h5配置】&gt;&gt; 【路由模式】 进行修改：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/TV5oTG.png"></p>
-<p>history 模式改变 url 的方式会导致浏览器向服务器发送请求，如果服务器端未做任何处理，则会请求资源失败，我们需要在服务器端做处理：如果匹配不到任何静态资源，则应该始终返回同一个 html 页面。具体操作可以看 <a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/essentials/history-mode.html">这里</a></p>
-<p>如果你要用 Uniapp 开发的项目编译成微信小程序，就要注意微信小程序的页面栈的限制了，小程序中页面栈<strong>限制最多十层</strong>（微信进行了限制调整），随着页面栈的push增加，在不知道的情况下就会堆栈到十层，再用 API navigateTo 去跳转页面就跳不动了，用户会跳转失效（卡死状态）。</p>
-<p>如果遇到上述问题，删除当前页面栈（redirectTo）或删除所有页面栈（reLaunch）来跳转了，页面栈以跳转的 url 为第一个页面栈。页面栈可以通过 getCurrentPages 方法获取。</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">navigateTo</span><span class="token punctuation">(</span><span class="token parameter">url<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">let</span> goType <span class="token operator">=</span> <span class="token function">getCurrentPages</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length <span class="token operator">>=</span> <span class="token number">10</span> <span class="token operator">?</span> <span class="token string">'redirectTo'</span> <span class="token operator">:</span> <span class="token string">'navigateTo'</span>
-    wx<span class="token punctuation">[</span>goType<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-        url<span class="token punctuation">,</span>
-        <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-            <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-        <span class="token function-variable function">fail</span><span class="token operator">:</span> <span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-        <span class="token function-variable function">complete</span><span class="token operator">:</span> <span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>安装完成之后，可以通过 vue -V 命令查看全局安装的版本</p>
+<h3 id="四、使⽤-Vue-CLI2-初始化⼀个项⽬"><a href="#四、使⽤-Vue-CLI2-初始化⼀个项⽬" class="headerlink" title="四、使⽤ Vue CLI2 初始化⼀个项⽬"></a>四、使⽤ Vue CLI2 初始化⼀个项⽬</h3><p>在安装完成 Vue CLI2 及必备的⼯具包之后，我们就可以使⽤ Vue CLI2 初始化⼀个项⽬了。使⽤如下命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">vue init <span class="token operator">&lt;</span>template_name<span class="token operator">></span> <span class="token operator">&lt;</span>project_name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>简单化是微信小程序的开发理念的其中之一，如果你的页面栈层出现爆栈卡制，那么可以考虑一下你的产品项目的入口是不是设计的太深了。</p>
-<p>通过上面这些介绍，我们来看下 Uniapp 的路由与页面跳转</p>
-<h2 id="Uniapp-的路由与页面跳转"><a href="#Uniapp-的路由与页面跳转" class="headerlink" title="Uniapp 的路由与页面跳转"></a>Uniapp 的路由与页面跳转</h2><p>Uniapp 集成多端的跳转方式，以标签 navigator 及封装 API 的形式控制应用内的跳转。</p>
-<p>如果想要首页跳转到列表页面并传一些参数：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 在起始页面跳转到list.vue页面并传递参数</span>
-uni<span class="token punctuation">.</span><span class="token function">navigateTo</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">'/pages/list/list?id=1&amp;name=uniapp'</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<ul>
+<li><code>&lt;template_name&gt;</code> 表示模板名称</li>
+<li><code>&lt;project_name&gt;</code> 表示项⽬名称</li>
+</ul>
+<p>Vue CLI2 就是通过远程下载项⽬模板，来初始化⼀个项⽬。官⽅提供的项⽬模板如图所示：</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/wjO8un.png" width="50%">
 
-<span class="token comment">// 或者使用标签形式跳转</span>
-<span class="token operator">&lt;</span>navigator url<span class="token operator">=</span><span class="token string">"/pages/list/list?id=1&amp;name=uniapp"</span><span class="token operator">></span>去列表<span class="token operator">&lt;</span><span class="token operator">/</span>navigator<span class="token operator">></span>
+<p>其中我们最常⽤的模板就是 webpack，其他模板可⾃⾏创建学习。所以最终的项⽬初始化命令如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">vue init webpack vuecli2demo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<span class="token comment">// 在list.vue页面接受参数</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
-    <span class="token function-variable function">onLoad</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">option</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//option为object类型，会序列化上个页面传递的参数</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>option<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//打印出上个页面传递的参数</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>option<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//打印出上个页面传递的参数</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>执⾏ <code>vue init</code> 命令之后，vue 脚⼿架会让我们做⼀些选择。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/yRAfMD.png" width="50%">
 
-<p>我们还可以使用下面的几个 API 操作页面跳转:</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">uni<span class="token punctuation">.</span><span class="token function">navigateTo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 保留当前页面，跳转到应用内的某个页面，使用 uni<span class="token punctuation">.</span>navigateBack 可以返回到原页面。
-uni<span class="token punctuation">.</span><span class="token function">redirectTo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 关闭当前页面，跳转到应用内的某个页面。
-uni<span class="token punctuation">.</span><span class="token function">reLaunch</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 关闭所有页面，打开到应用内的某个页面。reLaunch 可以打开任意页面。
-uni<span class="token punctuation">.</span><span class="token function">switchTab</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面。switchTab 只能打开 tabBar 页面。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>Project name：填写项⽬名称，如果不填默认为命令⾏ project_name</li>
+<li>Project description：填写对项⽬的描述，会体现在 package.json 中，后期可以修改</li>
+<li>Author：项⽬作者及邮箱，会从本机的 git 配置⾥⾯⾃动读取</li>
+<li>Vue build：Runtime Only 或者 Runtime+Compiler ，在《⼿搭脚⼿架- webpack 整合 vue》的章节已经介绍了两者的区别</li>
+<li>Install vue-router：是否安装 vue-router 前端路由，我们暂时没学到，不安装 No</li>
+<li>Use ESlint to lint your code：是否使⽤ ESlint 做编码规范检查，检查不通过则编译不通过。如果你对 ESLint 编码规范⽐较熟悉，这⾥可以选择 Yes</li>
+<li>Set up unit tests：是否初始化单元测试，这⾥暂时没学到，不安装 No</li>
+<li>Set up e2e test with NightWatch： 是否引⼊端到端的测试框架 NightWatch，不安装 No</li>
+<li>Should ……created：包管理⼯具是使⽤ yarn 还是 npm ？这⾥我们使⽤ npm，如果你习惯使⽤ yarn 可以选择 yarn</li>
+</ul>
+<p>完成以上的选项之后，会⾃动为我们创建⼀个名称为 vuecli2demo ⽬录及项⽬⽂件。</p>
+<p>项⽬⽬录结构如下：</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/fk9D2J.png" width="20%">
 
-<p>注意：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">*</span> navigateTo<span class="token punctuation">,</span> redirectTo 只能打开非 tabBar 页面。
-<span class="token operator">*</span> 页面跳转路径有层级限制，不能无限制跳转新页面
-<span class="token operator">*</span> 跳转到 tabBar 页面只能使用 switchTab 跳转
-<span class="token operator">*</span> 路由 <span class="token constant">API</span> 的目标页面必须是在 pages<span class="token punctuation">.</span>json 里注册的 vue 页面。如果想打开 web url，在 App 平台可以使用 plus<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span>openURL 或 web<span class="token operator">-</span>view 组件；<span class="token constant">H5</span> 平台使用 window<span class="token punctuation">.</span>open；小程序平台使用 web<span class="token operator">-</span>view 组件（url需在小程序的联网白名单中）。在 hello uni<span class="token operator">-</span>app 中有个组件 ulink<span class="token punctuation">.</span>vue 已对多端进行封装，可参考。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>访问<code>http://localhost:8080</code>，可以看到如下的界⾯，表示项⽬初始化成功</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/G8QJfR.png" width="80%">
 
-<p>如果使用标签形式进行跳转改变标签 <code>open-type</code> 属性即可：</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>navigator</span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>navigate/navigate?title=navigate<span class="token punctuation">"</span></span> <span class="token attr-name">open-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>navigate<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    跳转到新页面
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>navigator</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="五、如何解决创建过程缓慢卡死的问题"><a href="#五、如何解决创建过程缓慢卡死的问题" class="headerlink" title="五、如何解决创建过程缓慢卡死的问题"></a>五、如何解决创建过程缓慢卡死的问题</h3><p>由于众所周知的原因，可能在下载远程模板的时候出现缓慢、甚⾄卡死的情况。我们可以将 npm 包管理⼯具的下载源更换到国内的服务。</p>
+<p>先⽤ <code>npm get registry</code> 命令查看⼀下当前的源</p>
+<p>替换为国内的 npm 源，命令如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> config <span class="token builtin class-name">set</span> registry http://registry.npm.taobao.org/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>open-type 跳转方式参数对应：</p>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>说明</th>
-<th>平台差异说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>navigate</td>
-<td>对应 uni.navigateTo 的功能</td>
-<td></td>
-</tr>
-<tr>
-<td>redirect</td>
-<td>对应 uni.redirectTo 的功能</td>
-<td></td>
-</tr>
-<tr>
-<td>switchTab</td>
-<td>对应 uni.switchTab 的功能</td>
-<td></td>
-</tr>
-<tr>
-<td>reLaunch</td>
-<td>对应 uni.reLaunch 的功能</td>
-<td>头条小程序不支持</td>
-</tr>
-<tr>
-<td>navigateBack</td>
-<td>对应 uni.navigateBack 的功能</td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="Uniapp中的网络请求"><a href="#Uniapp中的网络请求" class="headerlink" title="Uniapp中的网络请求"></a>Uniapp中的网络请求</h2><p>Uniapp 使用 API <code>uni.request()</code> 发起网络请求，如果你用过微信小程序开发就会熟悉这个 API（wx.request()），Uniapp 兼容了微信代码，如果你写了 <code>wx.</code> 前缀，也可以执行，效果等同于 <code>uni.</code>。</p>
-<p>代码示例：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">uni<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">'https://www.example.com/request'</span><span class="token punctuation">,</span> <span class="token comment">//仅为示例，并非真实接口地址</span>
-    <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-        <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token string">'uni.request'</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">header</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-        <span class="token string-property property">'custom-header'</span><span class="token operator">:</span> <span class="token string">'hello'</span> <span class="token comment">//自定义请求头信息</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-    <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token string">'request success'</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>此时再⽤ <code>npm get registry</code> 命令查看⼀下当前的源，就是修改之后的国内的源地址了，下载更为快速。</p>
+<h2 id="3-VueCLI2-⽬录⽂件详解"><a href="#3-VueCLI2-⽬录⽂件详解" class="headerlink" title="3.VueCLI2 ⽬录⽂件详解"></a>3.VueCLI2 ⽬录⽂件详解</h2><h3 id="⼀、本节⼤纲-2"><a href="#⼀、本节⼤纲-2" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
+<li>项⽬⽂件⽬录概述</li>
+<li>构建过程调⽤关系说明</li>
+<li>src ⽂件夹说明</li>
+</ul>
+<h3 id="⼆、项⽬结构概述"><a href="#⼆、项⽬结构概述" class="headerlink" title="⼆、项⽬结构概述"></a>⼆、项⽬结构概述</h3><p>相信通过学习之前的《前端⼯程化-⼿动搭建 Vue 项⽬脚⼿架》，对于项⽬的⽂件夹及⽂件结构已经有所了解。下⾯集中进⾏⼀下整理和总结。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/fk9D2J.png" width="20%">
 
-<p>指定接口地址、请求方法、请求参数，可以拿来即用。如果没有传入 success / fail / complete 参数，则会返回封装后的 Promise 对象:</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// Promise</span>
-uni<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">'https://www.example.com/request'</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">data</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>   <span class="token comment">// data为一个数组，数组第一项为错误信息，第二项为返回数据</span>
-    <span class="token keyword">let</span> <span class="token punctuation">[</span>error<span class="token punctuation">,</span> res<span class="token punctuation">]</span>  <span class="token operator">=</span> data<span class="token punctuation">;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><code>build</code> ⽂件夹内的⽂件是 webpack 资源模块化打包的核⼼配置⽂件，包括⽣产环境资源打包、测试环境资源热更新服务、npm 及 nodejs 版本检查⽂件、vue ⽂件处理等配置。</li>
+<li><code>config</code> ⽂件夹内的主要是⼀些：⽣产及测试环境常⽤环境变量相关的配置，如静态资源打包路径、 测试环境服务端⼝、host 等信息。</li>
+<li><code>src</code> ⽂件夹主要存放源代码⽂件，如 js ⽂件、vue ⽂件。src/assets ⽤于存放静态资源⽂件，如：css ⽂件、图⽚⽂件等等。这是开发⼯作的核⼼⽬录。</li>
+<li><code>static</code> ⽂件夹是 webpack 默认存放静态资源（ css、image ）的⽂件夹，与 src/assets 不同的是： static ⽂件夹内容在打包时会直接复制⼀个同名⽂件夹到 dist ⽂件夹⾥，不会参与 webpack 的编译过程。</li>
+<li><code>dist</code> ⽂件夹，上图中没有，是资源模块化打包结果⽂件夹。在资源打包后会⾃动创建，⽣产环境上线发布的就是这个⽂件夹的内容。</li>
+<li><code>node_modules</code> ⽂件夹是第三⽅类库安装⽬录，通常不需要开发⼈员⼿动修改。</li>
+<li><code>.babelrc</code> 是 js ⽂件编译兼容性配置⽂件，在《前端⼯程化-⼿动搭建 vue 项⽬脚⼿架》系列⽂章我们详细讲过。</li>
+<li><code>.editorconfig</code> 是 IDE 开发⼯具配置⽂件，WebStorm、Atom、Visual Studio(Code)、xcode 等都予以⽀持。</li>
+<li><code>.gitignore</code> 这个是 git ⽂件版本管理⼯具忽略⽂件配置，程序员必学必会，不多介绍，如您不知道请⾃⾏补课。</li>
+<li><code>.postcssrc.js</code> 主要是 css 浏览器兼容性处理，可以学习⼀下 PostCSS 了解更多。</li>
+<li><code>package.json</code> 是前端项⽬配置⽂件，⽐如⼀些项⽬的启动、打包脚本，第三⽅依赖类库版本信息等都是在这个⽂件中。 package.json.lock 是 npm 安装具体第三⽅类库版本锁定信息，只查看不修改。</li>
+<li><code>README.md</code> 以 mackdown 语法描述项⽬信息。</li>
+</ul>
+<h3 id="三、构建过程调⽤关系说明"><a href="#三、构建过程调⽤关系说明" class="headerlink" title="三、构建过程调⽤关系说明"></a>三、构建过程调⽤关系说明</h3><p>build ⽂件夹下⾯的⽂件主要是 webpack 相关的环境配置⽂件，和 webpack 打包、编译相关的配置选项及相关⽂件。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/8g4MRy.png" width="20%">
 
-<p>如何中断一次请求呢？</p>
-<p>很多场景下是如果请求2个接口数据，当某一个接口成功的时候，就可能需要禁止掉另外一个接口的继续请求了：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> requestTask <span class="token operator">=</span> uni<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">'https://www.example.com/request'</span> <span class="token comment">// 仅为示例，并非真实接口地址。</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>⽣产环境打包的⽂件调⽤过程及逻辑</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/jGmsZH.png" style="zoom:50%;" />
 
-<span class="token comment">// 中断请求任务</span>
-requestTask<span class="token punctuation">.</span><span class="token function">abort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>运⾏ <code>npm run build</code> 命令调⽤ build.js 进⾏⽣产环境模块化资源⽂件打包</li>
+<li>build.js 引⽤⽣产环境的变量配置⽂件中的变量 -config/index.js 和 prod.env.js</li>
+<li>build.js 根据 webpack.prod.js ⽂件以及⽣产环境 config 变量配置，进⾏⽣产环境模块化资源打包</li>
+<li>webpack.prod.conf.js 整合 webpack.base.js 基础 webapck 配置，及 vue-loader.conf.js 处理 .vue ⽂件</li>
+</ul>
+<p>测试环境服务启动及调试过程及逻辑</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/COL0k4.png" style="zoom:50%;" />
 
-<p>上面对 request 对象进行一次返回，这样我们可以调用该对象下的 <code>abort</code> 方法，可中断请求任务。如果需要更好的实现拦截，并统一管理请求，Uniapp 插件市场有 flyio、axios 等三方封装的拦截器可用。</p>
-<p>当然更多的时候，我们会进行另外一个操作，<strong>设置网络请求超时</strong>。</p>
-<p>服务器未必会如同我们想的那么快捷，携带的信息也并非轻量，我们并不希望让这个请求一直保持触发状态。对于用户来说，这就是卡死的状态。Uniapp 规定可以统一在 manifest.json 文件中配置 networkTimeout 的参数：</p>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token property">"name"</span> <span class="token operator">:</span> <span class="token string">"mvvm"</span><span class="token punctuation">,</span>
-<span class="token property">"appid"</span> <span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-<span class="token property">"description"</span> <span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-<span class="token property">"versionName"</span> <span class="token operator">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span>
-<span class="token property">"versionCode"</span> <span class="token operator">:</span> <span class="token string">"100"</span><span class="token punctuation">,</span>
-<span class="token property">"transformPx"</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-<span class="token property">"networkTimeout"</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-    <span class="token property">"request"</span> <span class="token operator">:</span> <span class="token number">6000</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-<span class="token comment">// ...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>运⾏ <code>npm run dev</code> 命令调⽤ webpack-dev-server 命令( package.json 脚本配置)，以 webpack.dev.conf.js 作为⼊⼝配置⽂件进⾏测试服务启动</li>
+<li>webpack.dev.conf.js 引⽤测试环境的变量配置⽂件中的变量 -config/index.js 和 dev.env.js</li>
+<li>webpack.dev.conf.js 整合 webpack.base.js 基础 webapck 配置，及 vue-loader.conf.js 处理 .vue ⽂件</li>
+<li>utils.js 主要在构建过程中的⼯具函数⽂件，主要的⼯具函数都是完成 css ⽂件的处理⼯作</li>
+</ul>
+<h3 id="四、src-⽂件夹说明"><a href="#四、src-⽂件夹说明" class="headerlink" title="四、src ⽂件夹说明"></a>四、src ⽂件夹说明</h3><ul>
+<li><strong>assets ⽂件</strong>：⽤于存放静态资源，如 css ⽂件、image ⽂件</li>
+<li><strong>components ⽂件夹</strong>：⽤来存放 .vue 单⽂件组件</li>
+<li><strong>router ⽂件夹</strong>：⽤来存放前端⻚⾯路由配置信息⽂件</li>
+<li><strong>App.vue</strong>：项⽬的主组件，所有的 vue 组件都是该组件的⼦组件或后代组件</li>
+<li><strong>main.js</strong>：项⽬全局⽂件⼊⼝</li>
+</ul>
+<h2 id="4-使⽤-VueCLI3-快速搭建项⽬"><a href="#4-使⽤-VueCLI3-快速搭建项⽬" class="headerlink" title="4.使⽤ VueCLI3 快速搭建项⽬"></a>4.使⽤ VueCLI3 快速搭建项⽬</h2><h3 id="⼀、本节⼤纲-3"><a href="#⼀、本节⼤纲-3" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
+<li>Vue CLI3.0 的安装</li>
+<li>Vue CLI2.0 与 3.0 版本的区别</li>
+<li>使⽤ Vue CLI3.0 创建项⽬</li>
+<li>Vue CLI2.0 与 3.0 ⽬录差异</li>
+<li>项⽬服务启动</li>
+</ul>
+<h3 id="⼆、-Vue-CLI3-0-的安装"><a href="#⼆、-Vue-CLI3-0-的安装" class="headerlink" title="⼆、 Vue CLI3.0 的安装"></a>⼆、 Vue CLI3.0 的安装</h3><p>安装 Vue CLI3+ 之前，我们需要安装好 NodeJS ，8.9 或更⾼版本(推荐 8.11.0+)。</p>
+<p>Vue CommandLine Interface 在 3.0 版本改名为@vue/cli，所以我们全局安装命令如下:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g @vue/cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<p>然后使⽤ <code>vue --version</code> 命令查看 CLI 脚⼿架的版本。版本为 3.x+ 就表示安装正确了。</p>
+<p>注意：<strong>这⾥虽然使⽤的是 vue 命令，但查看的并不是 vue 的版本，⽽是 Vue CLI 的版本。</strong></p>
+<h3 id="三、Vue-CLI2-0-与-3-0-版本的区别"><a href="#三、Vue-CLI2-0-与-3-0-版本的区别" class="headerlink" title="三、Vue CLI2.0 与 3.0+版本的区别"></a>三、Vue CLI2.0 与 3.0+版本的区别</h3><ul>
+<li>3.0+版本的构建速度⽐ 2.0 快，利⽤了多核与缓存的技术</li>
+<li>3.0+版本 webpack 被内置到@vue/cli-service，可以很⽅便地升级。同时⼤量的 webpack 模板配置被隐藏到 @vue/cli-service ⾥⾯</li>
+<li>3.0+版本 babel、TypeScript 等功能服务以插件的⽅式注⼊，⽅便引⼊与排除</li>
+<li>3.0+版本提供了可视化的 Vue UI 命令，对于不习惯使⽤命令⾏的同学，更加⽅便易⽤</li>
+</ul>
+<h3 id="四、使⽤-Vue-CLI3-0-创建项⽬"><a href="#四、使⽤-Vue-CLI3-0-创建项⽬" class="headerlink" title="四、使⽤ Vue CLI3.0+创建项⽬"></a>四、使⽤ Vue CLI3.0+创建项⽬</h3><p>将不再使⽤ 2.0 版本的 <code>vue init</code> 命令，⽽是使⽤ <code>vue create</code> 命令，格式如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">格式：vue create <span class="token operator">&lt;</span>project-name<span class="token operator">></span>
+实例：vue create vuecli3demo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
+<p>创建⼀个叫做 vuecli3demo 的项⽬，⾸先会提示我们，选择 default 默认项⽬功能特性，还是⼿动选择个性化项⽬功能特性。默认的项⽬特性，会帮我们安装 babel 语法兼容和 eslint 语法检查功能。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/OSyuOt.png" style="zoom:50%;" />
 
-<p>有效封装能够更好的管理业务，比如服务器 500 错误的处理，400 的错误怎么去处理，这些就是让用户能在错误请求中获得良好体验。</p>
-<p>一段 request 封装处理的响应代码：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">resInterceptor</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">response<span class="token punctuation">,</span> conf <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">// TODO do your response</span>
-    <span class="token keyword">const</span> statusCode <span class="token operator">=</span> response<span class="token punctuation">.</span>statusCode
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'statusCode：'</span><span class="token operator">+</span> statusCode<span class="token punctuation">)</span>
-    <span class="token comment">// response interceptor</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>statusCode <span class="token operator">>=</span> <span class="token number">200</span> <span class="token operator">&amp;&amp;</span> statusCode <span class="token operator">&lt;</span> <span class="token number">300</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//成功</span>
-        <span class="token function">_responseLog</span><span class="token punctuation">(</span>response<span class="token punctuation">,</span> conf<span class="token punctuation">,</span> <span class="token string">"response 200-299"</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> response
-    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>statusCode <span class="token operator">===</span> <span class="token number">500</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token function">_responseLog</span><span class="token punctuation">(</span>response<span class="token punctuation">,</span> conf<span class="token punctuation">,</span> <span class="token string">"response 500"</span><span class="token punctuation">)</span>
-        <span class="token comment">// 为了对reject的内容更加可控，我们增加了一个控制字段 wakaryReqToReject</span>
-        <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
-            <span class="token comment">// 根据当前字段来判断是否reject</span>
-            <span class="token literal-property property">wakaryReqToReject</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-            <span class="token comment">// 下面可以配置您的其它返回信息，方便您更加统一的处理reject的内容。</span>
-            <span class="token comment">// 以下内容会被作为reject的返回，根据您的需要处理，比如返回您的具体错误信息</span>
-            <span class="token literal-property property">msg</span><span class="token operator">:</span> <span class="token string">"服务器错误"</span><span class="token punctuation">,</span>
-            <span class="token literal-property property">res</span><span class="token operator">:</span> response
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-        <span class="token function">_responseLog</span><span class="token punctuation">(</span>response<span class="token punctuation">,</span> conf<span class="token punctuation">,</span> <span class="token string">"response 300-499"</span><span class="token punctuation">)</span>
-        <span class="token comment">// 为了对reject的内容更加可控，我们增加了一个控制字段 wakaryReqToReject</span>
-        <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
-            <span class="token comment">// 根据当前字段来判断是否reject</span>
-            <span class="token literal-property property">wakaryReqToReject</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-            <span class="token comment">// 下面可以配置您的其它返回信息，方便您更加统一的处理reject的内容。</span>
-            <span class="token comment">// 以下内容会被作为reject的返回，根据您的需要处理，比如返回您的具体错误信息</span>
-            <span class="token literal-property property">msg</span><span class="token operator">:</span> <span class="token string">"这里是提示信息"</span><span class="token punctuation">,</span>
-            <span class="token literal-property property">res</span><span class="token operator">:</span> response
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我们选择最后⼀个⼿动选择特性，进⼊到具体特性功能选择界⾯：</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/1RJt5E.png" style="zoom:50%;" />
 
-<p><strong>注意：</strong></p>
-<ol>
-<li>良好体验的 APP，还会判断当前是否处于飞行模式、是 wifi 还是 蜂窝数据</li>
-<li>单次网络请求数据量建议控制在50K以下（仅指 JSON数据，不含图片），过多数据应分页获取，以提升应用体验。</li>
-<li>localhost、127.0.0.1等服务器地址，只能在电脑端运行，手机端连接时不能访问，请使用标准 IP 并保证手机能连接电脑网络</li>
-</ol>
-<h2 id="Uniapp-中的storage存储信息"><a href="#Uniapp-中的storage存储信息" class="headerlink" title="Uniapp 中的storage存储信息"></a>Uniapp 中的storage存储信息</h2><p>Uniapp 集成了小程序，app，h5 的数据缓存，统一了 <code>uni.setStorage()</code>，<code>uni.setStorage()</code> 系列API，完成对缓存数据的操作。</p>
-<p>示例代码:</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">uni<span class="token punctuation">.</span><span class="token function">setStorage</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">key</span><span class="token operator">:</span> <span class="token string">'storage_key'</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token string">'hello'</span><span class="token punctuation">,</span>
-    <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'success'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在这个界⾯，我们可以按 Up、Down 键上下移动，按空格键选择选项，选中之后，具体的功能特性前⽅会有星号标识。</p>
+<ul>
+<li>Babel ⽀持使⽤ babel 做转义。这个通常来说是必选的。</li>
+<li>TypeScript ⽀持使⽤ TypeScript 书写源码。如果使⽤到就选上。</li>
+<li>Progressive Web App (PWA) Support PWA ⽀持。我们还没学到，暂时不选。</li>
+<li>Router ⽀持 vue-router 。前端路由，还没学到，暂时不选。</li>
+<li>Vuex ⽀持 vuex 。我们还没学到，暂时不选。</li>
+<li>CSS Pre-processors ⽀持 CSS 预处理器。这个通常来说是必选项⽬。</li>
+<li>Linter / Formatter ⽀持代码⻛格检查和格式化。觉得语法检查过于严格，影响开发效率的可以不选。</li>
+<li>Unit Testing ⽀持单元测试。暂时不选。</li>
+<li>E2E Testing ⽀持 端到端测试。暂时不选。</li>
+</ul>
+<p>选择完成之后回⻋，因为我们选择了 CSS 预处理器，所以需要具体告知。你习惯使⽤哪种 CSS 预处理器 就选择哪⼀种，SCSS 或 Less。</p>
+<p>下⼀步，要把 Babel、PostCS 的配置⽂件放到哪⾥？⼀般都放到 dedicated config files (专⽤配置⽂件) ⾥⾯，⽽不是都放在 package.json ⾥⾯。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/3Kv0s6.png" style="zoom:50%;" />
 
-<p>将 data 存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，存储的内容，只支持原生类型、及能够通过 JSON.stringify 序列化的对象。</p>
-<p>记住，uniapp设置存储有同步与异步之分，使用 <code>uni.setStorage()</code> 参数对象需指定键值 <code>key</code> ，存储数据 <code>data</code>:</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 异步需指定 key 和 data</span>
-uni<span class="token punctuation">.</span><span class="token function">setStorage</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">key</span><span class="token operator">:</span> <span class="token string">'storage_key'</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token string">'hello'</span><span class="token punctuation">,</span>
-    <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'success'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>最后，CLI3.0 会询问我们是否将当前配置保存，下次可以直接使⽤，⽽不是再次选择填写。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">? Save this as a preset <span class="token keyword">for</span> future projects? <span class="token punctuation">(</span>y/N<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<span class="token comment">// 同步，不用指定 key 和 data 的键</span>
-uni<span class="token punctuation">.</span><span class="token function">setStorageSync</span><span class="token punctuation">(</span><span class="token string">'storage_key'</span><span class="token punctuation">,</span> <span class="token string">'hello'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果选择 y ，就需要输⼊⼀个配置名称，以该名称来保存配置，⽤来下次创建项⽬直接使⽤。保存之后， 下次新建项⽬，会在 default 和 manually select features 基础上多出⼀个选项(第⼀步)。</p>
+<h3 id="五、Vue-CLI2-0-与-3-0-⽬录差异"><a href="#五、Vue-CLI2-0-与-3-0-⽬录差异" class="headerlink" title="五、Vue CLI2.0 与 3.0 ⽬录差异"></a>五、Vue CLI2.0 与 3.0 ⽬录差异</h3><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/H2rfbn.png" style="zoom:50%;" />
 
-<p>因为是异步操作，有接口调用成功的回调函数，如果有业务逻辑处理或者判定失败等情况，就可以从这入手。</p>
-<p><strong>注意:</strong></p>
-<p>Uniapp 的 Storage 在不同端的实现不同：</p>
-<ol>
-<li>H5 端为 localStorage，<strong>浏览器限制 5M 大小</strong>，持久化，可能会被清理</li>
-<li>App 端为原生的 plus.storage，<strong>无大小限制</strong>，不是缓存，持久化</li>
-<li>各个小程序端为其自带的 storage api，数据存储生命周期跟小程序本身一致，即除用户主动删除或超过一定时间被自动清理，否则数据都一直可用。</li>
-<li>微信小程序<strong>单个 key 允许存储的最大数据长度为 1MB，所有数据存储上限为 10MB</strong>。</li>
-</ol>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ol>
-<li>页面跳转的方式是一个应用的基本，但是入口太深会让你的用户失去耐心；</li>
-<li>请求的二次封装可以更好的管理你的请求动作，取消中断操作，业务问题，服务器错误等；</li>
-<li>留意操作 Storage 的异步同步之分，以及 Storage 在各端的表现；</li>
-</ol>
+<ul>
+<li><p>3.0+ 版本没有 static ⽂件夹，取⽽代之的是 public ⽂件夹⽤于公开的静态资源访问。</p>
+</li>
+<li><p>3.0+ 版本将 index.html 移动到 public ⽂件夹⾥⾯了。</p>
+</li>
+<li><p>3.0+版本将 build 和 config ⽂件夹配置移除了，实际相关的配置仍然存在，只不过隐藏起来了。被内置到 @vue/cli-service。</p>
+</li>
+</ul>
+<h3 id="六、项⽬服务启动"><a href="#六、项⽬服务启动" class="headerlink" title="六、项⽬服务启动"></a>六、项⽬服务启动</h3><p>使⽤ <code>npm run serve</code> 命令启动项⽬（注意这⾥不再使⽤ 2.0 版本的 <code>vue run dev</code> 命令），访问图中的 http 地 址</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/VN5HNU.png" style="zoom:50%;" />
+
+<p>在浏览器中看到如下内容表示 vue CLI3+ 项⽬创建成功</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/VRHdam.png" style="zoom:50%;" />
+
+<h2 id="5-VueCLI3-⾄-4-0-版本升级指南"><a href="#5-VueCLI3-⾄-4-0-版本升级指南" class="headerlink" title="5.VueCLI3 ⾄ 4.0 版本升级指南"></a>5.VueCLI3 ⾄ 4.0 版本升级指南</h2><p>⾸先，需要全局安装 Vue CLI ，安装⽅式与 3.0 ⽅法是⼀样的。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g @vue/cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="1-⼀次性更新所有的插件"><a href="#1-⼀次性更新所有的插件" class="headerlink" title="1.⼀次性更新所有的插件"></a>1.⼀次性更新所有的插件</h3><p>在已有的 3.0+版本构建的项⽬⾥⾯，执⾏如下命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">vue upgrade<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这样就完成了版本的升级，So Easy。</p>
+<h3 id="2-插件⼀个个⼿动更新"><a href="#2-插件⼀个个⼿动更新" class="headerlink" title="2. 插件⼀个个⼿动更新"></a>2. 插件⼀个个⼿动更新</h3><p>如果你希望⼿动逐步升级，参考下⾯的内容：</p>
+<h4 id="2-1-全局-vue-cli"><a href="#2-1-全局-vue-cli" class="headerlink" title="2.1 全局@vue/cli"></a>2.1 全局@vue/cli</h4><h5 id="2-1-1-vue-upgrade-被重新设计"><a href="#2-1-1-vue-upgrade-被重新设计" class="headerlink" title="2.1.1 vue upgrade 被重新设计"></a>2.1.1 vue upgrade 被重新设计</h5><ul>
+<li>升级之前: <code>vue upgrade [patch | minor | major]</code> , 这些命令只是安装最新版本的插件，除此之外什么都不做！</li>
+<li>升级之后: <code>vue upgrade [plugin-name]</code>. 除了更新插件版本，还会⾃动化的完成升级过程。想要了解关于这个命令的⽤法，请运⾏ <code>vue upgrade --help</code>.</li>
+</ul>
+<h5 id="2-1-2-vue-version-Output-Format-Change"><a href="#2-1-2-vue-version-Output-Format-Change" class="headerlink" title="2.1.2 vue --version Output Format Change"></a>2.1.2 <code>vue --version</code> Output Format Change</h5><p>当运⾏ <code>vue --version</code> 命令:</p>
+<ul>
+<li>3.x: 版本显示格式如：3.12.0</li>
+<li>4.x: 版本显示格式如：@vue/cli 4.0.0</li>
+</ul>
+<h5 id="2-1-3-为避免代码错误覆盖，增加确认步骤"><a href="#2-1-3-为避免代码错误覆盖，增加确认步骤" class="headerlink" title="2.1.3 为避免代码错误覆盖，增加确认步骤"></a>2.1.3 为避免代码错误覆盖，增加确认步骤</h5><p>当运⾏ <code>vue invoke / vue add / vue upgrade</code> 命令的时候, 增加了确认的步骤。如果你的当前本地库还有没有提交的代码，会有如下确认过程：</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/WRRVeS.png" style="zoom:50%;" />
+
+<p>上图添加 typescript 插件，当前本地库还有没有提交的代码，建议先提交代码，再决定是否继续安装插件。</p>
+<h5 id="2-1-4-Vue-Router-和-Vuex-插件"><a href="#2-1-4-Vue-Router-和-Vuex-插件" class="headerlink" title="2.1.4 Vue Router 和 Vuex 插件"></a>2.1.4 Vue Router 和 Vuex 插件</h5><p>当执⾏ <code>vue add vuex or vue add router</code>命令:</p>
+<ul>
+<li>在 v3 版本中, 只是安装将<code> vuex or vue-router</code> 加到项⽬⾥⾯;</li>
+<li>v4 版本中, 除了将⼆者加⼊到项⽬⾥⾯，还会安装 <code>@vue/cli-plugin-vuex</code>or <code>@vue/cli-pluginrouter</code> 插件</li>
+</ul>
+<p>这个变化对于最终⽤户不会产⽣任何变化或影响。但是这种设计在以后为 Vuex 和 Vue Router 添加更多的功能特性提供了便利的基础。</p>
+<p>对于 preset 和 plugin 作用，这两个插件有很多⾮常值得关注的变化：</p>
+<ul>
+<li>默认的⽬录结构发⽣变化:<ul>
+<li>src/store.js 移动到 src/store/index.js;</li>
+<li>src/router.js 重命名为 src/router/index.js;</li>
+</ul>
+</li>
+<li>考虑到兼容性， preset.json 中的 router &amp; routerHistoryMode 仍然被⽀持. 但是更建议使⽤ <code>plugins: &#123; &#39;@vue/cli-plugin-router&#39;: &#123; historyMode: true &#125; &#125; </code>.</li>
+<li>api.hasPlugin(‘vue-router’) 不再被⽀持. 现在的写法是 api.hasPlugin(‘router’)</li>
+</ul>
+<h4 id="2-2-vue-cli-service"><a href="#2-2-vue-cli-service" class="headerlink" title="2.2 @vue/cli-service"></a>2.2 @vue/cli-service</h4><h5 id="2-2-1-template-中空格的编译处理"><a href="#2-2-1-template-中空格的编译处理" class="headerlink" title="2.2.1 template 中空格的编译处理"></a>2.2.1 template 中空格的编译处理</h5><p>To get a smaller bundle, we’ve disabled the preserveWhitespace option of vue-template-compiler by default in Vue CLI v3.</p>
+<p>为了获取体积更⼩的打包结果，在 v3 版本中去掉了 vue-template-compiler 中 preserveWhitespace （保留空格）。与此同时也引发了⼀些问题。</p>
+<p>幸运的是, 从 Vue 2.6 版本开始，有了更好的空格处理⽅式, 使⽤新的 whitespace 选项。所以在 Vue CLI v4 中我们决定使⽤这个新选项。看下⾯的例⼦：</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/iG0veF.png" style="zoom:50%;" />
+
+<p>使⽤ <code>preserveWhitespace: false</code> 配置，所有的标签之间空格都被去除，编译结果如下：</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/iG0veF.png" style="zoom:50%;" />
+
+<p>使⽤<code> whitespace: &#39;condense&#39;</code> 配置, 编译结果如下：</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/g6WoLS.png" style="zoom:50%;" />
+
+<p>注意：⾏内( inline )标签之间的空格被保留了。</p>
 
                 
             </div>
@@ -758,7 +782,7 @@ uni<span class="token punctuation">.</span><span class="token function">setStora
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://syhan.top/2022/06/26/4-ye-mian-dao-hang-wang-luo-qing-qiu-shu-ju-huan-cun/">https://syhan.top/2022/06/26/4-ye-mian-dao-hang-wang-luo-qing-qiu-shu-ju-huan-cun/</a>
+                    <a href="https://syhan.top/2022/08/04/vuecli/">https://syhan.top/2022/08/04/vuecli/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -796,8 +820,8 @@ uni<span class="token punctuation">.</span><span class="token function">setStora
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/uni-app/">
-                                    <span class="chip bg-color">uni-app</span>
+                                <a href="/tags/Vue/">
+                                    <span class="chip bg-color">Vue</span>
                                 </a>
                             
                         </div>
@@ -1230,17 +1254,18 @@ uni<span class="token punctuation">.</span><span class="token function">setStora
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/06/26/3-ji-chu-zu-jian-zi-ding-yi-zu-jian-quan-ju-zu-jian/">
+                <a href="/2022/08/04/vuecli/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="基础组件、自定义组件、全局组件">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="VueCLI">
                         
-                        <span class="card-title">基础组件、自定义组件、全局组件</span>
+                        <span class="card-title">VueCLI</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1250,26 +1275,27 @@ uni<span class="token punctuation">.</span><span class="token function">setStora
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/uni-app/" class="post-category">
-                                    uni-app
+                            <a href="/categories/Vue/" class="post-category">
+                                    Vue
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/uni-app/">
-                        <span class="chip bg-color">uni-app</span>
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
                     </a>
                     
                 </div>
@@ -1283,13 +1309,13 @@ uni<span class="token punctuation">.</span><span class="token function">setStora
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/06/26/5-shi-yong-sass-bian-xie-gong-yong-yang-shi/">
+                <a href="/2022/07/27/qian-duan-gong-cheng-hua/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="使用 SASS 编写公用样式">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="前端工程化">
                         
-                        <span class="card-title">使用 SASS 编写公用样式</span>
+                        <span class="card-title">前端工程化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1300,14 +1326,14 @@ uni<span class="token punctuation">.</span><span class="token function">setStora
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-27
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/uni-app/" class="post-category">
-                                    uni-app
+                            <a href="/categories/Vue/" class="post-category">
+                                    Vue
                                 </a>
                             
                             
@@ -1317,8 +1343,8 @@ uni<span class="token punctuation">.</span><span class="token function">setStora
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/uni-app/">
-                        <span class="chip bg-color">uni-app</span>
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
                     </a>
                     
                 </div>
