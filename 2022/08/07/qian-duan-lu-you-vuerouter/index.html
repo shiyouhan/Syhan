@@ -1,0 +1,2126 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="前端路由VueRouter, Nice 2CU">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>前端路由VueRouter | Nice 2CU</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/back.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Nice 2CU</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Nice 2CU</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/shiyouhan" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/shiyouhan" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+    <div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+        <div class="container" style="right: 0px;left: 0px;">
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div class="brand">
+                        <h3 class="description center-align post-title">
+                            前端路由VueRouter
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Vue/">
+                                <span class="chip bg-color">Vue</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Vue/" class="post-category">
+                                Vue
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-08-07
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    8.3k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="前端路由VueRouter"><a href="#前端路由VueRouter" class="headerlink" title="前端路由VueRouter"></a>前端路由VueRouter</h1><h2 id="1-单⻚⾯应⽤与前端路由"><a href="#1-单⻚⾯应⽤与前端路由" class="headerlink" title="1.单⻚⾯应⽤与前端路由"></a>1.单⻚⾯应⽤与前端路由</h2><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/StnEkc.png" style="zoom:50%;" />
+
+
+
+<h3 id="⼀、本节⼤纲"><a href="#⼀、本节⼤纲" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
+<li>单⻚⾯应⽤ SPA 介绍</li>
+<li>前端路由的两种实现⽅式</li>
+<li>单⻚⾯应⽤的优缺点</li>
+</ul>
+<h3 id="⼆、单⻚⾯应⽤SPA介绍"><a href="#⼆、单⻚⾯应⽤SPA介绍" class="headerlink" title="⼆、单⻚⾯应⽤SPA介绍"></a>⼆、单⻚⾯应⽤SPA介绍</h3><p>在说单⻚⾯应⽤（SPA：Single Page Application）之前，有必要和⼤家⼀起回顾⼀下，Web 应⽤开发的⼏个阶段，这样更有助于我们来理解单⻚⾯应⽤。 </p>
+<p>在 Web 应⽤较早的时候，在 Java 的领域⼤家最常使⽤的是 Servlet、JSP。这两种技术实现的 Web 应⽤， 都脱离不了⼀个事实：那就是浏览器和服务端之间的唯⼀的沟通⽅式就是 html。这个阶段没有所谓的 Web 应⽤数据接⼝，只有⻚⾯视图请求服务。也就是说，客户端发送⼀个请求，服务端根据请求去操作 数据库，然后在 java 代码⾥⾯写数据和 html 代码进⾏组合渲染，最终将⼀个 html ⻚⾯返回个浏览器端。 周⽽复始。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Pdkwva.png" style="zoom:50%;" />
+
+<p>久⽽久之，程序员对于在 Java 代码⾥⾯写 html 已经感到⼗分厌恶，从⽽有了后来的⼤量 MVC 的框架：如 struts 等。在⼀定程度上实现了数据与视图的解耦。但是这些框架的出现只是在开发上更加⽅便，仍然没有改变html⻚⾯需要在服务端渲染的事实。这时对于前端来说，⼀种⾰命性的技术出现了，那就是 Ajax。 </p>
+<p>Ajax 不是⼀种新技术，但的确是⼀种⾰命性的技术。 </p>
+<p>这个时候，程序员开发 Web 应⽤，⼀个功能请求服务端得到⼀个初始的 html ⻚⾯，然后在这个⻚⾯上的所有操作都可以通过 Ajax 进⾏，返回如 JSON 格式数据，再⽤ Ajax 和 CSS 技术对这个⻚⾯进⾏前端的渲染，局部刷新。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/oKxqRP.png" style="zoom:50%;" />
+
+<p>然⽽这并不能满⾜这样的⼀个强烈的需求：后端程序员不想写不会写视图层内容，能不能把视图层开发完全交给前端。很多逻辑能⼒超群的后端程序员，写不好 css、html，效率极低。</p>
+<p>那么⼤家就想：能不能实现前后端分离，以后后端程序员只写数据接⼝，不写视图渲染程序。专业的⼈做专业的事，往往效率是最⾼的。⽽且另⼀个重要的原因就是：前端视图渲染缓解了服务器压⼒，所以 ⽐后端视图渲染的效率更⾼。 </p>
+<p>这个时候，前端迎来了历史上最快速的发展，各种前端框架层出不穷，其中最具代表性的就是 Vue.js、 ReactJs、AngularJS 三⼤框架，这三⼤框架⽆⼀例外的⽀持组件化开发和前端路由。组件化开发和前端路由的出现，为单⻚⾯应⽤和前后端分离的实现提供了基础。组件提供了内容边界，前端路由实现了组件的切换，即视图显示的切换。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/mavXOW.png" style="zoom:50%;" />
+
+<p>⽤⽩话解释⼀下。单⻚⾯应⽤就是在进⼊应⽤之后第⼀次请求，就将所有的组件视图⼀次性加载到客户端，之后通过前端路由切换组件，通过后端服务获取组件数据的这样⼀种应⽤。也就是说，整个应⽤只有⼀个 html，之后的每⼀次 url 变化或者 http 请求，都只是切换 html 中显示的组件和组件的数据内容。</p>
+<h3 id="三、前端路由的两种实现⽅式"><a href="#三、前端路由的两种实现⽅式" class="headerlink" title="三、前端路由的两种实现⽅式"></a>三、前端路由的两种实现⽅式</h3><p>前端路由的出现，使单⻚⾯应⽤成为可能，对于 Vue ⽽⾔，前端路由就是 Vue-Router。我们在传统的开发⽅式中，⼀旦在浏览器端改变url 就⼀定会向服务端发送请求。 </p>
+<p>在 SPA 中，前端路由的核⼼意义就在于：切换视图并且不会向服务端发送请求。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/GTuGGA.png"></p>
+<p>为了实现前端路由的这⼀功能，浏览器提供了以下两种特性的⽀持：</p>
+<ul>
+<li>hash：即在地址栏上⾯ URL 增加 # 标志符号，实际上就是基于锚点的实现原理。通过切换锚点，来切换组件。学过 html 的朋友都知道，变更 URL 锚点是不会向服务端发送请求的，但会影响视图显示。正是基于 HTML 锚点这个特性，vue 实现了前端路由的 hash⽅式。</li>
+<li>history：⼤家可能都知道 javascript 的⽅法 window.history.back()、window.history.forward()、 window.history.go() 可以实现向前⼀个⻚⾯、后⼀个⻚⾯、指定的历史⻚⾯进⾏跳转，并且不会向服务端发送请求。正是基于history系列⽅法的这个特性，vue 实现了前端路由的 history ⽅式。但是 对于⼀个灵活的应⽤，这⼏个⽅法显然是不够⽤的，所以在 HTML5 中增加了 pushState() 和 replaceState() ⽅法。</li>
+</ul>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/IsAfOR.png" style="zoom:50%;" />
+
+<p>history 维护栈的数据结构，栈数据结构就像⼀个桶，后进的先出。在桶顶部的组件就是视图中显示的组 件。pushState() 向栈中压⼊⼀个视图组件，replaceState() 替换⼀个视图组件。</p>
+<p>关于这两种模式深⼊的学习，可以参考：<a target="_blank" rel="noopener" href="https://juejin.im/post/5a1e89b66fb9a045196958fe">https://juejin.im/post/5a1e89b66fb9a045196958fe</a></p>
+<h3 id="四、单⻚⾯应⽤的优缺点"><a href="#四、单⻚⾯应⽤的优缺点" class="headerlink" title="四、单⻚⾯应⽤的优缺点"></a>四、单⻚⾯应⽤的优缺点</h3><ul>
+<li>从⽤户体验的⻆度，SPA 应⽤显然是更优的，⼤量的使⽤ ajax 加载数据，进⾏前端渲染，降低了服务器的压⼒。举个例⼦：⽼师记住⼀个班的学⽣容易？还是每个学⽣记住⾃⼰的⽼师容易？⾃然清楚了吧。</li>
+<li>因为 SPA ⼤量的使⽤了 Ajax，所有内容都在同⼀个 html ⻚⾯上，所以对搜索引擎不够友好。所以，如果你的产品⾮常在意搜索引擎中的排名，请谨慎使⽤。当然也可以通过服务器端渲染，使 SPA 可以针对搜索引擎进⾏优化。另外，搜索引擎的爬⾍技术也在不断的精华，这个问题将越来越容易解决。</li>
+<li>从开发的⻆度，SPA 实现了前后端分离，专业的⼈做专业的事，往往效率更⾼。代码的可维护性也会增强。</li>
+<li>单⻚应⽤程序不如多⻚应⽤程序安全。因为 SPA 将更多的代码交给了前端，前端显然不如后端更安全，但这个问题有时也因⼈⽽异。</li>
+<li>因为更多的视图渲染过程在客户端设备上进⾏，单⻚应⽤程序⽐多⻚应⽤程序更容易消耗移动设备的电池电量。</li>
+</ul>
+<h2 id="2-安装与配置VueRouter"><a href="#2-安装与配置VueRouter" class="headerlink" title="2.安装与配置VueRouter"></a>2.安装与配置VueRouter</h2><h3 id="⼀、本节⼤纲-1"><a href="#⼀、本节⼤纲-1" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
+<li>已有项⽬中⼿动安装 VueRouter (重点掌握)</li>
+<li>VueCLI2 项⽬构建过程中安装 VueRouter</li>
+<li>VueCLI3 项⽬构建过程中安装 VueRouter</li>
+<li>使⽤ Vue UI 界⾯安装 VueRouter</li>
+</ul>
+<h3 id="⼆、已有项⽬中⼿动安装VueRouter-重点掌握"><a href="#⼆、已有项⽬中⼿动安装VueRouter-重点掌握" class="headerlink" title="⼆、已有项⽬中⼿动安装VueRouter(重点掌握)"></a>⼆、已有项⽬中⼿动安装VueRouter(重点掌握)</h3><p>在之前的章节，我们讲解了如何使⽤ VueCLI2 快速构建 Vue 前端项⽬。当时我们并没有安装 VueRouter，现在就来学习⼀下。如果⼿动安装学会了，项⽬构建过程中的⾃动安装也就更好理解了。 需要注意的是 VueRouter 并不是 Vue 框架默认集成的，⽽是以外部依赖的形式存在。 所以⾸先使⽤如下命令，安装 VueRouter。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> vue-router --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>安装完成后，在 package.json ⾥⾯会多出 “vue-router” 的安装信息，说明安装成功及安装版本。</p>
+<p>在 src ⽬录下，新建⼀个⽂件夹 router，⽂件夹内放⼊⼀个 index.js ⽂件。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Gtd7FY.png" style="zoom:50%;" />
+
+<ul>
+<li>VueRouter 并不是 Vue 框架默认集成的，⽽是以外部依赖的形式存在，所以使⽤之前需要先引⼊</li>
+<li>构造 VueRouter 对象，路由规则定义数组作为对象构造参数</li>
+<li>VueRouter 默认使⽤ hash 作为前端路由实现⽅式，如果希望使⽤ history ⽅式，增加 mode 配置</li>
+<li>导出 VueRouter 对象，供其他模块使⽤(实际就只是 Vue 会使⽤ VueRouter)</li>
+</ul>
+<p>在 main.js 中，引⼊ VueRouter 对象作为 Vue 实例的参数，从⽽使项⽬的前端路由⽣效。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/0V8ScH.png" style="zoom:50%;" />
+
+
+
+<h3 id="三、VueClI2项⽬构建过程中安装VueRouter"><a href="#三、VueClI2项⽬构建过程中安装VueRouter" class="headerlink" title="三、VueClI2项⽬构建过程中安装VueRouter"></a>三、VueClI2项⽬构建过程中安装VueRouter</h3><p>在前⾯的章节，我们学习使⽤ <code>vue init webpack [project-name]</code> 命令快速构建 Vue 项⽬脚⼿架。如果需要在项⽬中加⼊VueRouter，在项⽬配置填写的阶段 <code>Install vue-touter </code>？填写 Y(Yes)。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/q96jse.png" style="zoom:50%;" />
+
+<p>就这么简单，VueCLI2 构建项⽬过程中就可以加⼊ VueRouter。</p>
+<h3 id="四、VueCLI3-项⽬构建过程中安装VueRouter"><a href="#四、VueCLI3-项⽬构建过程中安装VueRouter" class="headerlink" title="四、VueCLI3+项⽬构建过程中安装VueRouter"></a>四、VueCLI3+项⽬构建过程中安装VueRouter</h3><p>在 Vue CLI3+ 项⽬构建功能选择的界⾯，通过按 Up、Down 键上下移动，按空格键选择 Router 选项。选中之后，具体的功能特性前⽅会有星号标识。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/knVJ6F.png" style="zoom:50%;" />
+
+<p>在后续的构建过程中，Vue CLI3 脚⼿架还会提示你选择前端路由的实现模式：</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/f6bB6m.png" style="zoom:50%;" />
+
+<ul>
+<li>Yes 代表使⽤ history 模式实现 vueRouter 前端路由</li>
+<li>No 表示使⽤ hash 模式实现 VueRouter 前端路由</li>
+</ul>
+<h2 id="3-VueRouter开发第⼀个Demo"><a href="#3-VueRouter开发第⼀个Demo" class="headerlink" title="3.VueRouter开发第⼀个Demo"></a>3.VueRouter开发第⼀个Demo</h2><h3 id="⼀、本节⼤纲-2"><a href="#⼀、本节⼤纲-2" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
+<li>使⽤ VueRouter 开发第⼀个 demo</li>
+<li>对 demo 进⾏样式美化</li>
+<li>处理⼀个细节问题</li>
+</ul>
+<h3 id="⼆、使⽤VueRouter开发第⼀个demo"><a href="#⼆、使⽤VueRouter开发第⼀个demo" class="headerlink" title="⼆、使⽤VueRouter开发第⼀个demo"></a>⼆、使⽤VueRouter开发第⼀个demo</h3><p>第⼀个示例很简单，创建⼀个单⻚⾯应⽤。这个单⻚⾯应⽤有两个路由及两个组件：当点击 <code>/home</code> 路由的标签元素展示⽤户主⻚⾯(组件Home)，当点击<code>/about</code>展示”关于⻚⾯”(组件 About )。这⾥我们先不管样式及布局。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/FE5ato.png" style="zoom:50%;" />
+
+<p>要使⽤ VueRouter 通常有三部曲：</p>
+<h4 id="第⼀步：创建被路由的组件"><a href="#第⼀步：创建被路由的组件" class="headerlink" title="第⼀步：创建被路由的组件"></a>第⼀步：创建被路由的组件</h4><p>创建两个单⽂件组件，⼀个是 About.vue ,⼀个是 Home.vue 。两个组件的内容很简单，模板⾥⾯分别写⼀个 h1 标题，书写不同的内容⽂本。为每⼀个组件起⼀个 name ，并将组件以模块的形式导出 export default 。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/RV5uLO.png" style="zoom:50%;" />
+
+
+
+<h4 id="第⼆步：配置组件与路由路径的映射关系"><a href="#第⼆步：配置组件与路由路径的映射关系" class="headerlink" title="第⼆步：配置组件与路由路径的映射关系"></a>第⼆步：配置组件与路由路径的映射关系</h4><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/b7vZ0n.png" style="zoom:50%;" />
+
+<ul>
+<li>⾸先通过 import 将⼦组件 Home 和 About 引⼊到路由配置⽂件⾥⾯</li>
+<li>配置路由 path 路径与 component 组件之间的关系</li>
+</ul>
+<h4 id="第三步：在⽗组件中使⽤路由及⼦组件"><a href="#第三步：在⽗组件中使⽤路由及⼦组件" class="headerlink" title="第三步：在⽗组件中使⽤路由及⼦组件"></a>第三步：在⽗组件中使⽤路由及⼦组件</h4><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Ip4Nhf.png" style="zoom:50%;" />
+
+<ul>
+<li>router-link 标签可以理解为 vue 框架语法中的标签，实际上在渲染成 html 之后它就是⼀个按标签，⽤于实现路由规则。to 属性通过路由的 path 配置映射对应的组件。</li>
+<li>router-view 标签作为路由组件的展示出⼝，根据路由的 path 不同，这个位置替换成不同的组件内容。</li>
+</ul>
+<p><strong>显示效果</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/lJdYs0.png" style="zoom:50%;" />
+
+
+
+<h3 id="三、对demo进⾏样式美化"><a href="#三、对demo进⾏样式美化" class="headerlink" title="三、对demo进⾏样式美化"></a>三、对demo进⾏样式美化</h3><p>我们做的例⼦有点太丑了，可以利⽤开源的组件，开箱即⽤，提⾼我们的开发效率，⽽且样式也⽐较好看。</p>
+<p>在 Vue 后端管理系统中经常⽤到的 UI 组件库有 View UI(iVuew) 、Element UI等，本节以 View UI(iVuew) 为例，讲解⼀下第三⽅组件库的使⽤。 </p>
+<p>⾸先我们需要安装 View UI ，使⽤如下的命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> view-design --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>然后在单⻚⾯应⽤的 main.js 中引⼊ ViewUI 并使⽤ ViewUI。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/9xAc1s.png" style="zoom:50%;" />
+
+<p>最后，我们登录 ViewUI 官⽹(发⽂环境所限，搜索引擎⾃⾏查找)，找到⼀个喜欢的布局样式，点击 show Code复制代码。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/0rARcM.png" style="zoom:50%;" />
+
+<p>因为 app.vue 是我们路由布局的⽗组件，所以将 template 代码粘贴到 App.vue 的 template ⾥⾯，注意保留 id 为 app 的 div。script 脚本和style样式代码也要粘贴到⽂件⾥⾯。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/YQUv0j.png" style="zoom:50%;" />
+
+<ul>
+<li>图中的 Layout 是布局组件。可以嵌套使⽤。Sider 是侧边栏组件。</li>
+<li>Menu 是菜单组件，MenuItem 是菜单项组件，Icon 是图标组件。显然 router-link 标签应该放到 MenuItem ⾥⾯。</li>
+<li>Content 是内容组件，显然我们的 router-view 标签应该放到内容组件⾥⾯。</li>
+</ul>
+<p>最终的实现效果如下：点击对应的菜单，显示对应的内容。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/B8W0MC.png" style="zoom:50%;" />
+
+
+
+<h2 id="4-路由重定向与组件懒加载"><a href="#4-路由重定向与组件懒加载" class="headerlink" title="4.路由重定向与组件懒加载"></a>4.路由重定向与组件懒加载</h2><h3 id="⼀、本节⼤纲-3"><a href="#⼀、本节⼤纲-3" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
+<li>路由重定向</li>
+<li>路由组件懒加载</li>
+</ul>
+<h3 id="⼆、路由重定向"><a href="#⼆、路由重定向" class="headerlink" title="⼆、路由重定向"></a>⼆、路由重定向</h3><p>上节我们实现的例⼦仍然存在⼀个问题，那就是当我们访问项⽬根路径时，Content 内没有显示任何的 router-view 组件内容。我们点击了左侧菜单中的“我的”，右侧内容区才会显示：“这⾥是主⻚”，如下图：</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/mCrIEU.png" style="zoom:50%;" />
+
+<p>但是⼀个正常的应⽤习惯，在访问项⽬时候 Content 区域就应该默认显示 Home 主⻚组件，那么应该怎样做呢？只需要按照下⾯的⽅法在 router/index.js ⽂件的路由规则配置加上⼀个路由的重定向配置：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+ <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span><span class="token string">'/'</span><span class="token punctuation">,</span>              <span class="token comment">//当访问根路径的时候</span>
+    <span class="token literal-property property">redirect</span><span class="token operator">:</span><span class="token string">'/home'</span>        <span class="token comment">// 重定向到redirect配置路径</span>
+ <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+ <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/home'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">component</span><span class="token operator">:</span> Home
+ <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+ <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/about'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">component</span><span class="token operator">:</span> About
+ <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>此时当我们通过访问项⽬根路径 <code>/</code> 时候，就会重定向到 <code>/home</code> 显示 Home 主⻚内容：这⾥是主⻚。并且浏览器地址栏不再是根路径 <code>/</code>，⽽是 <code>/home</code> 路径。路由路径 path 与⻚⾯显示组件内容是统⼀的。</p>
+<h3 id="三、路由组件的懒加载"><a href="#三、路由组件的懒加载" class="headerlink" title="三、路由组件的懒加载"></a>三、路由组件的懒加载</h3><p>在前⾯的章节，我们已经给⼤家讲解了什么是单⻚⾯应⽤（SPA）。我们也使⽤组件和前端路由开发了⼀个例⼦，所有的组件代码最终都将打包到⼀个 js ⽂件发布。当浏览器第⼀次访问应⽤时这个js被浏览器加载，并渲染出⼀个 HTML 视图。如图中红⾊边框的内容。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/kuAdvg.png" style="zoom:50%;" />
+
+<p>你有没有想过这样⼀个问题：所有的前端组件代码⼀次性加载，如果组件特别多的话有可能因为⽹络原因导致加载缓慢，从⽽出现<strong>⻚⾯⽩屏</strong>的现象。</p>
+<p>那么，我们能不能把组件按需加载呢？也就是说当组件被路由切换到的时候再去加载，当然是可以的， 这个实现的名字就叫做<strong>懒加载或者延迟加载</strong>。如图中⿊⾊边框中的组件，可以适当的对其中⼀些组件进⾏懒加载。</p>
+<p>那么什么样的组件最适合使⽤懒加载？就是那些使⽤频率相对较低的组件，⽐较适合使⽤懒加载。⾸屏组件不适合懒加载，⽐如：我们例⼦中的 Home 组件。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/YzwjMx.png" style="zoom:50%;" />
+
+<p>可以看到在上图红⾊区域中，我们使⽤ ES6 语法对 About 组件实现了懒加载，代码如下：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">About</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span><span class="token keyword">import</span><span class="token punctuation">(</span> <span class="token string">'../components/About'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>然后使⽤ <code>run build server</code> 命令对项⽬进⾏打包，最终的打包结果多出⼀组两个 js ⽂件，就是因为 About 组件被单独打包了。</p>
+<p>打开⽂件内容查看⼀下，可以确认就是 About 组件被单独打包的结果，从⽽实现 js ⽂件组件的按需加 载。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/vEFtwy.png"></p>
+<h2 id="5-嵌套路由的配置实现"><a href="#5-嵌套路由的配置实现" class="headerlink" title="5.嵌套路由的配置实现"></a>5.嵌套路由的配置实现</h2><h3 id="⼀、本节⼤纲-4"><a href="#⼀、本节⼤纲-4" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
+<li>什么是嵌套路由</li>
+<li>嵌套路由的实现</li>
+<li>需要特别记忆理解的规则</li>
+<li>默认⼦路由</li>
+</ul>
+<h3 id="⼆、什么是嵌套路由"><a href="#⼆、什么是嵌套路由" class="headerlink" title="⼆、什么是嵌套路由"></a>⼆、什么是嵌套路由</h3><p>在前⾯章节内容⾥，我们讲了⼀个使⽤ VueRouter 的例⼦。内容很简单，当浏览器 url 路径切换到 <code>/home</code> 的时候显示 Home 主⻚组件，当浏览器 url 路径切换到 <code>/about</code> 的时候显示 About 关于组件， 如下图中左侧的图示所示。那么在实际的开发中，路由的映射关系和⽹⻚视图不只是平⾯的，组件⾥⾯仍有⼦组件，路径下⾯还有⼦路径，如下图中的右侧的图示所示。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/4bBIxP.png" style="zoom:50%;" />
+
+<p>这⼀节，就来学习⼀下嵌套路由与嵌套组件的之间的映射的⼀个例⼦。也就是说： </p>
+<ul>
+<li>当访问 <code>/home/article</code> 的时候，Home 组件中的默认 router-view 显示 Article ⽂章组件</li>
+<li>当访问 <code>/home/news</code> 的时候，Home 组件中的默认 router-view 显示 News 新闻组件</li>
+</ul>
+<h3 id="三、嵌套路由的实现"><a href="#三、嵌套路由的实现" class="headerlink" title="三、嵌套路由的实现"></a>三、嵌套路由的实现</h3><p>开发的套路仍然是三部曲：</p>
+<h4 id="第⼀步：创建被路由的组件-1"><a href="#第⼀步：创建被路由的组件-1" class="headerlink" title="第⼀步：创建被路由的组件"></a>第⼀步：创建被路由的组件</h4><p>创建两个单⽂件组件，⼀个是 Article.vue, ⼀个是 News.vue。两个组件的内容仍然很简单，模板⾥⾯分别写⼀个 h1 标题，书写不同的内容⽂本。为每⼀个组件起⼀个 name，并将组件以模块的形式导出 export default。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/0EzxV0.png" style="zoom:50%;" />
+
+
+
+<h4 id="第⼆步：配置组件与路由路径的映射关系-1"><a href="#第⼆步：配置组件与路由路径的映射关系-1" class="headerlink" title="第⼆步：配置组件与路由路径的映射关系"></a>第⼆步：配置组件与路由路径的映射关系</h4><p>图中的⻩⾊代码，为本节新增的代码。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Se8rC6.png" style="zoom:50%;" />
+
+<ul>
+<li>⾸先需要将 Article 组件和 News 组件 import 到路由关系配置⽂件⾥⾯</li>
+<li>然后在上⼀节原 home 路由及组件的映射条⽬⾥⾯，加上 children 数组属性表示⼦路由组件之间的映射关系</li>
+<li>另外需要注意，⼦组件路由的 path 配置不要加斜杠 <code>/</code></li>
+</ul>
+<h4 id="第三步：在⽗组件中加⼊router-view"><a href="#第三步：在⽗组件中加⼊router-view" class="headerlink" title="第三步：在⽗组件中加⼊router-view"></a>第三步：在⽗组件中加⼊router-view</h4><p>在上⾯的需求中，我们已经明确了⽂章组件 Article 和新闻组件 News，都是 Home 组件的⼦组件。 所以我们在 Home.vue ⽂件中加⼊router-view。代码如下：</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/5DAoUM.png" style="zoom:50%;" />
+
+<ul>
+<li>⾸先需要注意，当⼀个⽗组件有多个⼦组件的时候，要在 template ⾥⾯加上⼀个唯⼀的根标签。如图中的 div#home。</li>
+<li>另外注意：路由 router-link 的 to 属性，需要写完整的路由路径，如：<code>/home/article</code>，不能写 <code>/article</code></li>
+</ul>
+<p>在上⼀节的代码的基础之上，最终实现效果如下：</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/M8pQJx.png" style="zoom:50%;" />
+
+<ul>
+<li>当点击“⽂章”的时候，显示：这⾥是⽂章组件</li>
+<li>当点击“新闻”的时候，显示：这⾥是新闻组件</li>
+</ul>
+<h3 id="四、需要特别记忆理解的规则"><a href="#四、需要特别记忆理解的规则" class="headerlink" title="四、需要特别记忆理解的规则"></a>四、需要特别记忆理解的规则</h3><ul>
+<li><strong>需要特别注意的⼀点是</strong>：根据不同的需求，router-link 可以定义在任何组件内，不⼀定⾮要定义在对应的 router-view 的同⼀个⽗组件⾥⾯。只要 router-link 和 router-view 同时在浏览器内显示，在任何其他组件内触发 router-link 都会导致其对应的 router-view 发⽣组件切换。</li>
+<li><strong>那么什么是 router-link 对应的 router-view？</strong><ul>
+<li>⽐如：<code>to=&quot;/home&quot;</code> 对应的 router-view，就是 App.vue 中定义的的 router-view。</li>
+<li>⽐如：<code>to=&quot;/home/news&quot;</code> 对应的 router-view，就是 Home.vue 中定义的 router-view。</li>
+</ul>
+</li>
+</ul>
+<h3 id="五、默认⼦路由"><a href="#五、默认⼦路由" class="headerlink" title="五、默认⼦路由"></a>五、默认⼦路由</h3><p>在上⾯的实现中，有⼀个问题，那就是当访问 <code>/home</code> 路径时，只显示出上图中的红⾊边框部分，没有显示出绿⾊边框的部分。也就是⼦组件不会默认显示出来，⽽是在点击了“⽂章”或“新闻”之后，对应的⼦组件才显示出来。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/58nDUy.png" style="zoom:50%;" />
+
+<p>在代码中加⼊空字符串的 path ⼦路由配置，指向 Article 组件，这样当访问到 <code>home</code> 路径的时候就默认 将 Article 组件显示出来了。</p>
+<h2 id="6-动态路由的配置与实现"><a href="#6-动态路由的配置与实现" class="headerlink" title="6.动态路由的配置与实现"></a>6.动态路由的配置与实现</h2><h3 id="⼀、本节⼤纲-5"><a href="#⼀、本节⼤纲-5" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
+<li>动态路由简介</li>
+<li>实现⼀个动态路由的例⼦</li>
+<li>动态路由的多段匹配</li>
+<li>动态路由的正则匹配</li>
+</ul>
+<h3 id="⼆、动态路由"><a href="#⼆、动态路由" class="headerlink" title="⼆、动态路由"></a>⼆、动态路由</h3><p>之前所讲的路由的例⼦都是⼀对⼀的关系，也就是说：⼀个 url 匹配⼀个路由和⼀个组件。⽐如：当浏览器 url 路径切换到 <code>/home</code> 的时候显示 Home 主⻚组件，当浏览器 url 路径切换到 <code>/about</code> 的时候显示 About 关于组件。</p>
+<p>在实际的开发过程中，我们通常需要多个 url 匹配同⼀个路由和组件，如下图所示：</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/vMEvoj.png" style="zoom:50%;" />
+
+<p>如上图所示，动态路由有如下2层含义：</p>
+<ul>
+<li>动态路由可以传递参数，如上图中的 id，根据不同的参数组件可以显示不同的内容。如上图：传递参数1显示 id=1 的⽂章，传递2显示 id=2 的⽂章。</li>
+<li>动态路由可以实现路由导航，也就是匹配⼀个路由规则，从⽽显示该路由规则对应的组件。如上图中的 Article 组件的显示。</li>
+</ul>
+<h3 id="三、实现⼀个动态路由的例⼦"><a href="#三、实现⼀个动态路由的例⼦" class="headerlink" title="三、实现⼀个动态路由的例⼦"></a>三、实现⼀个动态路由的例⼦</h3><p>在上⼀节的代码基础上实现上图所示的动态路由。 </p>
+<p>⾸先，在 router/index.js ⽂件中修改组件与路由之间的映射关系配置，注意 id 是⼀个路由参数，前⾯需要加上冒号</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/dr9vn4.png" style="zoom:50%;" />
+
+<p>Home 组件是 Article 的⽗组件。修改 Home.vue 中的 router-link，router-link 默认渲染为 html 的超链接 a 标签，从⽽实现路由的触发。注意在路由中传递了参数 id 分别是1和2，⽤以匹配上图中的路由规则。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/qQWLnm.png" style="zoom:50%;" />
+
+<p>Article 组件是 Home 组件的⼦组件。</p>
+<p>在 Article.vue 中接收参数 id，显示：这⾥是 <code>id=&#123;&#123;$route.params.id&#125;&#125;</code> 的⽂章组件。</p>
+<p><strong>$route对象代表当前路由</strong>，params 是代表参数，id 是路由参数的名称，通过这种⽅式获取参数 id 的值。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/M44XHu.png" style="zoom:50%;" />
+
+<p>实现效果如下：当点击 <code>id=1的⽂章</code> 时，组件内容显示：这⾥是 <code>id=1</code> 的⽂章组件；当点击 <code>id=2的⽂章</code> 时，组件内容显示：这⾥是<code> id=2</code> 的⽂章组件；</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/XY7Jjg.png" style="zoom:50%;" />
+
+
+
+<h3 id="四、动态路由的多段匹配"><a href="#四、动态路由的多段匹配" class="headerlink" title="四、动态路由的多段匹配"></a>四、动态路由的多段匹配</h3><table>
+<thead>
+<tr>
+<th>路由规则</th>
+<th>匹配url</th>
+<th>$route.params对象</th>
+<th>匹配规则含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/article/:id</td>
+<td>/article/1</td>
+<td>{id:1}</td>
+<td>id=1 的⽂章</td>
+</tr>
+<tr>
+<td>/article/:id/reader/: num</td>
+<td>/article/1/reader/ 2</td>
+<td>{id:1,num:2}</td>
+<td>id=1 的⽂章的第2位读者信息</td>
+</tr>
+</tbody></table>
+<p>如上表所示：第⼀条路由匹配是⼀个单段的路由匹配，第⼆个路由匹配是⼀个多段路由匹配。多段的路由匹配可以实现更为复杂的路由匹配规则和传递更多的参数，表达更为丰富的含义。</p>
+<h3 id="五、动态路由的正则匹配"><a href="#五、动态路由的正则匹配" class="headerlink" title="五、动态路由的正则匹配"></a>五、动态路由的正则匹配</h3><p>动态路由⽀持正则匹配，举例：</p>
+<table>
+<thead>
+<tr>
+<th>路由规则</th>
+<th>匹配规则含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/article/:id</td>
+<td>参数 id 必须传，参数可以是数字也可以是字符串。即 /article/1 和 /article/abc 都匹配这个路由规则</td>
+</tr>
+<tr>
+<td>/article/:id?</td>
+<td>参数 id 可以传，也可以不传。即 /article/1 和 /article 都匹配这个路由规则</td>
+</tr>
+<tr>
+<td>/article/:id(\d+)</td>
+<td>参数 id 必须传，并且 id 只能是数字。如：/article/1</td>
+</tr>
+<tr>
+<td>/article/*</td>
+<td>星号表示匹配任意路径，即：/article/abc 和 /article/abc/def 都可以匹配这条路由规则</td>
+</tr>
+</tbody></table>
+<p>当然，你也可以根据⾃⼰的需求定义正则规则，正则规则可以千变万化。 </p>
+<p>如果⼀个 url 路径匹配了多个路由规则怎么办？答案是：哪个路由先定义的，哪个路由的匹配优先级就更⾼，所以在使⽤正则路由的时候要考虑好路由定义的先后顺序。</p>
+<h2 id="7-命名路由与命名视图"><a href="#7-命名路由与命名视图" class="headerlink" title="7.命名路由与命名视图"></a>7.命名路由与命名视图</h2><h3 id="⼀、本节⼤纲-6"><a href="#⼀、本节⼤纲-6" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
+<li>命名路由</li>
+<li>命名路由与动态路由</li>
+<li>命名视图</li>
+</ul>
+<h3 id="⼆、命名路由"><a href="#⼆、命名路由" class="headerlink" title="⼆、命名路由"></a>⼆、命名路由</h3><ul>
+<li>在本专栏之前的章节实现的路由规则，都是根据path路径匹配对应的组件，如下图中⻩⾊边框定义的部分。</li>
+<li>命名路由就是为路由定义规则起⼀个名字，并在路由导航的时候根据名字进⾏导航，即：根据路由名字进⾏导航和组件的切换。如下图中的红⾊边框定义的部分。</li>
+</ul>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/DF5pnt.png" style="zoom:50%;" />
+
+<p>上图中右侧部分为路由规则的定义，即 router/index.js ⾥⾯定义的路由规则。</p>
+<p> 那么有了路由规则，我们该如何使⽤路由规则呢？看下图中的代码。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/MIdHpk.png" style="zoom:50%;" />
+
+<ul>
+<li>上图中被注释掉的代码，是之前的实现，是通过匹配 path 实现路由导航及组件的切换。</li>
+<li>上图中⻩⾊框的代码，使⽤了命名路由，根据 name 的定义与路由规则定义中那么进⾏匹配，从⽽实 现路由导航及组件的切换。</li>
+<li>注意：命名路由使⽤ v-bind 的对象语法，to 属性之前加上⼀个冒号(冒号等于 v-bind 指令)，to 属性内容是⼀个对象</li>
+</ul>
+<p><strong>命名路由与 path 匹配的路由实现的效果是⼀样的</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/LedlhM.png" style="zoom:50%;" />
+
+
+
+<h3 id="三、命名路由与动态路由"><a href="#三、命名路由与动态路由" class="headerlink" title="三、命名路由与动态路由"></a>三、命名路由与动态路由</h3><p>之前的章节也讲过动态路由，所谓的动态路由就是：根据传递参数的不同，在同⼀组件上显示不同的内容。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/pIKpul.png" style="zoom:50%;" />
+
+<ul>
+<li>上图代码中第⼀段使⽤了 path 匹配规则的路由，都导航到 Article 组件，但是根据 id 不同显示不同的⽂章</li>
+<li>上图代码中第⼆段使⽤了命名路由，也实现了与动态路由⼀样的效果，但是传递参数的⽅式有所不同</li>
+</ul>
+<p>上⾯两段路由导航代码匹配到的路由定义规则如下：</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/HfMIyr.png" style="zoom:50%;" />
+
+
+
+<h3 id="四、命名视图"><a href="#四、命名视图" class="headerlink" title="四、命名视图"></a>四、命名视图</h3><p>顾名思义，命名视图就是给视图组件起⼀个名字，但如何使⽤命名视图才是重点。 </p>
+<p>为了更好地理解命名视图的使⽤，我们先看下⾯的这张图。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/UCXEfU.png" style="zoom:50%;" />
+
+<p>之前讲过路由导航与内容展示，都是<strong>多个 router-link 对应⼀个 router-view</strong>。⽐较适合实现上⾯的视图，单击菜单⼀、⼆、三、四，都会将菜单项对应的导航内容显示到内容显示区域。</p>
+<p>但是这样的组件实现⽅式有⼀个⾮常⼤的弊端就是：只有⼀个 router-view，也就是说只有⼀个组件的展示出⼝，这将很⼤程度上影响我们的应⽤开发布局的丰富性。为了解决这个问题我们就需要使⽤到<strong>命名视图</strong>。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/71vGuh.png" style="zoom:50%;" />
+
+<p>如上图所示，当⼀个⼤的视图组件中有三个 router-view 的时候，该如何区分哪个 router-view 显示哪⼀个组件？如下图代码使⽤命名视图（为了更清晰的显示核⼼代码，没有加布局样式）：</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/I5Icd1.png" style="zoom:50%;" />
+
+<ul>
+<li>如果不为视图起名，将默认显示路由规则中的 default 组件</li>
+<li>如果为视图起名，将显示路由规则中名字对应的组件</li>
+</ul>
+<h2 id="8-编程式导航"><a href="#8-编程式导航" class="headerlink" title="8.编程式导航"></a>8.编程式导航</h2><h3 id="⼀、本节⼤纲-7"><a href="#⼀、本节⼤纲-7" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
+<li>编程式导航的例⼦</li>
+<li>编程式导航API详解</li>
+</ul>
+<h3 id="⼆、编程式导航的例⼦"><a href="#⼆、编程式导航的例⼦" class="headerlink" title="⼆、编程式导航的例⼦"></a>⼆、编程式导航的例⼦</h3><p>在之前的章节中，我们都是使⽤的⽅式实现路由的导航与组件的切换，这种⽅式被称为<strong>声明式导航</strong>。在实际的开发过程中，还可以使⽤编程式导航的⽅式来实现（也就是通过编写 JS 代码的⽅式 实现）。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/7peMN2.png" style="zoom:50%;" />
+
+<p>上图是前⾯学习过的 path 路由规则和命名路由规则的示例图。</p>
+<p> 下⾯就使⽤<strong>编程式导航</strong>来实现示例图所呈现的例⼦，需求就是：当点击 <code>/home</code> 路由的标签元素展示⽤户主⻚⾯(组件 Home )，当点击 <code>/about</code> 路由的标签元素展示 “关于⻚⾯” (组件 About )。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Ov9fl9.png" style="zoom:50%;" />
+
+<ul>
+<li>上图中⽤编程式导航替换了声明式导航（图中绿⾊被注释掉的代码）</li>
+<li>图中⻩⾊及红⾊框选代码为新增的编程式导航的代码</li>
+<li>通过<code> this.$router</code> 获取当前的路由实例，push ⽅法实现路由导航</li>
+<li>实现需求就是：当点击 <code>/home</code> 路由对应的按钮导航⾄⽤户主⻚⾯(组件 Home )，当点击 <code>/about</code> 对应的按钮导航⾄”关于⻚⾯”(组件About)</li>
+</ul>
+<p>从实现的代码量上看，似乎声明式导航⽐编程式导航更易⽤。</p>
+<p>但是在实际的应⽤开发过程中，编程式导航更容易实现复杂对象参数及变量参数的传递。如下代码：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//编程式导航：命名路由的参数传递</span>
+router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'article'</span><span class="token punctuation">,</span> <span class="token literal-property property">params</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">articleId</span><span class="token operator">:</span><span class="token string">'123'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>    <span class="token comment">// ->/article/123</span>
+<span class="token comment">//编程式导航：动态路由</span>
+<span class="token keyword">let</span> articleId <span class="token operator">=</span> <span class="token string">"123"</span><span class="token punctuation">;</span>
+router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/article/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>articleId<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>            <span class="token comment">// ->/article/123</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="三、编程式导航API详解"><a href="#三、编程式导航API详解" class="headerlink" title="三、编程式导航API详解"></a>三、编程式导航API详解</h3><p>VueRouter 的编程式导航是通过三个⽅法来实现的：</p>
+<ul>
+<li>router.push ⽅法：最常⽤的编程式路由导航⽅法</li>
+<li>router.replace ⽅法</li>
+<li>router.go ⽅法</li>
+</ul>
+<p>看到这三个⽅法有没有感觉到⽐较亲切？之前单⻚⾯应⽤的时候⽤到了这样的⼀张图：</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/YSoRtb.png" style="zoom:50%;" />
+
+<p>结合这张图，我们可以这样理解 Vue ⻚⾯视图组件的显示及路由导航：</p>
+<ul>
+<li>Vue 维护着关于组件的栈的数据结构，⼀个栈类似于⼀个桶，默认情况下只有栈顶部的组件才被渲染到浏览器⻚⾯上。</li>
+<li>当使⽤ push ⽅法导航⼀个组件时，组件被压⼊栈中，处于栈的最顶层。如上图中的上半部分，组件3 压在组件2 的上层，所以浏览器显示组件3。</li>
+<li>当使⽤ replace ⽅法导航⼀个组件时，该组件替换掉栈中最顶层的组件。如上图中下半部分，组件2 换成组件3 ，所以浏览器显示组件3。</li>
+<li>默认情况下栈顶部的组件才被渲染到浏览器⻚⾯上，但是当使⽤ go ⽅法的时候，就是在调整栈的顶部指针，指针指到哪个组件哪个组件就被显示出来。go (正数值)是向栈的顶部移动，go (负数值)是向栈的底部移动。当正负值位移超出栈的容量时，go ⽅法调⽤失败。</li>
+</ul>
+<h3 id="附录：源码"><a href="#附录：源码" class="headerlink" title="附录：源码"></a>附录：源码</h3><blockquote>
+<p>App.vue</p>
+</blockquote>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">></span>
+  <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> <span class="token operator">&lt;</span>router<span class="token operator">-</span>link to<span class="token operator">=</span><span class="token string">"/home"</span><span class="token operator">></span><span class="token operator">&lt;</span>h2<span class="token operator">></span>我的<span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>link<span class="token operator">></span>
+    <span class="token operator">&lt;</span>router<span class="token operator">-</span>link to<span class="token operator">=</span><span class="token string">"/about"</span><span class="token operator">></span><span class="token operator">&lt;</span>h2<span class="token operator">></span>关于<span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>link<span class="token operator">></span> <span class="token operator">--</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>button @click<span class="token operator">=</span><span class="token string">"toHome"</span><span class="token operator">></span><span class="token operator">&lt;</span>h2<span class="token operator">></span>⾸⻚<span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+    <span class="token operator">&lt;</span>button @click<span class="token operator">=</span><span class="token string">"toAbout"</span><span class="token operator">></span><span class="token operator">&lt;</span>h2<span class="token operator">></span>关于<span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+    <span class="token operator">&lt;</span>router<span class="token operator">-</span>view<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>view<span class="token operator">></span>    
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+    <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+        <span class="token literal-property property">name</span><span class="token operator">:</span><span class="token string">"App"</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token function">toHome</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">"/home"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+           <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token function">toAbout</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">"/about"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+           <span class="token punctuation">&#125;</span>
+       <span class="token punctuation">&#125;</span>
+   <span class="token punctuation">&#125;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="9-路由的参数传递与获取"><a href="#9-路由的参数传递与获取" class="headerlink" title="9.路由的参数传递与获取"></a>9.路由的参数传递与获取</h2><h3 id="⼀、本节⼤纲-8"><a href="#⼀、本节⼤纲-8" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
+<li>params 与 query 参数的区别</li>
+<li>params 参数传递⽅式详解</li>
+<li>query 参数的传递⽅式详解</li>
+<li><code>this.$route</code> 与 <code>this.$router </code>的区别</li>
+<li>使⽤ props 接收参数(推荐)</li>
+</ul>
+<h3 id="⼆、params与query参数的区别"><a href="#⼆、params与query参数的区别" class="headerlink" title="⼆、params与query参数的区别"></a>⼆、params与query参数的区别</h3><p>在本专栏前⾯的章节实际已经为⼤家介绍过动态路由，动态路由是路由传参中的⼀种，也就是 params 传参。还有⼀种⽅式就是 query 参数传参。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">&#123;</span>  
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"article"</span><span class="token punctuation">,</span>  
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/article/:id?'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">component</span><span class="token operator">:</span> Article
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>先来看⼀下上⾯代码定义的路由规则分为两部分，⼀部分是 name 代表命名路由规则，⼀部分是 path 带 id 参数代表动态路由规则（后⾯加⼀个问号表示 id 参数可传可不传），匹配命名路由和动态路由其中⼀个规则，就会导航到 Article 组件。</p>
+<p>针对上⾯的代码定义的路由规则，介绍两种参数传递⽅式的区别：</p>
+<ul>
+<li>params ：/article/123，/article/789 ，这⾥的 id，123，789 是参数，被称为 params 参数。</li>
+<li>query：/article?id=123 ，/article?id=456 ，这⾥的 id=123，id=456 是参数，被称为 query 参数。</li>
+</ul>
+<p>这两种⽅式结合动态路由、命名路由，再结合编程式导航和声明式导航，所以2乘2乘2⼀共有⼋种传递参数的⽅式。</p>
+<h3 id="三、params参数传递⽅式详解"><a href="#三、params参数传递⽅式详解" class="headerlink" title="三、params参数传递⽅式详解"></a>三、params参数传递⽅式详解</h3><p>声明式导航 params 传参</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>id<span class="token operator">=</span><span class="token number">2</span>参数，动态路由的实现⽅式 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>router<span class="token operator">-</span>link to<span class="token operator">=</span><span class="token string">"/article/2"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>h2<span class="token operator">></span>id<span class="token operator">=</span><span class="token number">2</span>的⽂章<span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>link<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>id<span class="token operator">=</span><span class="token number">2</span>参数，命名路由的实现⽅式 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>router<span class="token operator">-</span>link <span class="token operator">:</span>to<span class="token operator">=</span><span class="token string">"&#123;name:'article', params: &#123; id: 2 &#125;&#125;"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>h2<span class="token operator">></span>id<span class="token operator">=</span><span class="token number">2</span>的⽂章<span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>link<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>编程式导航 params 传参</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//id=2参数：命名路由的实现⽅式</span>
+<span class="token comment">//(name与params属性结合使⽤)</span>
+router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'article'</span><span class="token punctuation">,</span> <span class="token literal-property property">params</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">id</span><span class="token operator">:</span><span class="token string">'2'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>  
+<span class="token comment">//id=2参数：动态路由的实现⽅式</span>
+router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/article/2'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>            
+<span class="token comment">// id=2参数：将id参数定义为⼀个变量，如articleId。</span>
+<span class="token comment">//这样的使⽤⽅式更加灵活</span>
+<span class="token keyword">let</span> articleId <span class="token operator">=</span> <span class="token string">"2"</span><span class="token punctuation">;</span>
+router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/article/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>articleId<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>          
+<span class="token comment">//需要注意path和params属性不能⼀起使⽤</span>
+<span class="token comment">//否则params属性将被忽略,如下写法是错误的</span>
+router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/article'</span><span class="token punctuation">,</span> <span class="token literal-property property">params</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">id</span><span class="token operator">:</span><span class="token string">'2'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>不论是声明式导航还是编程式导航，不论是使⽤命名路由还是动态路由，上⾯的代码可以实现导航到 Article 组件并传递参数 id。那么在Article 组建中如何接收 params 参数 id 呢？就⽤下⾯的代码就可以：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="四、query参数的传递⽅式详解"><a href="#四、query参数的传递⽅式详解" class="headerlink" title="四、query参数的传递⽅式详解"></a>四、query参数的传递⽅式详解</h3><p>声明式导航 query 传参</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>id<span class="token operator">=</span><span class="token number">1</span>的query参数，path路径<span class="token constant">URL</span>传参的⽅式 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>router<span class="token operator">-</span>link to<span class="token operator">=</span><span class="token string">"/article?id=1"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>h2<span class="token operator">></span>id<span class="token operator">=</span><span class="token number">1</span>的⽂章<span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>link<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>id<span class="token operator">=</span><span class="token number">2</span>的query参数，命名路由的实现⽅式 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>router<span class="token operator">-</span>link <span class="token operator">:</span>to<span class="token operator">=</span><span class="token string">"&#123;name:'article', query: &#123; id: 1 &#125;&#125;"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>h2<span class="token operator">></span>id<span class="token operator">=</span><span class="token number">1</span>的⽂章<span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>link<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>编程式导航 query 传参</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//name命名路由传递query参数</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'article'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">query</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token string">'1'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//path路径URL传递query参数</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/article'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">query</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token string">'1'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
+ <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>上⾯的代码可以实现导航到 Article 组件并传递 query 参数 id。 </p>
+<p>那么在 Article 组建中如何接收 query 参数 id 呢？就⽤下⾯的代码就可以：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>query<span class="token punctuation">.</span>id <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="五、this-route与this-router的区别"><a href="#五、this-route与this-router的区别" class="headerlink" title="五、this.$route与this.$router的区别"></a>五、this.$route与this.$router的区别</h3><p>在上⽂中我们使⽤到了 <code>this.$route</code> 与 <code>this.$router</code> ，两者容易弄混，所以我们有必要仔细看⼀下⼆者都是什么。</p>
+<p>看下⾯的截图：</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/wjjPqf.png" style="zoom:50%;" />
+
+<p>图中信息可以看出：</p>
+<ul>
+<li>router 是⼀个 VueRouter 实例。管理项⽬整体路由的钩⼦，导航动作（如 push ），路由规则定义信息（图中蓝框）等信息。</li>
+<li>route 代表当前路由信息，该路由只保管本次导航的路由信息，如：路由的 name、path、params 参数、query 参数的信息。</li>
+</ul>
+<h3 id="六、使⽤props接收参数-推荐"><a href="#六、使⽤props接收参数-推荐" class="headerlink" title="六、使⽤props接收参数(推荐)"></a>六、使⽤props接收参数(推荐)</h3><p>在实际的项⽬开发中，不建议使⽤通过 <code>this.$route</code> 获取 query 和 params 参数，因为这限制了组件只有在路由传参的情况下才能使⽤，也就是限定了特定的 URL 下使⽤组件。</p>
+<p>实际上我们的组件的传参⽅式还有很多，⽐如前⾯讲过使⽤ props 接收⽗组件向⼦组件传递的数据。也就是说，如果我们希望组件在这两种情况下都能很好的使⽤，就不能⽤ <code>this.$route</code>，只能⽤ props 统⼀接收参数，从⽽去除组件与路由之间的耦合。</p>
+<p>使⽤ props 接收路由参数，都需要修改路由定义，有三种修改⽅式</p>
+<ul>
+<li>布尔模式</li>
+<li>对象模式</li>
+<li>箭头函数模式</li>
+</ul>
+<p>⾸先来看看布尔模式，也就是在路由规则定义的时候增加 props 为 true。这样当我们进⾏路由导航的时候，可以在导航⽬标组件⾥⾯直接使⽤ props 接收路由定义中带冒号的变量(如 id )，看下图所示：</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/td62QK.png" style="zoom:50%;" />
+
+<p>最终该组件的显示结果为：这⾥是 id=1 的⽂章组件。</p>
+<p>再来看⼀下对象模式，对象模式使⽤的场景⽐较窄，当我们需要给组件传递静态参数，也就是写死的参数的时候，会⽤到这个模式。</p>
+<p>如下图，我们在路由规则定义的时候给出⼀个静态参数 name ，然后在组件⾥⾯接收该参数。</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/XZ6j49.png" style="zoom:50%;" />
+
+<p>最终该组件的显示结果为：这⾥是 <code>id=aaa</code> 的⽂章组件。</p>
+<p>最后来看⼀下箭头函数模式，箭头函数是 ES6 语法，在本专栏前⾯的章节有介绍。布尔模式的缺点在于 props 只能接收 params 参数，⽆法接收 query 参数。⽽函数模式就不⼀样了，它既可以接收 params 参数，也可以接受 query 参数。下图是路由规则的定义：</p>
+<img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/75gRuY.png" style="zoom:50%;" />
+
+<p>最终该路由规则导航 Article 组件的显示结果为：这⾥是 <code>id=(route.query.id)</code> 的⽂章组件。 </p>
+<p>其中 (route.query.id) 为具体的参数值。除了可以使⽤ route.query，也可以使⽤ route.params 。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Syhan</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://syhan.top/2022/08/07/qian-duan-lu-you-vuerouter/">https://syhan.top/2022/08/07/qian-duan-lu-you-vuerouter/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Syhan</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Vue/">
+                                    <span class="chip bg-color">Vue</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'AVNgo1MkPTwL7cV43oGPHxhw-gzGzoHsz',
+        appKey: 'lf55o6FfffXGLW8yfINBc57H',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2022/08/07/qian-duan-lu-you-vuerouter/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="前端路由VueRouter">
+                        
+                        <span class="card-title">前端路由VueRouter</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Vue/" class="post-category">
+                                    Vue
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/08/04/vuecli/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="VueCLI">
+                        
+                        <span class="card-title">VueCLI</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Vue/" class="post-category">
+                                    Vue
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="song"
+                   id="480614067"
+                   fixed='true'
+                   autoplay='true'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.5'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+            
+                <div class="container row center-align"
+                    style="margin-bottom: 15px !important;">
+                    <div class="col s12 m8 l8 copy-right">
+                        Copyright&nbsp;&copy;
+                        
+                                <span id="year">
+                                    2022
+                                </span>
+                                
+                                    <span id="year">
+                                        2022
+                                    </span>
+                                    <a href="/about" target="_blank">
+                                        Syhan
+                                    </a>
+                                    |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+                                    |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery"
+                                        target="_blank">Matery</a>
+                                    <br>
+                                    
+                                        &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                                            class="white-color">
+                                            145.7k
+                                        </span>&nbsp;字
+                                        
+                                            
+                                                
+                                                    
+                                                        
+                                                            
+                                                                <span id="busuanzi_container_site_pv">
+                                                                    |&nbsp;<i
+                                                                        class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+                                                                        id="busuanzi_value_site_pv"
+                                                                        class="white-color"></span>&nbsp;次
+                                                                </span>
+                                                                
+                                                                    
+                                                                        <span id="busuanzi_container_site_uv">
+                                                                            |&nbsp;<i
+                                                                                class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+                                                                                id="busuanzi_value_site_uv"
+                                                                                class="white-color"></span>&nbsp;人
+                                                                        </span>
+                                                                        
+                                                                            <br>
+                                                                            
+                                                                                <span id="sitetime">载入运行时间...</span>
+                                                                                <script>
+                                                                                    function siteTime() {
+                                                                                        var seconds = 1000;
+                                                                                        var minutes = seconds * 60;
+                                                                                        var hours = minutes * 60;
+                                                                                        var days = hours * 24;
+                                                                                        var years = days * 365;
+                                                                                        var today = new Date();
+                                                                                        var startYear = "2022";
+                                                                                        var startMonth = "4";
+                                                                                        var startDate = "18";
+                                                                                        var startHour = "0";
+                                                                                        var startMinute = "0";
+                                                                                        var startSecond = "0";
+                                                                                        var todayYear = today.getFullYear();
+                                                                                        var todayMonth = today.getMonth() + 1;
+                                                                                        var todayDate = today.getDate();
+                                                                                        var todayHour = today.getHours();
+                                                                                        var todayMinute = today.getMinutes();
+                                                                                        var todaySecond = today.getSeconds();
+                                                                                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                                                                                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                                                                                        var diff = t2 - t1;
+                                                                                        var diffYears = Math.floor(diff / years);
+                                                                                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                                                                                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                                                                                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                                                                                            minutes);
+                                                                                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                                                                                            diffMinutes * minutes) / seconds);
+                                                                                        if (startYear == todayYear) {
+                                                                                            document.getElementById("year").innerHTML = todayYear;
+                                                                                            document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 ";
+                                                                                            // document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                                                                                            //     " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                                                                                        } else {
+                                                                                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                                                                                            document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                                                                                                " 天 ";
+                                                                                            // document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                                                                                            //     " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                                                                                        }
+                                                                                    }
+                                                                                    setInterval(siteTime, 1000);
+                                                                                </script>
+                                                                                
+                                                                                    <br>
+                                                                                    
+                                                                                        <span id="icp"><img
+                                                                                                src="/medias/icp.png"
+                                                                                                style="vertical-align: text-bottom;" />
+                                                                                            <a href="https://beian.miit.gov.cn"
+                                                                                                target="_blank">
+                                                                                                苏ICP备2022014590号
+                                                                                            </a>
+                                                                                        </span>
+                                                                                        
+                    </div>
+                    <div class="col s12 m4 l4 social-link social-statis">
+                        
+    <a href="https://github.com/shiyouhan" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Syhann@88.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2470752581" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2470752581" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="199"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
