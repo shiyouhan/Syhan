@@ -35,7 +35,7 @@
 
    <style>
     body{
-       background-image: url(http://img.syhan.top/uPic/I75zFh.jpg);
+       background-image: url(https://cdn.syhan.top/uPic/I75zFh.jpg);
        background-repeat:no-repeat;
        background-size:cover;
        background-attachment:fixed;
@@ -320,7 +320,7 @@
 
 
 
-    <div class="bg-cover pd-header post-cover" style="background-image: url('http://img.syhan.top/uPic/QGP0lG.jpg')">
+    <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.syhan.top/uPic/QGP0lG.jpg')">
         <div class="container" style="right: 0px;left: 0px;">
             <div class="row">
                 <div class="col s12 m12 l12">
@@ -496,7 +496,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="经典控件（二）：列表组件"><a href="#经典控件（二）：列表组件" class="headerlink" title="经典控件（二）：列表组件"></a>经典控件（二）：列表组件</h1><p><img src="http://img.syhan.top/uPic/969DcM.jpg"></p>
+                <h1 id="经典控件（二）：列表组件"><a href="#经典控件（二）：列表组件" class="headerlink" title="经典控件（二）：列表组件"></a>经典控件（二）：列表组件</h1><p><img src="https://cdn.syhan.top/uPic/969DcM.jpg"></p>
 <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><p>上一节我们一起学习了文本、图片和按钮这 3 大经典组件在 Flutter 中的使用方法，以及如何在实际开发中根据不同的场景，去自定义展示样式。</p>
 <p>文本、图片和按钮这些基本元素，需要进行排列组合，才能构成我们看到的 UI 视图。那么，当这些基本元素的排列布局超过屏幕显示尺寸（即超过一屏）时，我们就需要引入列表控件来展示视图的完整内容，并根据元素的多少进行自适应滚动展示。</p>
 <p>这样的需求，在 Android 中是由 ListView 或 RecyclerView 实现的，在 iOS 中是用 UITableView 实现的；而在 Flutter 中，实现这种需求的则是列表控件 ListView。</p>
@@ -517,9 +517,7 @@
 <p>备注：ListTile 是 Flutter 提供的用于快速构建列表项元素的一个小组件单元，用于 1~3 行（leading、title、subtitle）展示文本、图标等视图元素的场景，通常与 ListView 配合使用。上面这段代码中用到 ListTile，是为了演示 ListView 的能力。关于 ListTile 的具体使用细节，并不是本节重点，如果你想深入了解的话，可以参考<a target="_blank" rel="noopener" href="https://api.flutter.dev/flutter/material/ListTile-class.html">官方文档</a>。</p>
 </blockquote>
 <p>运行效果如下图所示：</p>
-<img src="http://img.syhan.top/uPic/bYKLtO.jpg" alt="图 1 ListView 默认构造函数" style="zoom:50%;" />
-
-
+<img src="https://cdn.syhan.top/uPic/bYKLtO.jpg" alt="图 1 ListView 默认构造函数" style="zoom:50%;" />
 
 <p>除了默认的垂直方向布局外，ListView 还可以通过设置 scrollDirection 参数支持水平方向布局。如下所示，我定义了一组不同颜色背景的组件，将它们的宽度设置为 140，并包在了水平布局的 ListView 中，让它们可以横向滚动：</p>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">ListView</span><span class="token punctuation">(</span>
@@ -535,7 +533,7 @@
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">)</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="http://img.syhan.top/uPic/df382224daeca7067d3a9c5acc5febac.gif" alt="图 2 水平滚动的 ListView" style="zoom:50%;" />
+<img src="https://cdn.syhan.top/uPic/df382224daeca7067d3a9c5acc5febac.gif" alt="图 2 水平滚动的 ListView" style="zoom:50%;" />
 
 <p>在这个例子中，我们一次性创建了 6 个子 Widget。但从图 2 的运行效果可以看到，由于屏幕的宽高有限，同一时间用户只能看到 3 个 Widget。也就是说，是否一次性提前构建出所有要展示的子 Widget，与用户而言并没有什么视觉上的差异。</p>
 <p>所以考虑到创建子 Widget 产生的性能问题，更好的方法是抽象出创建子 Widget 的方法，交由 ListView 统一管理，在真正需要展示该子 Widget 时再去创建。</p>
@@ -562,7 +560,7 @@
 <p>但如果提前设置好 itemExtent，ListView 则可以提前计算好每一个列表项元素的相对位置，以及自身的视图高度，省去了无谓的计算。</p>
 <p>因此在 ListView 中，指定 itemExtent 比让子 Widget 自己决定自身高度会更高效。</p>
 <p>运行示例，效果如下所示：</p>
-<img src="http://img.syhan.top/uPic/eVz9Ay.jpg" alt="图 3 ListView.builder 构造函数" style="zoom:50%;" />
+<img src="https://cdn.syhan.top/uPic/eVz9Ay.jpg" alt="图 3 ListView.builder 构造函数" style="zoom:50%;" />
 
 <p>我们的列表还缺少分割线。在 ListView 中，有两种方式支持分割线：</p>
 <ul>
@@ -587,12 +585,10 @@
 <span class="token punctuation">)</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>运行效果，如下所示：</p>
-<img src="http://img.syhan.top/uPic/8q9j8c.jpg" alt="图 4 ListView.separated 构造函数" style="zoom:50%;" />
+<img src="https://cdn.syhan.top/uPic/8q9j8c.jpg" alt="图 4 ListView.separated 构造函数" style="zoom:50%;" />
 
 <p>以上就是 ListView 的常见构造函数。下面这张表格总结了 ListView 常见的构造方法及其适用场景：</p>
-<img src="http://img.syhan.top/uPic/qa86Xn.jpg" alt="图 5 ListView 常见的构造方法及其适用场景" style="zoom:50%;" />
-
-
+<img src="https://cdn.syhan.top/uPic/qa86Xn.jpg" alt="图 5 ListView 常见的构造方法及其适用场景" style="zoom:50%;" />
 
 <h2 id="2-CustomScrollView"><a href="#2-CustomScrollView" class="headerlink" title="2. CustomScrollView"></a>2. CustomScrollView</h2><p>ListView 实现了单一视图下可滚动 Widget 的交互模型，同时也包含了 UI 显示相关的控制逻辑和布局模型。但是对于某些特殊交互场景，比如多个效果联动、嵌套滚动、精细滑动、视图跟随手势操作等，还需要嵌套多个 ListView 来实现。这时，各自视图的滚动和布局模型就是相互独立、分离的，就很难保证整个页面统一一致的滑动效果。</p>
 <p>那么，<strong>Flutter 是如何解决多 ListView 嵌套时，页面滑动效果不一致的问题的呢？</strong></p>
@@ -636,8 +632,6 @@
 
 <p>运行，视差滚动效果如下所示：</p>
 <img src="https://static001.geekbang.org/resource/image/dc/21/dcf89204e537f828d197dc3b916ca321.gif?wh=776*1592" alt="图 6 CustomScrollView 示例" style="zoom:50%;" />
-
-
 
 <h2 id="3-ScrollController-与-ScrollNotification"><a href="#3-ScrollController-与-ScrollNotification" class="headerlink" title="3. ScrollController 与 ScrollNotification"></a>3. ScrollController 与 ScrollNotification</h2><p>现在你应该已经知道如何实现滚动视图的视觉和交互效果了。接下来，再分享一个更为复杂的问题：在某些情况下，我们希望获取视图的滚动信息，并进行相应的控制。比如，列表是否已经滑到底（顶）了？如何快速回到列表顶部？列表滚动是否已经开始，或者是否已经停下来了？</p>
 <p>对于前两个问题，我们可以使用 ScrollController 进行滚动信息的监听，以及相应的滚动控制；而最后一个问题，则需要接收 ScrollNotification 通知进行滚动事件的获取。下面将分别介绍。</p>
@@ -1256,7 +1250,7 @@
                 <a href="/2022/09/14/zong-he-an-li-zhang-wo-dart-he-xin-te-xing/">
                     <div class="card-image">
                         
-                        <img src="http://img.syhan.top/uPic/G57Jdf.jpg" class="responsive-img" alt="综合案例：掌握Dart核心特性">
+                        <img src="https://cdn.syhan.top/uPic/G57Jdf.jpg" class="responsive-img" alt="综合案例：掌握Dart核心特性">
                         
                         <span class="card-title">综合案例：掌握Dart核心特性</span>
                     </div>
@@ -1308,7 +1302,7 @@
                 <a href="/2022/09/13/jing-dian-kong-jian-yi-wen-ben-tu-pian-he-an-niu/">
                     <div class="card-image">
                         
-                        <img src="http://img.syhan.top/uPic/VP8VOn.jpg" class="responsive-img" alt="经典控件（一）：文本、图片和按钮">
+                        <img src="https://cdn.syhan.top/uPic/VP8VOn.jpg" class="responsive-img" alt="经典控件（一）：文本、图片和按钮">
                         
                         <span class="card-title">经典控件（一）：文本、图片和按钮</span>
                     </div>
@@ -1551,7 +1545,7 @@
                                     
                                         &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
                                             class="white-color">
-                                            188.1k
+                                            188.2k
                                         </span>&nbsp;字
                                         
                                             

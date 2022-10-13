@@ -35,7 +35,7 @@
 
    <style>
     body{
-       background-image: url(http://img.syhan.top/uPic/I75zFh.jpg);
+       background-image: url(https://cdn.syhan.top/uPic/I75zFh.jpg);
        background-repeat:no-repeat;
        background-size:cover;
        background-attachment:fixed;
@@ -320,7 +320,7 @@
 
 
 
-    <div class="bg-cover pd-header post-cover" style="background-image: url('http://img.syhan.top/uPic/4isOuk.jpg')">
+    <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.syhan.top/uPic/4isOuk.jpg')">
         <div class="container" style="right: 0px;left: 0px;">
             <div class="row">
                 <div class="col s12 m12 l12">
@@ -500,7 +500,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="基础语法与类型变量"><a href="#基础语法与类型变量" class="headerlink" title="基础语法与类型变量"></a>基础语法与类型变量</h1><p><img src="http://img.syhan.top/uPic/sG9fyZ.jpg"></p>
+                <h1 id="基础语法与类型变量"><a href="#基础语法与类型变量" class="headerlink" title="基础语法与类型变量"></a>基础语法与类型变量</h1><p><img src="https://cdn.syhan.top/uPic/sG9fyZ.jpg"></p>
 <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><p>Dart 与其他语言究竟有什么不同呢？在已有其他编程语言经验的基础上，又该如何快速上手呢？</p>
 <p>本节我们就从编程语言中最重要的组成部分，也就是基础语法与类型变量出发，一起来学习 Dart 。</p>
 <h2 id="1-Dart-初体验"><a href="#1-Dart-初体验" class="headerlink" title="1. Dart 初体验"></a>1. Dart 初体验</h2><p>为了简单地体验一下 Dart，我们打开浏览器，直接在<a target="_blank" rel="noopener" href="https://repl.it/languages/dart">repl.it</a> 新建一个 main.dart 文件就可以了（当然也可以在电脑安装 Dart SDK，体验最新的语法）。</p>
@@ -515,7 +515,7 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>在编辑器中点击“run”按钮，命令行就会输出：</p>
-<img src="http://img.syhan.top/uPic/gE9iFM.jpg" style="zoom:50%;" />
+<img src="https://cdn.syhan.top/uPic/gE9iFM.jpg" style="zoom:50%;" />
 
 <p>和绝大多数编译型语言一样，Dart 要求以 main 函数作为执行的入口。在知道了如何简单地运行 Dart 代码后，我们再来看一下 Dart 的基本变量类型。</p>
 <h2 id="2-Dart-的变量与类型"><a href="#2-Dart-的变量与类型" class="headerlink" title="2. Dart 的变量与类型"></a>2. Dart 的变量与类型</h2><p>在 Dart 中，我们可以用 var 或者具体的类型来声明一个变量。当使用 var 定义变量时，表示类型是交由编译器推断决定的，当然你也可以用静态类型去定义变量，更清楚地跟编译器表达你的意图，这样编辑器和编译器就能使用这些静态类型，向你提供代码补全或编译警告的提示了。</p>
@@ -524,17 +524,17 @@
 <p>Dart 内置了一些基本类型，如 num、bool、String、List 和 Map，在不引入其他库的情况下可以使用它们去声明变量。</p>
 <h3 id="num、bool-与-String"><a href="#num、bool-与-String" class="headerlink" title="num、bool 与 String"></a>num、bool 与 String</h3><p>作为编程语言中最常用的类型，num、bool、String 这三种基本类型放在一起来介绍。</p>
 <p><strong>art 的数值类型 num，只有两种子类</strong>：即 64 位 int 和符合 IEEE 754 标准的 64 位 double。前者代表整数类型，而后者则是浮点数的抽象。在正常情况下，它们的精度与取值范围就足够满足我们的诉求了。</p>
-<img src="http://img.syhan.top/uPic/WS3vzg.jpg" style="zoom:50%;" />
+<img src="https://cdn.syhan.top/uPic/WS3vzg.jpg" style="zoom:50%;" />
 
 <p>除了常见的基本运算符，比如 +、-、*、/，以及位运算符外，还能使用继承自 num 的 abs()、round() 等方法，来实现求绝对值、取整的功能。</p>
 <p>打开官方文档或查看源码，就会发现这些常见的运算符也是继承自 num：</p>
-<img src="http://img.syhan.top/uPic/rW3cxm.jpg" style="zoom:50%;" />
+<img src="https://cdn.syhan.top/uPic/rW3cxm.jpg" style="zoom:50%;" />
 
 <p>如果还有其他高级运算方法的需求 num 无法满足，你可以试用一下 dart:math 库。这个库提供了诸如三角函数、指数、对数、平方根等高级函数。</p>
 <p>为了表示布尔值，<strong>Dart 使用了一种名为 bool 的类型</strong>。在 Dart 里，只有两个对象具有 bool 类型：true 和 false，它们都是编译时常量。</p>
 <p>Dart 是类型安全的，因此我们不能使用 <strong>if(nonbooleanValue) 或 assert(nonbooleanValue)</strong> 之类的在 JavaScript 可以正常工作的代码，而应该显式地检查值。</p>
 <p>如下所示，检查变量是否为 0，在 Dart 中需要显示地与 0 做比较：</p>
-<p><img src="http://img.syhan.top/uPic/T0JF2y.jpg"></p>
+<p><img src="https://cdn.syhan.top/uPic/T0JF2y.jpg"></p>
 <p>为了获得内嵌对象的字符串，Dart 会调用对象的 toString() 方法。而常见字符串的拼接，Dart 则通过内置运算符“+”实现。</p>
 <p>比如下面这条语句会声明一个值为’Hello World!’的字符串：</p>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">var</span> s2 <span class="token operator">=</span> <span class="token string-literal"><span class="token string">'Hello'</span></span> <span class="token operator">+</span> <span class="token string-literal"><span class="token string">' '</span></span> <span class="token operator">+</span> <span class="token string-literal"><span class="token string">'World!'</span></span> <span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -543,8 +543,6 @@
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">var</span> s3 <span class="token operator">=</span> <span class="token string-literal"><span class="token string">"""This is a
 
 multi-line string."""</span></span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-
 
 <h3 id="List-与-Map"><a href="#List-与-Map" class="headerlink" title="List 与 Map"></a>List 与 Map</h3><p>其他编程语言中常见的数组和字典类型，在 Dart 中的对应实现是 List 和 Map，统称为集合类型。它们的声明和使用很简单，和 JavaScript 中的用法类似。</p>
 <p>接下来，我们一起看一段代码示例。</p>
@@ -556,14 +554,14 @@ multi-line string."""</span></span><span class="token punctuation">;</span><span
 <span class="token keyword">var</span> arr2 <span class="token operator">=</span> <span class="token class-name">List</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 arr2<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">499</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 arr2<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'</span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">v</span><span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- 
-<span class="token keyword">var</span> map1 <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string-literal"><span class="token string">"name"</span></span><span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"Tom"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">'sex'</span></span><span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">'male'</span></span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span> 
+
+<span class="token keyword">var</span> map1 <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string-literal"><span class="token string">"name"</span></span><span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"Tom"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">'sex'</span></span><span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">'male'</span></span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> map2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 map2<span class="token punctuation">[</span><span class="token string-literal"><span class="token string">'name'</span></span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string-literal"><span class="token string">'Tom'</span></span><span class="token punctuation">;</span>
 map2<span class="token punctuation">[</span><span class="token string-literal"><span class="token string">'sex'</span></span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string-literal"><span class="token string">'male'</span></span><span class="token punctuation">;</span>
 map2<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>v<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'</span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">k</span><span class="token punctuation">&#125;</span></span><span class="token string">: </span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">v</span><span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="http://img.syhan.top/uPic/RmFXxK.jpg" style="zoom:50%;" />
+<img src="https://cdn.syhan.top/uPic/RmFXxK.jpg" style="zoom:50%;" />
 
 <p>容器里的元素也需要有类型，比如上述代码中 arr2 的类型是 List，map2 的类型则为 Map。Dart 会自动根据上下文进行类型推断，所以后续往容器内添加的元素也必须遵照这一类型。</p>
 <p>如果编译器自动推断的类型不符合预期，我们当然可以在声明时显式地把类型标记出来，不仅可以让代码提示更友好一些，更重要的是可以让静态分析器帮忙检查字面量中的错误，解除类型不匹配带来的安全隐患或是 Bug。</p>
@@ -580,12 +578,10 @@ arr2<span class="token punctuation">.</span><span class="token function">forEach
 <span class="token keyword">var</span> map2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 map2<span class="token punctuation">[</span><span class="token string-literal"><span class="token string">'name'</span></span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string-literal"><span class="token string">'Tom'</span></span><span class="token punctuation">;</span>
 map2<span class="token punctuation">[</span><span class="token string-literal"><span class="token string">'sex'</span></span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string-literal"><span class="token string">'male'</span></span><span class="token punctuation">;</span>
-map2<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>v<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'</span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">k</span><span class="token punctuation">&#125;</span></span><span class="token string">: </span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">v</span><span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+map2<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span>v<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'</span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">k</span><span class="token punctuation">&#125;</span></span><span class="token string">: </span><span class="token interpolation"><span class="token punctuation">$&#123;</span><span class="token expression">v</span><span class="token punctuation">&#125;</span></span><span class="token string">'</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">print</span><span class="token punctuation">(</span>map2 <span class="token operator">is</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="http://img.syhan.top/uPic/tq0M0J.jpg" style="zoom:50%;" />
-
-
+<img src="https://cdn.syhan.top/uPic/tq0M0J.jpg" style="zoom:50%;" />
 
 <h2 id="3-常量定义"><a href="#3-常量定义" class="headerlink" title="3. 常量定义"></a>3. 常量定义</h2><p>如果想定义不可变的变量，则需要在定义变量前加上 final 或 const 关键字：</p>
 <ul>
@@ -596,7 +592,7 @@ map2<span class="token punctuation">.</span><span class="token function">forEach
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">final</span> name <span class="token operator">=</span> <span class="token string-literal"><span class="token string">'Andy'</span></span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> count <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
 
-<span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token number">70</span><span class="token punctuation">;</span>  
+<span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token number">70</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> y <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span>
 <span class="token keyword">final</span> z <span class="token operator">=</span> x <span class="token operator">/</span> y<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -1119,7 +1115,7 @@ map2<span class="token punctuation">.</span><span class="token function">forEach
                 <a href="/2022/09/16/wei-shi-me-mei-yi-wei-da-qian-duan-cong-ye-zhe-du-ying-gai-xue-xi-flutter/">
                     <div class="card-image">
                         
-                        <img src="http://img.syhan.top/uPic/7fnyxO.jpg" class="responsive-img" alt="为什么每一位大前端从业者都应该学习Flutter">
+                        <img src="https://cdn.syhan.top/uPic/7fnyxO.jpg" class="responsive-img" alt="为什么每一位大前端从业者都应该学习Flutter">
                         
                         <span class="card-title">为什么每一位大前端从业者都应该学习Flutter</span>
                     </div>
@@ -1167,7 +1163,7 @@ map2<span class="token punctuation">.</span><span class="token function">forEach
                 <a href="/2022/09/14/han-shu-lei-yu-yun-suan-fu/">
                     <div class="card-image">
                         
-                        <img src="http://img.syhan.top/uPic/sWS4aO.jpg" class="responsive-img" alt="函数、类与运算符">
+                        <img src="https://cdn.syhan.top/uPic/sWS4aO.jpg" class="responsive-img" alt="函数、类与运算符">
                         
                         <span class="card-title">函数、类与运算符</span>
                     </div>
@@ -1414,7 +1410,7 @@ map2<span class="token punctuation">.</span><span class="token function">forEach
                                     
                                         &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
                                             class="white-color">
-                                            188.1k
+                                            188.2k
                                         </span>&nbsp;字
                                         
                                             

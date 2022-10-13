@@ -35,7 +35,7 @@
 
    <style>
     body{
-       background-image: url(http://img.syhan.top/uPic/I75zFh.jpg);
+       background-image: url(https://cdn.syhan.top/uPic/I75zFh.jpg);
        background-repeat:no-repeat;
        background-size:cover;
        background-attachment:fixed;
@@ -320,7 +320,7 @@
 
 
 
-    <div class="bg-cover pd-header post-cover" style="background-image: url('http://img.syhan.top/uPic/xNv0kE.jpg')">
+    <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.syhan.top/uPic/xNv0kE.jpg')">
         <div class="container" style="right: 0px;left: 0px;">
             <div class="row">
                 <div class="col s12 m12 l12">
@@ -496,9 +496,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Widget-中的-State"><a href="#Widget-中的-State" class="headerlink" title="Widget 中的 State"></a>Widget 中的 State</h1><img src="http://img.syhan.top/uPic/A8juyu.jpg" style="zoom:50%;" />
-
-
+                <h1 id="Widget-中的-State"><a href="#Widget-中的-State" class="headerlink" title="Widget 中的 State"></a>Widget 中的 State</h1><img src="https://cdn.syhan.top/uPic/A8juyu.jpg" style="zoom:50%;" />
 
 <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><p>通过上一节的学习，我们理解了 Widget 是 Flutter 构建界面的基石，也了解了 Widget、Element、RenderObject 是如何互相配合，实现图形渲染工作的。Flutter 在底层做了大量的渲染优化工作，我们只需要通过组合、嵌套不同类型的 Widget，就可以构建出任意功能、任意复杂度的界面。</p>
 <p>同时，通过前面的学习，我们也已经了解到 Widget 有 StatelessWidget 和 StatefulWidget 两种类型。StatefulWidget 应对有交互、需要动态变化视觉效果的场景，而 StatelessWidget 则用于处理静态的、无状态的视图展示。StatefulWidget 的场景已经完全覆盖了 StatelessWidget，因此我们在构建界面时，往往会大量使用 StatefulWidget 来处理静态的视图展示需求，看起来似乎也没什么问题。</p>
@@ -525,11 +523,11 @@ document<span class="token punctuation">.</span><span class="token function">que
 <p>接下来分别介绍 StatelessWidget 和 StatefulWidget，从源码分析它们的区别，并总结一些关于 Widget 选型的基本原则。</p>
 <h2 id="2-StatelessWidget"><a href="#2-StatelessWidget" class="headerlink" title="2. StatelessWidget"></a>2. StatelessWidget</h2><p>在 Flutter 中，Widget 采用由父到子、自顶向下的方式进行构建，父 Widget 控制着子 Widget 的显示样式，其样式配置由父 Widget 在构建时提供。</p>
 <p>用这种方式构建出的 Widget，有些（比如 Text、Container、Row、Column 等）在创建时，除了这些配置参数之外不依赖于任何其他信息，换句话说，它们一旦创建成功就不再关心、也不响应任何数据变化进行重绘。在 Flutter 中，<strong>这样的 Widget 被称为 StatelessWidget（无状态组件）。</strong></p>
-<p> StatelessWidget 的示意图如下所示：</p>
-<img src="http://img.syhan.top/uPic/UlRvXA.jpg" alt="图 1 StatelessWidget 示意图"/>
+<p>StatelessWidget 的示意图如下所示：</p>
+<img src="https://cdn.syhan.top/uPic/UlRvXA.jpg" alt="图 1 StatelessWidget 示意图"/>
 
 <p>接下来以 Text 的部分源码为例，说明 StatelessWidget 的构建过程。</p>
-<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">Text</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">&#123;</span>     
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">Text</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">&#123;</span>
  <span class="token comment">//构造方法及属性声明部分</span>
  <span class="token keyword">const</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>data<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
    <span class="token class-name">Key</span> key<span class="token punctuation">,</span>
@@ -540,13 +538,13 @@ document<span class="token punctuation">.</span><span class="token function">que
  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">assert</span><span class="token punctuation">(</span>data <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     textSpan <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
     <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
+
  <span class="token keyword">final</span> <span class="token class-name">String</span> data<span class="token punctuation">;</span>
  <span class="token keyword">final</span> <span class="token class-name">TextAlign</span> textAlign<span class="token punctuation">;</span>
  <span class="token keyword">final</span> <span class="token class-name">TextDirection</span> textDirection<span class="token punctuation">;</span>
  <span class="token comment">//其他属性</span>
  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
- 
+
  <span class="token metadata function">@override</span>
  <span class="token class-name">Widget</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token class-name">BuildContext</span> context<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
@@ -562,14 +560,14 @@ document<span class="token punctuation">.</span><span class="token function">que
 
 <p>可以看到，在构造方法将其属性列表赋值后，build 方法随即将子组件 RichText 通过其属性列表（如文本 data、对齐方式 textAlign、文本展示方向 textDirection 等）初始化后返回，之后 Text 内部不再响应外部数据的变化。</p>
 <p>那么什么场景下应该使用 StatelessWidget 呢？</p>
-<p>这里有一个简单的判断规则：<strong>父 Widget 是否能通过初始化参数完全控制其 UI 展示效果？****如果能，那么我们就可以使用 StatelessWidget 。</strong></p>
+<p>这里有一个简单的判断规则：**父 Widget 是否能通过初始化参数完全控制其 UI 展示效果？****如果能，那么我们就可以使用 StatelessWidget 。**</p>
 <p>这里有两个简单的小例子，来帮助你理解这个判断规则。</p>
 <p>第一个小例子是，我需要创建一个自定义的弹窗控件，把使用 App 过程中出现的一些错误信息提示给用户。这个组件的父 Widget，能够完全在子 Widget 初始化时将组件所需要的样式信息和错误提示信息传递给它，也就意味着父 Widget 通过初始化参数就能完全控制其展示效果。所以可以采用继承 StatelessWidget 的方式，来进行组件自定义。</p>
 <p>第二个小例子是，我需要定义一个计数器按钮，用户每次点击按钮后，按钮颜色都会随之加深。可以看到，这个组件的父 Widget 只能控制子 Widget 初始的样式展示效果，而无法控制在交互过程中发生的颜色变化。所以无法通过继承 StatelessWidget 的方式来自定义组件。那么，这个时候就轮到 StatefulWidget 出场了。</p>
 <h2 id="3-StatefulWidget"><a href="#3-StatefulWidget" class="headerlink" title="3. StatefulWidget"></a>3. StatefulWidget</h2><p>与 StatelessWidget 相对应的，有一些 Widget（比如 Image、Checkbox）的展示，除了父 Widget 初始化时传入的静态配置之外，还需要处理用户的交互（比如，用户点击按钮）或其内部数据的变化（比如，网络数据回包），并体现在 UI 上。</p>
 <p>换句话说，这些 Widget 创建完成后，还需要关心和响应数据变化来进行重绘。在 Flutter 中，<strong>这一类 Widget 被称为 StatefulWidget（有状态组件）</strong>。</p>
 <p>这里有一张 StatefulWidget 的示意图：</p>
-<img src="http://img.syhan.top/uPic/yv3I2G.jpg" alt="图 2 StatefulWidget 示意图" />
+<img src="https://cdn.syhan.top/uPic/yv3I2G.jpg" alt="图 2 StatefulWidget 示意图" />
 
 <p>看到这里，你可能会有点困惑。因为在上一节“Widget，构建 Flutter 界面的基石”中说到，Widget 是不可变的，发生变化时需要销毁重建，所以谈不上状态。那么这到底是怎么回事呢？</p>
 <p>其实 StatefulWidget 是以 State 类代理 Widget 构建的设计方式实现的。接下来以 Image 的部分源码为例，来说明 StatefulWidget 的构建过程。</p>
@@ -588,7 +586,7 @@ document<span class="token punctuation">.</span><span class="token function">que
  <span class="token keyword">final</span> <span class="token class-name">ImageProvider</span> image<span class="token punctuation">;</span>
  <span class="token comment">//其他属性</span>
  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
- 
+
  <span class="token metadata function">@override</span>
  _ImageState <span class="token function">createState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">_ImageState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
@@ -1139,7 +1137,7 @@ document<span class="token punctuation">.</span><span class="token function">que
                 <a href="/2022/09/13/jing-dian-kong-jian-yi-wen-ben-tu-pian-he-an-niu/">
                     <div class="card-image">
                         
-                        <img src="http://img.syhan.top/uPic/VP8VOn.jpg" class="responsive-img" alt="经典控件（一）：文本、图片和按钮">
+                        <img src="https://cdn.syhan.top/uPic/VP8VOn.jpg" class="responsive-img" alt="经典控件（一）：文本、图片和按钮">
                         
                         <span class="card-title">经典控件（一）：文本、图片和按钮</span>
                     </div>
@@ -1187,7 +1185,7 @@ document<span class="token punctuation">.</span><span class="token function">que
                 <a href="/2022/09/12/widget-gou-jian-flutter-jie-mian-de-ji-shi/">
                     <div class="card-image">
                         
-                        <img src="http://img.syhan.top/uPic/pyTxgu.jpg" class="responsive-img" alt="Widget—构建 Flutter 界面的基石">
+                        <img src="https://cdn.syhan.top/uPic/pyTxgu.jpg" class="responsive-img" alt="Widget—构建 Flutter 界面的基石">
                         
                         <span class="card-title">Widget—构建 Flutter 界面的基石</span>
                     </div>
@@ -1430,7 +1428,7 @@ document<span class="token punctuation">.</span><span class="token function">que
                                     
                                         &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
                                             class="white-color">
-                                            188.1k
+                                            188.2k
                                         </span>&nbsp;字
                                         
                                             
