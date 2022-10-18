@@ -554,7 +554,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,12,3,18,5,4,12,2],
+                data: [0,0,0,0,0,0,12,3,18,5,4,10,4],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -1066,13 +1066,13 @@
                                                                                             diffMinutes * minutes) / seconds);
                                                                                         if (startYear == todayYear) {
                                                                                             document.getElementById("year").innerHTML = todayYear;
-                                                                                            // document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 ";
+                                                                                            document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 ";
                                                                                             // document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
                                                                                             //     " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
                                                                                         } else {
                                                                                             document.getElementById("year").innerHTML = startYear + " - " + todayYear;
-                                                                                            // document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
-                                                                                            //     " 天 ";
+                                                                                            document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                                                                                                " 天 ";
                                                                                             // document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
                                                                                             //     " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
                                                                                         }
