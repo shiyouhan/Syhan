@@ -35,7 +35,7 @@
 
    <style>
     body{
-       background-image: url(https://cdn.syhan.top/uPic/I75zFh.jpg);
+       background-image: url(http://img.syhan.top/uPic/I75zFh.jpg);
        background-repeat:no-repeat;
        background-size:cover;
        background-attachment:fixed;
@@ -500,21 +500,21 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="SpringBoot基础及概念入门"><a href="#SpringBoot基础及概念入门" class="headerlink" title="SpringBoot基础及概念入门"></a>SpringBoot基础及概念入门</h1><h2 id="1-SpringBoot-产⽣的背景及其优势"><a href="#1-SpringBoot-产⽣的背景及其优势" class="headerlink" title="1. SpringBoot 产⽣的背景及其优势"></a>1. SpringBoot 产⽣的背景及其优势</h2><h3 id="⼀、内容⼤纲"><a href="#⼀、内容⼤纲" class="headerlink" title="⼀、内容⼤纲"></a>⼀、内容⼤纲</h3><ul>
+                <h1 id="SpringBoot-基础及概念入门"><a href="#SpringBoot-基础及概念入门" class="headerlink" title="SpringBoot 基础及概念入门"></a>SpringBoot 基础及概念入门</h1><h2 id="1-SpringBoot-产⽣的背景及其优势"><a href="#1-SpringBoot-产⽣的背景及其优势" class="headerlink" title="1. SpringBoot 产⽣的背景及其优势"></a>1. SpringBoot 产⽣的背景及其优势</h2><h3 id="⼀、内容⼤纲"><a href="#⼀、内容⼤纲" class="headerlink" title="⼀、内容⼤纲"></a>⼀、内容⼤纲</h3><ul>
 <li>SpringBoot 诞⽣的背景</li>
 <li>SpringBoot 改变了什么</li>
 <li>SpringBoot 主要特性</li>
 <li>SpringBoot 集成第三⽅开源组件的步骤</li>
 </ul>
-<h3 id="⼆、SpringBoot诞⽣的背景"><a href="#⼆、SpringBoot诞⽣的背景" class="headerlink" title="⼆、SpringBoot诞⽣的背景"></a>⼆、SpringBoot诞⽣的背景</h3><p>在 SpringBoot 出现以前，使⽤ Spring 框架的程序员是这样配置 Web 应⽤环境的，需要⼤量的 xml 配置。</p>
+<h3 id="⼆、SpringBoot-诞⽣的背景"><a href="#⼆、SpringBoot-诞⽣的背景" class="headerlink" title="⼆、SpringBoot 诞⽣的背景"></a>⼆、SpringBoot 诞⽣的背景</h3><p>在 SpringBoot 出现以前，使⽤ Spring 框架的程序员是这样配置 Web 应⽤环境的，需要⼤量的 xml 配置。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/rR7oaL.png"></p>
-<p>随着 Web 项⽬集成软件的不断增多，xml 配置也不断增多，xml配置⽂件也在不断地增多，项⽬的依赖管理也越发的复杂。Spring 框架也因此饱受争议，配置⽂件难以理解且容易出错。<strong>——配置地狱</strong></p>
-<p>xml 配置⽂件不但复杂，⽽且绝⼤部分属于模板配置，也就是说有80%以上的配置是不断重复的。</p>
+<p>随着 Web 项⽬集成软件的不断增多，xml 配置也不断增多，xml 配置⽂件也在不断地增多，项⽬的依赖管理也越发的复杂。Spring 框架也因此饱受争议，配置⽂件难以理解且容易出错。<strong>——配置地狱</strong></p>
+<p>xml 配置⽂件不但复杂，⽽且绝⼤部分属于模板配置，也就是说有 80%以上的配置是不断重复的。</p>
 <p>因此，像 JFinal 这种轻量级的 web 开发框架，因为其简单易⽤的特性，逐渐有了很⼤发展的空间。 Spring 社区也逐渐意识到了这个问题，在 2013 年的 SpringOne 2GX 会议上，Pivotal 的 CTO Adrian Colyer 回应了关于 Spring 框架使⽤复杂度的问题，并且特别提到该平台将来的⽬标之⼀就是实现免 XML 配置和提供更佳的开发体验，也就是我们今天使⽤的 SpringBoot 诞⽣的主要原因。</p>
 <blockquote>
 <p>Spring 开源社区背后有强⼤的商业公司⽀持，⽀持⼒度⽐较⼤的公司如 Pivotal 、Netflix 以及中国的阿⾥巴巴。</p>
 </blockquote>
-<h3 id="三、SpringBoot-改变了什么"><a href="#三、SpringBoot-改变了什么" class="headerlink" title="三、SpringBoot 改变了什么"></a>三、SpringBoot 改变了什么</h3><p>举⼀个例⼦:⾃⼰接电线与标准化插座 </p>
+<h3 id="三、SpringBoot-改变了什么"><a href="#三、SpringBoot-改变了什么" class="headerlink" title="三、SpringBoot 改变了什么"></a>三、SpringBoot 改变了什么</h3><p>举⼀个例⼦:⾃⼰接电线与标准化插座</p>
 <p>SpringBoot 的配置⽅式，就像是插头插座的国家标准，第三⽅开源类库要想接⼊进来，就要按照这个标准做⼀个 starter 的适配。</p>
 <p>SpringBoot 虽然灵活性不如 Spring MVC 的⽅式，并且你也不太清楚插座⾥⾯的线路是什么样，但就是⽅便易⽤。话说回来，当你习惯使⽤了买现成的插头插座，你还会希望⾃⼰动⼿当电⼯么？</p>
 <p><a target="_blank" rel="noopener" href="https://index.baidu.com/v2/main/index.html#/trend/springmvc?words=springmvc,springboot">百度指数对比</a></p>
@@ -526,68 +526,68 @@
 <li>使监控变简单</li>
 <li>使部署变简单</li>
 </ul>
-<h3 id="四、SpringBoot主要特性"><a href="#四、SpringBoot主要特性" class="headerlink" title="四、SpringBoot主要特性"></a>四、SpringBoot主要特性</h3><ul>
+<h3 id="四、SpringBoot-主要特性"><a href="#四、SpringBoot-主要特性" class="headerlink" title="四、SpringBoot 主要特性"></a>四、SpringBoot 主要特性</h3><ul>
 <li>遵循“约定优于配置”的原则，简化配置</li>
 <li>可以完全脱离 XML 配置⽂件,采⽤注解配置和 Java Config</li>
 <li>内嵌 Servlet 容器，应⽤可⽤ jar 包执⾏：<code>java -jar ****.jar</code> 即可启动应⽤</li>
 <li>快速完成项⽬搭建、整合第三⽅类库，⽅便易⽤</li>
-<li>提供了starter POM, 能够⾮常⽅便地进⾏包管理, 简化包管理配置</li>
+<li>提供了 starter POM, 能够⾮常⽅便地进⾏包管理, 简化包管理配置</li>
 <li>与 Spring Cloud 天然集成，Spring Boot 是⽬前 Java 体系内微服务的最佳实现⽅案</li>
 </ul>
-<h3 id="五、关于spring-boot-starter"><a href="#五、关于spring-boot-starter" class="headerlink" title="五、关于spring-boot-starter"></a>五、关于spring-boot-starter</h3><p>官⽹描述</p>
+<h3 id="五、关于-spring-boot-starter"><a href="#五、关于-spring-boot-starter" class="headerlink" title="五、关于 spring-boot-starter"></a>五、关于 spring-boot-starter</h3><p>官⽹描述</p>
 <blockquote>
-<p>All official starters follow a similar naming pattern; spring-boot-starter-* , where * is a particular type of application. This naming structure is intended to help when you need to find a starter. The Maven integration in many IDEs lets you search dependencies by name. For example, with the appropriate Eclipse or Spring Tools plugin installed, you can press ctrl-space in the POM editor and type “ spring-boot-starter ” for a complete list. As explained in the “<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#features.developing-auto-configuration.custom-starter">Creating Your Own Starter</a> ” section, third party starters should not start with spring-boot, as it is reserved for official Spring Boot artifacts. Rather, a thirdparty starter typically starts with the name of the project. For example, a third-party starter project called thirdpartyproject would typically be named <strong>thirdpartyproject-spring-boot-starter</strong>.</p>
+<p>All official starters follow a similar naming pattern; spring-boot-starter-_ , where _ is a particular type of application. This naming structure is intended to help when you need to find a starter. The Maven integration in many IDEs lets you search dependencies by name. For example, with the appropriate Eclipse or Spring Tools plugin installed, you can press ctrl-space in the POM editor and type “ spring-boot-starter ” for a complete list. As explained in the “<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#features.developing-auto-configuration.custom-starter">Creating Your Own Starter</a> ” section, third party starters should not start with spring-boot, as it is reserved for official Spring Boot artifacts. Rather, a thirdparty starter typically starts with the name of the project. For example, a third-party starter project called thirdpartyproject would typically be named <strong>thirdpartyproject-spring-boot-starter</strong>.</p>
 </blockquote>
 <ol>
 <li>了解 SpringBoot 官⽅已经⽀持的 starter（引⼊依赖、开箱即⽤）</li>
 <li>了解集成第三⽅ starter 的步骤（引⼊依赖、编写配置、开始使⽤）</li>
-<li>开发⼀个⾃⼰的 starter（编写源码构建打包上传私服。。。、使⽤⽅式同2）</li>
+<li>开发⼀个⾃⼰的 starter（编写源码构建打包上传私服。。。、使⽤⽅式同 2）</li>
 </ol>
 <p><strong>有哪些官⽅已经默认集成的类库？</strong></p>
 <p><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-starter">Spring Boot Reference Documentation</a></p>
-<h2 id="2-HelloWorld及项⽬结构介绍"><a href="#2-HelloWorld及项⽬结构介绍" class="headerlink" title="2. HelloWorld及项⽬结构介绍"></a>2. HelloWorld及项⽬结构介绍</h2><blockquote>
+<h2 id="2-HelloWorld-及项⽬结构介绍"><a href="#2-HelloWorld-及项⽬结构介绍" class="headerlink" title="2. HelloWorld 及项⽬结构介绍"></a>2. HelloWorld 及项⽬结构介绍</h2><blockquote>
 <p>为了便于管理，我们统⼀⽤聚合⼯程来管理 SpringBoot 的学习内容</p>
 </blockquote>
-<h3 id="⼀、使⽤-IntellijIDEA建⽴第⼀个SpringBoot项⽬"><a href="#⼀、使⽤-IntellijIDEA建⽴第⼀个SpringBoot项⽬" class="headerlink" title="⼀、使⽤ IntellijIDEA建⽴第⼀个SpringBoot项⽬"></a>⼀、使⽤ IntellijIDEA建⽴第⼀个SpringBoot项⽬</h3><h4 id="1-新建⽗⼯程（保证联⽹）"><a href="#1-新建⽗⼯程（保证联⽹）" class="headerlink" title="1. 新建⽗⼯程（保证联⽹）"></a>1. 新建⽗⼯程（保证联⽹）</h4><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/qmN9KK.png"></p>
-<h4 id="2-勾选Web依赖"><a href="#2-勾选Web依赖" class="headerlink" title="2. 勾选Web依赖"></a>2. 勾选Web依赖</h4><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/tEiJhM.png"></p>
-<p>项⽬⾸次创建过程请耐⼼等待。 </p>
+<h3 id="⼀、使⽤-IntellijIDEA-建⽴第⼀个-SpringBoot-项⽬"><a href="#⼀、使⽤-IntellijIDEA-建⽴第⼀个-SpringBoot-项⽬" class="headerlink" title="⼀、使⽤ IntellijIDEA 建⽴第⼀个 SpringBoot 项⽬"></a>⼀、使⽤ IntellijIDEA 建⽴第⼀个 SpringBoot 项⽬</h3><h4 id="1-新建⽗⼯程（保证联⽹）"><a href="#1-新建⽗⼯程（保证联⽹）" class="headerlink" title="1. 新建⽗⼯程（保证联⽹）"></a>1. 新建⽗⼯程（保证联⽹）</h4><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/qmN9KK.png"></p>
+<h4 id="2-勾选-Web-依赖"><a href="#2-勾选-Web-依赖" class="headerlink" title="2. 勾选 Web 依赖"></a>2. 勾选 Web 依赖</h4><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/tEiJhM.png"></p>
+<p>项⽬⾸次创建过程请耐⼼等待。</p>
 <p>项⽬构建完成之后删掉下⾯的这⼏个⽂件，这⼏个⽂件是 maven 版本控制相关的⽂件。我们结合 IDEA 管理 maven，⼀般来说这⼏个⽂件⽤不到。</p>
-<p> <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/MyXYMl.png"></p>
-<p><font color=red>删掉⽗⼯程src⽬录，不需要源码</font></p>
-<h4 id="3-修改⽗⼯程的packaging类型为pom"><a href="#3-修改⽗⼯程的packaging类型为pom" class="headerlink" title="3. 修改⽗⼯程的packaging类型为pom"></a>3. 修改⽗⼯程的packaging类型为pom</h4><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/iGXMYu.png"></p>
-<h4 id="4-创建第⼀个module：boot-quickstart"><a href="#4-创建第⼀个module：boot-quickstart" class="headerlink" title="4. 创建第⼀个module：boot-quickstart"></a>4. 创建第⼀个module：boot-quickstart</h4><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/rgxyqK.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/MyXYMl.png"></p>
+<p><font color=red>删掉⽗⼯程 src ⽬录，不需要源码</font></p>
+<h4 id="3-修改⽗⼯程的-packaging-类型为-pom"><a href="#3-修改⽗⼯程的-packaging-类型为-pom" class="headerlink" title="3. 修改⽗⼯程的 packaging 类型为 pom"></a>3. 修改⽗⼯程的 packaging 类型为 pom</h4><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/iGXMYu.png"></p>
+<h4 id="4-创建第⼀个-module：boot-quickstart"><a href="#4-创建第⼀个-module：boot-quickstart" class="headerlink" title="4. 创建第⼀个 module：boot-quickstart"></a>4. 创建第⼀个 module：boot-quickstart</h4><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/rgxyqK.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/1XhwBk.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/JFTlwV.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/dGeWH1.png"></p>
-<h4 id="5-⼿动创建包、编写启动类、编写Controller"><a href="#5-⼿动创建包、编写启动类、编写Controller" class="headerlink" title="5. ⼿动创建包、编写启动类、编写Controller"></a>5. ⼿动创建包、编写启动类、编写Controller</h4><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/8hmtZs.png"></p>
+<h4 id="5-⼿动创建包、编写启动类、编写-Controller"><a href="#5-⼿动创建包、编写启动类、编写-Controller" class="headerlink" title="5. ⼿动创建包、编写启动类、编写 Controller"></a>5. ⼿动创建包、编写启动类、编写 Controller</h4><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/8hmtZs.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/tgAgLI.png"></p>
 <h4 id="6-运-⾏"><a href="#6-运-⾏" class="headerlink" title="6. 运 ⾏"></a>6. 运 ⾏</h4><p>观察启动⽇志</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/4vaHbQ.png"></p>
-<p>可以安装这个插件，简单的接⼝可以直接在IDEA⾥可视化测试</p>
+<p>可以安装这个插件，简单的接⼝可以直接在 IDEA ⾥可视化测试</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/PFskgo.png"></p>
 <p>测试结果</p>
-<p> <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/vNiZPP.png"></p>
-<h3 id="⼆、HelloWorld示例程序"><a href="#⼆、HelloWorld示例程序" class="headerlink" title="⼆、HelloWorld示例程序"></a>⼆、HelloWorld示例程序</h3><blockquote>
-<p>resources ⽬录，新建 application.yml </p>
+<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/vNiZPP.png"></p>
+<h3 id="⼆、HelloWorld-示例程序"><a href="#⼆、HelloWorld-示例程序" class="headerlink" title="⼆、HelloWorld 示例程序"></a>⼆、HelloWorld 示例程序</h3><blockquote>
+<p>resources ⽬录，新建 application.yml</p>
 <p>yml ⽂件和 SpringBoot 默认的配置⽂件 properties 具有同样的功能</p>
 </blockquote>
 <p><strong>⼆者的区别在于：</strong></p>
-<p>yml ⽂件的层级更加清晰直观，但是书写时需要注意格式缩进对⻬。 </p>
-<p>yml 格式配置⽂件更有利于表达复杂数据结构的配置。⽐如：列表，对象等。 </p>
+<p>yml ⽂件的层级更加清晰直观，但是书写时需要注意格式缩进对⻬。</p>
+<p>yml 格式配置⽂件更有利于表达复杂数据结构的配置。⽐如：列表，对象等。</p>
 <p>properties 阅读上不如 yml 直观，好处在于书写时不⽤特别注意格式缩进对⻬。</p>
-<p>配置服务器端⼝，如果不配置默认为8080</p>
+<p>配置服务器端⼝，如果不配置默认为 8080</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/DJ3EOR.png"></p>
 <p>重启服务，观察结果</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/kQyRWU.png"></p>
 <p>修改端⼝等信息后，插件还保留原端⼝，如果要插件也同步，可如图操作：</p>
-<p> <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/mhkifG.png"></p>
-<p> <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/ifiF0P.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/mhkifG.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/ifiF0P.png"></p>
 <blockquote>
-<p>讨论，还有哪些⽅式可以来测试这个接⼝ </p>
-<p>postman、IDEA⾃带的HTTP Client、或者第三⽅Apifox等都可以</p>
+<p>讨论，还有哪些⽅式可以来测试这个接⼝</p>
+<p>postman、IDEA ⾃带的 HTTP Client、或者第三⽅ Apifox 等都可以</p>
 </blockquote>
-<h3 id="三、项⽬结构⽬录结构简介"><a href="#三、项⽬结构⽬录结构简介" class="headerlink" title="三、项⽬结构⽬录结构简介"></a>三、项⽬结构⽬录结构简介</h3><p> <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/WISI1g.png"></p>
-<p>项⽬结构⽬录符合maven规范要求：</p>
+<h3 id="三、项⽬结构⽬录结构简介"><a href="#三、项⽬结构⽬录结构简介" class="headerlink" title="三、项⽬结构⽬录结构简介"></a>三、项⽬结构⽬录结构简介</h3><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/WISI1g.png"></p>
+<p>项⽬结构⽬录符合 maven 规范要求：</p>
 <table>
 <thead>
 <tr>
@@ -601,7 +601,7 @@
 </tr>
 <tr>
 <td>src/main/resources</td>
-<td>存放静态资源，图⽚、CSS、JavaScript、web⻚⾯模板⽂件等</td>
+<td>存放静态资源，图⽚、CSS、JavaScript、web ⻚⾯模板⽂件等</td>
 </tr>
 <tr>
 <td>src/test</td>
@@ -612,7 +612,7 @@
 <td>git 版本管理排除⽂件</td>
 </tr>
 <tr>
-<td>target⽂件夹</td>
+<td>target ⽂件夹</td>
 <td>项⽬代码构建打包结果⽂件存放位置，不需要⼈为维护</td>
 </tr>
 <tr>
@@ -629,7 +629,7 @@
 <li>src/main/resources/public ⽤来存放可以直接⽤于访问的 html ⽂件</li>
 <li>src/main/resources/templates ⽤来存放 web 开发模板⽂件</li>
 </ul>
-<h2 id="3-需要先了解的核⼼概念"><a href="#3-需要先了解的核⼼概念" class="headerlink" title="3. 需要先了解的核⼼概念"></a>3. 需要先了解的核⼼概念</h2><h3 id="⼀、Spring-Boot-、-Spring-MVC-、Spring对⽐"><a href="#⼀、Spring-Boot-、-Spring-MVC-、Spring对⽐" class="headerlink" title="⼀、Spring Boot 、 Spring MVC 、Spring对⽐"></a>⼀、Spring Boot 、 Spring MVC 、Spring对⽐</h3><blockquote>
+<h2 id="3-需要先了解的核⼼概念"><a href="#3-需要先了解的核⼼概念" class="headerlink" title="3. 需要先了解的核⼼概念"></a>3. 需要先了解的核⼼概念</h2><h3 id="⼀、Spring-Boot-、-Spring-MVC-、Spring-对⽐"><a href="#⼀、Spring-Boot-、-Spring-MVC-、Spring-对⽐" class="headerlink" title="⼀、Spring Boot 、 Spring MVC 、Spring 对⽐"></a>⼀、Spring Boot 、 Spring MVC 、Spring 对⽐</h3><blockquote>
 <p>⾸先需要明⽩⼀件事情：SpringBoot ⽬的并不是替换 Spring、SpringMVC ，⽽是使它们⽤起来更加简单。</p>
 </blockquote>
 <h4 id="Spring-框架"><a href="#Spring-框架" class="headerlink" title="Spring 框架"></a>Spring 框架</h4><p>Spring 框架最核⼼的特性就是</p>
@@ -641,17 +641,17 @@
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/DJdehY.png"></p>
 <h4 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h4><p>Spring MVC 提供了⼀种友好的⽅式来开发 Web 应⽤程序。 通过使⽤诸如 Dispatcher Servlet， ModelAndView 和 View Resolver，可以轻松开发 Web 应⽤程序。</p>
 <h4 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h4><p>Spring 和 Spring MVC 最⼤的弊病在于存在⼤量的配置，并且这些配置在不同的项⽬中具有很⾼的相似性。从⽽导致重复配置，繁琐⽽且杂乱！</p>
-<p> <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/4GAJmK.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/4GAJmK.png"></p>
 <p>Spring Boot 期望通过结合⾃动配置和 starters 来解决了这个问题。 另外，Spring Boot 还提供了⼀ 些功能，可以更快地构建可⽤于⽣产环境的应⽤程序。</p>
-<h3 id="⼆、Spring-Boot-⾃动配置"><a href="#⼆、Spring-Boot-⾃动配置" class="headerlink" title="⼆、Spring Boot ⾃动配置"></a>⼆、Spring Boot ⾃动配置</h3><p>Spring 和Spring MVC 应⽤程序⾥⾯有⼤量的 XML 或 Java Bean 配置。 </p>
+<h3 id="⼆、Spring-Boot-⾃动配置"><a href="#⼆、Spring-Boot-⾃动配置" class="headerlink" title="⼆、Spring Boot ⾃动配置"></a>⼆、Spring Boot ⾃动配置</h3><p>Spring 和 Spring MVC 应⽤程序⾥⾯有⼤量的 XML 或 Java Bean 配置。</p>
 <p>Spring Boot 为解决这个问题，提供了⼀种新的解决⽅案，新的思维⽅式。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/wPR5oh.png"></p>
 <p>SpringBoot 思考的⽅式：是不是可以更加智能⼀点，当 Spring 中加⼊⼀些新的 jar 包，加⼊⼀些配置，可以⾃动影响应⽤内 bean 的加载。</p>
 <p>⽐如：Spring MVC JAR 位于类路径中时，⾃动配置 Dispatcher Servlet。当然，这些⾃动的默认配置不符合我们的要求的时候，我们可以修改。</p>
-<h3 id="三、什么是Spring-Boot-Starter？"><a href="#三、什么是Spring-Boot-Starter？" class="headerlink" title="三、什么是Spring Boot Starter？"></a>三、什么是Spring Boot Starter？</h3><blockquote>
-<p>Spring Boot Starter是⼀组被依赖第三⽅类库的集合</p>
+<h3 id="三、什么是-Spring-Boot-Starter？"><a href="#三、什么是-Spring-Boot-Starter？" class="headerlink" title="三、什么是 Spring Boot Starter？"></a>三、什么是 Spring Boot Starter？</h3><blockquote>
+<p>Spring Boot Starter 是⼀组被依赖第三⽅类库的集合</p>
 </blockquote>
-<p>如果你要开发⼀个 web 应⽤程序，通过包管理⼯具(如 maven )引⼊spring-boot-starter-web 就可以了，⽽不⽤分别引⼊下⾯这么多依赖类库，spring-boot-starter-web ⼀次性帮你引⼊下⾯的这些常⽤类库。</p>
+<p>如果你要开发⼀个 web 应⽤程序，通过包管理⼯具(如 maven )引⼊ spring-boot-starter-web 就可以了，⽽不⽤分别引⼊下⾯这么多依赖类库，spring-boot-starter-web ⼀次性帮你引⼊下⾯的这些常⽤类库。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/yaXQkU.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/tZLnBq.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/twK4gQ.png"></p>
@@ -659,11 +659,11 @@
 <li>Spring — spring 核⼼, beans, context 上下⽂, AOP ⾯向切⾯</li>
 <li>Web MVC — Spring MVC</li>
 <li>Jackson — JSON 数据的序列化与反序列化</li>
-<li>Validation — Hibernate 参数校验及校验API</li>
+<li>Validation — Hibernate 参数校验及校验 API</li>
 <li>嵌⼊式 Servlet Container — Tomcat</li>
 <li>⽇志框架 Logging — logback, slf4j</li>
 </ul>
-<h3 id="四、什么是Spring-Boot-Starter-Parent"><a href="#四、什么是Spring-Boot-Starter-Parent" class="headerlink" title="四、什么是Spring Boot Starter Parent"></a>四、什么是Spring Boot Starter Parent</h3><blockquote>
+<h3 id="四、什么是-Spring-Boot-Starter-Parent"><a href="#四、什么是-Spring-Boot-Starter-Parent" class="headerlink" title="四、什么是 Spring Boot Starter Parent"></a>四、什么是 Spring Boot Starter Parent</h3><blockquote>
 <p>所有的 Spring Boot 项⽬默认使⽤ spring-boot-starter-parent 作为应⽤程序的⽗项⽬。</p>
 </blockquote>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>parent</span><span class="token punctuation">></span></span>
@@ -679,25 +679,25 @@
 <li>引⼊第三⽅类库不要加版本号，⽗项⽬帮你统⼀管理版本，⽽且是经过兼容性测试的。&gt;</li>
 </ul>
 <blockquote>
-<p>当然⽗项⽬只能帮你管理⼀些常⽤类库的版本。 </p>
+<p>当然⽗项⽬只能帮你管理⼀些常⽤类库的版本。</p>
 <p>如果要引⼊⼀些不常⽤的 jar，可以⾃⼰管理版本号及兼容性。</p>
 </blockquote>
-<h3 id="五、嵌⼊式Web容器"><a href="#五、嵌⼊式Web容器" class="headerlink" title="五、嵌⼊式Web容器"></a>五、嵌⼊式Web容器</h3><blockquote>
+<h3 id="五、嵌⼊式-Web-容器"><a href="#五、嵌⼊式-Web-容器" class="headerlink" title="五、嵌⼊式 Web 容器"></a>五、嵌⼊式 Web 容器</h3><blockquote>
 <p>Spring boot 打成 jar 包，默认包含嵌⼊式的 Web 容器 Tomcat。</p>
 </blockquote>
-<p>使⽤ maven 打包，在⽗项⽬执⾏ clean-&gt;package </p>
+<p>使⽤ maven 打包，在⽗项⽬执⾏ clean-&gt;package</p>
 <p>在⽣成的应⽤ jar 包⽬录，启动命令⾏，使⽤如下命令启动：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar boot-quickstart.jar<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>这更有利于微服务的部署及微服务的构建、启动、扩容。 </p>
-<p>Spring Boot 还⽀持 Jetty 和 Undertow 作为 web 容器。 </p>
+<p>这更有利于微服务的部署及微服务的构建、启动、扩容。</p>
+<p>Spring Boot 还⽀持 Jetty 和 Undertow 作为 web 容器。</p>
 <p><strong>使⽤ maven 将 quickstart 项⽬打包，运⾏</strong></p>
 <h3 id="六、Spring-Data"><a href="#六、Spring-Data" class="headerlink" title="六、Spring Data"></a>六、Spring Data</h3><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/5KItBu.png"></p>
-<p>Spring Data 的⽬标是提供⼀种更友好的⽅式或者是 API 来存取数据。 </p>
+<p>Spring Data 的⽬标是提供⼀种更友好的⽅式或者是 API 来存取数据。</p>
 <p>包括对于关系型数据库和 NOSQL 数据的⽀持，⽐如：</p>
 <ul>
 <li>Spring Data JPA — 关系型数据库操作的 API，友好且易于使⽤。</li>
-<li>Spring Data MongoDB -MongoDB的操作API。</li>
+<li>Spring Data MongoDB -MongoDB 的操作 API。</li>
 <li>Spring Data REST — 从持久层 Repositories ⾃动⽣成服务层 API，暴露 REST APIs 接⼝，超级好⽤。</li>
 </ul>
 <p>当然，Spring Data 还有更多好⽤的特性和⽀持等待我们去探索。</p>
@@ -705,7 +705,7 @@
 <p>要关注官⽹关于新版本的基础环境要求、依赖组件升级、默认软件替换、新技术引⼊等说明。</p>
 </blockquote>
 <h4 id="7-1-基础环境升级"><a href="#7-1-基础环境升级" class="headerlink" title="7.1 基础环境升级"></a>7.1 基础环境升级</h4><ul>
-<li>JDK版本最低要求</li>
+<li>JDK 版本最低要求</li>
 </ul>
 <h4 id="7-2-依赖组件升级"><a href="#7-2-依赖组件升级" class="headerlink" title="7.2 依赖组件升级"></a>7.2 依赖组件升级</h4><ul>
 <li>Jetty</li>
@@ -728,25 +728,25 @@
 <p>SpringBoot ⾃定义启动 Banner</p>
 </blockquote>
 <ul>
-<li><p>org.springframework.boot.ResourceBanner⽂本格式，SpringBoot 会读取配置项 <code>banner.txt</code> 和 <code>banner.location</code> ，从配置项中获取真实的⽂件地址；如果配置中没有配置，会把 配置项作为⽂件去加载；</p>
+<li><p>org.springframework.boot.ResourceBanner ⽂本格式，SpringBoot 会读取配置项 <code>banner.txt</code> 和 <code>banner.location</code> ，从配置项中获取真实的⽂件地址；如果配置中没有配置，会把 配置项作为⽂件去加载；</p>
 </li>
-<li><p>org.springframework.boot.ImageBanner 图⽚格式，SpringBoot 加载配置项 <code>banner.image.location</code>，从配置项中获取真实的路径，SpringBoot 会根据配置项的路径加载⽂件。 </p>
+<li><p>org.springframework.boot.ImageBanner 图⽚格式，SpringBoot 加载配置项 <code>banner.image.location</code>，从配置项中获取真实的路径，SpringBoot 会根据配置项的路径加载⽂件。</p>
 <p>如果没有配置 banner.image.location，转⽽依次加载 banner.gif、banner.jpg、 banner.png 这三个中存在的⽂件；</p>
 </li>
 </ul>
-<p>如果上⾯两种都没有配置，SpringBoot 就会加载默认的 Banner。 </p>
-<p>具体做法就是在 resource下配置 banner.txt，另外对于图⽚⽣成可以去⼯具中⽣成。</p>
-<p>以下⽹站可以⽣成⾃定义的banner</p>
-<p><a target="_blank" rel="noopener" href="http://www.degraeve.com/img2txt.php">http://www.degraeve.com/img2txt.php</a> </p>
+<p>如果上⾯两种都没有配置，SpringBoot 就会加载默认的 Banner。</p>
+<p>具体做法就是在 resource 下配置 banner.txt，另外对于图⽚⽣成可以去⼯具中⽣成。</p>
+<p>以下⽹站可以⽣成⾃定义的 banner</p>
+<p><a target="_blank" rel="noopener" href="http://www.degraeve.com/img2txt.php">http://www.degraeve.com/img2txt.php</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.bootschool.net/ascii">https://www.bootschool.net/ascii</a></p>
-<p>下载banner.txt，放⼊resources根⽬录，重启服务器，效果</p>
+<p>下载 banner.txt，放⼊ resources 根⽬录，重启服务器，效果</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/SB7gPE.png"></p>
-<h2 id="4-提⾼开发效率必备⼯具lombok"><a href="#4-提⾼开发效率必备⼯具lombok" class="headerlink" title="4. 提⾼开发效率必备⼯具lombok"></a>4. 提⾼开发效率必备⼯具lombok</h2><h3 id="⼀、前置说明"><a href="#⼀、前置说明" class="headerlink" title="⼀、前置说明"></a>⼀、前置说明</h3><ul>
+<h2 id="4-提⾼开发效率必备⼯具-lombok"><a href="#4-提⾼开发效率必备⼯具-lombok" class="headerlink" title="4. 提⾼开发效率必备⼯具 lombok"></a>4. 提⾼开发效率必备⼯具 lombok</h2><h3 id="⼀、前置说明"><a href="#⼀、前置说明" class="headerlink" title="⼀、前置说明"></a>⼀、前置说明</h3><ul>
 <li>使⽤ lombok 插件的好处</li>
 <li>如何安装 lombok 插件</li>
 <li>使⽤ lombok 提⾼开发效率</li>
 </ul>
-<h3 id="⼆、使⽤lombok插件的好处"><a href="#⼆、使⽤lombok插件的好处" class="headerlink" title="⼆、使⽤lombok插件的好处"></a>⼆、使⽤lombok插件的好处</h3><p>我们在Java开发过程中，经常会有⼀些常规性的，重复性的⼯作。⽐如：</p>
+<h3 id="⼆、使⽤-lombok-插件的好处"><a href="#⼆、使⽤-lombok-插件的好处" class="headerlink" title="⼆、使⽤ lombok 插件的好处"></a>⼆、使⽤ lombok 插件的好处</h3><p>我们在 Java 开发过程中，经常会有⼀些常规性的，重复性的⼯作。⽐如：</p>
 <ul>
 <li>根据成员变量⽣成 get 和 set ⽅法</li>
 <li>根据成员变量⽣成类的构造函数</li>
@@ -754,7 +754,7 @@
 <li>引⼊⽇志框架 logFactory ，⽤来打印⽇志</li>
 </ul>
 <p>以上都是⼀些重复动作，模板代码。每次都⼿动⽣成既浪费时间，⼜增加了⼤量的冗余代码。 我们可以使⽤ lombok 插件来解决这个问题。使我们的编码效率得到⼤幅度的提⾼。</p>
-<h3 id="三、如何安装lombok插件"><a href="#三、如何安装lombok插件" class="headerlink" title="三、如何安装lombok插件"></a>三、如何安装lombok插件</h3><p>打开 IDEA 的 Plugins 选项，搜索 “ lombok ”，点击 install，然后重启 IDEA。</p>
+<h3 id="三、如何安装-lombok-插件"><a href="#三、如何安装-lombok-插件" class="headerlink" title="三、如何安装 lombok 插件"></a>三、如何安装 lombok 插件</h3><p>打开 IDEA 的 Plugins 选项，搜索 “ lombok ”，点击 install，然后重启 IDEA。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/w8hkMo.png"></p>
 <p>新版 IDEA 已经内置了 lombok 插件</p>
 <p>在 pom.xml ⾥⾯加 lombok 依赖。</p>
@@ -765,11 +765,11 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
-<p>在 Spring Boot 项⽬⾥⾯不需要加⼊版本号，SpringBoot ⽗项⽬会代为管理。 </p>
+<p>在 Spring Boot 项⽬⾥⾯不需要加⼊版本号，SpringBoot ⽗项⽬会代为管理。</p>
 <p>如果是其他项⽬，需要⾃⾏添加版本号！</p>
 </blockquote>
-<p><strong>务必记得刷新maven才能⽣效。</strong></p>
-<h3 id="四、-使⽤lombok注解简化开发"><a href="#四、-使⽤lombok注解简化开发" class="headerlink" title="四、 使⽤lombok注解简化开发"></a>四、 使⽤lombok注解简化开发</h3><h4 id="4-1-Data注解"><a href="#4-1-Data注解" class="headerlink" title="4.1 Data注解"></a>4.1 Data注解</h4><p>在 Java 类上使⽤ @Data 注解，该注解将为我们在编译期⾃动⽣成</p>
+<p><strong>务必记得刷新 maven 才能⽣效。</strong></p>
+<h3 id="四、-使⽤-lombok-注解简化开发"><a href="#四、-使⽤-lombok-注解简化开发" class="headerlink" title="四、 使⽤ lombok 注解简化开发"></a>四、 使⽤ lombok 注解简化开发</h3><h4 id="4-1-Data-注解"><a href="#4-1-Data-注解" class="headerlink" title="4.1 Data 注解"></a>4.1 Data 注解</h4><p>在 Java 类上使⽤ @Data 注解，该注解将为我们在编译期⾃动⽣成</p>
 <ul>
 <li>成员变量的 get 和 set ⽅法</li>
 <li>equals ⽅法</li>
@@ -779,30 +779,30 @@
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/rdgN7m.png"></p>
 <p>上图左侧是使⽤ lombok 注解 Data，右侧是编译后的⽂件。</p>
-<h4 id="4-2-Slf4j注解"><a href="#4-2-Slf4j注解" class="headerlink" title="4.2 Slf4j注解"></a>4.2 Slf4j注解</h4><p>该注解将在编译期⾃动帮我们引⼊ Logger ⽇志常量，我们在代码中就直接使⽤ log.info 或 log.debug 打印⽇志即可。下图右侧红⾊代码⽤ Slf4j 注解代替就可以了。</p>
+<h4 id="4-2-Slf4j-注解"><a href="#4-2-Slf4j-注解" class="headerlink" title="4.2 Slf4j 注解"></a>4.2 Slf4j 注解</h4><p>该注解将在编译期⾃动帮我们引⼊ Logger ⽇志常量，我们在代码中就直接使⽤ log.info 或 log.debug 打印⽇志即可。下图右侧红⾊代码⽤ Slf4j 注解代替就可以了。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/JwCWEq.png"></p>
-<h4 id="4-3-Builder注解"><a href="#4-3-Builder注解" class="headerlink" title="4.3 Builder注解"></a>4.3 Builder注解</h4><p>在 Java 类上使⽤ Builder 注解之后，我们可以使⽤如下代码为对象属性赋值</p>
+<h4 id="4-3-Builder-注解"><a href="#4-3-Builder-注解" class="headerlink" title="4.3 Builder 注解"></a>4.3 Builder 注解</h4><p>在 Java 类上使⽤ Builder 注解之后，我们可以使⽤如下代码为对象属性赋值</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Student</span> student <span class="token operator">=</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
                        <span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token string">"Tom"</span><span class="token punctuation">)</span>
                        <span class="token punctuation">.</span><span class="token function">age</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>
                        <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/DlkmqU.png"></p>
-<h4 id="4-4-AllArgsConstructor注解"><a href="#4-4-AllArgsConstructor注解" class="headerlink" title="4.4 AllArgsConstructor注解"></a>4.4 AllArgsConstructor注解</h4><p> <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/uLIUiD.png"></p>
+<h4 id="4-4-AllArgsConstructor-注解"><a href="#4-4-AllArgsConstructor-注解" class="headerlink" title="4.4 AllArgsConstructor 注解"></a>4.4 AllArgsConstructor 注解</h4><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/uLIUiD.png"></p>
 <p>该注解将为我们在编译期⾃动⽣成：全参构造函数。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/RgljUH.png"></p>
-<p>有全参构造函数注解，⾃然就有⽆参构造函数注解：NoArgsConstructor注解。</p>
-<p>lombok有⾮常多好⽤的注解，更多的⽤法参考：<a target="_blank" rel="noopener" href="https://github.com/mplushnikov/lombok-intellij-plugin">lombok插件github地址</a></p>
-<h2 id="5-IDEA环境下的热加载与热部署"><a href="#5-IDEA环境下的热加载与热部署" class="headerlink" title="5. IDEA环境下的热加载与热部署"></a>5. IDEA环境下的热加载与热部署</h2><p>在实际的开发过程中，我们经常修改代码之后，需要⼿动重启项⽬，⼿动刷新浏览器查看修改效果。</p>
+<p>有全参构造函数注解，⾃然就有⽆参构造函数注解：NoArgsConstructor 注解。</p>
+<p>lombok 有⾮常多好⽤的注解，更多的⽤法参考：<a target="_blank" rel="noopener" href="https://github.com/mplushnikov/lombok-intellij-plugin">lombok 插件 github 地址</a></p>
+<h2 id="5-IDEA-环境下的热加载与热部署"><a href="#5-IDEA-环境下的热加载与热部署" class="headerlink" title="5. IDEA 环境下的热加载与热部署"></a>5. IDEA 环境下的热加载与热部署</h2><p>在实际的开发过程中，我们经常修改代码之后，需要⼿动重启项⽬，⼿动刷新浏览器查看修改效果。</p>
 <p>那么有没有⼀种⽅式能够快速的、⾃动的帮我们将修改代码⾃动更新，避免⼿动重启，从⽽提⾼开发效率呢？肯定是有的。</p>
 <p>但是对于这个功能很多⼈对功能的叫法有争议，也没有权威的定义，知道的就有：热启动、热加载、热更新、热部署、热切换。这⼏个词从语义上是有区别的，但是叫什么并不重要，实现了最重要，毕竟绝⼤部分程序员为了使⽤这个功能⽅便开发，并不是专业搞学术研究的。</p>
-<h3 id="⼀、使⽤JRebel插件"><a href="#⼀、使⽤JRebel插件" class="headerlink" title="⼀、使⽤JRebel插件"></a>⼀、使⽤JRebel插件</h3><p>这是最简单的⼀种⽅式，但是有⼀定的局限性，JRebel 插件是收费的，需要破解。</p>
+<h3 id="⼀、使⽤-JRebel-插件"><a href="#⼀、使⽤-JRebel-插件" class="headerlink" title="⼀、使⽤ JRebel 插件"></a>⼀、使⽤ JRebel 插件</h3><p>这是最简单的⼀种⽅式，但是有⼀定的局限性，JRebel 插件是收费的，需要破解。</p>
 <blockquote>
 <p>JRebel 插件在有些 Spring Boot 版本可能会不够兼容</p>
 </blockquote>
 <p>具体做法前⾯已经普及。</p>
-<h3 id="⼆、-devtools实现热加载"><a href="#⼆、-devtools实现热加载" class="headerlink" title="⼆、 devtools实现热加载"></a>⼆、 devtools实现热加载</h3><p>这是⼀种对于SpringBoot⽽⾔⽐较常⻅的⼀种实现⽅式。</p>
-<h4 id="2-1-引⼊devtools的maven依赖"><a href="#2-1-引⼊devtools的maven依赖" class="headerlink" title="2.1 引⼊devtools的maven依赖"></a>2.1 引⼊devtools的maven依赖</h4><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+<h3 id="⼆、-devtools-实现热加载"><a href="#⼆、-devtools-实现热加载" class="headerlink" title="⼆、 devtools 实现热加载"></a>⼆、 devtools 实现热加载</h3><p>这是⼀种对于 SpringBoot ⽽⾔⽐较常⻅的⼀种实现⽅式。</p>
+<h4 id="2-1-引⼊-devtools-的-maven-依赖"><a href="#2-1-引⼊-devtools-的-maven-依赖" class="headerlink" title="2.1 引⼊ devtools 的 maven 依赖"></a>2.1 引⼊ devtools 的 maven 依赖</h4><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-devtools<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>optional</span><span class="token punctuation">></span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>optional</span><span class="token punctuation">></span></span>
@@ -811,7 +811,7 @@
 <p>spring-boot-devtools 从名称就可以看出来，是开发者⼯具包，其主要的功能就是实现热加载。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/NiJQv3.png"></p>
 <p>其实现原理就是两个 ClassLoader，⼀个负责加载那些不会经常改变的⽂件，⽐如：第三⽅ jar 包， ⼀旦引⼊项⽬之后这部分代码在调试过程中就处于不变的状态；⼀个负责加载可能经常改变的类， ⽐如我们⾃⼰在项⽬中写的代码，被称为 restart ClassLoader。当有代码发⽣改变的时候，重建⼀个 restart ClassLoader，原有的 restart ClassLoader 被丢掉。由于每次重新加载的内容较少，所 以速度⽐⼿动重启更快⼀些。</p>
-<h4 id="2-2-设置IDEA"><a href="#2-2-设置IDEA" class="headerlink" title="2.2 设置IDEA"></a>2.2 设置IDEA</h4><ul>
+<h4 id="2-2-设置-IDEA"><a href="#2-2-设置-IDEA" class="headerlink" title="2.2 设置 IDEA"></a>2.2 设置 IDEA</h4><ul>
 <li>⾸先，运⾏时编译配置：组合键：“Shift+Ctrl+Alt+/” ，选择 “Registry” ，选中打勾“compiler.automake.allow.when.app.running”</li>
 </ul>
 <p>新版 IDEA 在这⾥，⽽且已经默认勾选</p>
@@ -820,7 +820,7 @@
 <li>其次，⾃动化编译配置： “File” -&gt; “Settings” -&gt; “Build,Execution,Deplyment” -&gt; “Compiler”，选中打勾 “Build project automatically” 。这是⼀种重新⾃动化的编译整体项⽬ 的⽅法。但是⼀般不这么做，因为 IDEA 的⽂件是⾃动保存的，你想修改⼀个字符串，有可能你 只修改完成第⼀个字符它就重新编译了，重新加载启动。所以，<strong>⼀般代码修改完成之后，可以使⽤ Ctrl + F9 快捷键对修改类重新编译，⽽不是做项⽬的⾃动化编译</strong>。</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/pTWNy9.png"></p>
-<h4 id="2-3-修改application-properties配置"><a href="#2-3-修改application-properties配置" class="headerlink" title="2.3 修改application.properties配置"></a>2.3 修改application.properties配置</h4><p>在⽐较新的SpringBoot devtools版本中我们已经不需要做如下的配置了，但是如果你以上的步骤都完成了，仍然⽆法实现代码更改之后的热加载，请参考下⾯的⽅法。在有些版本我们需要配置热加载⽣效的开关，使其值等于 true。 </p>
+<h4 id="2-3-修改-application-properties-配置"><a href="#2-3-修改-application-properties-配置" class="headerlink" title="2.3 修改 application.properties 配置"></a>2.3 修改 application.properties 配置</h4><p>在⽐较新的 SpringBoot devtools 版本中我们已经不需要做如下的配置了，但是如果你以上的步骤都完成了，仍然⽆法实现代码更改之后的热加载，请参考下⾯的⽅法。在有些版本我们需要配置热加载⽣效的开关，使其值等于 true。</p>
 <p><strong>properties 格式配置</strong></p>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token comment">#热加载⽣效</span>
 <span class="token key attr-name">spring.devtools.restart.enabled</span><span class="token punctuation">=</span><span class="token value attr-value">true</span>
@@ -831,14 +831,12 @@
 
 <p><strong>yaml 格式配置</strong></p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
- <span class="token key atrule">devtools</span><span class="token punctuation">:</span>
-   <span class="token key atrule">restart</span><span class="token punctuation">:</span>
-     <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-     <span class="token key atrule">additional-paths</span><span class="token punctuation">:</span> src/main/java<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token key atrule">devtools</span><span class="token punctuation">:</span>
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span>
+      <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+      <span class="token key atrule">additional-paths</span><span class="token punctuation">:</span> src/main/java<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-<h4 id="2-4-LiveReload插件"><a href="#2-4-LiveReload插件" class="headerlink" title="2.4 LiveReload插件"></a>2.4 LiveReload插件</h4><p>最后建议去 chrome 应⽤商店安装⼀个插件 LiveReload</p>
+<h4 id="2-4-LiveReload-插件"><a href="#2-4-LiveReload-插件" class="headerlink" title="2.4 LiveReload 插件"></a>2.4 LiveReload 插件</h4><p>最后建议去 chrome 应⽤商店安装⼀个插件 LiveReload</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/DqnWKO.png"></p>
 <p>Spring devtools 默认会启动⼀个 Live Reload Server 实例，监听⽂件的变化。并实时的与浏览器插件通信，更新浏览器展示界⾯。这样，你就不⽤每次更改内容之后都点击浏览器刷新按钮了。</p>
 <h4 id="2-5-测试"><a href="#2-5-测试" class="headerlink" title="2.5 测试"></a>2.5 测试</h4><p>通常不⽣效的原因有两种：</p>
@@ -846,16 +844,16 @@
 <li>JDK 编译版本和运⾏版本不统⼀，检查⼀下 IDEA 环境下 JDK 配置</li>
 <li>浏览器缓存或者其他的缓存软件导致的问题</li>
 </ul>
-<h2 id="6-开发过程中常⽤IDEA插件"><a href="#6-开发过程中常⽤IDEA插件" class="headerlink" title="6. 开发过程中常⽤IDEA插件"></a>6. 开发过程中常⽤IDEA插件</h2><p>开发过程中，经常可以使⽤⼀些IntelliJ IDEA插件来提⾼⼯作效率</p>
+<h2 id="6-开发过程中常⽤-IDEA-插件"><a href="#6-开发过程中常⽤-IDEA-插件" class="headerlink" title="6. 开发过程中常⽤ IDEA 插件"></a>6. 开发过程中常⽤ IDEA 插件</h2><p>开发过程中，经常可以使⽤⼀些 IntelliJ IDEA 插件来提⾼⼯作效率</p>
 <h3 id="⼀、Codota"><a href="#⼀、Codota" class="headerlink" title="⼀、Codota"></a>⼀、Codota</h3><ul>
 <li>极其强⼤的代码⾃动补全</li>
 <li>当我们第⼀次使⽤某个类，对该类的某个函数不够熟悉时，可以通过该插件搜索相关⽤法，模仿学习</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/SYMnI4.png"></p>
-<h3 id="⼆、Auto-filling-Java-call-arguments"><a href="#⼆、Auto-filling-Java-call-arguments" class="headerlink" title="⼆、Auto filling Java call arguments"></a>⼆、Auto filling Java call arguments</h3><p>开发中，我们通常会调⽤其他已经编写好的⽅法，调⽤后需要填充参数，但是绝⼤多数情况下，传⼊的变量名称和该函数的参数名⼀致，当参数较多时，⼿动单个填充参数⾮常浪费时间。 </p>
-<p>该插件就可以帮你解决这个问题。 </p>
+<h3 id="⼆、Auto-filling-Java-call-arguments"><a href="#⼆、Auto-filling-Java-call-arguments" class="headerlink" title="⼆、Auto filling Java call arguments"></a>⼆、Auto filling Java call arguments</h3><p>开发中，我们通常会调⽤其他已经编写好的⽅法，调⽤后需要填充参数，但是绝⼤多数情况下，传⼊的变量名称和该函数的参数名⼀致，当参数较多时，⼿动单个填充参数⾮常浪费时间。</p>
+<p>该插件就可以帮你解决这个问题。</p>
 <p>安装完该插件以后，调⽤⼀个⽅法，使⽤ Alt+Enter 组合键，调出 “Auto fill call parameters” ⾃动使⽤该函数定义的参数名填充。</p>
-<h3 id="三、GsonFormatPlus"><a href="#三、GsonFormatPlus" class="headerlink" title="三、GsonFormatPlus"></a>三、GsonFormatPlus</h3><p>GsonFormatPlus插件可以快速的将JSON转换为实体类</p>
+<h3 id="三、GsonFormatPlus"><a href="#三、GsonFormatPlus" class="headerlink" title="三、GsonFormatPlus"></a>三、GsonFormatPlus</h3><p>GsonFormatPlus 插件可以快速的将 JSON 转换为实体类</p>
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
   <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
   <span class="token property">"author"</span><span class="token operator">:</span> <span class="token string">"syhan"</span><span class="token punctuation">,</span>
@@ -863,20 +861,20 @@
   <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"SpringBoot从⼊⻔到精通"</span><span class="token punctuation">,</span>
   <span class="token property">"createTime"</span><span class="token operator">:</span> <span class="token string">"2021-03-02 09:09:09"</span><span class="token punctuation">,</span>
   <span class="token property">"reader"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-   <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">&#123;</span>
       <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"aaa"</span><span class="token punctuation">,</span>
       <span class="token property">"age"</span><span class="token operator">:</span> <span class="token number">18</span>
-   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-   <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#123;</span>
       <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"bbb"</span><span class="token punctuation">,</span>
       <span class="token property">"age"</span><span class="token operator">:</span> <span class="token number">20</span>
-   <span class="token punctuation">&#125;</span>
- <span class="token punctuation">]</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">]</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>插件安装好之后，先定义⼀个空的实体类（只有类名和花括号），使⽤快捷键调出代码⽣成。</p>
-<p> <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/9Td3Cm.png"></p>
-<p>填⼊JSON代码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/9Td3Cm.png"></p>
+<p>填⼊ JSON 代码</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/foE3AW.png"></p>
 <p>可以进⾏设置，⾃⾏研究⼀下</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/TcjhjZ.png"></p>
@@ -887,20 +885,20 @@
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/aR6PW5.png"></p>
 <h3 id="五、-Maven-Helper"><a href="#五、-Maven-Helper" class="headerlink" title="五、 Maven Helper"></a>五、 Maven Helper</h3><p>⽇常开发中，可能经常会遇到 jar 包冲突等问题，就需要通过查看 maven 依赖树来查看依赖情况。这 种⽅式不是很⾼效，这⾥推荐⼀个插件，安装之后，直接打开 pom ⽂件，即可查看依赖树，还能⾃动分析是否存在 jar 包冲突。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/itOzqQ.png"></p>
-<h3 id="六、-Key-promoter-X"><a href="#六、-Key-promoter-X" class="headerlink" title="六、 Key promoter X"></a>六、 Key promoter X</h3><p>Key Promoter X 是⼀个提示插件，当你在 IDEA ⾥⾯使⽤⿏标的时候，如果这个⿏标操作是能够⽤快捷键替代的，那么 Key Promoter X会弹出⼀个提示框，告知你这个⿏标操作可以⽤什么快捷键替 代。</p>
-<h3 id="七、Grep-Console"><a href="#七、Grep-Console" class="headerlink" title="七、Grep Console"></a>七、Grep Console</h3><p>Grep Console 是⼀款和 IDEA Console 相关的插件 </p>
+<h3 id="六、-Key-promoter-X"><a href="#六、-Key-promoter-X" class="headerlink" title="六、 Key promoter X"></a>六、 Key promoter X</h3><p>Key Promoter X 是⼀个提示插件，当你在 IDEA ⾥⾯使⽤⿏标的时候，如果这个⿏标操作是能够⽤快捷键替代的，那么 Key Promoter X 会弹出⼀个提示框，告知你这个⿏标操作可以⽤什么快捷键替 代。</p>
+<h3 id="七、Grep-Console"><a href="#七、Grep-Console" class="headerlink" title="七、Grep Console"></a>七、Grep Console</h3><p>Grep Console 是⼀款和 IDEA Console 相关的插件</p>
 <p>可以通过 expression 表达式过滤⽇志、给不同级别的⽇志或者给不同 pattern 的⽇志加上颜⾊。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/IKE8Fr.png"></p>
 <h3 id="⼋、Background-Image-Plus"><a href="#⼋、Background-Image-Plus" class="headerlink" title="⼋、Background Image Plus"></a>⼋、Background Image Plus</h3><p>安装好插件后，在设置⾥可以选择背景图</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/hYAvEa.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Er8roa.png"></p>
-<h3 id="九、RestfulTool"><a href="#九、RestfulTool" class="headerlink" title="九、RestfulTool"></a>九、RestfulTool</h3><p>是⼀套Restful服务开发的辅助⼯具集</p>
+<h3 id="九、RestfulTool"><a href="#九、RestfulTool" class="headerlink" title="九、RestfulTool"></a>九、RestfulTool</h3><p>是⼀套 Restful 服务开发的辅助⼯具集</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/yGHS2G.png"></p>
-<h3 id="⼗、-gitignore"><a href="#⼗、-gitignore" class="headerlink" title="⼗、.gitignore"></a>⼗、.gitignore</h3><p>在提交项⽬到本地仓库的时候，会把 .idea ⽂件夹中的内容也提交上去，这⾥⾯放的是⼀些项⽬的配置信息，包括历史记录，版本控制信息等。 </p>
+<h3 id="⼗、-gitignore"><a href="#⼗、-gitignore" class="headerlink" title="⼗、.gitignore"></a>⼗、.gitignore</h3><p>在提交项⽬到本地仓库的时候，会把 .idea ⽂件夹中的内容也提交上去，这⾥⾯放的是⼀些项⽬的配置信息，包括历史记录，版本控制信息等。</p>
 <p>可以将不要传到 Git 上⾯去,还有其他的如 target ⽬录，⼀些账号配置⽂件等，设置为不要提交。 这个时候就需要编写 .gitignore ⽂件来忽略提交这些⽂件，在 IDEA 中的插件 .ignore 可以帮我们做这件事。</p>
 <h3 id="⼗⼀、Alibaba-Cloud-Toolkit"><a href="#⼗⼀、Alibaba-Cloud-Toolkit" class="headerlink" title="⼗⼀、Alibaba Cloud Toolkit"></a>⼗⼀、Alibaba Cloud Toolkit</h3><p>Alibaba Cloud Toolkit 是阿⾥云针对 IDE 平台为开发者提供的⼀款插件，⽤于帮助开发者⾼效开发并部署适合在云端运⾏的应⽤。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/GoNXvM.png"></p>
-<h3 id="⼗⼆、Alibaba-Java-Coding-Guidelines"><a href="#⼗⼆、Alibaba-Java-Coding-Guidelines" class="headerlink" title="⼗⼆、Alibaba Java Coding Guidelines"></a>⼗⼆、Alibaba Java Coding Guidelines</h3><p>该插件由阿⾥巴巴 P3C 项⽬组研发。 </p>
+<h3 id="⼗⼆、Alibaba-Java-Coding-Guidelines"><a href="#⼗⼆、Alibaba-Java-Coding-Guidelines" class="headerlink" title="⼗⼆、Alibaba Java Coding Guidelines"></a>⼗⼆、Alibaba Java Coding Guidelines</h3><p>该插件由阿⾥巴巴 P3C 项⽬组研发。</p>
 <p>插件在扫描代码后，将不符合规约的代码显示出来，甚⾄还基于 Inspection 机制提供了实时检测功 能，编写代码的同时也能快速发现问题所在，还实现了批量⼀键修复的功能。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/E1soA3.png"></p>
 
@@ -1636,66 +1634,57 @@
         <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
-        
         display: none;
-        
-        font-size: 12px;
+            font-size: 12px;
         font-weight: 700;
         line-height: 16px !important;
     }
 
     .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
         display: none;
-        
-        font-size: 15px;
+            font-size: 15px;
         color: #42b983;
     }
 
-    
     .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
+            left: -66px !important;
+        }
 
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
 
-    
+        
 </style>
 <div class="">
     
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="song"
-                   id="480614067"
-                   fixed='true'
-                   autoplay='true'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.5'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
+            <div class="row">
+                <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease"
+                    type="song" id="480614067" fixed=' true'
+                    autoplay='true'
+                        theme='#42b983'
+                            loop='all'
+                                order='random'
+                                    preload='auto'
+                                        volume='0.5'
+                                            list-folded='true'
+                                                >
+                </meting-js>
+            </div>
 </div>
 
 <script src="/libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
             
                 <div class="container row center-align"
                     style="margin-bottom: 15px !important;">
                     <div class="col s12 m8 l8 copy-right">
                         Copyright&nbsp;&copy;
                         
-                                <span id="year">
-                                    2022
-                                </span>
-                                
+                            <span id="year">
+                                2022-2023
+                            </span>
+                            
                                     <span id="year">
                                         2022
                                     </span>
@@ -1709,7 +1698,7 @@
                                     
                                         &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
                                             class="white-color">
-                                            197.3k
+                                            197.4k
                                         </span>&nbsp;字
                                         
                                             

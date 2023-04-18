@@ -35,7 +35,7 @@
 
    <style>
     body{
-       background-image: url(https://cdn.syhan.top/uPic/I75zFh.jpg);
+       background-image: url(http://img.syhan.top/uPic/I75zFh.jpg);
        background-repeat:no-repeat;
        background-size:cover;
        background-attachment:fixed;
@@ -496,82 +496,82 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="使用iconfont作为整站图标"><a href="#使用iconfont作为整站图标" class="headerlink" title="使用iconfont作为整站图标"></a>使用iconfont作为整站图标</h1><p>主要学习如何建立图标库，并在 UniApp 中应用字体图标。</p>
+                <h1 id="使用-iconfont-作为整站图标"><a href="#使用-iconfont-作为整站图标" class="headerlink" title="使用 iconfont 作为整站图标"></a>使用 iconfont 作为整站图标</h1><p>主要学习如何建立图标库，并在 UniApp 中应用字体图标。</p>
 <p>我们在做项目的时候，使用的图标会很多，全都以图片形式加载的话，整个文件体积会变得非常大，不仅会增加额外的 http 请求，还会有图片放大后失真的问题，在小程序开发当中，整个小程序所有代码量大小不超过 8M。如果没有很合理的运用与优化，加载速度也会大打折扣。</p>
 <h2 id="为什么要使用字体图标"><a href="#为什么要使用字体图标" class="headerlink" title="为什么要使用字体图标"></a>为什么要使用字体图标</h2><ul>
 <li>字体图标是矢量图标，可进行无限缩放不失真，一旦字体加载了，图标就会马上渲染出来，不需要下载一个个图像</li>
 <li>加载字体图标无需 http 请求，字体图标体积更小，相较图片加载速度更快</li>
-<li>兼容性方面，字体图标支持现代浏览器，甚至是低版本的IE浏览器</li>
+<li>兼容性方面，字体图标支持现代浏览器，甚至是低版本的 IE 浏览器</li>
 <li>可以像页面中的文字一样，通过 font-size 属性来对其进行大小的设置，而且还可以添加各种文字效果，如 color、hover、filter、text-shadow、transform 等效果</li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://www.iconfont.cn/">Iconfont-阿里巴巴矢量图标库</a>  是国内功能很强大且图标内容很丰富的矢量图标库,提供矢量图标下载、在线存储、格式转换等功能。由阿里巴巴体验团队倾力打造，是设计和前端开发的便捷工具。</p>
-<h2 id="使用-iconfont-图标库"><a href="#使用-iconfont-图标库" class="headerlink" title="使用 iconfont 图标库"></a>使用 iconfont 图标库</h2><p>在阿里图标库里，可以找到非常多各式各样的字体图标，并且可以私人上传定制图标库，与团队协同开发管理图标。首次登录需要先捆绑账号，支持github及新浪微博快捷入口登录。登录后点击【图标管理】&gt;&gt;【我的项目】进入项目页面：</p>
+<p><a target="_blank" rel="noopener" href="https://www.iconfont.cn/">Iconfont-阿里巴巴矢量图标库</a> 是国内功能很强大且图标内容很丰富的矢量图标库,提供矢量图标下载、在线存储、格式转换等功能。由阿里巴巴体验团队倾力打造，是设计和前端开发的便捷工具。</p>
+<h2 id="使用-iconfont-图标库"><a href="#使用-iconfont-图标库" class="headerlink" title="使用 iconfont 图标库"></a>使用 iconfont 图标库</h2><p>在阿里图标库里，可以找到非常多各式各样的字体图标，并且可以私人上传定制图标库，与团队协同开发管理图标。首次登录需要先捆绑账号，支持 github 及新浪微博快捷入口登录。登录后点击【图标管理】&gt;&gt;【我的项目】进入项目页面：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/PN6w8E.png"></p>
 <p>进入页面点击右侧紫色的添加图标新建一个项目，点进出现弹窗，在弹出的弹窗中填好项目名称及项目描述，然后点击新建：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/S2aYYC.png"></p>
-<p>回到图标库，在搜索框中输入自己想要的图标，并鼠标悬浮到具体图标中，点击购物车（添加入库），此时你的购物车会添加1：</p>
+<p>回到图标库，在搜索框中输入自己想要的图标，并鼠标悬浮到具体图标中，点击购物车（添加入库），此时你的购物车会添加 1：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Eaka0Z.png"></p>
 <p>找到所有想要的图标并添加进购物车后，点击右上角购物车的图标，将购物车里的图标添加至项目，选择刚才新建的项目：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/AVTqlw.png"></p>
 <p>回到我的项目页面，点击<strong>下载至本地</strong>按钮，解压即可：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/voMyIW.png"></p>
 <h2 id="在项目中使用-iconfont"><a href="#在项目中使用-iconfont" class="headerlink" title="在项目中使用 iconfont"></a>在项目中使用 iconfont</h2><p>第一步，解压文件</p>
-<p>将上面下载的文件解压缩后可以看到 woff，woff2，ttf，eot后缀名的字体文件：</p>
-<p>查看 iconfont.css 样式表中如何引用这些字体文件，并且可以清楚知道，引用了四个字体文件加上一个svg文件：</p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token atrule"><span class="token rule">@font-face</span></span> <span class="token punctuation">&#123;</span><span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">"iconfont"</span><span class="token punctuation">;</span>
-  <span class="token property">src</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'iconfont.eot?t=1573520590765'</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span> <span class="token comment">/* IE9 */</span>
-  <span class="token property">src</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'iconfont.eot?t=1573520590765#iefix'</span><span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'embedded-opentype'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">/* IE6-IE8 */</span>
-  <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'data:application/x-font-woff2;charset=utf-8;base64,d0...'</span><span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'woff2'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'iconfont.woff?t=1573520590765'</span><span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'woff'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'iconfont.ttf?t=1573520590765'</span><span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'truetype'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">/* chrome, firefox, opera, Safari, Android, iOS 4.2+ */</span>
-  <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'iconfont.svg?t=1573520590765#iconfont'</span><span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'svg'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* iOS 4.1- */</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>将上面下载的文件解压缩后可以看到 woff，woff2，ttf，eot 后缀名的字体文件：</p>
+<p>查看 iconfont.css 样式表中如何引用这些字体文件，并且可以清楚知道，引用了四个字体文件加上一个 svg 文件：</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token atrule"><span class="token rule">@font-face</span></span> <span class="token punctuation">&#123;</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">"iconfont"</span><span class="token punctuation">;</span>
+  <span class="token property">src</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"iconfont.eot?t=1573520590765"</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span> <span class="token comment">/* IE9 */</span>
+  <span class="token property">src</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"iconfont.eot?t=1573520590765#iefix"</span><span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"embedded-opentype"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">/* IE6-IE8 */</span>
+      <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"data:application/x-font-woff2;charset=utf-8;base64,d0..."</span><span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"woff2"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"iconfont.woff?t=1573520590765"</span><span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"woff"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"iconfont.ttf?t=1573520590765"</span><span class="token punctuation">)</span></span>
+      <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"truetype"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token comment">/* chrome, firefox, opera, Safari, Android, iOS 4.2+ */</span>
+      <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"iconfont.svg?t=1573520590765#iconfont"</span><span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"svg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* iOS 4.1- */</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>第二步，引入文件</p>
-<p>将上面提到的5个文件放入到新建文件夹 common/css 中，放在这里的原因是字体属于全局文件，可以统一管理：</p>
+<p>将上面提到的 5 个文件放入到新建文件夹 common/css 中，放在这里的原因是字体属于全局文件，可以统一管理：</p>
 <p>要想在所有页面上生效，要在 App.vue 引入：</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token comment">&lt;!-- App.vue --></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-	<span class="token comment">/*每个页面公共css */</span>
-	<span class="token atrule"><span class="token rule">@import</span> <span class="token string">'./common/css/iconfont.css'</span><span class="token punctuation">;</span></span>
+  <span class="token comment">/*每个页面公共css */</span>
+  <span class="token atrule"><span class="token rule">@import</span> <span class="token string">"./common/css/iconfont.css"</span><span class="token punctuation">;</span></span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>注意：引用字体文件的时候注意使用相对路径，避免查找失败。</strong></p>
 <p>第三步，在页面中使用</p>
 <pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
-	&lt;view class&#x3D;&quot;content&quot;&gt;
-		&lt;view class&#x3D;&quot;iconfont&quot;&gt;&amp;#xe64f;&lt;&#x2F;view&gt;
-		&lt;view class&#x3D;&quot;iconfont&quot;&gt;&amp;#xe604;&lt;&#x2F;view&gt;
-	&lt;&#x2F;view&gt;
+  &lt;view class&#x3D;&quot;content&quot;&gt;
+    &lt;view class&#x3D;&quot;iconfont&quot;&gt;&amp;#xe64f;&lt;&#x2F;view&gt;
+    &lt;view class&#x3D;&quot;iconfont&quot;&gt;&amp;#xe604;&lt;&#x2F;view&gt;
+  &lt;&#x2F;view&gt;
 &lt;&#x2F;template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>然后就可以在浏览器，小程序上预览效果了：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/F3Y6DM.png"></p>
 <p>可能有小伙伴会有疑问，为什么这样做会生效？其实我们在 App.vue 引入 iconfont.css 的时候，样式表<code>font-family</code>属性指定了字体文件，作用于<code>iconfont</code>命名的元素，并且在字体库中查找对应的 code（以 <code>iconfont</code> 命名的元素包裹的字符）：</p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">&lt;!-- iconfont.css -->
-.iconfont</span> <span class="token punctuation">&#123;</span>
-  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'iconfont'</span> <span class="token important">!important</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">&lt;!-- iconfont.css -- > .iconfont</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">"iconfont"</span> <span class="token important">!important</span><span class="token punctuation">;</span>
   <span class="token property">font-size</span><span class="token punctuation">:</span> 28rpx<span class="token punctuation">;</span>
   <span class="token property">font-style</span><span class="token punctuation">:</span> normal<span class="token punctuation">;</span>
   <span class="token property">-webkit-font-smoothing</span><span class="token punctuation">:</span> antialiased<span class="token punctuation">;</span>
   <span class="token property">-moz-osx-font-smoothing</span><span class="token punctuation">:</span> grayscale<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>以 <code>iconfont</code> 命名的元素包裹的字符从哪里来呢？就是在 iconfont 项目中把字体图标显示以 Unicode 的形式显示，鼠标悬浮可复制代码：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Em1nFI.png"></p>
 <p>如果你不想每次都这么麻烦，添加一个图标然后又重复以上操作，你可以使用生成的 cdn 地址：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/vwb3wp.png"></p>
 <p>代码修改调整：</p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css">&lt;!-- iconfont.css -->
-<span class="token atrule"><span class="token rule">@font-face</span></span> <span class="token punctuation">&#123;</span>
-  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'iconfont'</span><span class="token punctuation">;</span>
-  <span class="token property">src</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'https://at.alicdn.com/t/font_1487619_1bjjf4kxjov.eot'</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
-  <span class="token property">src</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'https://at.alicdn.com/t/font_1487619_1bjjf4kxjov.eot?#iefix'</span><span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'embedded-opentype'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'https://at.alicdn.com/t/font_1487619_1bjjf4kxjov.woff2'</span><span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'woff2'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'https://at.alicdn.com/t/font_1487619_1bjjf4kxjov.woff'</span><span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'woff'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'https://at.alicdn.com/t/font_1487619_1bjjf4kxjov.ttf'</span><span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'truetype'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'https://at.alicdn.com/t/font_1487619_1bjjf4kxjov.svg#iconfont'</span><span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'svg'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css">&lt;!-- iconfont.css -- > <span class="token atrule"><span class="token rule">@font-face</span></span> <span class="token punctuation">&#123;</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">"iconfont"</span><span class="token punctuation">;</span>
+  <span class="token property">src</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"https://at.alicdn.com/t/font_1487619_1bjjf4kxjov.eot"</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+  <span class="token property">src</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"https://at.alicdn.com/t/font_1487619_1bjjf4kxjov.eot?#iefix"</span><span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"embedded-opentype"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"https://at.alicdn.com/t/font_1487619_1bjjf4kxjov.woff2"</span><span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"woff2"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"https://at.alicdn.com/t/font_1487619_1bjjf4kxjov.woff"</span><span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"woff"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"https://at.alicdn.com/t/font_1487619_1bjjf4kxjov.ttf"</span><span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"truetype"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"https://at.alicdn.com/t/font_1487619_1bjjf4kxjov.svg#iconfont"</span><span class="token punctuation">)</span></span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"svg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>注意：小程序不能自动配对 https 的，必须手动添加 <code>https:</code>，所以最好要将 iconfont.css 文件内 url 路径转换为在线路径，加上 <code>https:</code></p>
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ol>
@@ -1080,13 +1080,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/06/26/6-yang-shi-yu-bu-ju-bem-de-ying-yong-kua-duan-jian-rong/">
+                <a href="/2022/06/26/5-shi-yong-sass-bian-xie-gong-yong-yang-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="样式与布局、BEM的应用、跨端兼容">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="使用 SASS 编写公用样式">
                         
-                        <span class="card-title">样式与布局、BEM的应用、跨端兼容</span>
+                        <span class="card-title">使用 SASS 编写公用样式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1129,13 +1129,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/06/26/8-vuex-kuai-su-zhang-wo/">
+                <a href="/2022/06/26/6-yang-shi-yu-bu-ju-bem-de-ying-yong-kua-duan-jian-rong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Vuex快速掌握">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="样式与布局、BEM的应用、跨端兼容">
                         
-                        <span class="card-title">Vuex快速掌握</span>
+                        <span class="card-title">样式与布局、BEM的应用、跨端兼容</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1303,66 +1303,57 @@
         <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
-        
         display: none;
-        
-        font-size: 12px;
+            font-size: 12px;
         font-weight: 700;
         line-height: 16px !important;
     }
 
     .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
         display: none;
-        
-        font-size: 15px;
+            font-size: 15px;
         color: #42b983;
     }
 
-    
     .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
+            left: -66px !important;
+        }
 
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
 
-    
+        
 </style>
 <div class="">
     
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="song"
-                   id="480614067"
-                   fixed='true'
-                   autoplay='true'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.5'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
+            <div class="row">
+                <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease"
+                    type="song" id="480614067" fixed=' true'
+                    autoplay='true'
+                        theme='#42b983'
+                            loop='all'
+                                order='random'
+                                    preload='auto'
+                                        volume='0.5'
+                                            list-folded='true'
+                                                >
+                </meting-js>
+            </div>
 </div>
 
 <script src="/libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
             
                 <div class="container row center-align"
                     style="margin-bottom: 15px !important;">
                     <div class="col s12 m8 l8 copy-right">
                         Copyright&nbsp;&copy;
                         
-                                <span id="year">
-                                    2022
-                                </span>
-                                
+                            <span id="year">
+                                2022-2023
+                            </span>
+                            
                                     <span id="year">
                                         2022
                                     </span>
@@ -1376,7 +1367,7 @@
                                     
                                         &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
                                             class="white-color">
-                                            197.3k
+                                            197.4k
                                         </span>&nbsp;字
                                         
                                             

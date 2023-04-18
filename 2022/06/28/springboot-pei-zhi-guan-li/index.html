@@ -35,7 +35,7 @@
 
    <style>
     body{
-       background-image: url(https://cdn.syhan.top/uPic/I75zFh.jpg);
+       background-image: url(http://img.syhan.top/uPic/I75zFh.jpg);
        background-repeat:no-repeat;
        background-size:cover;
        background-attachment:fixed;
@@ -500,19 +500,19 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="SpringBoot配置管理"><a href="#SpringBoot配置管理" class="headerlink" title="SpringBoot配置管理"></a>SpringBoot配置管理</h1><h2 id="1-SpringBoot启动流程简析"><a href="#1-SpringBoot启动流程简析" class="headerlink" title="1. SpringBoot启动流程简析"></a>1. SpringBoot启动流程简析</h2><blockquote>
-<p>SpringBoot 可以轻松创建独⽴的、⽣产级的基于 Spring 的应⽤程序，只需要很少的⼀些 Spring 配置。为什么可以做到呢？ </p>
-<p>我们从SpringBoot 的启动流程⻆度，简要分析 SpringBoot 启动过程中主要做了哪些事情。</p>
+                <h1 id="SpringBoot-配置管理"><a href="#SpringBoot-配置管理" class="headerlink" title="SpringBoot 配置管理"></a>SpringBoot 配置管理</h1><h2 id="1-SpringBoot-启动流程简析"><a href="#1-SpringBoot-启动流程简析" class="headerlink" title="1. SpringBoot 启动流程简析"></a>1. SpringBoot 启动流程简析</h2><blockquote>
+<p>SpringBoot 可以轻松创建独⽴的、⽣产级的基于 Spring 的应⽤程序，只需要很少的⼀些 Spring 配置。为什么可以做到呢？</p>
+<p>我们从 SpringBoot 的启动流程⻆度，简要分析 SpringBoot 启动过程中主要做了哪些事情。</p>
 </blockquote>
-<p><strong>SpringBoot启动简要流程图</strong></p>
+<p><strong>SpringBoot 启动简要流程图</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/pEjcUC.png"></p>
 <p><a target="_blank" rel="noopener" href="https://www.processon.com/view/link/5bf96f8be4b08522107182b5">原始大图链接</a></p>
 <h3 id="⼀、启动流程概述"><a href="#⼀、启动流程概述" class="headerlink" title="⼀、启动流程概述"></a>⼀、启动流程概述</h3><blockquote>
 <p>启动流程从⻆度来看，主要分两个步骤。</p>
 </blockquote>
-<p>第⼀个步骤是构造⼀个SpringApplication应⽤； </p>
-<p>第⼆个步骤是调⽤它的run⽅法，启动应⽤；</p>
-<h3 id="⼆、构造SpringApplication应⽤"><a href="#⼆、构造SpringApplication应⽤" class="headerlink" title="⼆、构造SpringApplication应⽤"></a>⼆、构造SpringApplication应⽤</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">SpringApplication</span><span class="token punctuation">(</span><span class="token class-name">ResourceLoader</span> resourceLoader<span class="token punctuation">,</span> <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">></span></span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<p>第⼀个步骤是构造⼀个 SpringApplication 应⽤；</p>
+<p>第⼆个步骤是调⽤它的 run ⽅法，启动应⽤；</p>
+<h3 id="⼆、构造-SpringApplication-应⽤"><a href="#⼆、构造-SpringApplication-应⽤" class="headerlink" title="⼆、构造 SpringApplication 应⽤"></a>⼆、构造 SpringApplication 应⽤</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">SpringApplication</span><span class="token punctuation">(</span><span class="token class-name">ResourceLoader</span> resourceLoader<span class="token punctuation">,</span> <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">></span></span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 primarySources<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
  <span class="token comment">//资源加载器默认为null</span>
  <span class="token keyword">this</span><span class="token punctuation">.</span>resourceLoader <span class="token operator">=</span> resourceLoader<span class="token punctuation">;</span>
@@ -531,30 +531,30 @@ primarySources<span class="token punctuation">)</span> <span class="token punctu
  <span class="token keyword">this</span><span class="token punctuation">.</span>mainApplicationClass <span class="token operator">=</span> <span class="token function">deduceMainApplicationClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
  <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>SpringApplication 的构造函数中为 SpringApplication 做了⼀些初始化配置，包括 </p>
-<p>主资源类(⼀般是启动类 primarySources )、 </p>
-<p>应⽤类型(webApplicationType )、 </p>
-<p>应⽤环境上下⽂初始化器(initializers)、 </p>
-<p>应⽤监听器(listeners)、 </p>
+<p>SpringApplication 的构造函数中为 SpringApplication 做了⼀些初始化配置，包括</p>
+<p>主资源类(⼀般是启动类 primarySources )、</p>
+<p>应⽤类型(webApplicationType )、</p>
+<p>应⽤环境上下⽂初始化器(initializers)、</p>
+<p>应⽤监听器(listeners)、</p>
 <p>main ⽅法主类(mainApplicationClass )</p>
-<p>initializers 将在 ConfigurableApplicationContext 的 refresh ⽅法之前调⽤，⽐如针对web应⽤来说，需要在 refresh 之前注册属性源或者激活指定的配置⽂件。</p>
+<p>initializers 将在 ConfigurableApplicationContext 的 refresh ⽅法之前调⽤，⽐如针对 web 应⽤来说，需要在 refresh 之前注册属性源或者激活指定的配置⽂件。</p>
 <p>listeners 将在 AbstractApplicationContext 的 refresh() ⽅法中，先被注册到 IOC 容器中，IOC 容器中剩下的⾮懒加载的单例被实例化后，IOC 容器发布相应的事件，这些事件最终会调⽤与之相关联的 AplicationListener 的 onApplicationEvent ⽅法</p>
 <p>可对照顶部的流程图和源码分析</p>
-<h3 id="三、运⾏SpringApplication"><a href="#三、运⾏SpringApplication" class="headerlink" title="三、运⾏SpringApplication"></a>三、运⾏SpringApplication</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**创建并刷新应⽤上下⽂**/</span>
+<h3 id="三、运⾏-SpringApplication"><a href="#三、运⾏-SpringApplication" class="headerlink" title="三、运⾏ SpringApplication"></a>三、运⾏ SpringApplication</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**创建并刷新应⽤上下⽂**/</span>
  <span class="token keyword">public</span> <span class="token class-name">ConfigurableApplicationContext</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
  <span class="token comment">//spring-core包下的计时器类，在这⾥主要⽤来记录应⽤启动的耗时</span>
  <span class="token class-name">StopWatch</span> stopWatch <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StopWatch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
  stopWatch<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
  <span class="token class-name">ConfigurableApplicationContext</span> context <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
  <span class="token class-name">Collection</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">SpringBootExceptionReporter</span><span class="token punctuation">></span></span> exceptionReporters <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- 
+
  <span class="token comment">//系统配置设置为headless模式</span>
  <span class="token function">configureHeadlessProperty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
  <span class="token comment">//通过SpringFactoriesLoader⼯具类获取META-INF/spring.factories</span>
  <span class="token comment">//⽂件中SpringApplicationRunListeners接⼝的实现类，在这⾥是</span>
  <span class="token comment">//EventPublishingRunListener</span>
  <span class="token class-name">SpringApplicationRunListeners</span> listeners <span class="token operator">=</span> <span class="token function">getRunListeners</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
- 
+
  <span class="token comment">//⼴播ApplicationStartingEvent事件使应⽤中的ApplicationListener</span>
  <span class="token comment">//响应该事件</span>
  listeners<span class="token punctuation">.</span><span class="token function">starting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -594,7 +594,7 @@ primarySources<span class="token punctuation">)</span> <span class="token punctu
  <span class="token punctuation">&#125;</span>
  <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
    <span class="token comment">//⼴播ApplicationReadyEvent事件使应⽤中的ApplicationListener</span>
-   <span class="token comment">//响应该事件 </span>
+   <span class="token comment">//响应该事件</span>
    listeners<span class="token punctuation">.</span><span class="token function">running</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
  <span class="token punctuation">&#125;</span>
  <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Throwable</span> ex<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -606,19 +606,19 @@ primarySources<span class="token punctuation">)</span> <span class="token punctu
  <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>1 在启动过程中，SpringApplicationListener 在不同阶段通过调⽤⾃身的不同⽅法(如 starting()、 environmentPrepared() )发布相应事件，通知 ApplicationListener 进⾏响应。</p>
-<p>2 refreshContext(context) ⽅法是构建 IOC 容器最复杂的⼀步，绝⼤多数 bean 的定义加载以及实例化都在这⼀步执⾏。包括但不限于BeanFactoryPostProcessor、BeanPostProcessor、 ApplicationEventMulticaster、@Controller, @Component 等注解的组件。</p>
+<p>2 refreshContext(context) ⽅法是构建 IOC 容器最复杂的⼀步，绝⼤多数 bean 的定义加载以及实例化都在这⼀步执⾏。包括但不限于 BeanFactoryPostProcessor、BeanPostProcessor、 ApplicationEventMulticaster、@Controller, @Component 等注解的组件。</p>
 <p>3 SpringFactoriesLoader ⼯具类，在 SpringApplication 的构造过程中、运⾏过程中都起到了极其重要的作⽤。SpringBoot 的⾃动化配置功能⼀个核⼼依赖点就在该类上，该类通过读取类路径下的 META-INF/spring.factories ⽂件获取各种各样的⼯⼚接⼝的实现类，通过反射获取这些类的类对象、构造⽅法，最终⽣成实例。</p>
 <h3 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h3><p>1 SpringApplication 的构造过程中，配置了 SpringApplication 应⽤上下⽂的⼀些基本元素，如应⽤类型 webApplicationType、应⽤初始化器 ApplicationContextInitializer、应⽤监听器 ApplicationListener 等。这些元素在 SpringApplication 的执⾏ run() 过程中，都会在不同阶段发挥不同的作⽤。</p>
 <p>2 SpringApplication 的执⾏ run() 过程中，⼀⽅⾯要初始化 IOC 容器(主要是 bean 的加载与初始化)， ⼀⽅⾯要在不同的阶段直接或间接回调 ApplicationListener 或 ApplicationRunner 等其他接⼝的⽅法。</p>
-<p>3 SpringFactoriesLoader 是 SpringBoot ⾃动化配置功能极其关键的⼀环，它读取类路径下 META-INF/spring.factories ⽂件中⼯⼚接⼝的实现类，来获取各种各种的 Bean ⼯⼚实例，最终获取到⾃动化配置的bean。</p>
-<h2 id="2-Bean⾃动装配原理"><a href="#2-Bean⾃动装配原理" class="headerlink" title="2. Bean⾃动装配原理"></a>2. Bean⾃动装配原理</h2><blockquote>
+<p>3 SpringFactoriesLoader 是 SpringBoot ⾃动化配置功能极其关键的⼀环，它读取类路径下 META-INF/spring.factories ⽂件中⼯⼚接⼝的实现类，来获取各种各种的 Bean ⼯⼚实例，最终获取到⾃动化配置的 bean。</p>
+<h2 id="2-Bean-⾃动装配原理"><a href="#2-Bean-⾃动装配原理" class="headerlink" title="2. Bean ⾃动装配原理"></a>2. Bean ⾃动装配原理</h2><blockquote>
 <p>SpringBoot ⼤量简化了配置。实际上这些配置还都存在，只是将⼀些不常⽤的配置隐藏了起来， 不需要我们像以往⼀样逐⼀配置，从⽽减少了配置量、提⾼了开发效率。</p>
 </blockquote>
-<h3 id="⼀、Bean⾃动装载的核⼼问题"><a href="#⼀、Bean⾃动装载的核⼼问题" class="headerlink" title="⼀、Bean⾃动装载的核⼼问题"></a>⼀、Bean⾃动装载的核⼼问题</h3><p>SpringBoot ⾥⾯的各种 Bean (类对象)能够实现⾃动装载，⾃动装载帮我们减少了 XML 的配置，和 ⼿动编码进⾏ Bean 的加载⼯作。从⽽极⼤程度上帮我们减少了配置量和代码量。</p>
+<h3 id="⼀、Bean-⾃动装载的核⼼问题"><a href="#⼀、Bean-⾃动装载的核⼼问题" class="headerlink" title="⼀、Bean ⾃动装载的核⼼问题"></a>⼀、Bean ⾃动装载的核⼼问题</h3><p>SpringBoot ⾥⾯的各种 Bean (类对象)能够实现⾃动装载，⾃动装载帮我们减少了 XML 的配置，和 ⼿动编码进⾏ Bean 的加载⼯作。从⽽极⼤程度上帮我们减少了配置量和代码量。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/KwrutW.png"></p>
-<p><strong>要实现Bean的⾃动装载，需要解决两个问题</strong></p>
+<p><strong>要实现 Bean 的⾃动装载，需要解决两个问题</strong></p>
 <ul>
-<li>如何保证 Bean ⾃动装载的灵活性？这个问题通过配置⽂件来解决，在配置 A 情况下去装载 BeanY ；在配置B情况下去装载 BeanZ 。（通常情况下配置 A 和 B 会有默认值，来决定默认的装载⾏为，这样就不需要我们配置了，进⼀步减少配置量）</li>
+<li>如何保证 Bean ⾃动装载的灵活性？这个问题通过配置⽂件来解决，在配置 A 情况下去装载 BeanY ；在配置 B 情况下去装载 BeanZ 。（通常情况下配置 A 和 B 会有默认值，来决定默认的装载⾏为，这样就不需要我们配置了，进⼀步减少配置量）</li>
 <li>如何保证 Bean 装载的顺序性？当 BeanA 装载完成之后再去装载 BeanY ，BeanY 装载完成之后才去装载 BeanX。这个装载顺序问题由 @ConditionOnXXXXXXX 注解来解决。</li>
 </ul>
 <h3 id="⼆、全局配置⽂件"><a href="#⼆、全局配置⽂件" class="headerlink" title="⼆、全局配置⽂件"></a>⼆、全局配置⽂件</h3><p>SpringBoot 使⽤⼀个全局的配置⽂件，配置⽂件名是固定的：</p>
@@ -627,10 +627,10 @@ primarySources<span class="token punctuation">)</span> <span class="token punctu
 <li>application.yml</li>
 </ul>
 <p><strong>全局配置⽂件的作⽤</strong>：修改 SpringBoot ⾃动配置的默认值，通过配置来影响 SpringBoot ⾃动加载⾏为。</p>
-<h3 id="三、配置加载原理源码解析"><a href="#三、配置加载原理源码解析" class="headerlink" title="三、配置加载原理源码解析"></a>三、配置加载原理源码解析</h3><p>所有的 SpringBoot 应⽤程序都是以 SpringApplication.run() 作为应⽤程序⼊⼝的。 </p>
+<h3 id="三、配置加载原理源码解析"><a href="#三、配置加载原理源码解析" class="headerlink" title="三、配置加载原理源码解析"></a>三、配置加载原理源码解析</h3><p>所有的 SpringBoot 应⽤程序都是以 SpringApplication.run() 作为应⽤程序⼊⼝的。</p>
 <p>我们可以跟踪⼀下这个⽅法：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/NhnISi.png"></p>
-<p>run⽅法传⼊了 <code>SpringApplication</code> 对象和⼀些运⾏期参数。</p>
+<p>run ⽅法传⼊了 <code>SpringApplication</code> 对象和⼀些运⾏期参数。</p>
 <p>如图所示⽅法，可以看到是获得 SpringFactories 的实例，⽽它需要通过⼀个类叫：<code> SpringFactoriesLoader</code></p>
 <p>这个类⾥⾯体现了 SpringBoot 加载配置⽂件的核⼼逻辑。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/AbhHd1.png"></p>
@@ -642,14 +642,14 @@ primarySources<span class="token punctuation">)</span> <span class="token punctu
 <li>然后读取⽂件中的 ClassName 作为值放⼊ Properties 。</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/dTdbpn.png"></p>
-<p>然后通过反射机制，对spring.factories⾥⾯的类资源进⾏实例化。</p>
+<p>然后通过反射机制，对 spring.factories ⾥⾯的类资源进⾏实例化。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Tk0gjT.png"></p>
 <h3 id="四、-EnableAutoConfiguration-作⽤"><a href="#四、-EnableAutoConfiguration-作⽤" class="headerlink" title="四、@EnableAutoConfiguration 作⽤"></a>四、@EnableAutoConfiguration 作⽤</h3><p>SpringBoot ⼊⼝启动类使⽤了 SpringBootApplication ，实际上就是开启了⾃动配置功能 @EnableAutoConfiguration 。</p>
-<p> <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/zyRXCl.png"></p>
-<p>SpringFactoriesLoader 会以 @EnableAutoConfiguration 的包名和类名org.springframework.boot.autoconfigure.EnableAutoConfiguration 为 Key 查找 spring.factories ⽂件，并将 value 中的类名实例化加载到 Spring Boot 应⽤中。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/zyRXCl.png"></p>
+<p>SpringFactoriesLoader 会以 @EnableAutoConfiguration 的包名和类名 org.springframework.boot.autoconfigure.EnableAutoConfiguration 为 Key 查找 spring.factories ⽂件，并将 value 中的类名实例化加载到 Spring Boot 应⽤中。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/BxwT6K.png"></p>
 <p>spring.factories ⽂件中的每⼀⾏都是⼀个⾃动装配类。</p>
-<h3 id="五、Bean的⾃动装配实现原理简述"><a href="#五、Bean的⾃动装配实现原理简述" class="headerlink" title="五、Bean的⾃动装配实现原理简述"></a>五、Bean的⾃动装配实现原理简述</h3><p>每⼀个⾃动配置类进⾏⾃动配置功能（ spring.factories 中的每⼀⾏对应的类）,我们以 HttpEncodingAutoConfiguration 为例：</p>
+<h3 id="五、Bean-的⾃动装配实现原理简述"><a href="#五、Bean-的⾃动装配实现原理简述" class="headerlink" title="五、Bean 的⾃动装配实现原理简述"></a>五、Bean 的⾃动装配实现原理简述</h3><p>每⼀个⾃动配置类进⾏⾃动配置功能（ spring.factories 中的每⼀⾏对应的类）,我们以 HttpEncodingAutoConfiguration 为例：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//加载application全局配置⽂件内的部分配置到HttpEncodingProperties⾥⾯</span>
 <span class="token annotation punctuation">@Configuration</span>
 <span class="token annotation punctuation">@EnableConfigurationProperties</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token class-name">HttpEncodingProperties</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
@@ -677,7 +677,7 @@ primarySources<span class="token punctuation">)</span> <span class="token punctu
         <span class="token class-name">CharacterEncodingFilter</span> filter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">OrderedCharacterEncodingFilter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         filter<span class="token punctuation">.</span><span class="token function">setEncoding</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>properties<span class="token punctuation">.</span><span class="token function">getCharset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 	filter<span class="token punctuation">.</span><span class="token function">setForceRequestEncoding</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>properties<span class="token punctuation">.</span><span class="token function">shouldForce</span><span class="token punctuation">(</span><span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>autoconfigure<span class="token punctuation">.</span>http<span class="token punctuation">.</span></span>HttpEncodingProperties<span class="token punctuation">.</span>Type</span><span class="token punctuation">.</span>REQUEST<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      
+
 filter<span class="token punctuation">.</span><span class="token function">setForceResponseEncoding</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>properties<span class="token punctuation">.</span><span class="token function">shouldForce</span><span class="token punctuation">(</span><span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>autoconfigure<span class="token punctuation">.</span>http<span class="token punctuation">.</span></span>HttpEncodingProperties<span class="token punctuation">.</span>Type</span><span class="token punctuation">.</span>RESPONSE<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> filter<span class="token punctuation">;</span>
    <span class="token punctuation">&#125;</span>
@@ -685,7 +685,7 @@ filter<span class="token punctuation">.</span><span class="token function">setFo
     <span class="token keyword">public</span> <span class="token class-name">HttpEncodingAutoConfiguration<span class="token punctuation">.</span>LocaleCharsetMappingsCustomizer</span> <span class="token function">localeCharsetMappingsCustomizer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
  			<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">HttpEncodingAutoConfiguration<span class="token punctuation">.</span>LocaleCharsetMappingsCustomizer</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>properties<span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token punctuation">&#125;</span>
-    
+
    <span class="token comment">//此处省略与⾃动加载⽆关的代码：HttpEncode的逻辑及其他</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -699,27 +699,27 @@ filter<span class="token punctuation">.</span><span class="token function">setFo
 </thead>
 <tbody><tr>
 <td>@ConditionalOnClass</td>
-<td>classpath中存在该类字节码⽂件时，才执⾏实例化⽅法或将类实例化</td>
+<td>classpath 中存在该类字节码⽂件时，才执⾏实例化⽅法或将类实例化</td>
 </tr>
 <tr>
 <td>@ConditionalOnMissingClass</td>
-<td>classpath中不存在该类字节码⽂件时，才执⾏实例化⽅法（不存在A的时候去初始化B）</td>
+<td>classpath 中不存在该类字节码⽂件时，才执⾏实例化⽅法（不存在 A 的时候去初始化 B）</td>
 </tr>
 <tr>
 <td>@ConditionalOnBean</td>
-<td>DI容器中存在该类型Bean时，才执⾏实例化⽅法或将类实例化</td>
+<td>DI 容器中存在该类型 Bean 时，才执⾏实例化⽅法或将类实例化</td>
 </tr>
 <tr>
 <td>@ConditionalOnMissingBean</td>
-<td>DI容器中不存在该类型Bean时，才执⾏实例化⽅法或将类实例化</td>
+<td>DI 容器中不存在该类型 Bean 时，才执⾏实例化⽅法或将类实例化</td>
 </tr>
 <tr>
 <td>@ConditionalOnSingleCandidate</td>
-<td>DI容器中该类型Bean只有⼀个或@Primary的只有⼀个时，才执⾏实例化⽅法或将类实例化</td>
+<td>DI 容器中该类型 Bean 只有⼀个或@Primary 的只有⼀个时，才执⾏实例化⽅法或将类实例化</td>
 </tr>
 <tr>
 <td>@ConditionalOnExpression</td>
-<td>SpEL表达式结果为true时，才执⾏实例化⽅法或将类实例化</td>
+<td>SpEL 表达式结果为 true 时，才执⾏实例化⽅法或将类实例化</td>
 </tr>
 <tr>
 <td>@ConditionalOnProperty</td>
@@ -731,27 +731,27 @@ filter<span class="token punctuation">.</span><span class="token function">setFo
 </tr>
 <tr>
 <td>@ConditionalOnJndi</td>
-<td>指定的JNDI存在时，才执⾏实例化⽅法或将类实例化</td>
+<td>指定的 JNDI 存在时，才执⾏实例化⽅法或将类实例化</td>
 </tr>
 <tr>
 <td>@ConditionalOnJava</td>
-<td>指定的Java版本存在时，才执⾏实例化⽅法或将类实例化</td>
+<td>指定的 Java 版本存在时，才执⾏实例化⽅法或将类实例化</td>
 </tr>
 <tr>
 <td>@ConditionalOnWebApplication</td>
-<td>Web应⽤环境下，才执⾏实例化⽅法或将类实例化</td>
+<td>Web 应⽤环境下，才执⾏实例化⽅法或将类实例化</td>
 </tr>
 <tr>
 <td>@ConditionalOnNotWebApplication</td>
-<td>⾮Web应⽤环境下，才执⾏实例化⽅法或将类实例化</td>
+<td>⾮ Web 应⽤环境下，才执⾏实例化⽅法或将类实例化</td>
 </tr>
 </tbody></table>
 <blockquote>
-<p>这个实现原理实际上就是⼀个⾃定义 spring-boot-starter 的实现原理，在以上的⾃动装配过程中，依赖于 HttpEncodingProperties的⾃定义属性，我们后⾯会讲如何读取⾃定义配置属性。</p>
+<p>这个实现原理实际上就是⼀个⾃定义 spring-boot-starter 的实现原理，在以上的⾃动装配过程中，依赖于 HttpEncodingProperties 的⾃定义属性，我们后⾯会讲如何读取⾃定义配置属性。</p>
 </blockquote>
-<h2 id="3-详解YAML语法及占位符语法"><a href="#3-详解YAML语法及占位符语法" class="headerlink" title="3. 详解YAML语法及占位符语法"></a>3. 详解YAML语法及占位符语法</h2><p>我们已经介绍过 application.yml 是我们项⽬⾥⾯的全局配置⽂件，在全局的配置⽂件中我们可以通过配置来改变程序的加载⾏为和运⾏⾏为。</p>
+<h2 id="3-详解-YAML-语法及占位符语法"><a href="#3-详解-YAML-语法及占位符语法" class="headerlink" title="3. 详解 YAML 语法及占位符语法"></a>3. 详解 YAML 语法及占位符语法</h2><p>我们已经介绍过 application.yml 是我们项⽬⾥⾯的全局配置⽂件，在全局的配置⽂件中我们可以通过配置来改变程序的加载⾏为和运⾏⾏为。</p>
 <p>YAML 是 “YAML Ain’t a Markup Language”（YAML 不是⼀种标记语⾔）的递归缩写。表明其不是⼀种标记语⾔（ xml、html 是标记语⾔）。它是⼀种数据序列化语⾔，通过⼀定的格式表示数据结构。由于其良好的数据结构表现能⼒，既⽅便程序处理，也⽅便程序员阅读，所以其常常被⽤于书写配置⽂件。那么它能够表示哪些数据结构呢？</p>
-<h3 id="⼀、设计⼀个YAML数据结构"><a href="#⼀、设计⼀个YAML数据结构" class="headerlink" title="⼀、设计⼀个YAML数据结构"></a>⼀、设计⼀个YAML数据结构</h3><p>⾸先我们提出这样⼀个需求：</p>
+<h3 id="⼀、设计⼀个-YAML-数据结构"><a href="#⼀、设计⼀个-YAML-数据结构" class="headerlink" title="⼀、设计⼀个 YAML 数据结构"></a>⼀、设计⼀个 YAML 数据结构</h3><p>⾸先我们提出这样⼀个需求：</p>
 <pre class="line-numbers language-text" data-language="text"><code class="language-text">#   1. ⼀个家庭有爸爸、妈妈、孩⼦。
 #   2. 这个家庭有⼀个名字（family-name）叫做“happy family”
 #   3. 爸爸有名字(name)和年龄（age）两个属性
@@ -759,63 +759,63 @@ filter<span class="token punctuation">.</span><span class="token function">setFo
 #   5. 孩⼦除了名字(name)和年龄（age）两个属性，还有⼀个friends的集合
 #   6. 每个friend有两个属性：hobby(爱好)和性别(gender)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>上⾯的数据结构⽤yaml该如何表示呢？</p>
+<p>上⾯的数据结构⽤ yaml 该如何表示呢？</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">family</span><span class="token punctuation">:</span>
- <span class="token key atrule">family-name</span><span class="token punctuation">:</span> <span class="token string">"happy family"</span>
- <span class="token key atrule">father</span><span class="token punctuation">:</span>
-   <span class="token key atrule">name</span><span class="token punctuation">:</span> tom
-   <span class="token key atrule">age</span><span class="token punctuation">:</span> <span class="token number">38</span>
- <span class="token key atrule">mother</span><span class="token punctuation">:</span>
-   <span class="token key atrule">alias</span><span class="token punctuation">:</span>
-     <span class="token punctuation">-</span> rose
-     <span class="token punctuation">-</span> alice
- <span class="token key atrule">child</span><span class="token punctuation">:</span>
-   <span class="token key atrule">name</span><span class="token punctuation">:</span> jack
-   <span class="token key atrule">age</span><span class="token punctuation">:</span> <span class="token number">5</span>
-   <span class="token key atrule">friends</span><span class="token punctuation">:</span>
-     <span class="token punctuation">-</span> <span class="token key atrule">hobby</span><span class="token punctuation">:</span> football
-       <span class="token key atrule">gender</span><span class="token punctuation">:</span> male
-     <span class="token punctuation">-</span> <span class="token key atrule">hobby</span><span class="token punctuation">:</span> sing
-       <span class="token key atrule">gender</span><span class="token punctuation">:</span> female<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token key atrule">family-name</span><span class="token punctuation">:</span> <span class="token string">"happy family"</span>
+  <span class="token key atrule">father</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> tom
+    <span class="token key atrule">age</span><span class="token punctuation">:</span> <span class="token number">38</span>
+  <span class="token key atrule">mother</span><span class="token punctuation">:</span>
+    <span class="token key atrule">alias</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> rose
+      <span class="token punctuation">-</span> alice
+  <span class="token key atrule">child</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> jack
+    <span class="token key atrule">age</span><span class="token punctuation">:</span> <span class="token number">5</span>
+    <span class="token key atrule">friends</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">hobby</span><span class="token punctuation">:</span> football
+        <span class="token key atrule">gender</span><span class="token punctuation">:</span> male
+      <span class="token punctuation">-</span> <span class="token key atrule">hobby</span><span class="token punctuation">:</span> sing
+        <span class="token key atrule">gender</span><span class="token punctuation">:</span> female<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>或者 friends的部分也可以写成:</p>
+<p>或者 friends 的部分也可以写成:</p>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">friends</span><span class="token punctuation">:</span>
 <span class="token key attr-name">     -</span> <span class="token value attr-value">&#123;hobby: football,sex:  male&#125;</span>
 <span class="token key attr-name">     -</span> <span class="token value attr-value">&#123;hobby: basketball,sex: female&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="规则1：字符串的单引号与双引号"><a href="#规则1：字符串的单引号与双引号" class="headerlink" title="规则1：字符串的单引号与双引号"></a>规则1：字符串的单引号与双引号</h4><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/4z4SWv.png"></p>
+<h4 id="规则-1：字符串的单引号与双引号"><a href="#规则-1：字符串的单引号与双引号" class="headerlink" title="规则 1：字符串的单引号与双引号"></a>规则 1：字符串的单引号与双引号</h4><p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/4z4SWv.png"></p>
 <ul>
-<li>双引号: 会转义字符串⾥⾯的特殊字符，如下⾯\n被转义为换⾏： name: “zhangsan \n lisi”：输出：zhangsan 换⾏ lisi</li>
+<li>双引号: 会转义字符串⾥⾯的特殊字符，如下⾯\n 被转义为换⾏： name: “zhangsan \n lisi”：输出：zhangsan 换⾏ lisi</li>
 <li>单引号: 不会转义特殊字符，特殊字符最终只是作为⼀个普通的字符串数据，如：name: ‘zhangsan \n lisi’：输出：zhangsan \n lisi</li>
 </ul>
-<h4 id="规则2：⽀持松散的语法"><a href="#规则2：⽀持松散的语法" class="headerlink" title="规则2：⽀持松散的语法"></a>规则2：⽀持松散的语法</h4><p>在SpringBoot应⽤中YAML数据格式<strong>⽀持松散的绑定语法</strong>，也就是说下⾯的三种key都是⼀样的。</p>
+<h4 id="规则-2：⽀持松散的语法"><a href="#规则-2：⽀持松散的语法" class="headerlink" title="规则 2：⽀持松散的语法"></a>规则 2：⽀持松散的语法</h4><p>在 SpringBoot 应⽤中 YAML 数据格式<strong>⽀持松散的绑定语法</strong>，也就是说下⾯的三种 key 都是⼀样的。</p>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">family-name</span> <span class="token punctuation">=</span> <span class="token value attr-value">familyName  = family_name</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <blockquote>
 <p>但是不绝对，通常建议使⽤<strong>中划线分隔</strong>的这种语法。</p>
 </blockquote>
-<h3 id="⼆、配置⽂件占位符"><a href="#⼆、配置⽂件占位符" class="headerlink" title="⼆、配置⽂件占位符"></a>⼆、配置⽂件占位符</h3><p>SpringBoot配置⽂件⽀持占位符，如：为 person.age 设置⼀个随机数</p>
+<h3 id="⼆、配置⽂件占位符"><a href="#⼆、配置⽂件占位符" class="headerlink" title="⼆、配置⽂件占位符"></a>⼆、配置⽂件占位符</h3><p>SpringBoot 配置⽂件⽀持占位符，如：为 person.age 设置⼀个随机数</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">person</span><span class="token punctuation">:</span>
- <span class="token key atrule">age</span><span class="token punctuation">:</span> $<span class="token punctuation">&#123;</span>random.int<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+  <span class="token key atrule">age</span><span class="token punctuation">:</span> $<span class="token punctuation">&#123;</span>random.int<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h4 id="1-随机数占位符"><a href="#1-随机数占位符" class="headerlink" title="1 随机数占位符"></a>1 随机数占位符</h4><ul>
-<li><code>$&#123;random.value&#125;</code> - 类似uuid的随机数，没有”-“连接</li>
+<li><code>$&#123;random.value&#125;</code> - 类似 uuid 的随机数，没有”-“连接</li>
 <li><code>$&#123;random.int&#125;</code>- 随机取整型范围内的⼀个值</li>
 <li><code>$&#123;random.long&#125;</code> - 随机取⻓整型范围内的⼀个值</li>
-<li><code>$&#123;random.long(100,200)&#125;</code> - 随机⽣成⻓整型100-200范围内的⼀个值</li>
-<li><code>$&#123;random.uuid&#125;</code> - ⽣成⼀个uuid，有短杠连接</li>
-<li><code>$&#123;random.int(10)&#125;</code> - 随机⽣成⼀个10以内的数</li>
-<li><code>$&#123;random.int(100,200)&#125;</code> - 随机⽣成⼀个100-200 范围以内的数</li>
+<li><code>$&#123;random.long(100,200)&#125;</code> - 随机⽣成⻓整型 100-200 范围内的⼀个值</li>
+<li><code>$&#123;random.uuid&#125;</code> - ⽣成⼀个 uuid，有短杠连接</li>
+<li><code>$&#123;random.int(10)&#125;</code> - 随机⽣成⼀个 10 以内的数</li>
+<li><code>$&#123;random.int(100,200)&#125;</code> - 随机⽣成⼀个 100-200 范围以内的数</li>
 </ul>
-<h4 id="2-默认值"><a href="#2-默认值" class="headerlink" title="2 默认值"></a>2 默认值</h4><p>占位符获取之前配置的值，如果没有可以是⽤“冒号”指定默认值。 </p>
+<h4 id="2-默认值"><a href="#2-默认值" class="headerlink" title="2 默认值"></a>2 默认值</h4><p>占位符获取之前配置的值，如果没有可以是⽤“冒号”指定默认值。</p>
 <p>格式如：xxxxx.yyyy 是属性层级及名称，如果该属性不存在，冒号后⾯填写默认值。</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">$<span class="token punctuation">&#123;</span>xxxxx.yyyy<span class="token punctuation">:</span>默认值<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>⽐如为配置 father.best 属性，如果 family.father.name 存在则 <code>father.best=$&#123;family.fath er.name&#125;</code> , family.father.name 这个配置不存在，则取值 <code>father.best=tom</code></p>
-<h2 id="4-YAML配置绑定变量两种⽅式"><a href="#4-YAML配置绑定变量两种⽅式" class="headerlink" title="4. YAML配置绑定变量两种⽅式"></a>4. YAML配置绑定变量两种⽅式</h2><p>YAML语法可以清晰地表达类、成员变量、集合以及它们之间的嵌套关系。 </p>
-<p>但如果配置只停留在配置⽂件⾥⾯是没有意义的，我们需要将配置绑定到内存变量上，从⽽⽤变量值去影响程序的运⾏。 </p>
+<h2 id="4-YAML-配置绑定变量两种⽅式"><a href="#4-YAML-配置绑定变量两种⽅式" class="headerlink" title="4. YAML 配置绑定变量两种⽅式"></a>4. YAML 配置绑定变量两种⽅式</h2><p>YAML 语法可以清晰地表达类、成员变量、集合以及它们之间的嵌套关系。</p>
+<p>但如果配置只停留在配置⽂件⾥⾯是没有意义的，我们需要将配置绑定到内存变量上，从⽽⽤变量值去影响程序的运⾏。</p>
 <p>接下来我们来学习<strong>配置与变量绑定</strong>的两种⽅法。</p>
-<h3 id="⼀、使⽤-Value获取配置值"><a href="#⼀、使⽤-Value获取配置值" class="headerlink" title="⼀、使⽤@Value获取配置值"></a>⼀、使⽤@Value获取配置值</h3><p>通过 @Value 注解将 family.family-name 属性的值绑定到 familyName 成员变量上⾯。</p>
+<h3 id="⼀、使⽤-Value-获取配置值"><a href="#⼀、使⽤-Value-获取配置值" class="headerlink" title="⼀、使⽤@Value 获取配置值"></a>⼀、使⽤@Value 获取配置值</h3><p>通过 @Value 注解将 family.family-name 属性的值绑定到 familyName 成员变量上⾯。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
 <span class="token annotation punctuation">@Component</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Family</span> <span class="token punctuation">&#123;</span>
@@ -824,7 +824,7 @@ filter<span class="token punctuation">.</span><span class="token function">setFo
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>就是这么简单，完了！</p>
-<h3 id="⼆、使⽤-ConfigurationProperties获取配置值"><a href="#⼆、使⽤-ConfigurationProperties获取配置值" class="headerlink" title="⼆、使⽤@ConfigurationProperties获取配置值"></a>⼆、使⽤@ConfigurationProperties获取配置值</h3><p>下⾯是⽤于接收上⼀节中 yml 配置的 Java 实体类，看看你⾃⼰能不能根据 yml 的嵌套结构，写出来对应的 Java 实体类:</p>
+<h3 id="⼆、使⽤-ConfigurationProperties-获取配置值"><a href="#⼆、使⽤-ConfigurationProperties-获取配置值" class="headerlink" title="⼆、使⽤@ConfigurationProperties 获取配置值"></a>⼆、使⽤@ConfigurationProperties 获取配置值</h3><p>下⾯是⽤于接收上⼀节中 yml 配置的 Java 实体类，看看你⾃⼰能不能根据 yml 的嵌套结构，写出来对应的 Java 实体类:</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//   1. ⼀个家庭有爸爸、妈妈、孩⼦。</span>
 <span class="token comment">//   2. 这个家庭有⼀个名字（family-name）叫做“happy family”</span>
 <span class="token annotation punctuation">@Data</span>
@@ -832,7 +832,7 @@ filter<span class="token punctuation">.</span><span class="token function">setFo
 <span class="token annotation punctuation">@ConfigurationProperties</span><span class="token punctuation">(</span>prefix <span class="token operator">=</span> <span class="token string">"family"</span><span class="token punctuation">)</span>   <span class="token comment">//表示配置的整体前缀</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Family</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">//成员变量名称要和yml配置项key⼀⼀对应</span>
-    <span class="token keyword">private</span> <span class="token class-name">String</span> familyName<span class="token punctuation">;</span>  
+    <span class="token keyword">private</span> <span class="token class-name">String</span> familyName<span class="token punctuation">;</span>
     <span class="token keyword">private</span> <span class="token class-name">Father</span> father<span class="token punctuation">;</span>
     <span class="token keyword">private</span> <span class="token class-name">Mother</span> mother<span class="token punctuation">;</span>
     <span class="token keyword">private</span> <span class="token class-name">Child</span> child<span class="token punctuation">;</span>
@@ -866,8 +866,6 @@ filter<span class="token punctuation">.</span><span class="token function">setFo
     <span class="token keyword">private</span> <span class="token class-name">String</span> gender<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
 <h3 id="三、测试⽤例"><a href="#三、测试⽤例" class="headerlink" title="三、测试⽤例"></a>三、测试⽤例</h3><p>写⼀个测试⽤例测⼀下，看看 yml 配置属性是否真的绑定到了类对象的成员变量上⾯。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// @RunWith(SpringRunner.class) Junit4</span>
 <span class="token annotation punctuation">@ExtendWith</span><span class="token punctuation">(</span><span class="token class-name">SpringExtension</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>  <span class="token comment">//Junit5</span>
@@ -876,7 +874,7 @@ filter<span class="token punctuation">.</span><span class="token function">setFo
 
     <span class="token annotation punctuation">@Autowired</span>
      <span class="token class-name">Family</span> family<span class="token punctuation">;</span>
-     
+
     <span class="token annotation punctuation">@Test</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>family<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -890,8 +888,6 @@ mother=Mother(alias=<span class="token punctuation">[</span>rose<span class="tok
 child=Child(name=jack<span class="token punctuation">,</span> age=<span class="token number">5</span><span class="token punctuation">,</span> friends=<span class="token punctuation">[</span>Friend(hobby=football<span class="token punctuation">,</span>
 gender=male)<span class="token punctuation">,</span> Friend(hobby=sing<span class="token punctuation">,</span> gender=female)<span class="token punctuation">]</span>))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
 <h3 id="四、⽐较⼀下⼆者"><a href="#四、⽐较⼀下⼆者" class="headerlink" title="四、⽐较⼀下⼆者"></a>四、⽐较⼀下⼆者</h3><table>
 <thead>
 <tr>
@@ -902,7 +898,7 @@ gender=male)<span class="token punctuation">,</span> Friend(hobby=sing<span clas
 </thead>
 <tbody><tr>
 <td>功能</td>
-<td>批量注⼊属性到java类</td>
+<td>批量注⼊属性到 java 类</td>
 <td>⼀个个属性指定注⼊</td>
 </tr>
 <tr>
@@ -916,7 +912,7 @@ gender=male)<span class="token punctuation">,</span> Friend(hobby=sing<span clas
 <td>不⽀持</td>
 </tr>
 <tr>
-<td>JSR303数据校验</td>
+<td>JSR303 数据校验</td>
 <td>⽀持</td>
 <td>不⽀持</td>
 </tr>
@@ -938,9 +934,9 @@ gender=male)<span class="token punctuation">,</span> Friend(hobby=sing<span clas
 </ul>
 <p>我们不能等到程序上线之后，才发现相关的配置错误。所以<strong>通常对配置属性与类对象的成员变量绑定的时候，就要加上⼀些校验规则。如果配置值不符合校验规则，在应⽤程序在启动的时候就会抛出异常。</strong></p>
 <h3 id="⼆、如何对绑定的属性值进⾏校验"><a href="#⼆、如何对绑定的属性值进⾏校验" class="headerlink" title="⼆、如何对绑定的属性值进⾏校验"></a>⼆、如何对绑定的属性值进⾏校验</h3><blockquote>
-<p>我们希望对之前定义的family类⾥⾯爸爸的年龄进⾏校验。让其不能⼩于22岁，否则就是错误配置。那我们该怎么做呢？</p>
+<p>我们希望对之前定义的 family 类⾥⾯爸爸的年龄进⾏校验。让其不能⼩于 22 岁，否则就是错误配置。那我们该怎么做呢？</p>
 </blockquote>
-<p><strong>在需要校验的属性装配类上加@Validated注解</strong></p>
+<p><strong>在需要校验的属性装配类上加@Validated 注解</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
 <span class="token annotation punctuation">@Component</span>
 <span class="token annotation punctuation">@Validated</span>
@@ -948,7 +944,7 @@ gender=male)<span class="token punctuation">,</span> Friend(hobby=sing<span clas
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Family</span> <span class="token punctuation">&#123;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>校验⽗亲的年龄，必须⼤于22岁</li>
+<li>校验⽗亲的年龄，必须⼤于 22 岁</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Father</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
@@ -962,7 +958,7 @@ gender=male)<span class="token punctuation">,</span> Friend(hobby=sing<span clas
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Length</span><span class="token punctuation">(</span>min <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> max <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">,</span> message <span class="token operator">=</span> <span class="token string">"家庭名⻓度必须位于5到20之间"</span><span class="token punctuation">)</span>
 <span class="token keyword">private</span> <span class="token class-name">String</span> familyName<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>这些校验规则注解是在 <strong>JSR 303(java)</strong> 规范中定义的，但是 JSR 303 只是⼀个规范，⽬前通常都是使⽤ <strong>hibernate-validator</strong> 进⾏统⼀参数校验，hibernate-validator是对JSR 303规范的实现。</p>
+<p>这些校验规则注解是在 <strong>JSR 303(java)</strong> 规范中定义的，但是 JSR 303 只是⼀个规范，⽬前通常都是使⽤ <strong>hibernate-validator</strong> 进⾏统⼀参数校验，hibernate-validator 是对 JSR 303 规范的实现。</p>
 <blockquote>
 <p>注意：当你使⽤注解的时候，如果 org.hibernate.validator.constraints 包和 javax.validation.constraints 包同时存在某个校验注解，要 import 使⽤ org.hibernate.validator.constraints 包。</p>
 </blockquote>
@@ -973,9 +969,9 @@ gender=male)<span class="token punctuation">,</span> Friend(hobby=sing<span clas
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>在之前的 SpringBoot 版本中，hibernate-validator 是作为默认引⼊的 Web 开发的集成 package， 但是在新版的 SpringBoot 已经不是默认引⼊的了，所以需要通过上⾯的 maven 坐标单独引⼊。</p>
-<h3 id="三、校验失败异常"><a href="#三、校验失败异常" class="headerlink" title="三、校验失败异常"></a>三、校验失败异常</h3><p>如果我们修改 family.father.age=18 ,也就是说不满⾜最⼩值是22的这样⼀个校验规则。 校验失败，会有如下异常。</p>
+<h3 id="三、校验失败异常"><a href="#三、校验失败异常" class="headerlink" title="三、校验失败异常"></a>三、校验失败异常</h3><p>如果我们修改 family.father.age=18 ,也就是说不满⾜最⼩值是 22 的这样⼀个校验规则。 校验失败，会有如下异常。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/qEMd8H.png"></p>
-<h3 id="四、附录说明"><a href="#四、附录说明" class="headerlink" title="四、附录说明"></a>四、附录说明</h3><p>Hibernate Validator 是 Bean Validation 的参考实现，它提供了 JSR 303 规范中所有内置 constraint 的实现，除此之外还有⼀些附加的 constraint。 </p>
+<h3 id="四、附录说明"><a href="#四、附录说明" class="headerlink" title="四、附录说明"></a>四、附录说明</h3><p>Hibernate Validator 是 Bean Validation 的参考实现，它提供了 JSR 303 规范中所有内置 constraint 的实现，除此之外还有⼀些附加的 constraint。</p>
 <p>在⽇常开发中，Hibernate Validator 经常⽤来验证 bean 的字段，基于注解，⽅便快捷⾼效。</p>
 <h4 id="1-Bean-Validation-中内置的-constraint"><a href="#1-Bean-Validation-中内置的-constraint" class="headerlink" title="1. Bean Validation 中内置的 constraint"></a>1. Bean Validation 中内置的 constraint</h4><table>
 <thead>
@@ -1082,22 +1078,22 @@ gender=male)<span class="token punctuation">,</span> Friend(hobby=sing<span clas
 </tr>
 <tr>
 <td>@SafeHtml(whitelistType=, additionalTags=)</td>
-<td>classpath中要有 jsoup 包</td>
+<td>classpath 中要有 jsoup 包</td>
 </tr>
 </tbody></table>
-<p>hibernate 补充的注解中，最后3个不常⽤，可忽略。</p>
-<p>注意区分⼀下 @NotNull @NotEmpty @NotBlank 3个注解的区别：</p>
-<p><strong>@NotNull</strong> 任何对象的 value 不能为null </p>
-<p><strong>@NotEmpty</strong> 集合对象的元素不为0，即集合不为空，也可以⽤于字符串不为 null </p>
-<p><strong>@NotBlank</strong> 只能⽤于字符串不为 null ，并且字符串 trim() 以后 length 要⼤于0</p>
+<p>hibernate 补充的注解中，最后 3 个不常⽤，可忽略。</p>
+<p>注意区分⼀下 @NotNull @NotEmpty @NotBlank 3 个注解的区别：</p>
+<p><strong>@NotNull</strong> 任何对象的 value 不能为 null</p>
+<p><strong>@NotEmpty</strong> 集合对象的元素不为 0，即集合不为空，也可以⽤于字符串不为 null</p>
+<p><strong>@NotBlank</strong> 只能⽤于字符串不为 null ，并且字符串 trim() 以后 length 要⼤于 0</p>
 <blockquote>
-<p>注意：HTTP请求的校验，需要在 Controller 类头部加上 <strong>@Validated</strong> 注解</p>
+<p>注意：HTTP 请求的校验，需要在 Controller 类头部加上 <strong>@Validated</strong> 注解</p>
 </blockquote>
 <h2 id="6-加载额外配置⽂件的两种⽅式"><a href="#6-加载额外配置⽂件的两种⽅式" class="headerlink" title="6. 加载额外配置⽂件的两种⽅式"></a>6. 加载额外配置⽂件的两种⽅式</h2><h3 id="⼀、为什么要加载额外配置⽂件"><a href="#⼀、为什么要加载额外配置⽂件" class="headerlink" title="⼀、为什么要加载额外配置⽂件"></a>⼀、为什么要加载额外配置⽂件</h3><blockquote>
-<p>有⼀些⽼的项⽬⾥⾯的 jar 包并未主动去与 SpringBoot 融合，很多jar包都有⾃⼰的配置⽂件。如 果我们在 SpringBoot 项⽬中使⽤这些 jar 包就必须得使⽤它们的配置⽂件，那就⾯临⼀个问题： <strong>SpringBoot 项⽬默认只有⼀个全局配置⽂件：application.yml 或application.properties 。该 如何加载额外的配置⽂件？</strong></p>
+<p>有⼀些⽼的项⽬⾥⾯的 jar 包并未主动去与 SpringBoot 融合，很多 jar 包都有⾃⼰的配置⽂件。如 果我们在 SpringBoot 项⽬中使⽤这些 jar 包就必须得使⽤它们的配置⽂件，那就⾯临⼀个问题： <strong>SpringBoot 项⽬默认只有⼀个全局配置⽂件：application.yml 或 application.properties 。该 如何加载额外的配置⽂件？</strong></p>
 </blockquote>
-<h3 id="⼆、使⽤-PropertySource加载⾃定义yml或properties⽂件"><a href="#⼆、使⽤-PropertySource加载⾃定义yml或properties⽂件" class="headerlink" title="⼆、使⽤@PropertySource加载⾃定义yml或properties⽂件"></a>⼆、使⽤@PropertySource加载⾃定义yml或properties⽂件</h3><h4 id="1-properties配置⽂件加载"><a href="#1-properties配置⽂件加载" class="headerlink" title="1. properties配置⽂件加载"></a>1. properties配置⽂件加载</h4><p>resouces ⽬录新建 family.properties</p>
-<p><a target="_blank" rel="noopener" href="https://www.toyaml.com/index.html">在线yml和properties互转</a></p>
+<h3 id="⼆、使⽤-PropertySource-加载⾃定义-yml-或-properties-⽂件"><a href="#⼆、使⽤-PropertySource-加载⾃定义-yml-或-properties-⽂件" class="headerlink" title="⼆、使⽤@PropertySource 加载⾃定义 yml 或 properties ⽂件"></a>⼆、使⽤@PropertySource 加载⾃定义 yml 或 properties ⽂件</h3><h4 id="1-properties-配置⽂件加载"><a href="#1-properties-配置⽂件加载" class="headerlink" title="1. properties 配置⽂件加载"></a>1. properties 配置⽂件加载</h4><p>resouces ⽬录新建 family.properties</p>
+<p><a target="_blank" rel="noopener" href="https://www.toyaml.com/index.html">在线 yml 和 properties 互转</a></p>
 <p>将之前的 family 相关的 yml 内容粘贴，转换后的内容</p>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">family.family-name</span><span class="token punctuation">=</span><span class="token value attr-value">happy family</span>
 <span class="token key attr-name">family.father.name</span><span class="token punctuation">=</span><span class="token value attr-value">tom</span>
@@ -1112,7 +1108,7 @@ gender=male)<span class="token punctuation">,</span> Friend(hobby=sing<span clas
 <span class="token key attr-name">family.child.friends[1].gender</span><span class="token punctuation">=</span><span class="token value attr-value">female</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><code>family.properties</code> 这种格式的配置⽂件，在之前的代码基础之上，加上如下的注解就可以将⽂件中的配置属性进⾏加载。</p>
-<p><font color=red><strong>注意在application.yml中把family相关的配置删掉</strong></font></p>
+<p><font color=red><strong>注意在 application.yml 中把 family 相关的配置删掉</strong></font></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
 <span class="token annotation punctuation">@Component</span>
 <span class="token annotation punctuation">@ConfigurationProperties</span><span class="token punctuation">(</span>prefix <span class="token operator">=</span> <span class="token string">"family"</span><span class="token punctuation">)</span>
@@ -1124,32 +1120,32 @@ gender=male)<span class="token punctuation">,</span> Friend(hobby=sing<span clas
 
 <p>⼀样可以测试通过</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/TVTBzH.png"></p>
-<h4 id="2-yaml配置⽂件加载"><a href="#2-yaml配置⽂件加载" class="headerlink" title="2. yaml配置⽂件加载"></a>2. yaml配置⽂件加载</h4><p><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#boot-features-external-config-yaml-shortcomings">spring 官⽅⽂档明确说明不⽀持使⽤@PropertySource加载YAML配置⽂件</a></p>
+<h4 id="2-yaml-配置⽂件加载"><a href="#2-yaml-配置⽂件加载" class="headerlink" title="2. yaml 配置⽂件加载"></a>2. yaml 配置⽂件加载</h4><p><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#boot-features-external-config-yaml-shortcomings">spring 官⽅⽂档明确说明不⽀持使⽤@PropertySource 加载 YAML 配置⽂件</a></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/JyQZt9.png"></p>
 <ul>
 <li>新建⼀个配置⽂件 family.yml，⽤来模拟第三⽅ jar 包的额外配置⽂件（⾮ application 配置⽂件）。</li>
 </ul>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">family</span><span class="token punctuation">:</span>
- <span class="token key atrule">family-name</span><span class="token punctuation">:</span> happy family
- <span class="token key atrule">father</span><span class="token punctuation">:</span>
-   <span class="token key atrule">age</span><span class="token punctuation">:</span> <span class="token number">38</span>
-   <span class="token key atrule">name</span><span class="token punctuation">:</span> tom
- <span class="token key atrule">mother</span><span class="token punctuation">:</span>
-   <span class="token key atrule">alias</span><span class="token punctuation">:</span>
-     <span class="token punctuation">-</span> rose
-     <span class="token punctuation">-</span> alice  
- <span class="token key atrule">child</span><span class="token punctuation">:</span>
-   <span class="token key atrule">name</span><span class="token punctuation">:</span> jack
-   <span class="token key atrule">age</span><span class="token punctuation">:</span> <span class="token number">6</span>
-   <span class="token key atrule">friends</span><span class="token punctuation">:</span>
-     <span class="token punctuation">-</span> <span class="token key atrule">gender</span><span class="token punctuation">:</span> male
-       <span class="token key atrule">hobby</span><span class="token punctuation">:</span> play
-     <span class="token punctuation">-</span> <span class="token key atrule">gender</span><span class="token punctuation">:</span> female
-       <span class="token key atrule">hobby</span><span class="token punctuation">:</span> sing<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token key atrule">family-name</span><span class="token punctuation">:</span> happy family
+  <span class="token key atrule">father</span><span class="token punctuation">:</span>
+    <span class="token key atrule">age</span><span class="token punctuation">:</span> <span class="token number">38</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> tom
+  <span class="token key atrule">mother</span><span class="token punctuation">:</span>
+    <span class="token key atrule">alias</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> rose
+      <span class="token punctuation">-</span> alice
+  <span class="token key atrule">child</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> jack
+    <span class="token key atrule">age</span><span class="token punctuation">:</span> <span class="token number">6</span>
+    <span class="token key atrule">friends</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">gender</span><span class="token punctuation">:</span> male
+        <span class="token key atrule">hobby</span><span class="token punctuation">:</span> play
+      <span class="token punctuation">-</span> <span class="token key atrule">gender</span><span class="token punctuation">:</span> female
+        <span class="token key atrule">hobby</span><span class="token punctuation">:</span> sing<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li>DefaultPropertySourceFactory 是进⾏配置⽂件加载的⼯⼚类。</li>
-<li>尽管其默认不⽀持读取 YAML 格式外部配置⽂件，但是我们可以通过继承 DefaultPropertySourceFactory ，然后对它的createPropertySource 进⾏⼀下改造。就可以 实现 YAML 的“额外”配置⽂件加载。</li>
+<li>尽管其默认不⽀持读取 YAML 格式外部配置⽂件，但是我们可以通过继承 DefaultPropertySourceFactory ，然后对它的 createPropertySource 进⾏⼀下改造。就可以 实现 YAML 的“额外”配置⽂件加载。</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MixPropertySourceFactory</span> <span class="token keyword">extends</span>
 <span class="token class-name">DefaultPropertySourceFactory</span> <span class="token punctuation">&#123;</span>
@@ -1165,7 +1161,7 @@ gender=male)<span class="token punctuation">,</span> Friend(hobby=sing<span clas
       <span class="token keyword">return</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">createPropertySource</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> resource<span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token punctuation">&#125;</span>
  <span class="token punctuation">&#125;</span>
- 
+
   <span class="token comment">//将YML格式的配置转成Properties配置</span>
   <span class="token keyword">private</span> <span class="token class-name">Properties</span> <span class="token function">loadYml</span><span class="token punctuation">(</span><span class="token class-name">EncodedResource</span> resource<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span><span class="token punctuation">&#123;</span>
     <span class="token class-name">YamlPropertiesFactoryBean</span> factory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">YamlPropertiesFactoryBean</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1175,9 +1171,7 @@ gender=male)<span class="token punctuation">,</span> Friend(hobby=sing<span clas
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-<h4 id="3-练习：仿做⾃定义User、Book的属性绑定校验"><a href="#3-练习：仿做⾃定义User、Book的属性绑定校验" class="headerlink" title="3. 练习：仿做⾃定义User、Book的属性绑定校验"></a>3. 练习：仿做⾃定义User、Book的属性绑定校验</h4><h3 id="三、使⽤-ImportResource加载Spring的xml配置⽂件"><a href="#三、使⽤-ImportResource加载Spring的xml配置⽂件" class="headerlink" title="三、使⽤@ImportResource加载Spring的xml配置⽂件"></a>三、使⽤@ImportResource加载Spring的xml配置⽂件</h3><p>新建⼀个类，top.syhan.boot.config.service.TestBeanService</p>
+<h4 id="3-练习：仿做⾃定义-User、Book-的属性绑定校验"><a href="#3-练习：仿做⾃定义-User、Book-的属性绑定校验" class="headerlink" title="3. 练习：仿做⾃定义 User、Book 的属性绑定校验"></a>3. 练习：仿做⾃定义 User、Book 的属性绑定校验</h4><h3 id="三、使⽤-ImportResource-加载-Spring-的-xml-配置⽂件"><a href="#三、使⽤-ImportResource-加载-Spring-的-xml-配置⽂件" class="headerlink" title="三、使⽤@ImportResource 加载 Spring 的 xml 配置⽂件"></a>三、使⽤@ImportResource 加载 Spring 的 xml 配置⽂件</h3><p>新建⼀个类，top.syhan.boot.config.service.TestBeanService</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestBeanService</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
@@ -1197,7 +1191,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token p
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>测试⽤例，测试 Spring 上下⽂环境中是否有 testBeanService 这样⼀个 bean，有的话表示 xml 配置⽂件已经⽣效，成功将testBeanService 实例化并注⼊到 Spring 上下⽂环境中:</li>
+<li>测试⽤例，测试 Spring 上下⽂环境中是否有 testBeanService 这样⼀个 bean，有的话表示 xml 配置⽂件已经⽣效，成功将 testBeanService 实例化并注⼊到 Spring 上下⽂环境中:</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Slf4j</span>
 <span class="token annotation punctuation">@SpringBootTest</span>
@@ -1218,7 +1212,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token p
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>因为还没使⽤ @ImportResource 加载 beans.xml，此时执⾏测试⽤例会失败，<strong>表示 beans.xml 配置⽂件并未加载</strong>，所以没有testBeanService 的存在。</li>
+<li>因为还没使⽤ @ImportResource 加载 beans.xml，此时执⾏测试⽤例会失败，<strong>表示 beans.xml 配置⽂件并未加载</strong>，所以没有 testBeanService 的存在。</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/O6kYVx.png"></p>
 <ul>
@@ -1227,11 +1221,11 @@ http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token p
 <p><code>@ImportResource(locations = &#123;&quot;classpath:beans.xml&quot;&#125;) </code>，该注解⽤来加载 Spring XML 配置⽂件。</p>
 <p>此时再测，测试可以通过，beans.xml 配置⽂件被正确加载，并输出了 testBeanService 实例的信息。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/aeDqGC.png"></p>
-<h2 id="7-使⽤SpEL表达式绑定配置项"><a href="#7-使⽤SpEL表达式绑定配置项" class="headerlink" title="7. 使⽤SpEL表达式绑定配置项"></a>7. 使⽤SpEL表达式绑定配置项</h2><blockquote>
+<h2 id="7-使⽤-SpEL-表达式绑定配置项"><a href="#7-使⽤-SpEL-表达式绑定配置项" class="headerlink" title="7. 使⽤ SpEL 表达式绑定配置项"></a>7. 使⽤ SpEL 表达式绑定配置项</h2><blockquote>
 <p>Spring Expression Language (SpEL) 是⼀种功能⾮常强⼤的表达式语⾔，可⽤于在运⾏时查询和操作对象。 SpEL 书写在 XML 配置⽂件或者 Annotation 注解上，在 Spring Bean 的创建过程中 ⽣效。</p>
 </blockquote>
 <p>SpEL 能⽤在很多的场景下，现在给⼤家介绍⼀下在 Spring Boot 中如何使⽤ SpEL 表达式读取配置属性。</p>
-<h3 id="⼀、使⽤SpEL表达式绑定字符串集合"><a href="#⼀、使⽤SpEL表达式绑定字符串集合" class="headerlink" title="⼀、使⽤SpEL表达式绑定字符串集合"></a>⼀、使⽤SpEL表达式绑定字符串集合</h3><p>创建⼀个配置⽂件employee.properties,内容如下：</p>
+<h3 id="⼀、使⽤-SpEL-表达式绑定字符串集合"><a href="#⼀、使⽤-SpEL-表达式绑定字符串集合" class="headerlink" title="⼀、使⽤ SpEL 表达式绑定字符串集合"></a>⼀、使⽤ SpEL 表达式绑定字符串集合</h3><p>创建⼀个配置⽂件 employee.properties,内容如下：</p>
 <pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token key attr-name">employee.names</span><span class="token punctuation">=</span><span class="token value attr-value">james,curry,zhangsan,姚明</span>
 <span class="token key attr-name">employee.type</span><span class="token punctuation">=</span><span class="token value attr-value">教练,球员,经理</span>
 <span class="token key attr-name">employee.age</span><span class="token punctuation">=</span><span class="token value attr-value">&#123;one:'27', two : '35', three : '34', four: '26'&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -1272,9 +1266,9 @@ http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token p
 
 <p>输出结果如图所示，说明使⽤ SpEL 读取 employee.properties 配置⽂件，并绑定属性值到 Employee 对象⽣效。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/5lsa1r.png"></p>
-<p>上⾯的例⼦中，我们使⽤ SpEL 表达式读取了employee.names 属性，并将其从字符串属性，以逗号为分隔符转换为 List 类型。属性值注⼊完成之后，employeeNames=[james, curry, zhangsan, 姚明]</p>
-<h3 id="三、SpEL结合-Value注解读取配置⽂件属性–更多示例"><a href="#三、SpEL结合-Value注解读取配置⽂件属性–更多示例" class="headerlink" title="三、SpEL结合@Value注解读取配置⽂件属性–更多示例"></a>三、SpEL结合@Value注解读取配置⽂件属性–更多示例</h3><ul>
-<li>假如我们需要获取第⼀位（数组下标从0开始）雇员的姓名，可以使⽤如下的 SpEL 表达式：</li>
+<p>上⾯的例⼦中，我们使⽤ SpEL 表达式读取了 employee.names 属性，并将其从字符串属性，以逗号为分隔符转换为 List 类型。属性值注⼊完成之后，employeeNames=[james, curry, zhangsan, 姚明]</p>
+<h3 id="三、SpEL-结合-Value-注解读取配置⽂件属性–更多示例"><a href="#三、SpEL-结合-Value-注解读取配置⽂件属性–更多示例" class="headerlink" title="三、SpEL 结合@Value 注解读取配置⽂件属性–更多示例"></a>三、SpEL 结合@Value 注解读取配置⽂件属性–更多示例</h3><ul>
+<li>假如我们需要获取第⼀位（数组下标从 0 开始）雇员的姓名，可以使⽤如下的 SpEL 表达式：</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Value</span> <span class="token punctuation">(</span><span class="token string">"#&#123;'$&#123;employee.names&#125;'.split(',')[0]&#125;"</span><span class="token punctuation">)</span>
 <span class="token keyword">private</span> <span class="token class-name">String</span> firstEmployeeName<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -1299,14 +1293,14 @@ http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token p
 <p>属性值注⼊完成之后，employeeAgeTwo=35</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/1A7IUl.png"></p>
 <ul>
-<li>如果我们不确定，Map 中的某个 key 是否存在，可以使⽤如下的 SpEL 表达式。如果 key 存在就获取对应的 value ，如果不存在就获得默认值30。</li>
+<li>如果我们不确定，Map 中的某个 key 是否存在，可以使⽤如下的 SpEL 表达式。如果 key 存在就获取对应的 value ，如果不存在就获得默认值 30。</li>
 </ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"#&#123;$&#123;employee.age&#125;['three'] != null ? $&#123;employee.age&#125; ['three']: 30&#125;"</span><span class="token punctuation">)</span>
 <span class="token keyword">private</span> <span class="token class-name">Integer</span> ageWithDefaultValue<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>属性值注⼊完成之后，ageWithDefaultValue=31</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/XhsTLF.png"></p>
-<h3 id="四、SpEL结合-Value注解读取系统环境变量"><a href="#四、SpEL结合-Value注解读取系统环境变量" class="headerlink" title="四、SpEL结合 @Value注解读取系统环境变量"></a>四、SpEL结合 @Value注解读取系统环境变量</h3><p>可以使⽤ SpEL 表达式读取系统环境变量，示例：获取 JAVA_HOME ⽬录：</p>
+<h3 id="四、SpEL-结合-Value-注解读取系统环境变量"><a href="#四、SpEL-结合-Value-注解读取系统环境变量" class="headerlink" title="四、SpEL 结合 @Value 注解读取系统环境变量"></a>四、SpEL 结合 @Value 注解读取系统环境变量</h3><p>可以使⽤ SpEL 表达式读取系统环境变量，示例：获取 JAVA_HOME ⽬录：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Value</span> <span class="token punctuation">(</span><span class="token string">"#&#123;systemProperties['java.home']&#125;"</span><span class="token punctuation">)</span>
 <span class="token keyword">private</span> <span class="token class-name">String</span> javaHome<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
@@ -1318,29 +1312,27 @@ http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token p
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/X7YnLb.png"></p>
 <p>当然，除了以上在 Spring Boot 中使⽤ SpEL 的常⽤⽤法，SpEL 还可以完成算术运算、逻辑运算、 正则匹配运算、条件运算等功能，建议⼤家参照官⽅⽂档学习。</p>
 <p>更多内容可以参考：<a target="_blank" rel="noopener" href="https://docs.spring.io/spring/docs/4.3.10.RELEASE/springframework-reference/html/expressions.html">https://docs.spring.io/spring/docs/4.3.10.RELEASE/springframework-reference/html/expressions.html</a></p>
-<h3 id="五、读取properties⽂件中⽂乱码问题的解决"><a href="#五、读取properties⽂件中⽂乱码问题的解决" class="headerlink" title="五、读取properties⽂件中⽂乱码问题的解决"></a>五、读取properties⽂件中⽂乱码问题的解决</h3><p>File-&gt;settings-&gt;File Encoding-&gt;图所示选项及勾选</p>
+<h3 id="五、读取-properties-⽂件中⽂乱码问题的解决"><a href="#五、读取-properties-⽂件中⽂乱码问题的解决" class="headerlink" title="五、读取 properties ⽂件中⽂乱码问题的解决"></a>五、读取 properties ⽂件中⽂乱码问题的解决</h3><p>File-&gt;settings-&gt;File Encoding-&gt;图所示选项及勾选</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/t41iNL.png"></p>
 <p>使⽤ PropertySource 注解时指定 encoding</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/wFzE2w.png"></p>
-<h2 id="8-profile不同环境使⽤不同配置"><a href="#8-profile不同环境使⽤不同配置" class="headerlink" title="8. profile不同环境使⽤不同配置"></a>8. profile不同环境使⽤不同配置</h2><h3 id="⼀、配置⽂件规划"><a href="#⼀、配置⽂件规划" class="headerlink" title="⼀、配置⽂件规划"></a>⼀、配置⽂件规划</h3><p>我们开发的服务通常会部署在不同的环境中，例如开发环境、测试环境，⽣产环境等，⽽不同环境需要不同的配置。 </p>
+<h2 id="8-profile-不同环境使⽤不同配置"><a href="#8-profile-不同环境使⽤不同配置" class="headerlink" title="8. profile 不同环境使⽤不同配置"></a>8. profile 不同环境使⽤不同配置</h2><h3 id="⼀、配置⽂件规划"><a href="#⼀、配置⽂件规划" class="headerlink" title="⼀、配置⽂件规划"></a>⼀、配置⽂件规划</h3><p>我们开发的服务通常会部署在不同的环境中，例如开发环境、测试环境，⽣产环境等，⽽不同环境需要不同的配置。</p>
 <p>最典型的场景就是在不同的环境下需要连接不同的数据库，需要使⽤不同的数据库配置。 我们期待实现的配置效果是：</p>
 <ul>
 <li>减少配置修改次数</li>
 <li>⽅便环境配置切换</li>
 </ul>
-<p>SpringBoot 默认的配置⽂件是 application.properties(或yml)。那么如何实现不同的环境使⽤不同的配置⽂件呢？⽐较好的做法是<strong>为不同的环境定义不同的配置⽂件</strong>。</p>
-<p> <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/PQDUVD.png"></p>
-<p>全局配置⽂件:application.yml </p>
-<p>开发环境配置⽂件：application-dev.yml </p>
-<p>测试环境配置⽂件：application-test.yml </p>
+<p>SpringBoot 默认的配置⽂件是 application.properties(或 yml)。那么如何实现不同的环境使⽤不同的配置⽂件呢？⽐较好的做法是<strong>为不同的环境定义不同的配置⽂件</strong>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/PQDUVD.png"></p>
+<p>全局配置⽂件:application.yml</p>
+<p>开发环境配置⽂件：application-dev.yml</p>
+<p>测试环境配置⽂件：application-test.yml</p>
 <p>⽣产环境配置⽂件：application-prod.yml</p>
-<h3 id="⼆、切换环境的⽅式"><a href="#⼆、切换环境的⽅式" class="headerlink" title="⼆、切换环境的⽅式"></a>⼆、切换环境的⽅式</h3><h4 id="1-通过配置application-yml"><a href="#1-通过配置application-yml" class="headerlink" title="1. 通过配置application.yml"></a>1. 通过配置application.yml</h4><p>application.yml 是默认使⽤的配置⽂件，在其中通过 spring.profiles.active 设置使⽤哪⼀个配置⽂件，下⾯代码表示使⽤ application-prod.yml 配置，如果 application-prod.yml 和 application.yml 配置了相同的配置，⽐如都配置了运⾏端⼝，那 application-prod.yml 的优先级更⾼。</p>
+<h3 id="⼆、切换环境的⽅式"><a href="#⼆、切换环境的⽅式" class="headerlink" title="⼆、切换环境的⽅式"></a>⼆、切换环境的⽅式</h3><h4 id="1-通过配置-application-yml"><a href="#1-通过配置-application-yml" class="headerlink" title="1. 通过配置 application.yml"></a>1. 通过配置 application.yml</h4><p>application.yml 是默认使⽤的配置⽂件，在其中通过 spring.profiles.active 设置使⽤哪⼀个配置⽂件，下⾯代码表示使⽤ application-prod.yml 配置，如果 application-prod.yml 和 application.yml 配置了相同的配置，⽐如都配置了运⾏端⼝，那 application-prod.yml 的优先级更⾼。</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment">#需要使⽤的配置⽂件</span>
 <span class="token key atrule">spring</span><span class="token punctuation">:</span>
- <span class="token key atrule">profiles</span><span class="token punctuation">:</span>
-   <span class="token key atrule">active</span><span class="token punctuation">:</span> prod<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+  <span class="token key atrule">profiles</span><span class="token punctuation">:</span>
+    <span class="token key atrule">active</span><span class="token punctuation">:</span> prod<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="2-VM-options、Program-arguments、Active-Profile"><a href="#2-VM-options、Program-arguments、Active-Profile" class="headerlink" title="2. VM options、Program arguments、Active Profile"></a>2. VM options、Program arguments、Active Profile</h4><ul>
 <li>VM options 设置启动参数 -Dspring.profiles.active=prod</li>
@@ -1350,24 +1342,24 @@ http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token p
 <p><strong>这三个参数不要⼀起设置</strong>，会引起冲突，选⼀种即可，如下图</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/gXnuEH.png"></p>
 <h4 id="3-命令⾏⽅式"><a href="#3-命令⾏⽅式" class="headerlink" title="3. 命令⾏⽅式"></a>3. 命令⾏⽅式</h4><p>将项⽬打成 jar 包，在 jar 包的⽬录下打开命令⾏，使⽤如下命令启动：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar spring-boot-profile.jar --spring.profiles.active&#x3D;prod<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar spring-boot-profile.jar --spring.profiles.active<span class="token operator">=</span>prod<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>关于 Spring Profiles 更多信息可以参⻅：<a target="_blank" rel="noopener" href="https://www.baeldung.com/spring-profiles">Spring Profiles</a>。</p>
 <h2 id="9-配置及配置⽂件的加载优先级"><a href="#9-配置及配置⽂件的加载优先级" class="headerlink" title="9. 配置及配置⽂件的加载优先级"></a>9. 配置及配置⽂件的加载优先级</h2><h3 id="⼀、全局配置⽂件加载优先级"><a href="#⼀、全局配置⽂件加载优先级" class="headerlink" title="⼀、全局配置⽂件加载优先级"></a>⼀、全局配置⽂件加载优先级</h3><p>SpringBoot 启动会扫描以下位置的 application.properties 或者 application.yml ⽂件作为默认配置⽂件，数值越⼩的标号优先级越⾼。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/MkGrPL.png"></p>
 <ol>
-<li>file:./config/ (当前项⽬路径config⽬录下); </li>
-<li>file:./ (当前项⽬路径下); </li>
-<li>classpath:/config/ (类路径config⽬录下); </li>
+<li>file:./config/ (当前项⽬路径 config ⽬录下);</li>
+<li>file:./ (当前项⽬路径下);</li>
+<li>classpath:/config/ (类路径 config ⽬录下);</li>
 <li>classpath:/ (类路径下).</li>
 </ol>
 <p>按照优先级从⾼到低的顺序，所有位置的⽂件都会被加载，<strong>⾼优先级配置内容会覆盖低优先级配置内容</strong>。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/TTRdJT.png"></p>
-<p>SpringBoot会从<strong>这四个位置全部加载主配置⽂件</strong>，如果⾼优先级中配置⽂件属性与低优先级配置⽂件不冲突的属性，则会共同存在—互补配置。</p>
-<p>假如我们在上⾯的四个配置⽂件分别设置 server.port=6666、7777、8888、9999 ，然后启动应⽤，<strong>最终的启动端⼝为6666</strong>，因为 <strong><code>file:./config/</code></strong> (当前项⽬路径 config ⽬录下配置⽂件)优先级是最⾼的。</p>
+<p>SpringBoot 会从<strong>这四个位置全部加载主配置⽂件</strong>，如果⾼优先级中配置⽂件属性与低优先级配置⽂件不冲突的属性，则会共同存在—互补配置。</p>
+<p>假如我们在上⾯的四个配置⽂件分别设置 server.port=6666、7777、8888、9999 ，然后启动应⽤，<strong>最终的启动端⼝为 6666</strong>，因为 <strong><code>file:./config/</code></strong> (当前项⽬路径 config ⽬录下配置⽂件)优先级是最⾼的。</p>
 <p><strong>⾃定义改变全局配置⽂件的加载位置：(优先级最⾼)</strong></p>
-<p>我们也可以通过配置spring.config.location来改变默认配置。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar boot-launch-1.0.jar --spring.config.location&#x3D;&#x2F;Users&#x2F;apple&#x2F;Desktop&#x2F;application.yml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>我们也可以通过配置 spring.config.location 来改变默认配置。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar boot-launch-1.0.jar --spring.config.location<span class="token operator">=</span>/Users/apple/Desktop/application.yml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>项⽬打包好以后，我们可以使⽤命令⾏参数的形式，在启动项⽬的时候来指定配置⽂件的位置。</p>
 <p><strong>打包的时候遇到测试代码问题失败的解决⽅案</strong></p>
@@ -1376,16 +1368,16 @@ http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token p
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/ddOJyH.png"></p>
 <p><strong>解决⽅法</strong></p>
-<p>1、⽤maven命令打包，跳过测试</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mvn package -Dmaven.test.skip&#x3D;true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>1、⽤ maven 命令打包，跳过测试</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mvn package -Dmaven.test.skip<span class="token operator">=</span>true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>2、pom中添加配置</p>
+<p>2、pom 中添加配置</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>java.version</span><span class="token punctuation">></span></span>17<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>java.version</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>skipTests</span><span class="token punctuation">></span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>skipTests</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>3、IDEA设置中指定</p>
+<p>3、IDEA 设置中指定</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/9IDurN.png"></p>
 <h3 id="⼆、配置加载优先级"><a href="#⼆、配置加载优先级" class="headerlink" title="⼆、配置加载优先级"></a>⼆、配置加载优先级</h3><p>SpringBoot 也可以从以下位置加载配置：优先级从⾼到低；⾼优先级的配置覆盖低优先级的配置， 所有的配置会形成互补配置。</p>
 <ol>
@@ -1394,20 +1386,20 @@ http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token p
 <li>Java 系统属性（System.getProperties()）</li>
 <li>操作系统环境变量</li>
 <li>RandomValuePropertySource 配置的 random.* 属性值</li>
-<li> jar 包外部的 application-{profile}.properties 或 application.yml(带spring.profile) 配置⽂件</li>
-<li>jar 包内部的 application-{profile}.properties 或 application.yml(带spring.profile) 配置⽂件</li>
-<li>jar 包外部的 application.properties 或 application.yml(不带spring.profile) 配置⽂件</li>
-<li>jar 包内部的 application.properties 或 application.yml(不带spring.profile) 配置⽂件</li>
+<li>jar 包外部的 application-{profile}.properties 或 application.yml(带 spring.profile) 配置⽂件</li>
+<li>jar 包内部的 application-{profile}.properties 或 application.yml(带 spring.profile) 配置⽂件</li>
+<li>jar 包外部的 application.properties 或 application.yml(不带 spring.profile) 配置⽂件</li>
+<li>jar 包内部的 application.properties 或 application.yml(不带 spring.profile) 配置⽂件</li>
 <li>@Configuration 注解类上的 @PropertySource</li>
 <li>通过 SpringApplication.setDefaultProperties 指定的默认属性</li>
 </ol>
 <p>关于配置的优先级不⽤特别去记忆，⽤到的时候查⼀下即可。</p>
-<p> ⼀般来说：特殊指定配置(命令⾏、环境变量)⼤于通⽤配置、外部配置优先级⾼于内部配置、局部 环境配置（带profile）⼤于全局普适性配置。</p>
+<p>⼀般来说：特殊指定配置(命令⾏、环境变量)⼤于通⽤配置、外部配置优先级⾼于内部配置、局部 环境配置（带 profile）⼤于全局普适性配置。</p>
 <p>参考:<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#features.external-config">官⽅⽂档，获得更多关于配置优先级的内容</a></p>
-<h2 id="10-配置⽂件敏感字段加密"><a href="#10-配置⽂件敏感字段加密" class="headerlink" title="10. 配置⽂件敏感字段加密"></a>10. 配置⽂件敏感字段加密</h2><h3 id="⼀、说明"><a href="#⼀、说明" class="headerlink" title="⼀、说明"></a>⼀、说明</h3><p>使⽤过SpringBoot配置⽂件的⼈都知道，资源⽂件中的内容通常情况下是明⽂显示，安全性就⽐较差⼀些。</p>
+<h2 id="10-配置⽂件敏感字段加密"><a href="#10-配置⽂件敏感字段加密" class="headerlink" title="10. 配置⽂件敏感字段加密"></a>10. 配置⽂件敏感字段加密</h2><h3 id="⼀、说明"><a href="#⼀、说明" class="headerlink" title="⼀、说明"></a>⼀、说明</h3><p>使⽤过 SpringBoot 配置⽂件的⼈都知道，资源⽂件中的内容通常情况下是明⽂显示，安全性就⽐较差⼀些。</p>
 <p>打开 application.properties 或 application.yml ，⽐如 MySql 登陆密码，Redis 登陆密码以及第三⽅的密钥等等⼀览⽆余，这⾥介绍⼀个加解密组件，提⾼⼀些属性配置的安全性。</p>
 <p><strong>jasypt 是由⼀个国外⼤神写的⼀个 SpringBoot 的⼯具包，⽤来加密配置⽂件中的信息。</strong></p>
-<p>GitHub Demo地址：<a target="_blank" rel="noopener" href="https://github.com/jeikerxiao/spring-boot2/tree/master/springboot-encrypt">https://github.com/jeikerxiao/spring-boot2/tree/master/springboot-encrypt</a></p>
+<p>GitHub Demo 地址：<a target="_blank" rel="noopener" href="https://github.com/jeikerxiao/spring-boot2/tree/master/springboot-encrypt">https://github.com/jeikerxiao/spring-boot2/tree/master/springboot-encrypt</a></p>
 <h3 id="⼆、数据⽤户名和数据库密码加密为例"><a href="#⼆、数据⽤户名和数据库密码加密为例" class="headerlink" title="⼆、数据⽤户名和数据库密码加密为例"></a>⼆、数据⽤户名和数据库密码加密为例</h3><h4 id="1-引⼊包"><a href="#1-引⼊包" class="headerlink" title="1. 引⼊包"></a>1. 引⼊包</h4><p>查看最新版本可以到:<a target="_blank" rel="noopener" href="https://github.com/ulisesbocchio/jasypt-spring-boot">https://github.com/ulisesbocchio/jasypt-spring-boot</a></p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.github.ulisesbocchio<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
@@ -1415,15 +1407,11 @@ http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token p
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.0.4<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
 <h4 id="2-配置加密解密的秘钥"><a href="#2-配置加密解密的秘钥" class="headerlink" title="2. 配置加密解密的秘钥"></a>2. 配置加密解密的秘钥</h4><p>application.yml</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># jasypt加密的密匙</span>
 <span class="token key atrule">jasypt</span><span class="token punctuation">:</span>
- <span class="token key atrule">encryptor</span><span class="token punctuation">:</span>
-   <span class="token key atrule">password</span><span class="token punctuation">:</span> Y6M9fAJQdU7jNp5MW<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+  <span class="token key atrule">encryptor</span><span class="token punctuation">:</span>
+    <span class="token key atrule">password</span><span class="token punctuation">:</span> Y6M9fAJQdU7jNp5MW<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="3-写⼀个单元测试，⽤来⽣成加密后的秘钥"><a href="#3-写⼀个单元测试，⽤来⽣成加密后的秘钥" class="headerlink" title="3. 写⼀个单元测试，⽤来⽣成加密后的秘钥"></a>3. 写⼀个单元测试，⽤来⽣成加密后的秘钥</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">top<span class="token punctuation">.</span>syhan<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>service</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span></span><span class="token punctuation">;</span>
@@ -1455,21 +1443,19 @@ http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token p
 <p>下⾯是输出的加密字符串：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/1HYgaQ.png"></p>
 <p>在 properties 或 yml ⽂件中需要对明⽂进⾏加密的地⽅使⽤ ENC() 包裹，如原值：”happy family”， 加密后使⽤ ENC(密⽂) 替换。程序中像往常⼀样使⽤ @Value(“${}”) 获取该配置即可，获取的是解密之后的明⽂值。</p>
-<p> <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/l7vemk.png"></p>
-<p> <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/EUJ271.png"></p>
-<p>⽂本被加密之后，我们需要告知 SpringBoot 该如何解密，因为 SpringBoot 要读取该配置的明⽂内容。在 application.properties 或 yml⽂件中，做如下配置:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/l7vemk.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/EUJ271.png"></p>
+<p>⽂本被加密之后，我们需要告知 SpringBoot 该如何解密，因为 SpringBoot 要读取该配置的明⽂内容。在 application.properties 或 yml ⽂件中，做如下配置:</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 设置盐值（加密解密密钥），我们配置在这⾥只是为了测试⽅便</span>
 <span class="token comment"># ⽣产环境中，切记不要这样直接进⾏设置，可通过环境变量、命令⾏等形式进⾏设置。下⽂会讲</span>
 <span class="token key atrule">jasypt</span><span class="token punctuation">:</span>
 <span class="token key atrule">encryptor</span><span class="token punctuation">:</span>
- <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token number">123456</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token number">123456</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>运⾏单元测试，打印family对象</p>
+<p>运⾏单元测试，打印 family 对象</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/cVjv7D.png"></p>
 <h3 id="三、“密钥”与配置⽂件分开存放"><a href="#三、“密钥”与配置⽂件分开存放" class="headerlink" title="三、“密钥”与配置⽂件分开存放"></a>三、“密钥”与配置⽂件分开存放</h3><p>本身加解密过程都是通过盐值进⾏处理的，所以正常情况下盐值和加密串是分开存储的。出于安全考量，<strong>盐值应该放在系统属性、命令⾏或是环境变量来使⽤，⽽不是放在同⼀个配置⽂件⾥⾯</strong>。</p>
 <h4 id="1-命令⾏存储⽅式示例"><a href="#1-命令⾏存储⽅式示例" class="headerlink" title="1. 命令⾏存储⽅式示例"></a>1. 命令⾏存储⽅式示例</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java -jar xxx.jar --jasypt.encryptor.password<span class="token operator">=</span>xxx <span class="token operator">&amp;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
 
 <h4 id="2-环境变量存储⽅式示例"><a href="#2-环境变量存储⽅式示例" class="headerlink" title="2. 环境变量存储⽅式示例"></a>2. 环境变量存储⽅式示例</h4><p>设置环境变量(Linux)</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 打开/etc/profile⽂件</span>
@@ -1479,7 +1465,6 @@ http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token p
 
 <p>启动命令</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java -jar xxx.jar --jasypt.encryptor.password<span class="token operator">=</span><span class="token variable">$&#123;JASYPT_PASSWORD&#125;</span> <span class="token operator">&amp;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 
                 
             </div>
@@ -2217,66 +2202,57 @@ http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token p
         <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
-        
         display: none;
-        
-        font-size: 12px;
+            font-size: 12px;
         font-weight: 700;
         line-height: 16px !important;
     }
 
     .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
         display: none;
-        
-        font-size: 15px;
+            font-size: 15px;
         color: #42b983;
     }
 
-    
     .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
+            left: -66px !important;
+        }
 
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
 
-    
+        
 </style>
 <div class="">
     
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="song"
-                   id="480614067"
-                   fixed='true'
-                   autoplay='true'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.5'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
+            <div class="row">
+                <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease"
+                    type="song" id="480614067" fixed=' true'
+                    autoplay='true'
+                        theme='#42b983'
+                            loop='all'
+                                order='random'
+                                    preload='auto'
+                                        volume='0.5'
+                                            list-folded='true'
+                                                >
+                </meting-js>
+            </div>
 </div>
 
 <script src="/libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
             
                 <div class="container row center-align"
                     style="margin-bottom: 15px !important;">
                     <div class="col s12 m8 l8 copy-right">
                         Copyright&nbsp;&copy;
                         
-                                <span id="year">
-                                    2022
-                                </span>
-                                
+                            <span id="year">
+                                2022-2023
+                            </span>
+                            
                                     <span id="year">
                                         2022
                                     </span>
@@ -2290,7 +2266,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token p
                                     
                                         &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
                                             class="white-color">
-                                            197.3k
+                                            197.4k
                                         </span>&nbsp;字
                                         
                                             

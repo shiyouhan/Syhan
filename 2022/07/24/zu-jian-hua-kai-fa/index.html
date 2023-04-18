@@ -35,7 +35,7 @@
 
    <style>
     body{
-       background-image: url(https://cdn.syhan.top/uPic/I75zFh.jpg);
+       background-image: url(http://img.syhan.top/uPic/I75zFh.jpg);
        background-repeat:no-repeat;
        background-size:cover;
        background-attachment:fixed;
@@ -508,10 +508,8 @@
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/cULGnF.png" style="zoom:50%;" />
 
 <p>如果注册功能还是不会做，那就再细化为：先参考某某 app 把静态⻚⾯⽤户密码输⼊框做出来！是不是就更加容易些。</p>
-<h3 id="三、什么是组件化开发"><a href="#三、什么是组件化开发" class="headerlink" title="三、什么是组件化开发"></a>三、什么是组件化开发</h3><p>组件化开发实际上就是⼀种典型的先拆分问题，再解决问题的思路。对于vue⽽⾔，组件就是把⼀组相 关度极⾼的视图模板、样式、数据、操作抽取出来，形成可复⽤的独⽴功能代码。</p>
+<h3 id="三、什么是组件化开发"><a href="#三、什么是组件化开发" class="headerlink" title="三、什么是组件化开发"></a>三、什么是组件化开发</h3><p>组件化开发实际上就是⼀种典型的先拆分问题，再解决问题的思路。对于 vue ⽽⾔，组件就是把⼀组相 关度极⾼的视图模板、样式、数据、操作抽取出来，形成可复⽤的独⽴功能代码。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/UimYip.png" style="zoom:50%;" />
-
-
 
 <h3 id="四、组件化的好处"><a href="#四、组件化的好处" class="headerlink" title="四、组件化的好处"></a>四、组件化的好处</h3><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/70Nzwu.png" style="zoom:50%;" />
 
@@ -539,35 +537,29 @@
 <li>template ⽤于定义组件的视图内容，即：html 代码、vue 指令等。</li>
 <li>如果⽤ new VUE() 定义多个 vue 实例，全局组件可以跨多个实例使⽤。</li>
 <li>通常组件定义的名称为⾸字⺟⼤写，驼峰标志，如：MyComponent。</li>
-<li>在dom中使⽤组件，通常遵循使⽤“-”分隔单词，⼩写规范。如:my-component。</li>
+<li>在 dom 中使⽤组件，通常遵循使⽤“-”分隔单词，⼩写规范。如:my-component。</li>
 </ul>
 <p>上图代码最终实现效果如下：</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/iRwNzO.png" style="zoom:50%;" />
 
-
-
 <h3 id="三、全局组件定义注册合⼆为⼀（简写，常⽤）"><a href="#三、全局组件定义注册合⼆为⼀（简写，常⽤）" class="headerlink" title="三、全局组件定义注册合⼆为⼀（简写，常⽤）"></a>三、全局组件定义注册合⼆为⼀（简写，常⽤）</h3><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Q7wLtN.png" style="zoom:50%;" />
 
-<p>可以使⽤ Vue.component() ⽅法 + template 组件视图层模板⼀步完成全局组件的定义与注册。 </p>
-<p>这种⽅法是第⼆⼩节中代码的简写⽅式，使⽤更加⼴泛。将 Vue.extend() 定义和 Vue.component() 注册 合并为⽤⼀个Vue.component(template) 完成，实际上的内部实现原理是⼀致的。</p>
+<p>可以使⽤ Vue.component() ⽅法 + template 组件视图层模板⼀步完成全局组件的定义与注册。</p>
+<p>这种⽅法是第⼆⼩节中代码的简写⽅式，使⽤更加⼴泛。将 Vue.extend() 定义和 Vue.component() 注册 合并为⽤⼀个 Vue.component(template) 完成，实际上的内部实现原理是⼀致的。</p>
 <h3 id="四、局部私有组件"><a href="#四、局部私有组件" class="headerlink" title="四、局部私有组件"></a>四、局部私有组件</h3><p>局部私有组件和全局组件的区别在于，私有组件只能在定义它的实例或者⽗组件⾥⾯使⽤。</p>
-<p>定义的组件MyConponent2只能在 <code>&lt;div id=&quot;app&quot;&gt;</code> ⾥⾯使⽤,其他Vue实例⽆法使⽤该组件。</p>
+<p>定义的组件 MyConponent2 只能在 <code>&lt;div id=&quot;app&quot;&gt;</code> ⾥⾯使⽤,其他 Vue 实例⽆法使⽤该组件。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/ftZVoz.png" style="zoom:50%;" />
 
-
-
 <h3 id="五、模板视图与实例定义分离"><a href="#五、模板视图与实例定义分离" class="headerlink" title="五、模板视图与实例定义分离"></a>五、模板视图与实例定义分离</h3><p>在上⾯的代码中，我们将组件定义的 html 代码写在了⼀个模板字符串⾥⾯，这样书写很不⽅便，没有 IDE 的提示，⽽且看上去也⽐较乱。</p>
-<p> 我们下⾯就来学⼀种更加正规的写法：（注意和上⽂中的代码形成对⽐）</p>
+<p>我们下⾯就来学⼀种更加正规的写法：（注意和上⽂中的代码形成对⽐）</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/K3VRkZ.png" style="zoom:50%;" />
 
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/aWNpnR.png" style="zoom:50%;" />
 
-
-
 <h3 id="六、⽗⼦组件的嵌套"><a href="#六、⽗⼦组件的嵌套" class="headerlink" title="六、⽗⼦组件的嵌套"></a>六、⽗⼦组件的嵌套</h3><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/kdyMFx.png" style="zoom:50%;" />
 
-<p>⼀个⽗组件 Parent ⾥⾯包含两个⼦组件 Child，并将⽗组件放在 app2 实例⻚⾯渲染范围内。 </p>
-<p>下⽂中是使⽤私有局部组件的⽅式定义的，也就是 Parent 组件是 app2 实例的私有局部组件，Child是 Parent 组件的私有局部组件。</p>
+<p>⼀个⽗组件 Parent ⾥⾯包含两个⼦组件 Child，并将⽗组件放在 app2 实例⻚⾯渲染范围内。</p>
+<p>下⽂中是使⽤私有局部组件的⽅式定义的，也就是 Parent 组件是 app2 实例的私有局部组件，Child 是 Parent 组件的私有局部组件。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/l2JSTg.png" style="zoom:50%;" />
 
 <p>代码实现的效果截图如下：</p>
@@ -580,14 +572,12 @@
 <li>组件数据为什么要定义在函数⾥⾯</li>
 <li>⽗⼦组件的数据访问</li>
 </ul>
-<h3 id="⼆、组件⽆法直接访问VUE实例的data数据"><a href="#⼆、组件⽆法直接访问VUE实例的data数据" class="headerlink" title="⼆、组件⽆法直接访问VUE实例的data数据"></a>⼆、组件⽆法直接访问VUE实例的data数据</h3><p>我们发现：</p>
+<h3 id="⼆、组件⽆法直接访问-VUE-实例的-data-数据"><a href="#⼆、组件⽆法直接访问-VUE-实例的-data-数据" class="headerlink" title="⼆、组件⽆法直接访问 VUE 实例的 data 数据"></a>⼆、组件⽆法直接访问 VUE 实例的 data 数据</h3><p>我们发现：</p>
 <ul>
-<li>⽆法在组件内直接通过插值表达式访问vue实例的数据</li>
+<li>⽆法在组件内直接通过插值表达式访问 vue 实例的数据</li>
 <li>⼦组件也⽆法直接使⽤⽗组件中的数据</li>
 </ul>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/PeWjia.png" style="zoom:50%;" />
-
-
 
 <h3 id="三、组件有⾃⼰的数据和⽅法"><a href="#三、组件有⾃⼰的数据和⽅法" class="headerlink" title="三、组件有⾃⼰的数据和⽅法"></a>三、组件有⾃⼰的数据和⽅法</h3><p>从上⼀⼩节的内容中，我们知道，组件视图内⽆法直接通过插值表达式访问 Vue 实例的数据。</p>
 <p>那么组件的数据定义在哪⾥呢？组件有⾃⼰的数据和⽅法定义。如下图所示：</p>
@@ -602,7 +592,7 @@
 <li>我们知道 Vue 实例的数据定义在 data 对象⾥⾯。但是组件的数据定义在函数⾥⾯，相当于使⽤了⼯⼚函数创建对象，每⼀次创建的对象在内存⾥⾯都是新的空间和指针。</li>
 <li>如果不定义在对象⾥⾯，⾸先⼀定会报错，其次如果每次返回同⼀个对象。当⻚⾯出现多次使⽤同 ⼀个组件，⼀定会彼此影响，从⽽产⽣我们不期望的结果。</li>
 </ul>
-<h3 id="五、⽗⼦组件的数据访问"><a href="#五、⽗⼦组件的数据访问" class="headerlink" title="五、⽗⼦组件的数据访问"></a>五、⽗⼦组件的数据访问</h3><p>⽗组件⽆法直接使⽤⼦组件的数据，⼦组件也⽆法<strong>直接</strong>使⽤⽗组件定义的数据。 </p>
+<h3 id="五、⽗⼦组件的数据访问"><a href="#五、⽗⼦组件的数据访问" class="headerlink" title="五、⽗⼦组件的数据访问"></a>五、⽗⼦组件的数据访问</h3><p>⽗组件⽆法直接使⽤⼦组件的数据，⼦组件也⽆法<strong>直接</strong>使⽤⽗组件定义的数据。</p>
 <p>那么有没有间接的使⽤⽅式呢？我们可以使⽤ <strong>$parent</strong>、**.$children<strong>、</strong>$ref** 引⽤的⽅式：</p>
 <ul>
 <li>在⼦组件代码中调⽤ this.$parent 可以获取到⽗组件对象</li>
@@ -618,14 +608,14 @@
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/s9SGXc.png" style="zoom:50%;" />
 
 <p>然后⽗组件通过如下代码即可打印⼦组件的属性数据：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>childRef<span class="token punctuation">.</span>childMessage<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>childRef<span class="token punctuation">.</span>childMessage<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>但是通常使⽤ $parent、.$children、$ref 会增加组件之间的耦合性，所以不建议使⽤。除⾮你定义的组件只在单模块⾥⾯使⽤，不考虑以后的复⽤问题。</p>
 <h2 id="4-如何实现组件的切换"><a href="#4-如何实现组件的切换" class="headerlink" title="4.如何实现组件的切换"></a>4.如何实现组件的切换</h2><h3 id="⼀、本节⼤纲-3"><a href="#⼀、本节⼤纲-3" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
-<li>v-if、v-else指令切换组件</li>
+<li>v-if、v-else 指令切换组件</li>
 <li>通过标签切换组件</li>
 </ul>
-<h3 id="⼆、v-if、v-else指令切换组件"><a href="#⼆、v-if、v-else指令切换组件" class="headerlink" title="⼆、v-if、v-else指令切换组件"></a>⼆、v-if、v-else指令切换组件</h3><p>我们来通过 v-if、v-else 指令实现⼀个简单的需求，通过点击切换按钮。切换登录和注册⻚⾯，⼆者只能同时显示其中⼀个组件。视图定义如下：</p>
+<h3 id="⼆、v-if、v-else-指令切换组件"><a href="#⼆、v-if、v-else-指令切换组件" class="headerlink" title="⼆、v-if、v-else 指令切换组件"></a>⼆、v-if、v-else 指令切换组件</h3><p>我们来通过 v-if、v-else 指令实现⼀个简单的需求，通过点击切换按钮。切换登录和注册⻚⾯，⼆者只能同时显示其中⼀个组件。视图定义如下：</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/1OArDS.png" style="zoom:50%;" />
 
 <ul>
@@ -642,8 +632,6 @@
 <p>最终实现效果如下：</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/XuIpCB.png" style="zoom:50%;" />
 
-
-
 <h3 id="三、通过标签切换组件"><a href="#三、通过标签切换组件" class="headerlink" title="三、通过标签切换组件"></a>三、通过标签切换组件</h3><p>除了可以使⽤ v-if 和 v-else 指令，我们还可以使⽤标签来实现组件的切换，这种⽅式使⽤上更加灵活。</p>
 <p><strong>视图定义如下：</strong></p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/fsfZH4.png" style="zoom:50%;" />
@@ -658,7 +646,7 @@
 <li>组件 props 属性传递最佳命名实践</li>
 <li>props 数据校验</li>
 </ul>
-<h3 id="⼆、使⽤props⽗组件向⼦组件传递数据"><a href="#⼆、使⽤props⽗组件向⼦组件传递数据" class="headerlink" title="⼆、使⽤props⽗组件向⼦组件传递数据"></a>⼆、使⽤props⽗组件向⼦组件传递数据</h3><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/RetCpE.png" style="zoom:50%;" />
+<h3 id="⼆、使⽤-props-⽗组件向⼦组件传递数据"><a href="#⼆、使⽤-props-⽗组件向⼦组件传递数据" class="headerlink" title="⼆、使⽤ props ⽗组件向⼦组件传递数据"></a>⼆、使⽤ props ⽗组件向⼦组件传递数据</h3><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/RetCpE.png" style="zoom:50%;" />
 
 <ul>
 <li>⾸先，⽗实例将⾃⼰的数据 player，传递给⼦组件 child-cpn。（图中⻩⾊箭头）</li>
@@ -668,10 +656,10 @@
 </ul>
 <p>这样，我们通过改变⽗组件⾥⾯的 player 对象，就能动态的改变⼦组件的 childPlayer 属性值</p>
 <blockquote>
-<p>要⾮常注意⼀点：在 Vue2.0 中，props 数据流只能从⽗组件向⼦组件传递。并且在组件内，不能修改 由外层传来的 props 数据。这是为了防⽌⼦组件⽆意修改了⽗组件的状态——这会让应⽤的数据流难以理解。 </p>
+<p>要⾮常注意⼀点：在 Vue2.0 中，props 数据流只能从⽗组件向⼦组件传递。并且在组件内，不能修改 由外层传来的 props 数据。这是为了防⽌⼦组件⽆意修改了⽗组件的状态——这会让应⽤的数据流难以理解。</p>
 <p>⼦组件如何将⾃⼰的数据改变传递给⽗组件呢？是下⼀节的内容。</p>
 </blockquote>
-<h3 id="三、组件props属性传递最佳命名实践"><a href="#三、组件props属性传递最佳命名实践" class="headerlink" title="三、组件props属性传递最佳命名实践"></a>三、组件props属性传递最佳命名实践</h3><p>对于 props 声明的属性来说，在⽗级 HTML 模板中，属性名需要使⽤中划线写法。</p>
+<h3 id="三、组件-props-属性传递最佳命名实践"><a href="#三、组件-props-属性传递最佳命名实践" class="headerlink" title="三、组件 props 属性传递最佳命名实践"></a>三、组件 props 属性传递最佳命名实践</h3><p>对于 props 声明的属性来说，在⽗级 HTML 模板中，属性名需要使⽤中划线写法。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/QioxEp.png" style="zoom:50%;" />
 
 <p>⼦级 props 属性声明时，使⽤⼩驼峰或者中划线写法都可以；⼩写字⺟开头。</p>
@@ -683,11 +671,11 @@
 <li>在 js 代码⾥⾯的变量或属性使⽤驼峰的写法，组件名⾸字⺟⼤写，变量属性名⾸字⺟⼩写。</li>
 <li>插值表达式<code>&#123;&#123;&#125;&#125;`是代码？还是 html 标签属性？html 规范⾥⾯有`&#123;&#123;&#125;&#125;</code>这种⽤法么？所以它当然是代码。</li>
 </ul>
-<p><strong>和我们平时写代码的规范是⼀致的。html标签属性都是中划线，代码都是驼峰标志。</strong></p>
-<p>上⾯的规范中遗留⼀个问题，就是组件的名称是⾸字⺟⼤写，驼峰标识。在 html ⾥⾯我们通常希望也遵循这样的规则。如: <code>&lt;ChildCpn&gt;&lt;/ChildCpn&gt;</code>，这样可以避免 html 标签和组件标签混淆。 </p>
+<p><strong>和我们平时写代码的规范是⼀致的。html 标签属性都是中划线，代码都是驼峰标志。</strong></p>
+<p>上⾯的规范中遗留⼀个问题，就是组件的名称是⾸字⺟⼤写，驼峰标识。在 html ⾥⾯我们通常希望也遵循这样的规则。如: <code>&lt;ChildCpn&gt;&lt;/ChildCpn&gt;</code>，这样可以避免 html 标签和组件标签混淆。</p>
 <p>但是⽬前是不可以这么⽤的，在 Vue 单⽂件⾥⾯可以这样写。</p>
-<h3 id="四、props数据校验"><a href="#四、props数据校验" class="headerlink" title="四、props数据校验"></a>四、props数据校验</h3><p>通常我们定义⼀个组件是应该可以提供给其他模块或其他⼈使⽤的。使⽤者可能对该组件的⽤法并不熟悉，可能会导致错误。所以有必要在⼦组件内，对⽗组件传递过来数据进⾏校验。</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">'example'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+<h3 id="四、props-数据校验"><a href="#四、props-数据校验" class="headerlink" title="四、props 数据校验"></a>四、props 数据校验</h3><p>通常我们定义⼀个组件是应该可以提供给其他模块或其他⼈使⽤的。使⽤者可能对该组件的⽤法并不熟悉，可能会导致错误。所以有必要在⼦组件内，对⽗组件传递过来数据进⾏校验。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">"example"</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
   <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// 基础类型检测 (`null` 意思是任何类型都可以)</span>
     <span class="token literal-property property">propA</span><span class="token operator">:</span> Number<span class="token punctuation">,</span>
@@ -696,39 +684,37 @@
     <span class="token comment">// 必传属性且必须是字符串类型</span>
     <span class="token literal-property property">propC</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
       <span class="token literal-property property">type</span><span class="token operator">:</span> String<span class="token punctuation">,</span>
-      <span class="token literal-property property">required</span><span class="token operator">:</span> <span class="token boolean">true</span>
-   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">required</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
     <span class="token comment">// 数字，不传就默认值100</span>
     <span class="token literal-property property">propD</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
       <span class="token literal-property property">type</span><span class="token operator">:</span> Number<span class="token punctuation">,</span>
-      <span class="token keyword">default</span><span class="token operator">:</span> <span class="token number">100</span>
-   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
     <span class="token comment">// 数组/对象的默认值应当由⼀个⼯⼚函数返回</span>
     <span class="token literal-property property">propE</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
       <span class="token literal-property property">type</span><span class="token operator">:</span> Object<span class="token punctuation">,</span>
       <span class="token function-variable function">default</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">'hello'</span> <span class="token punctuation">&#125;</span>
-     <span class="token punctuation">&#125;</span>
-   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token keyword">return</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">"hello"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
     <span class="token comment">// ⾃定义验证函数</span>
     <span class="token literal-property property">propF</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
       <span class="token function-variable function">validator</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> value <span class="token operator">></span> <span class="token number">10</span>
-     <span class="token punctuation">&#125;</span>
-   <span class="token punctuation">&#125;</span>
- <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <span class="token keyword">return</span> value <span class="token operator">></span> <span class="token number">10</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>type的类型可以是如下：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">String
-Number
-Boolean
-Function
-Object
-Array
-Symbol<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+<p>type 的类型可以是如下：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">String<span class="token punctuation">;</span>
+Number<span class="token punctuation">;</span>
+Boolean<span class="token punctuation">;</span>
+Function<span class="token punctuation">;</span>
+Object<span class="token punctuation">;</span>
+Array<span class="token punctuation">;</span>
+Symbol<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="6-⼦组件向⽗组件传播事件"><a href="#6-⼦组件向⽗组件传播事件" class="headerlink" title="6.⼦组件向⽗组件传播事件"></a>6.⼦组件向⽗组件传播事件</h2><h3 id="⼀、本节⼤纲-5"><a href="#⼀、本节⼤纲-5" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
 <li>想⼀想这个需求怎么实现</li>
@@ -737,7 +723,7 @@ Symbol<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 </ul>
 <h3 id="⼆、想⼀想这个需求怎么实现"><a href="#⼆、想⼀想这个需求怎么实现" class="headerlink" title="⼆、想⼀想这个需求怎么实现"></a>⼆、想⼀想这个需求怎么实现</h3><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/c0Q0cr.png" style="zoom:50%;" />
 
-<p>其中加⼀和减⼀的按钮是属于⼦组件，pCounter 显示是在⽗组件⾥⾯（ Vue 实例⾥⾯）。 </p>
+<p>其中加⼀和减⼀的按钮是属于⼦组件，pCounter 显示是在⽗组件⾥⾯（ Vue 实例⾥⾯）。</p>
 <p>我们该如何把⼦组件的点击事件传递给⽗组件，并传递参数改变⽗组件的值？</p>
 <h3 id="三、⼦组件向⽗组件事件传播核⼼代码解读"><a href="#三、⼦组件向⽗组件事件传播核⼼代码解读" class="headerlink" title="三、⼦组件向⽗组件事件传播核⼼代码解读"></a>三、⼦组件向⽗组件事件传播核⼼代码解读</h3><p>前⾯《⽗⼦组件的数据定义与访问》中我们曾学过，⽗组件可以通过 $children 和 $ref 的⽅式获取⼦组件的数据。</p>
 <p>但是在实际开发过程中，还有另外⼀种需求，即：⼦组件中发⽣了某些动作，从⽽改变了⼦组件的数据。</p>
@@ -748,7 +734,7 @@ Symbol<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/1lO7yz.png" style="zoom:50%;" />
 
 <ul>
-<li>在⽗组件中嵌⼊⼦组件，并使⽤ v-on 指令（简写为@）监听事件，从⽽触发回调函数，回调函数接受⼦组件发送的参数。图中changePcounter 就是针对 increment 事件和 decrment 事件监听的回调函数。</li>
+<li>在⽗组件中嵌⼊⼦组件，并使⽤ v-on 指令（简写为@）监听事件，从⽽触发回调函数，回调函数接受⼦组件发送的参数。图中 changePcounter 就是针对 increment 事件和 decrment 事件监听的回调函数。</li>
 </ul>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/nQcRow.png" style="zoom:50%;" />
 
@@ -756,8 +742,6 @@ Symbol<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <li>⽗组件定义回调函数接收实践触发源传递的参数，即 $emit 的第⼆个参数</li>
 </ul>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/DidijJ.png" style="zoom:50%;" />
-
-
 
 <h3 id="四、整体需求的实现"><a href="#四、整体需求的实现" class="headerlink" title="四、整体需求的实现"></a>四、整体需求的实现</h3><p>⼦组件与视图的定义。</p>
 <p>⼦组件点击加⼀按钮触发 incr 函数，incr 函数触发 increment 事件，并将当前 cCounter 作为事件参数传递出去。</p>
@@ -767,23 +751,21 @@ Symbol<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <p>⽗组件的定义</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/XZy2Wc.png" style="zoom:50%;" />
 
-
-
 <h2 id="7-插槽的使⽤场景与⽅法"><a href="#7-插槽的使⽤场景与⽅法" class="headerlink" title="7.插槽的使⽤场景与⽅法"></a>7.插槽的使⽤场景与⽅法</h2><h3 id="⼀、本节⼤纲-6"><a href="#⼀、本节⼤纲-6" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
 <li>插槽的使⽤场景</li>
 <li>插槽的使⽤⽅法</li>
 <li>组件如何给插槽传递数据</li>
 <li>改变插槽数据的显示样式</li>
 </ul>
-<h3 id="⼆、插槽的使⽤场景"><a href="#⼆、插槽的使⽤场景" class="headerlink" title="⼆、插槽的使⽤场景"></a>⼆、插槽的使⽤场景</h3><p>Windows操作系统⽂件管理的⻚⾯布局，头部导航栏，左侧⽂件夹菜单，右侧⽂件内容区。对 于“Windows⽂件管理”这个组件，划分三个区域，头部导航栏，左侧⽂件夹菜单，右侧⽂件内容区。这 三个区域就是三个插槽。</p>
+<h3 id="⼆、插槽的使⽤场景"><a href="#⼆、插槽的使⽤场景" class="headerlink" title="⼆、插槽的使⽤场景"></a>⼆、插槽的使⽤场景</h3><p>Windows 操作系统⽂件管理的⻚⾯布局，头部导航栏，左侧⽂件夹菜单，右侧⽂件内容区。对 于“Windows ⽂件管理”这个组件，划分三个区域，头部导航栏，左侧⽂件夹菜单，右侧⽂件内容区。这 三个区域就是三个插槽。</p>
 <p>我们可以先归纳⼀下应⽤插槽的场景的⼏个特点：</p>
 <ul>
-<li><strong>插槽是组件的插槽，并不脱离于组件⽽存在。</strong>⽐如：Windows⽂件管理功能是⼀个组件，右侧⽂件内容区是该组件的⼀个插槽。</li>
-<li><strong>插槽相当于是⻚⾯占位符，占⽤位置展示数据</strong>，插槽通常可以较明确的做出区域划分。如： windows的右侧⽂件内容区就可以划分为⼀个插槽。</li>
-<li><strong>插槽⾥⾯数据及其显示的样式是可以变化的</strong>，但是数据内容属性最好是有⼀定的相同点，才定义为⼀个插槽。如：Windows的右侧⽂件内容区展示的都是⽂件或⽂件夹，不是菜单也不是按钮。</li>
+<li><strong>插槽是组件的插槽，并不脱离于组件⽽存在。</strong>⽐如：Windows ⽂件管理功能是⼀个组件，右侧⽂件内容区是该组件的⼀个插槽。</li>
+<li><strong>插槽相当于是⻚⾯占位符，占⽤位置展示数据</strong>，插槽通常可以较明确的做出区域划分。如： windows 的右侧⽂件内容区就可以划分为⼀个插槽。</li>
+<li><strong>插槽⾥⾯数据及其显示的样式是可以变化的</strong>，但是数据内容属性最好是有⼀定的相同点，才定义为⼀个插槽。如：Windows 的右侧⽂件内容区展示的都是⽂件或⽂件夹，不是菜单也不是按钮。</li>
 <li><strong>抽取共性，保留不同。</strong><font color=red>将共性定义在组件⾥⾯，将差异暴露为插槽。</font></li>
 </ul>
-<h3 id="三、插槽的使⽤⽅法"><a href="#三、插槽的使⽤⽅法" class="headerlink" title="三、插槽的使⽤⽅法"></a>三、插槽的使⽤⽅法</h3><h4 id="第⼀步：抽取定义插槽"><a href="#第⼀步：抽取定义插槽" class="headerlink" title="第⼀步：抽取定义插槽"></a>第⼀步：抽取定义插槽</h4><p>我们先看⼀个左右布局的视图，共性内容抽取定义为组件MyLayout，差异内容定义为插槽，对外暴露。</p>
+<h3 id="三、插槽的使⽤⽅法"><a href="#三、插槽的使⽤⽅法" class="headerlink" title="三、插槽的使⽤⽅法"></a>三、插槽的使⽤⽅法</h3><h4 id="第⼀步：抽取定义插槽"><a href="#第⼀步：抽取定义插槽" class="headerlink" title="第⼀步：抽取定义插槽"></a>第⼀步：抽取定义插槽</h4><p>我们先看⼀个左右布局的视图，共性内容抽取定义为组件 MyLayout，差异内容定义为插槽，对外暴露。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/XOOSRp.png" style="zoom:50%;" />
 
 <p>注意上⾯的插槽定义，第⼀个插槽命名为 left，第⼆个插槽没有命名，<strong>没有命名的插槽默认名称为 default</strong> 。</p>
@@ -792,11 +774,9 @@ Symbol<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 
 <p>v-slot:[slotname] 指令通过指明插槽名称，⽤ template 模板中的内容替换指定的插槽。</p>
 <p><strong>v-slot 可以简写为 #[slotname]</strong></p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">#left</span><span class="token punctuation">></span></span>    
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">#left</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>这⾥是左侧区域<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-
 
 <h3 id="四、组件如何给插槽传递数据"><a href="#四、组件如何给插槽传递数据" class="headerlink" title="四、组件如何给插槽传递数据"></a>四、组件如何给插槽传递数据</h3><p>上⼀节在右侧内容区展示的数据时静态的，我们能不能动态地为右侧内容区传递数据呢？也是可以的。 思考：谁给插槽传数据呢？<strong>在哪个组件⾥⾯定义的插槽，就由哪个组件提供数据。</strong></p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/IZhcx0.png" style="zoom:50%;" />
@@ -812,7 +792,7 @@ Symbol<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <li>slotProps 只是⼀个绑定对象变量名，可以随意起名。</li>
 </ul>
 <blockquote>
-<p>要注意⼀个问题：我们绑定的变量名是 bestPlayer（P⼤写），到了 slot 模板⾥⾯，使⽤的时候⽤的是 bestplayer（⼩写）。这是因为 Vue 遵循⼀个规则：html 标签属性不应包含⼤写字⺟，所以尽量不要⽤驼峰标识。可以⽤ best-player 或 bestplayer 。</p>
+<p>要注意⼀个问题：我们绑定的变量名是 bestPlayer（P ⼤写），到了 slot 模板⾥⾯，使⽤的时候⽤的是 bestplayer（⼩写）。这是因为 Vue 遵循⼀个规则：html 标签属性不应包含⼤写字⺟，所以尽量不要⽤驼峰标识。可以⽤ best-player 或 bestplayer 。</p>
 </blockquote>
 <p>通过上⾯的实现，我们就可以通过改变⼦组件的数据，进⽽影响 slot 的显示内容。</p>
 <h3 id="五、改变插槽数据的显示样式"><a href="#五、改变插槽数据的显示样式" class="headerlink" title="五、改变插槽数据的显示样式"></a>五、改变插槽数据的显示样式</h3><p>插槽的数据我们从组件中获取到了，那么数据展示的样式呢？</p>
@@ -823,79 +803,80 @@ Symbol<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <p>完整代码</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initialscale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ie=edge<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initialscale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ie=edge<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>插槽-具名插槽-作⽤域插槽<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-        <span class="token selector">.wrapper</span> <span class="token punctuation">&#123;</span>
-            <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
-            <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #ccc<span class="token punctuation">;</span>
-            <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
-       <span class="token punctuation">&#125;</span>
-        <span class="token selector">.left</span> <span class="token punctuation">&#123;</span>
-            <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
-            <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
-            <span class="token property">background</span><span class="token punctuation">:</span> #9fa8da<span class="token punctuation">;</span>
-       <span class="token punctuation">&#125;</span>
-        <span class="token selector">.center</span> <span class="token punctuation">&#123;</span>
-            <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
-            <span class="token property">background</span><span class="token punctuation">:</span> #80cbc4<span class="token punctuation">;</span>
-            <span class="token property">flex</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
-       <span class="token punctuation">&#125;</span>
+      <span class="token selector">.wrapper</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+        <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #ccc<span class="token punctuation">;</span>
+        <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token selector">.left</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> #9fa8da<span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token selector">.center</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> #80cbc4<span class="token punctuation">;</span>
+        <span class="token property">flex</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
     </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>my-layout</span><span class="token punctuation">></span></span>
-            <span class="token comment">&lt;!-- 插槽占位替换 --></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name"><span class="token namespace">v-slot:</span>left</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>左侧区域<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>左侧区域<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name"><span class="token namespace">v-slot:</span>default</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>slotProps<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
-                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>player in slotProps.players<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>&#123;&#123;player&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>&#123;&#123;slotProps.bestplayer&#125;&#125; <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
- 						<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>my-layout</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>my-layout</span><span class="token punctuation">></span></span>
+        <span class="token comment">&lt;!-- 插槽占位替换 --></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name"><span class="token namespace">v-slot:</span>left</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>左侧区域<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>左侧区域<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name"><span class="token namespace">v-slot:</span>default</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>slotProps<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>player in slotProps.players<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>&#123;&#123;player&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>&#123;&#123;slotProps.bestplayer&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>my-layout</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>MyLayout<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>wrapper<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>left<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>left<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>center<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span> <span class="token attr-name">:players</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>players<span class="token punctuation">"</span></span> <span class="token attr-name">:bestPlayer</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bestPlayer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>wrapper<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>left<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>left<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>center<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span> <span class="token attr-name">:players</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>players<span class="token punctuation">"</span></span> <span class="token attr-name">:bestPlayer</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bestPlayer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/vue@2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-        <span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-            <span class="token literal-property property">el</span><span class="token operator">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
+      <span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        <span class="token literal-property property">el</span><span class="token operator">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
+        <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+            <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">"Vue"</span><span class="token punctuation">,</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">components</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+          <span class="token literal-property property">MyLayout</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token literal-property property">template</span><span class="token operator">:</span> <span class="token string">"#MyLayout"</span><span class="token punctuation">,</span>
             <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
-                    <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">'Vue'</span>
-               <span class="token punctuation">&#125;</span>
-           <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-            <span class="token literal-property property">components</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-                <span class="token literal-property property">MyLayout</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-                    <span class="token literal-property property">template</span><span class="token operator">:</span> <span class="token string">"#MyLayout"</span><span class="token punctuation">,</span>
-										<span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                        <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
-                            <span class="token literal-property property">players</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"aaa"</span><span class="token punctuation">,</span> <span class="token string">"bbb"</span><span class="token punctuation">,</span> <span class="token string">"ccc"</span><span class="token punctuation">,</span> <span class="token string">"ddd"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                            <span class="token literal-property property">bestPlayer</span><span class="token operator">:</span> <span class="token string">"aaa"</span>
-                       <span class="token punctuation">&#125;</span>
-                   <span class="token punctuation">&#125;</span>
-               <span class="token punctuation">&#125;</span>
-           <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-       <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+                <span class="token literal-property property">players</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"aaa"</span><span class="token punctuation">,</span> <span class="token string">"bbb"</span><span class="token punctuation">,</span> <span class="token string">"ccc"</span><span class="token punctuation">,</span> <span class="token string">"ddd"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token literal-property property">bestPlayer</span><span class="token operator">:</span> <span class="token string">"aaa"</span><span class="token punctuation">,</span>
+              <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>运⾏效果：</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/6GjcrT.png" style="zoom:50%;" />
@@ -1624,66 +1605,57 @@ Symbol<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
         <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
-        
         display: none;
-        
-        font-size: 12px;
+            font-size: 12px;
         font-weight: 700;
         line-height: 16px !important;
     }
 
     .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
         display: none;
-        
-        font-size: 15px;
+            font-size: 15px;
         color: #42b983;
     }
 
-    
     .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
+            left: -66px !important;
+        }
 
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
 
-    
+        
 </style>
 <div class="">
     
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="song"
-                   id="480614067"
-                   fixed='true'
-                   autoplay='true'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.5'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
+            <div class="row">
+                <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease"
+                    type="song" id="480614067" fixed=' true'
+                    autoplay='true'
+                        theme='#42b983'
+                            loop='all'
+                                order='random'
+                                    preload='auto'
+                                        volume='0.5'
+                                            list-folded='true'
+                                                >
+                </meting-js>
+            </div>
 </div>
 
 <script src="/libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
             
                 <div class="container row center-align"
                     style="margin-bottom: 15px !important;">
                     <div class="col s12 m8 l8 copy-right">
                         Copyright&nbsp;&copy;
                         
-                                <span id="year">
-                                    2022
-                                </span>
-                                
+                            <span id="year">
+                                2022-2023
+                            </span>
+                            
                                     <span id="year">
                                         2022
                                     </span>
@@ -1697,7 +1669,7 @@ Symbol<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
                                     
                                         &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
                                             class="white-color">
-                                            197.3k
+                                            197.4k
                                         </span>&nbsp;字
                                         
                                             

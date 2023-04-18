@@ -35,7 +35,7 @@
 
    <style>
     body{
-       background-image: url(https://cdn.syhan.top/uPic/I75zFh.jpg);
+       background-image: url(http://img.syhan.top/uPic/I75zFh.jpg);
        background-repeat:no-repeat;
        background-size:cover;
        background-attachment:fixed;
@@ -496,37 +496,35 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="前端路由VueRouter"><a href="#前端路由VueRouter" class="headerlink" title="前端路由VueRouter"></a>前端路由VueRouter</h1><h2 id="1-单⻚⾯应⽤与前端路由"><a href="#1-单⻚⾯应⽤与前端路由" class="headerlink" title="1.单⻚⾯应⽤与前端路由"></a>1.单⻚⾯应⽤与前端路由</h2><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/StnEkc.png" style="zoom:50%;" />
-
-
+                <h1 id="前端路由-VueRouter"><a href="#前端路由-VueRouter" class="headerlink" title="前端路由 VueRouter"></a>前端路由 VueRouter</h1><h2 id="1-单⻚⾯应⽤与前端路由"><a href="#1-单⻚⾯应⽤与前端路由" class="headerlink" title="1.单⻚⾯应⽤与前端路由"></a>1.单⻚⾯应⽤与前端路由</h2><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/StnEkc.png" style="zoom:50%;" />
 
 <h3 id="⼀、本节⼤纲"><a href="#⼀、本节⼤纲" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
 <li>单⻚⾯应⽤ SPA 介绍</li>
 <li>前端路由的两种实现⽅式</li>
 <li>单⻚⾯应⽤的优缺点</li>
 </ul>
-<h3 id="⼆、单⻚⾯应⽤SPA介绍"><a href="#⼆、单⻚⾯应⽤SPA介绍" class="headerlink" title="⼆、单⻚⾯应⽤SPA介绍"></a>⼆、单⻚⾯应⽤SPA介绍</h3><p>在说单⻚⾯应⽤（SPA：Single Page Application）之前，有必要和⼤家⼀起回顾⼀下，Web 应⽤开发的⼏个阶段，这样更有助于我们来理解单⻚⾯应⽤。 </p>
+<h3 id="⼆、单⻚⾯应⽤-SPA-介绍"><a href="#⼆、单⻚⾯应⽤-SPA-介绍" class="headerlink" title="⼆、单⻚⾯应⽤ SPA 介绍"></a>⼆、单⻚⾯应⽤ SPA 介绍</h3><p>在说单⻚⾯应⽤（SPA：Single Page Application）之前，有必要和⼤家⼀起回顾⼀下，Web 应⽤开发的⼏个阶段，这样更有助于我们来理解单⻚⾯应⽤。</p>
 <p>在 Web 应⽤较早的时候，在 Java 的领域⼤家最常使⽤的是 Servlet、JSP。这两种技术实现的 Web 应⽤， 都脱离不了⼀个事实：那就是浏览器和服务端之间的唯⼀的沟通⽅式就是 html。这个阶段没有所谓的 Web 应⽤数据接⼝，只有⻚⾯视图请求服务。也就是说，客户端发送⼀个请求，服务端根据请求去操作 数据库，然后在 java 代码⾥⾯写数据和 html 代码进⾏组合渲染，最终将⼀个 html ⻚⾯返回个浏览器端。 周⽽复始。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Pdkwva.png" style="zoom:50%;" />
 
-<p>久⽽久之，程序员对于在 Java 代码⾥⾯写 html 已经感到⼗分厌恶，从⽽有了后来的⼤量 MVC 的框架：如 struts 等。在⼀定程度上实现了数据与视图的解耦。但是这些框架的出现只是在开发上更加⽅便，仍然没有改变html⻚⾯需要在服务端渲染的事实。这时对于前端来说，⼀种⾰命性的技术出现了，那就是 Ajax。 </p>
-<p>Ajax 不是⼀种新技术，但的确是⼀种⾰命性的技术。 </p>
+<p>久⽽久之，程序员对于在 Java 代码⾥⾯写 html 已经感到⼗分厌恶，从⽽有了后来的⼤量 MVC 的框架：如 struts 等。在⼀定程度上实现了数据与视图的解耦。但是这些框架的出现只是在开发上更加⽅便，仍然没有改变 html ⻚⾯需要在服务端渲染的事实。这时对于前端来说，⼀种⾰命性的技术出现了，那就是 Ajax。</p>
+<p>Ajax 不是⼀种新技术，但的确是⼀种⾰命性的技术。</p>
 <p>这个时候，程序员开发 Web 应⽤，⼀个功能请求服务端得到⼀个初始的 html ⻚⾯，然后在这个⻚⾯上的所有操作都可以通过 Ajax 进⾏，返回如 JSON 格式数据，再⽤ Ajax 和 CSS 技术对这个⻚⾯进⾏前端的渲染，局部刷新。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/oKxqRP.png" style="zoom:50%;" />
 
 <p>然⽽这并不能满⾜这样的⼀个强烈的需求：后端程序员不想写不会写视图层内容，能不能把视图层开发完全交给前端。很多逻辑能⼒超群的后端程序员，写不好 css、html，效率极低。</p>
-<p>那么⼤家就想：能不能实现前后端分离，以后后端程序员只写数据接⼝，不写视图渲染程序。专业的⼈做专业的事，往往效率是最⾼的。⽽且另⼀个重要的原因就是：前端视图渲染缓解了服务器压⼒，所以 ⽐后端视图渲染的效率更⾼。 </p>
+<p>那么⼤家就想：能不能实现前后端分离，以后后端程序员只写数据接⼝，不写视图渲染程序。专业的⼈做专业的事，往往效率是最⾼的。⽽且另⼀个重要的原因就是：前端视图渲染缓解了服务器压⼒，所以 ⽐后端视图渲染的效率更⾼。</p>
 <p>这个时候，前端迎来了历史上最快速的发展，各种前端框架层出不穷，其中最具代表性的就是 Vue.js、 ReactJs、AngularJS 三⼤框架，这三⼤框架⽆⼀例外的⽀持组件化开发和前端路由。组件化开发和前端路由的出现，为单⻚⾯应⽤和前后端分离的实现提供了基础。组件提供了内容边界，前端路由实现了组件的切换，即视图显示的切换。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/mavXOW.png" style="zoom:50%;" />
 
 <p>⽤⽩话解释⼀下。单⻚⾯应⽤就是在进⼊应⽤之后第⼀次请求，就将所有的组件视图⼀次性加载到客户端，之后通过前端路由切换组件，通过后端服务获取组件数据的这样⼀种应⽤。也就是说，整个应⽤只有⼀个 html，之后的每⼀次 url 变化或者 http 请求，都只是切换 html 中显示的组件和组件的数据内容。</p>
-<h3 id="三、前端路由的两种实现⽅式"><a href="#三、前端路由的两种实现⽅式" class="headerlink" title="三、前端路由的两种实现⽅式"></a>三、前端路由的两种实现⽅式</h3><p>前端路由的出现，使单⻚⾯应⽤成为可能，对于 Vue ⽽⾔，前端路由就是 Vue-Router。我们在传统的开发⽅式中，⼀旦在浏览器端改变url 就⼀定会向服务端发送请求。 </p>
+<h3 id="三、前端路由的两种实现⽅式"><a href="#三、前端路由的两种实现⽅式" class="headerlink" title="三、前端路由的两种实现⽅式"></a>三、前端路由的两种实现⽅式</h3><p>前端路由的出现，使单⻚⾯应⽤成为可能，对于 Vue ⽽⾔，前端路由就是 Vue-Router。我们在传统的开发⽅式中，⼀旦在浏览器端改变 url 就⼀定会向服务端发送请求。</p>
 <p>在 SPA 中，前端路由的核⼼意义就在于：切换视图并且不会向服务端发送请求。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/GTuGGA.png"></p>
 <p>为了实现前端路由的这⼀功能，浏览器提供了以下两种特性的⽀持：</p>
 <ul>
-<li>hash：即在地址栏上⾯ URL 增加 # 标志符号，实际上就是基于锚点的实现原理。通过切换锚点，来切换组件。学过 html 的朋友都知道，变更 URL 锚点是不会向服务端发送请求的，但会影响视图显示。正是基于 HTML 锚点这个特性，vue 实现了前端路由的 hash⽅式。</li>
-<li>history：⼤家可能都知道 javascript 的⽅法 window.history.back()、window.history.forward()、 window.history.go() 可以实现向前⼀个⻚⾯、后⼀个⻚⾯、指定的历史⻚⾯进⾏跳转，并且不会向服务端发送请求。正是基于history系列⽅法的这个特性，vue 实现了前端路由的 history ⽅式。但是 对于⼀个灵活的应⽤，这⼏个⽅法显然是不够⽤的，所以在 HTML5 中增加了 pushState() 和 replaceState() ⽅法。</li>
+<li>hash：即在地址栏上⾯ URL 增加 # 标志符号，实际上就是基于锚点的实现原理。通过切换锚点，来切换组件。学过 html 的朋友都知道，变更 URL 锚点是不会向服务端发送请求的，但会影响视图显示。正是基于 HTML 锚点这个特性，vue 实现了前端路由的 hash ⽅式。</li>
+<li>history：⼤家可能都知道 javascript 的⽅法 window.history.back()、window.history.forward()、 window.history.go() 可以实现向前⼀个⻚⾯、后⼀个⻚⾯、指定的历史⻚⾯进⾏跳转，并且不会向服务端发送请求。正是基于 history 系列⽅法的这个特性，vue 实现了前端路由的 history ⽅式。但是 对于⼀个灵活的应⽤，这⼏个⽅法显然是不够⽤的，所以在 HTML5 中增加了 pushState() 和 replaceState() ⽅法。</li>
 </ul>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/IsAfOR.png" style="zoom:50%;" />
 
@@ -539,13 +537,13 @@
 <li>单⻚应⽤程序不如多⻚应⽤程序安全。因为 SPA 将更多的代码交给了前端，前端显然不如后端更安全，但这个问题有时也因⼈⽽异。</li>
 <li>因为更多的视图渲染过程在客户端设备上进⾏，单⻚应⽤程序⽐多⻚应⽤程序更容易消耗移动设备的电池电量。</li>
 </ul>
-<h2 id="2-安装与配置VueRouter"><a href="#2-安装与配置VueRouter" class="headerlink" title="2.安装与配置VueRouter"></a>2.安装与配置VueRouter</h2><h3 id="⼀、本节⼤纲-1"><a href="#⼀、本节⼤纲-1" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
+<h2 id="2-安装与配置-VueRouter"><a href="#2-安装与配置-VueRouter" class="headerlink" title="2.安装与配置 VueRouter"></a>2.安装与配置 VueRouter</h2><h3 id="⼀、本节⼤纲-1"><a href="#⼀、本节⼤纲-1" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
 <li>已有项⽬中⼿动安装 VueRouter (重点掌握)</li>
 <li>VueCLI2 项⽬构建过程中安装 VueRouter</li>
 <li>VueCLI3 项⽬构建过程中安装 VueRouter</li>
 <li>使⽤ Vue UI 界⾯安装 VueRouter</li>
 </ul>
-<h3 id="⼆、已有项⽬中⼿动安装VueRouter-重点掌握"><a href="#⼆、已有项⽬中⼿动安装VueRouter-重点掌握" class="headerlink" title="⼆、已有项⽬中⼿动安装VueRouter(重点掌握)"></a>⼆、已有项⽬中⼿动安装VueRouter(重点掌握)</h3><p>在之前的章节，我们讲解了如何使⽤ VueCLI2 快速构建 Vue 前端项⽬。当时我们并没有安装 VueRouter，现在就来学习⼀下。如果⼿动安装学会了，项⽬构建过程中的⾃动安装也就更好理解了。 需要注意的是 VueRouter 并不是 Vue 框架默认集成的，⽽是以外部依赖的形式存在。 所以⾸先使⽤如下命令，安装 VueRouter。</p>
+<h3 id="⼆、已有项⽬中⼿动安装-VueRouter-重点掌握"><a href="#⼆、已有项⽬中⼿动安装-VueRouter-重点掌握" class="headerlink" title="⼆、已有项⽬中⼿动安装 VueRouter(重点掌握)"></a>⼆、已有项⽬中⼿动安装 VueRouter(重点掌握)</h3><p>在之前的章节，我们讲解了如何使⽤ VueCLI2 快速构建 Vue 前端项⽬。当时我们并没有安装 VueRouter，现在就来学习⼀下。如果⼿动安装学会了，项⽬构建过程中的⾃动安装也就更好理解了。 需要注意的是 VueRouter 并不是 Vue 框架默认集成的，⽽是以外部依赖的形式存在。 所以⾸先使⽤如下命令，安装 VueRouter。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> vue-router --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>安装完成后，在 package.json ⾥⾯会多出 “vue-router” 的安装信息，说明安装成功及安装版本。</p>
@@ -561,13 +559,11 @@
 <p>在 main.js 中，引⼊ VueRouter 对象作为 Vue 实例的参数，从⽽使项⽬的前端路由⽣效。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/0V8ScH.png" style="zoom:50%;" />
 
-
-
-<h3 id="三、VueClI2项⽬构建过程中安装VueRouter"><a href="#三、VueClI2项⽬构建过程中安装VueRouter" class="headerlink" title="三、VueClI2项⽬构建过程中安装VueRouter"></a>三、VueClI2项⽬构建过程中安装VueRouter</h3><p>在前⾯的章节，我们学习使⽤ <code>vue init webpack [project-name]</code> 命令快速构建 Vue 项⽬脚⼿架。如果需要在项⽬中加⼊VueRouter，在项⽬配置填写的阶段 <code>Install vue-touter </code>？填写 Y(Yes)。</p>
+<h3 id="三、VueClI2-项⽬构建过程中安装-VueRouter"><a href="#三、VueClI2-项⽬构建过程中安装-VueRouter" class="headerlink" title="三、VueClI2 项⽬构建过程中安装 VueRouter"></a>三、VueClI2 项⽬构建过程中安装 VueRouter</h3><p>在前⾯的章节，我们学习使⽤ <code>vue init webpack [project-name]</code> 命令快速构建 Vue 项⽬脚⼿架。如果需要在项⽬中加⼊ VueRouter，在项⽬配置填写的阶段 <code>Install vue-touter </code>？填写 Y(Yes)。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/q96jse.png" style="zoom:50%;" />
 
 <p>就这么简单，VueCLI2 构建项⽬过程中就可以加⼊ VueRouter。</p>
-<h3 id="四、VueCLI3-项⽬构建过程中安装VueRouter"><a href="#四、VueCLI3-项⽬构建过程中安装VueRouter" class="headerlink" title="四、VueCLI3+项⽬构建过程中安装VueRouter"></a>四、VueCLI3+项⽬构建过程中安装VueRouter</h3><p>在 Vue CLI3+ 项⽬构建功能选择的界⾯，通过按 Up、Down 键上下移动，按空格键选择 Router 选项。选中之后，具体的功能特性前⽅会有星号标识。</p>
+<h3 id="四、VueCLI3-项⽬构建过程中安装-VueRouter"><a href="#四、VueCLI3-项⽬构建过程中安装-VueRouter" class="headerlink" title="四、VueCLI3+项⽬构建过程中安装 VueRouter"></a>四、VueCLI3+项⽬构建过程中安装 VueRouter</h3><p>在 Vue CLI3+ 项⽬构建功能选择的界⾯，通过按 Up、Down 键上下移动，按空格键选择 Router 选项。选中之后，具体的功能特性前⽅会有星号标识。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/knVJ6F.png" style="zoom:50%;" />
 
 <p>在后续的构建过程中，Vue CLI3 脚⼿架还会提示你选择前端路由的实现模式：</p>
@@ -577,19 +573,17 @@
 <li>Yes 代表使⽤ history 模式实现 vueRouter 前端路由</li>
 <li>No 表示使⽤ hash 模式实现 VueRouter 前端路由</li>
 </ul>
-<h2 id="3-VueRouter开发第⼀个Demo"><a href="#3-VueRouter开发第⼀个Demo" class="headerlink" title="3.VueRouter开发第⼀个Demo"></a>3.VueRouter开发第⼀个Demo</h2><h3 id="⼀、本节⼤纲-2"><a href="#⼀、本节⼤纲-2" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
+<h2 id="3-VueRouter-开发第⼀个-Demo"><a href="#3-VueRouter-开发第⼀个-Demo" class="headerlink" title="3.VueRouter 开发第⼀个 Demo"></a>3.VueRouter 开发第⼀个 Demo</h2><h3 id="⼀、本节⼤纲-2"><a href="#⼀、本节⼤纲-2" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
 <li>使⽤ VueRouter 开发第⼀个 demo</li>
 <li>对 demo 进⾏样式美化</li>
 <li>处理⼀个细节问题</li>
 </ul>
-<h3 id="⼆、使⽤VueRouter开发第⼀个demo"><a href="#⼆、使⽤VueRouter开发第⼀个demo" class="headerlink" title="⼆、使⽤VueRouter开发第⼀个demo"></a>⼆、使⽤VueRouter开发第⼀个demo</h3><p>第⼀个示例很简单，创建⼀个单⻚⾯应⽤。这个单⻚⾯应⽤有两个路由及两个组件：当点击 <code>/home</code> 路由的标签元素展示⽤户主⻚⾯(组件Home)，当点击<code>/about</code>展示”关于⻚⾯”(组件 About )。这⾥我们先不管样式及布局。</p>
+<h3 id="⼆、使⽤-VueRouter-开发第⼀个-demo"><a href="#⼆、使⽤-VueRouter-开发第⼀个-demo" class="headerlink" title="⼆、使⽤ VueRouter 开发第⼀个 demo"></a>⼆、使⽤ VueRouter 开发第⼀个 demo</h3><p>第⼀个示例很简单，创建⼀个单⻚⾯应⽤。这个单⻚⾯应⽤有两个路由及两个组件：当点击 <code>/home</code> 路由的标签元素展示⽤户主⻚⾯(组件 Home)，当点击<code>/about</code>展示”关于⻚⾯”(组件 About )。这⾥我们先不管样式及布局。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/FE5ato.png" style="zoom:50%;" />
 
 <p>要使⽤ VueRouter 通常有三部曲：</p>
 <h4 id="第⼀步：创建被路由的组件"><a href="#第⼀步：创建被路由的组件" class="headerlink" title="第⼀步：创建被路由的组件"></a>第⼀步：创建被路由的组件</h4><p>创建两个单⽂件组件，⼀个是 About.vue ,⼀个是 Home.vue 。两个组件的内容很简单，模板⾥⾯分别写⼀个 h1 标题，书写不同的内容⽂本。为每⼀个组件起⼀个 name ，并将组件以模块的形式导出 export default 。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/RV5uLO.png" style="zoom:50%;" />
-
-
 
 <h4 id="第⼆步：配置组件与路由路径的映射关系"><a href="#第⼆步：配置组件与路由路径的映射关系" class="headerlink" title="第⼆步：配置组件与路由路径的映射关系"></a>第⼆步：配置组件与路由路径的映射关系</h4><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/b7vZ0n.png" style="zoom:50%;" />
 
@@ -606,20 +600,18 @@
 <p><strong>显示效果</strong></p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/lJdYs0.png" style="zoom:50%;" />
 
-
-
-<h3 id="三、对demo进⾏样式美化"><a href="#三、对demo进⾏样式美化" class="headerlink" title="三、对demo进⾏样式美化"></a>三、对demo进⾏样式美化</h3><p>我们做的例⼦有点太丑了，可以利⽤开源的组件，开箱即⽤，提⾼我们的开发效率，⽽且样式也⽐较好看。</p>
-<p>在 Vue 后端管理系统中经常⽤到的 UI 组件库有 View UI(iVuew) 、Element UI等，本节以 View UI(iVuew) 为例，讲解⼀下第三⽅组件库的使⽤。 </p>
+<h3 id="三、对-demo-进⾏样式美化"><a href="#三、对-demo-进⾏样式美化" class="headerlink" title="三、对 demo 进⾏样式美化"></a>三、对 demo 进⾏样式美化</h3><p>我们做的例⼦有点太丑了，可以利⽤开源的组件，开箱即⽤，提⾼我们的开发效率，⽽且样式也⽐较好看。</p>
+<p>在 Vue 后端管理系统中经常⽤到的 UI 组件库有 View UI(iVuew) 、Element UI 等，本节以 View UI(iVuew) 为例，讲解⼀下第三⽅组件库的使⽤。</p>
 <p>⾸先我们需要安装 View UI ，使⽤如下的命令：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> view-design --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>然后在单⻚⾯应⽤的 main.js 中引⼊ ViewUI 并使⽤ ViewUI。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/9xAc1s.png" style="zoom:50%;" />
 
-<p>最后，我们登录 ViewUI 官⽹(发⽂环境所限，搜索引擎⾃⾏查找)，找到⼀个喜欢的布局样式，点击 show Code复制代码。</p>
+<p>最后，我们登录 ViewUI 官⽹(发⽂环境所限，搜索引擎⾃⾏查找)，找到⼀个喜欢的布局样式，点击 show Code 复制代码。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/0rARcM.png" style="zoom:50%;" />
 
-<p>因为 app.vue 是我们路由布局的⽗组件，所以将 template 代码粘贴到 App.vue 的 template ⾥⾯，注意保留 id 为 app 的 div。script 脚本和style样式代码也要粘贴到⽂件⾥⾯。</p>
+<p>因为 app.vue 是我们路由布局的⽗组件，所以将 template 代码粘贴到 App.vue 的 template ⾥⾯，注意保留 id 为 app 的 div。script 脚本和 style 样式代码也要粘贴到⽂件⾥⾯。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/YQUv0j.png" style="zoom:50%;" />
 
 <ul>
@@ -630,8 +622,6 @@
 <p>最终的实现效果如下：点击对应的菜单，显示对应的内容。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/B8W0MC.png" style="zoom:50%;" />
 
-
-
 <h2 id="4-路由重定向与组件懒加载"><a href="#4-路由重定向与组件懒加载" class="headerlink" title="4.路由重定向与组件懒加载"></a>4.路由重定向与组件懒加载</h2><h3 id="⼀、本节⼤纲-3"><a href="#⼀、本节⼤纲-3" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
 <li>路由重定向</li>
 <li>路由组件懒加载</li>
@@ -641,22 +631,22 @@
 
 <p>但是⼀个正常的应⽤习惯，在访问项⽬时候 Content 区域就应该默认显示 Home 主⻚组件，那么应该怎样做呢？只需要按照下⾯的⽅法在 router/index.js ⽂件的路由规则配置加上⼀个路由的重定向配置：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
- <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">path</span><span class="token operator">:</span><span class="token string">'/'</span><span class="token punctuation">,</span>              <span class="token comment">//当访问根路径的时候</span>
-    <span class="token literal-property property">redirect</span><span class="token operator">:</span><span class="token string">'/home'</span>        <span class="token comment">// 重定向到redirect配置路径</span>
- <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
- <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/home'</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">component</span><span class="token operator">:</span> Home
- <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
- <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/about'</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">component</span><span class="token operator">:</span> About
- <span class="token punctuation">&#125;</span>
-<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token comment">//当访问根路径的时候</span>
+    <span class="token literal-property property">redirect</span><span class="token operator">:</span> <span class="token string">"/home"</span><span class="token punctuation">,</span> <span class="token comment">// 重定向到redirect配置路径</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"/home"</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">component</span><span class="token operator">:</span> Home<span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"/about"</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">component</span><span class="token operator">:</span> About<span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>此时当我们通过访问项⽬根路径 <code>/</code> 时候，就会重定向到 <code>/home</code> 显示 Home 主⻚内容：这⾥是主⻚。并且浏览器地址栏不再是根路径 <code>/</code>，⽽是 <code>/home</code> 路径。路由路径 path 与⻚⾯显示组件内容是统⼀的。</p>
-<h3 id="三、路由组件的懒加载"><a href="#三、路由组件的懒加载" class="headerlink" title="三、路由组件的懒加载"></a>三、路由组件的懒加载</h3><p>在前⾯的章节，我们已经给⼤家讲解了什么是单⻚⾯应⽤（SPA）。我们也使⽤组件和前端路由开发了⼀个例⼦，所有的组件代码最终都将打包到⼀个 js ⽂件发布。当浏览器第⼀次访问应⽤时这个js被浏览器加载，并渲染出⼀个 HTML 视图。如图中红⾊边框的内容。</p>
+<h3 id="三、路由组件的懒加载"><a href="#三、路由组件的懒加载" class="headerlink" title="三、路由组件的懒加载"></a>三、路由组件的懒加载</h3><p>在前⾯的章节，我们已经给⼤家讲解了什么是单⻚⾯应⽤（SPA）。我们也使⽤组件和前端路由开发了⼀个例⼦，所有的组件代码最终都将打包到⼀个 js ⽂件发布。当浏览器第⼀次访问应⽤时这个 js 被浏览器加载，并渲染出⼀个 HTML 视图。如图中红⾊边框的内容。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/kuAdvg.png" style="zoom:50%;" />
 
 <p>你有没有想过这样⼀个问题：所有的前端组件代码⼀次性加载，如果组件特别多的话有可能因为⽹络原因导致加载缓慢，从⽽出现<strong>⻚⾯⽩屏</strong>的现象。</p>
@@ -665,7 +655,7 @@
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/YzwjMx.png" style="zoom:50%;" />
 
 <p>可以看到在上图红⾊区域中，我们使⽤ ES6 语法对 About 组件实现了懒加载，代码如下：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">About</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span><span class="token keyword">import</span><span class="token punctuation">(</span> <span class="token string">'../components/About'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">About</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">"../components/About"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>然后使⽤ <code>run build server</code> 命令对项⽬进⾏打包，最终的打包结果多出⼀组两个 js ⽂件，就是因为 About 组件被单独打包了。</p>
 <p>打开⽂件内容查看⼀下，可以确认就是 About 组件被单独打包的结果，从⽽实现 js ⽂件组件的按需加 载。</p>
@@ -679,7 +669,7 @@
 <h3 id="⼆、什么是嵌套路由"><a href="#⼆、什么是嵌套路由" class="headerlink" title="⼆、什么是嵌套路由"></a>⼆、什么是嵌套路由</h3><p>在前⾯章节内容⾥，我们讲了⼀个使⽤ VueRouter 的例⼦。内容很简单，当浏览器 url 路径切换到 <code>/home</code> 的时候显示 Home 主⻚组件，当浏览器 url 路径切换到 <code>/about</code> 的时候显示 About 关于组件， 如下图中左侧的图示所示。那么在实际的开发中，路由的映射关系和⽹⻚视图不只是平⾯的，组件⾥⾯仍有⼦组件，路径下⾯还有⼦路径，如下图中的右侧的图示所示。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/4bBIxP.png" style="zoom:50%;" />
 
-<p>这⼀节，就来学习⼀下嵌套路由与嵌套组件的之间的映射的⼀个例⼦。也就是说： </p>
+<p>这⼀节，就来学习⼀下嵌套路由与嵌套组件的之间的映射的⼀个例⼦。也就是说：</p>
 <ul>
 <li>当访问 <code>/home/article</code> 的时候，Home 组件中的默认 router-view 显示 Article ⽂章组件</li>
 <li>当访问 <code>/home/news</code> 的时候，Home 组件中的默认 router-view 显示 News 新闻组件</li>
@@ -687,8 +677,6 @@
 <h3 id="三、嵌套路由的实现"><a href="#三、嵌套路由的实现" class="headerlink" title="三、嵌套路由的实现"></a>三、嵌套路由的实现</h3><p>开发的套路仍然是三部曲：</p>
 <h4 id="第⼀步：创建被路由的组件-1"><a href="#第⼀步：创建被路由的组件-1" class="headerlink" title="第⼀步：创建被路由的组件"></a>第⼀步：创建被路由的组件</h4><p>创建两个单⽂件组件，⼀个是 Article.vue, ⼀个是 News.vue。两个组件的内容仍然很简单，模板⾥⾯分别写⼀个 h1 标题，书写不同的内容⽂本。为每⼀个组件起⼀个 name，并将组件以模块的形式导出 export default。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/0EzxV0.png" style="zoom:50%;" />
-
-
 
 <h4 id="第⼆步：配置组件与路由路径的映射关系-1"><a href="#第⼆步：配置组件与路由路径的映射关系-1" class="headerlink" title="第⼆步：配置组件与路由路径的映射关系"></a>第⼆步：配置组件与路由路径的映射关系</h4><p>图中的⻩⾊代码，为本节新增的代码。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Se8rC6.png" style="zoom:50%;" />
@@ -698,7 +686,7 @@
 <li>然后在上⼀节原 home 路由及组件的映射条⽬⾥⾯，加上 children 数组属性表示⼦路由组件之间的映射关系</li>
 <li>另外需要注意，⼦组件路由的 path 配置不要加斜杠 <code>/</code></li>
 </ul>
-<h4 id="第三步：在⽗组件中加⼊router-view"><a href="#第三步：在⽗组件中加⼊router-view" class="headerlink" title="第三步：在⽗组件中加⼊router-view"></a>第三步：在⽗组件中加⼊router-view</h4><p>在上⾯的需求中，我们已经明确了⽂章组件 Article 和新闻组件 News，都是 Home 组件的⼦组件。 所以我们在 Home.vue ⽂件中加⼊router-view。代码如下：</p>
+<h4 id="第三步：在⽗组件中加⼊-router-view"><a href="#第三步：在⽗组件中加⼊-router-view" class="headerlink" title="第三步：在⽗组件中加⼊ router-view"></a>第三步：在⽗组件中加⼊ router-view</h4><p>在上⾯的需求中，我们已经明确了⽂章组件 Article 和新闻组件 News，都是 Home 组件的⼦组件。 所以我们在 Home.vue ⽂件中加⼊ router-view。代码如下：</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/5DAoUM.png" style="zoom:50%;" />
 
 <ul>
@@ -734,34 +722,32 @@
 <p>在实际的开发过程中，我们通常需要多个 url 匹配同⼀个路由和组件，如下图所示：</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/vMEvoj.png" style="zoom:50%;" />
 
-<p>如上图所示，动态路由有如下2层含义：</p>
+<p>如上图所示，动态路由有如下 2 层含义：</p>
 <ul>
-<li>动态路由可以传递参数，如上图中的 id，根据不同的参数组件可以显示不同的内容。如上图：传递参数1显示 id=1 的⽂章，传递2显示 id=2 的⽂章。</li>
+<li>动态路由可以传递参数，如上图中的 id，根据不同的参数组件可以显示不同的内容。如上图：传递参数 1 显示 id=1 的⽂章，传递 2 显示 id=2 的⽂章。</li>
 <li>动态路由可以实现路由导航，也就是匹配⼀个路由规则，从⽽显示该路由规则对应的组件。如上图中的 Article 组件的显示。</li>
 </ul>
-<h3 id="三、实现⼀个动态路由的例⼦"><a href="#三、实现⼀个动态路由的例⼦" class="headerlink" title="三、实现⼀个动态路由的例⼦"></a>三、实现⼀个动态路由的例⼦</h3><p>在上⼀节的代码基础上实现上图所示的动态路由。 </p>
+<h3 id="三、实现⼀个动态路由的例⼦"><a href="#三、实现⼀个动态路由的例⼦" class="headerlink" title="三、实现⼀个动态路由的例⼦"></a>三、实现⼀个动态路由的例⼦</h3><p>在上⼀节的代码基础上实现上图所示的动态路由。</p>
 <p>⾸先，在 router/index.js ⽂件中修改组件与路由之间的映射关系配置，注意 id 是⼀个路由参数，前⾯需要加上冒号</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/dr9vn4.png" style="zoom:50%;" />
 
-<p>Home 组件是 Article 的⽗组件。修改 Home.vue 中的 router-link，router-link 默认渲染为 html 的超链接 a 标签，从⽽实现路由的触发。注意在路由中传递了参数 id 分别是1和2，⽤以匹配上图中的路由规则。</p>
+<p>Home 组件是 Article 的⽗组件。修改 Home.vue 中的 router-link，router-link 默认渲染为 html 的超链接 a 标签，从⽽实现路由的触发。注意在路由中传递了参数 id 分别是 1 和 2，⽤以匹配上图中的路由规则。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/qQWLnm.png" style="zoom:50%;" />
 
 <p>Article 组件是 Home 组件的⼦组件。</p>
 <p>在 Article.vue 中接收参数 id，显示：这⾥是 <code>id=&#123;&#123;$route.params.id&#125;&#125;</code> 的⽂章组件。</p>
-<p><strong>$route对象代表当前路由</strong>，params 是代表参数，id 是路由参数的名称，通过这种⽅式获取参数 id 的值。</p>
+<p><strong>$route 对象代表当前路由</strong>，params 是代表参数，id 是路由参数的名称，通过这种⽅式获取参数 id 的值。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/M44XHu.png" style="zoom:50%;" />
 
 <p>实现效果如下：当点击 <code>id=1的⽂章</code> 时，组件内容显示：这⾥是 <code>id=1</code> 的⽂章组件；当点击 <code>id=2的⽂章</code> 时，组件内容显示：这⾥是<code> id=2</code> 的⽂章组件；</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/XY7Jjg.png" style="zoom:50%;" />
 
-
-
 <h3 id="四、动态路由的多段匹配"><a href="#四、动态路由的多段匹配" class="headerlink" title="四、动态路由的多段匹配"></a>四、动态路由的多段匹配</h3><table>
 <thead>
 <tr>
 <th>路由规则</th>
-<th>匹配url</th>
-<th>$route.params对象</th>
+<th>匹配 url</th>
+<th>$route.params 对象</th>
 <th>匹配规则含义</th>
 </tr>
 </thead>
@@ -775,7 +761,7 @@
 <td>/article/:id/reader/: num</td>
 <td>/article/1/reader/ 2</td>
 <td>{id:1,num:2}</td>
-<td>id=1 的⽂章的第2位读者信息</td>
+<td>id=1 的⽂章的第 2 位读者信息</td>
 </tr>
 </tbody></table>
 <p>如上表所示：第⼀条路由匹配是⼀个单段的路由匹配，第⼆个路由匹配是⼀个多段路由匹配。多段的路由匹配可以实现更为复杂的路由匹配规则和传递更多的参数，表达更为丰富的含义。</p>
@@ -804,7 +790,7 @@
 <td>星号表示匹配任意路径，即：/article/abc 和 /article/abc/def 都可以匹配这条路由规则</td>
 </tr>
 </tbody></table>
-<p>当然，你也可以根据⾃⼰的需求定义正则规则，正则规则可以千变万化。 </p>
+<p>当然，你也可以根据⾃⼰的需求定义正则规则，正则规则可以千变万化。</p>
 <p>如果⼀个 url 路径匹配了多个路由规则怎么办？答案是：哪个路由先定义的，哪个路由的匹配优先级就更⾼，所以在使⽤正则路由的时候要考虑好路由定义的先后顺序。</p>
 <h2 id="7-命名路由与命名视图"><a href="#7-命名路由与命名视图" class="headerlink" title="7.命名路由与命名视图"></a>7.命名路由与命名视图</h2><h3 id="⼀、本节⼤纲-6"><a href="#⼀、本节⼤纲-6" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
 <li>命名路由</li>
@@ -812,13 +798,13 @@
 <li>命名视图</li>
 </ul>
 <h3 id="⼆、命名路由"><a href="#⼆、命名路由" class="headerlink" title="⼆、命名路由"></a>⼆、命名路由</h3><ul>
-<li>在本专栏之前的章节实现的路由规则，都是根据path路径匹配对应的组件，如下图中⻩⾊边框定义的部分。</li>
+<li>在本专栏之前的章节实现的路由规则，都是根据 path 路径匹配对应的组件，如下图中⻩⾊边框定义的部分。</li>
 <li>命名路由就是为路由定义规则起⼀个名字，并在路由导航的时候根据名字进⾏导航，即：根据路由名字进⾏导航和组件的切换。如下图中的红⾊边框定义的部分。</li>
 </ul>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/DF5pnt.png" style="zoom:50%;" />
 
 <p>上图中右侧部分为路由规则的定义，即 router/index.js ⾥⾯定义的路由规则。</p>
-<p> 那么有了路由规则，我们该如何使⽤路由规则呢？看下图中的代码。</p>
+<p>那么有了路由规则，我们该如何使⽤路由规则呢？看下图中的代码。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/MIdHpk.png" style="zoom:50%;" />
 
 <ul>
@@ -828,8 +814,6 @@
 </ul>
 <p><strong>命名路由与 path 匹配的路由实现的效果是⼀样的</strong></p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/LedlhM.png" style="zoom:50%;" />
-
-
 
 <h3 id="三、命名路由与动态路由"><a href="#三、命名路由与动态路由" class="headerlink" title="三、命名路由与动态路由"></a>三、命名路由与动态路由</h3><p>之前的章节也讲过动态路由，所谓的动态路由就是：根据传递参数的不同，在同⼀组件上显示不同的内容。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/pIKpul.png" style="zoom:50%;" />
@@ -841,9 +825,7 @@
 <p>上⾯两段路由导航代码匹配到的路由定义规则如下：</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/HfMIyr.png" style="zoom:50%;" />
 
-
-
-<h3 id="四、命名视图"><a href="#四、命名视图" class="headerlink" title="四、命名视图"></a>四、命名视图</h3><p>顾名思义，命名视图就是给视图组件起⼀个名字，但如何使⽤命名视图才是重点。 </p>
+<h3 id="四、命名视图"><a href="#四、命名视图" class="headerlink" title="四、命名视图"></a>四、命名视图</h3><p>顾名思义，命名视图就是给视图组件起⼀个名字，但如何使⽤命名视图才是重点。</p>
 <p>为了更好地理解命名视图的使⽤，我们先看下⾯的这张图。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/UCXEfU.png" style="zoom:50%;" />
 
@@ -860,32 +842,30 @@
 </ul>
 <h2 id="8-编程式导航"><a href="#8-编程式导航" class="headerlink" title="8.编程式导航"></a>8.编程式导航</h2><h3 id="⼀、本节⼤纲-7"><a href="#⼀、本节⼤纲-7" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
 <li>编程式导航的例⼦</li>
-<li>编程式导航API详解</li>
+<li>编程式导航 API 详解</li>
 </ul>
 <h3 id="⼆、编程式导航的例⼦"><a href="#⼆、编程式导航的例⼦" class="headerlink" title="⼆、编程式导航的例⼦"></a>⼆、编程式导航的例⼦</h3><p>在之前的章节中，我们都是使⽤的⽅式实现路由的导航与组件的切换，这种⽅式被称为<strong>声明式导航</strong>。在实际的开发过程中，还可以使⽤编程式导航的⽅式来实现（也就是通过编写 JS 代码的⽅式 实现）。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/7peMN2.png" style="zoom:50%;" />
 
 <p>上图是前⾯学习过的 path 路由规则和命名路由规则的示例图。</p>
-<p> 下⾯就使⽤<strong>编程式导航</strong>来实现示例图所呈现的例⼦，需求就是：当点击 <code>/home</code> 路由的标签元素展示⽤户主⻚⾯(组件 Home )，当点击 <code>/about</code> 路由的标签元素展示 “关于⻚⾯” (组件 About )。</p>
+<p>下⾯就使⽤<strong>编程式导航</strong>来实现示例图所呈现的例⼦，需求就是：当点击 <code>/home</code> 路由的标签元素展示⽤户主⻚⾯(组件 Home )，当点击 <code>/about</code> 路由的标签元素展示 “关于⻚⾯” (组件 About )。</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Ov9fl9.png" style="zoom:50%;" />
 
 <ul>
 <li>上图中⽤编程式导航替换了声明式导航（图中绿⾊被注释掉的代码）</li>
 <li>图中⻩⾊及红⾊框选代码为新增的编程式导航的代码</li>
 <li>通过<code> this.$router</code> 获取当前的路由实例，push ⽅法实现路由导航</li>
-<li>实现需求就是：当点击 <code>/home</code> 路由对应的按钮导航⾄⽤户主⻚⾯(组件 Home )，当点击 <code>/about</code> 对应的按钮导航⾄”关于⻚⾯”(组件About)</li>
+<li>实现需求就是：当点击 <code>/home</code> 路由对应的按钮导航⾄⽤户主⻚⾯(组件 Home )，当点击 <code>/about</code> 对应的按钮导航⾄”关于⻚⾯”(组件 About)</li>
 </ul>
 <p>从实现的代码量上看，似乎声明式导航⽐编程式导航更易⽤。</p>
 <p>但是在实际的应⽤开发过程中，编程式导航更容易实现复杂对象参数及变量参数的传递。如下代码：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//编程式导航：命名路由的参数传递</span>
-router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'article'</span><span class="token punctuation">,</span> <span class="token literal-property property">params</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">articleId</span><span class="token operator">:</span><span class="token string">'123'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>    <span class="token comment">// ->/article/123</span>
+router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"article"</span><span class="token punctuation">,</span> <span class="token literal-property property">params</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">articleId</span><span class="token operator">:</span> <span class="token string">"123"</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ->/article/123</span>
 <span class="token comment">//编程式导航：动态路由</span>
 <span class="token keyword">let</span> articleId <span class="token operator">=</span> <span class="token string">"123"</span><span class="token punctuation">;</span>
-router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/article/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>articleId<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>            <span class="token comment">// ->/article/123</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/article/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>articleId<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ->/article/123</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-<h3 id="三、编程式导航API详解"><a href="#三、编程式导航API详解" class="headerlink" title="三、编程式导航API详解"></a>三、编程式导航API详解</h3><p>VueRouter 的编程式导航是通过三个⽅法来实现的：</p>
+<h3 id="三、编程式导航-API-详解"><a href="#三、编程式导航-API-详解" class="headerlink" title="三、编程式导航 API 详解"></a>三、编程式导航 API 详解</h3><p>VueRouter 的编程式导航是通过三个⽅法来实现的：</p>
 <ul>
 <li>router.push ⽅法：最常⽤的编程式路由导航⽅法</li>
 <li>router.replace ⽅法</li>
@@ -897,8 +877,8 @@ router<span class="token punctuation">.</span><span class="token function">push<
 <p>结合这张图，我们可以这样理解 Vue ⻚⾯视图组件的显示及路由导航：</p>
 <ul>
 <li>Vue 维护着关于组件的栈的数据结构，⼀个栈类似于⼀个桶，默认情况下只有栈顶部的组件才被渲染到浏览器⻚⾯上。</li>
-<li>当使⽤ push ⽅法导航⼀个组件时，组件被压⼊栈中，处于栈的最顶层。如上图中的上半部分，组件3 压在组件2 的上层，所以浏览器显示组件3。</li>
-<li>当使⽤ replace ⽅法导航⼀个组件时，该组件替换掉栈中最顶层的组件。如上图中下半部分，组件2 换成组件3 ，所以浏览器显示组件3。</li>
+<li>当使⽤ push ⽅法导航⼀个组件时，组件被压⼊栈中，处于栈的最顶层。如上图中的上半部分，组件 3 压在组件 2 的上层，所以浏览器显示组件 3。</li>
+<li>当使⽤ replace ⽅法导航⼀个组件时，该组件替换掉栈中最顶层的组件。如上图中下半部分，组件 2 换成组件 3 ，所以浏览器显示组件 3。</li>
 <li>默认情况下栈顶部的组件才被渲染到浏览器⻚⾯上，但是当使⽤ go ⽅法的时候，就是在调整栈的顶部指针，指针指到哪个组件哪个组件就被显示出来。go (正数值)是向栈的顶部移动，go (负数值)是向栈的底部移动。当正负值位移超出栈的容量时，go ⽅法调⽤失败。</li>
 </ul>
 <h3 id="附录：源码"><a href="#附录：源码" class="headerlink" title="附录：源码"></a>附录：源码</h3><blockquote>
@@ -910,7 +890,7 @@ router<span class="token punctuation">.</span><span class="token function">push<
     <span class="token operator">&lt;</span>router<span class="token operator">-</span>link to<span class="token operator">=</span><span class="token string">"/about"</span><span class="token operator">></span><span class="token operator">&lt;</span>h2<span class="token operator">></span>关于<span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>link<span class="token operator">></span> <span class="token operator">--</span><span class="token operator">></span>
     <span class="token operator">&lt;</span>button @click<span class="token operator">=</span><span class="token string">"toHome"</span><span class="token operator">></span><span class="token operator">&lt;</span>h2<span class="token operator">></span>⾸⻚<span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
     <span class="token operator">&lt;</span>button @click<span class="token operator">=</span><span class="token string">"toAbout"</span><span class="token operator">></span><span class="token operator">&lt;</span>h2<span class="token operator">></span>关于<span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
-    <span class="token operator">&lt;</span>router<span class="token operator">-</span>view<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>view<span class="token operator">></span>    
+    <span class="token operator">&lt;</span>router<span class="token operator">-</span>view<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>view<span class="token operator">></span>
   <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
 <span class="token operator">&lt;</span>script<span class="token operator">></span>
@@ -927,8 +907,6 @@ router<span class="token punctuation">.</span><span class="token function">push<
    <span class="token punctuation">&#125;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
 <h2 id="9-路由的参数传递与获取"><a href="#9-路由的参数传递与获取" class="headerlink" title="9.路由的参数传递与获取"></a>9.路由的参数传递与获取</h2><h3 id="⼀、本节⼤纲-8"><a href="#⼀、本节⼤纲-8" class="headerlink" title="⼀、本节⼤纲"></a>⼀、本节⼤纲</h3><ul>
 <li>params 与 query 参数的区别</li>
 <li>params 参数传递⽅式详解</li>
@@ -936,9 +914,9 @@ router<span class="token punctuation">.</span><span class="token function">push<
 <li><code>this.$route</code> 与 <code>this.$router </code>的区别</li>
 <li>使⽤ props 接收参数(推荐)</li>
 </ul>
-<h3 id="⼆、params与query参数的区别"><a href="#⼆、params与query参数的区别" class="headerlink" title="⼆、params与query参数的区别"></a>⼆、params与query参数的区别</h3><p>在本专栏前⾯的章节实际已经为⼤家介绍过动态路由，动态路由是路由传参中的⼀种，也就是 params 传参。还有⼀种⽅式就是 query 参数传参。</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">&#123;</span>  
-    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"article"</span><span class="token punctuation">,</span>  
+<h3 id="⼆、params-与-query-参数的区别"><a href="#⼆、params-与-query-参数的区别" class="headerlink" title="⼆、params 与 query 参数的区别"></a>⼆、params 与 query 参数的区别</h3><p>在本专栏前⾯的章节实际已经为⼤家介绍过动态路由，动态路由是路由传参中的⼀种，也就是 params 传参。还有⼀种⽅式就是 query 参数传参。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"article"</span><span class="token punctuation">,</span>
     <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/article/:id?'</span><span class="token punctuation">,</span>
     <span class="token literal-property property">component</span><span class="token operator">:</span> Article
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -949,8 +927,8 @@ router<span class="token punctuation">.</span><span class="token function">push<
 <li>params ：/article/123，/article/789 ，这⾥的 id，123，789 是参数，被称为 params 参数。</li>
 <li>query：/article?id=123 ，/article?id=456 ，这⾥的 id=123，id=456 是参数，被称为 query 参数。</li>
 </ul>
-<p>这两种⽅式结合动态路由、命名路由，再结合编程式导航和声明式导航，所以2乘2乘2⼀共有⼋种传递参数的⽅式。</p>
-<h3 id="三、params参数传递⽅式详解"><a href="#三、params参数传递⽅式详解" class="headerlink" title="三、params参数传递⽅式详解"></a>三、params参数传递⽅式详解</h3><p>声明式导航 params 传参</p>
+<p>这两种⽅式结合动态路由、命名路由，再结合编程式导航和声明式导航，所以 2 乘 2 乘 2 ⼀共有⼋种传递参数的⽅式。</p>
+<h3 id="三、params-参数传递⽅式详解"><a href="#三、params-参数传递⽅式详解" class="headerlink" title="三、params 参数传递⽅式详解"></a>三、params 参数传递⽅式详解</h3><p>声明式导航 params 传参</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>id<span class="token operator">=</span><span class="token number">2</span>参数，动态路由的实现⽅式 <span class="token operator">--</span><span class="token operator">></span>
 <span class="token operator">&lt;</span>router<span class="token operator">-</span>link to<span class="token operator">=</span><span class="token string">"/article/2"</span><span class="token operator">></span>
     <span class="token operator">&lt;</span>h2<span class="token operator">></span>id<span class="token operator">=</span><span class="token number">2</span>的⽂章<span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span>
@@ -963,23 +941,21 @@ router<span class="token punctuation">.</span><span class="token function">push<
 <p>编程式导航 params 传参</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//id=2参数：命名路由的实现⽅式</span>
 <span class="token comment">//(name与params属性结合使⽤)</span>
-router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'article'</span><span class="token punctuation">,</span> <span class="token literal-property property">params</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">id</span><span class="token operator">:</span><span class="token string">'2'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>  
+router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"article"</span><span class="token punctuation">,</span> <span class="token literal-property property">params</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token string">"2"</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">//id=2参数：动态路由的实现⽅式</span>
-router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/article/2'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>            
+router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"/article/2"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// id=2参数：将id参数定义为⼀个变量，如articleId。</span>
 <span class="token comment">//这样的使⽤⽅式更加灵活</span>
 <span class="token keyword">let</span> articleId <span class="token operator">=</span> <span class="token string">"2"</span><span class="token punctuation">;</span>
-router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/article/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>articleId<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>          
+router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/article/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>articleId<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">//需要注意path和params属性不能⼀起使⽤</span>
 <span class="token comment">//否则params属性将被忽略,如下写法是错误的</span>
-router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/article'</span><span class="token punctuation">,</span> <span class="token literal-property property">params</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">id</span><span class="token operator">:</span><span class="token string">'2'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"/article"</span><span class="token punctuation">,</span> <span class="token literal-property property">params</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token string">"2"</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>不论是声明式导航还是编程式导航，不论是使⽤命名路由还是动态路由，上⾯的代码可以实现导航到 Article 组件并传递参数 id。那么在Article 组建中如何接收 params 参数 id 呢？就⽤下⾯的代码就可以：</p>
+<p>不论是声明式导航还是编程式导航，不论是使⽤命名路由还是动态路由，上⾯的代码可以实现导航到 Article 组件并传递参数 id。那么在 Article 组建中如何接收 params 参数 id 呢？就⽤下⾯的代码就可以：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-
-
-<h3 id="四、query参数的传递⽅式详解"><a href="#四、query参数的传递⽅式详解" class="headerlink" title="四、query参数的传递⽅式详解"></a>四、query参数的传递⽅式详解</h3><p>声明式导航 query 传参</p>
+<h3 id="四、query-参数的传递⽅式详解"><a href="#四、query-参数的传递⽅式详解" class="headerlink" title="四、query 参数的传递⽅式详解"></a>四、query 参数的传递⽅式详解</h3><p>声明式导航 query 传参</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>id<span class="token operator">=</span><span class="token number">1</span>的query参数，path路径<span class="token constant">URL</span>传参的⽅式 <span class="token operator">--</span><span class="token operator">></span>
 <span class="token operator">&lt;</span>router<span class="token operator">-</span>link to<span class="token operator">=</span><span class="token string">"/article?id=1"</span><span class="token operator">></span>
     <span class="token operator">&lt;</span>h2<span class="token operator">></span>id<span class="token operator">=</span><span class="token number">1</span>的⽂章<span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span>
@@ -992,22 +968,20 @@ router<span class="token punctuation">.</span><span class="token function">push<
 <p>编程式导航 query 传参</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//name命名路由传递query参数</span>
 <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-        <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'article'</span><span class="token punctuation">,</span>
-        <span class="token literal-property property">query</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token string">'1'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"article"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">query</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token string">"1"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">//path路径URL传递query参数</span>
 <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-        <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/article'</span><span class="token punctuation">,</span>
-        <span class="token literal-property property">query</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token string">'1'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
- <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"/article"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">query</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token string">"1"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>上⾯的代码可以实现导航到 Article 组件并传递 query 参数 id。 </p>
+<p>上⾯的代码可以实现导航到 Article 组件并传递 query 参数 id。</p>
 <p>那么在 Article 组建中如何接收 query 参数 id 呢？就⽤下⾯的代码就可以：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div<span class="token operator">></span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>query<span class="token punctuation">.</span>id <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-
-
-<h3 id="五、this-route与this-router的区别"><a href="#五、this-route与this-router的区别" class="headerlink" title="五、this.$route与this.$router的区别"></a>五、this.$route与this.$router的区别</h3><p>在上⽂中我们使⽤到了 <code>this.$route</code> 与 <code>this.$router</code> ，两者容易弄混，所以我们有必要仔细看⼀下⼆者都是什么。</p>
+<h3 id="五、this-route与this-router-的区别"><a href="#五、this-route与this-router-的区别" class="headerlink" title="五、this.$route与this.$router 的区别"></a>五、this.$route与this.$router 的区别</h3><p>在上⽂中我们使⽤到了 <code>this.$route</code> 与 <code>this.$router</code> ，两者容易弄混，所以我们有必要仔细看⼀下⼆者都是什么。</p>
 <p>看下⾯的截图：</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/wjjPqf.png" style="zoom:50%;" />
 
@@ -1016,7 +990,7 @@ router<span class="token punctuation">.</span><span class="token function">push<
 <li>router 是⼀个 VueRouter 实例。管理项⽬整体路由的钩⼦，导航动作（如 push ），路由规则定义信息（图中蓝框）等信息。</li>
 <li>route 代表当前路由信息，该路由只保管本次导航的路由信息，如：路由的 name、path、params 参数、query 参数的信息。</li>
 </ul>
-<h3 id="六、使⽤props接收参数-推荐"><a href="#六、使⽤props接收参数-推荐" class="headerlink" title="六、使⽤props接收参数(推荐)"></a>六、使⽤props接收参数(推荐)</h3><p>在实际的项⽬开发中，不建议使⽤通过 <code>this.$route</code> 获取 query 和 params 参数，因为这限制了组件只有在路由传参的情况下才能使⽤，也就是限定了特定的 URL 下使⽤组件。</p>
+<h3 id="六、使⽤-props-接收参数-推荐"><a href="#六、使⽤-props-接收参数-推荐" class="headerlink" title="六、使⽤ props 接收参数(推荐)"></a>六、使⽤ props 接收参数(推荐)</h3><p>在实际的项⽬开发中，不建议使⽤通过 <code>this.$route</code> 获取 query 和 params 参数，因为这限制了组件只有在路由传参的情况下才能使⽤，也就是限定了特定的 URL 下使⽤组件。</p>
 <p>实际上我们的组件的传参⽅式还有很多，⽐如前⾯讲过使⽤ props 接收⽗组件向⼦组件传递的数据。也就是说，如果我们希望组件在这两种情况下都能很好的使⽤，就不能⽤ <code>this.$route</code>，只能⽤ props 统⼀接收参数，从⽽去除组件与路由之间的耦合。</p>
 <p>使⽤ props 接收路由参数，都需要修改路由定义，有三种修改⽅式</p>
 <ul>
@@ -1036,7 +1010,7 @@ router<span class="token punctuation">.</span><span class="token function">push<
 <p>最后来看⼀下箭头函数模式，箭头函数是 ES6 语法，在本专栏前⾯的章节有介绍。布尔模式的缺点在于 props 只能接收 params 参数，⽆法接收 query 参数。⽽函数模式就不⼀样了，它既可以接收 params 参数，也可以接受 query 参数。下图是路由规则的定义：</p>
 <img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/75gRuY.png" style="zoom:50%;" />
 
-<p>最终该路由规则导航 Article 组件的显示结果为：这⾥是 <code>id=(route.query.id)</code> 的⽂章组件。 </p>
+<p>最终该路由规则导航 Article 组件的显示结果为：这⾥是 <code>id=(route.query.id)</code> 的⽂章组件。</p>
 <p>其中 (route.query.id) 为具体的参数值。除了可以使⽤ route.query，也可以使⽤ route.params 。</p>
 
                 
@@ -1763,66 +1737,57 @@ router<span class="token punctuation">.</span><span class="token function">push<
         <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
-        
         display: none;
-        
-        font-size: 12px;
+            font-size: 12px;
         font-weight: 700;
         line-height: 16px !important;
     }
 
     .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
         display: none;
-        
-        font-size: 15px;
+            font-size: 15px;
         color: #42b983;
     }
 
-    
     .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
+            left: -66px !important;
+        }
 
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
 
-    
+        
 </style>
 <div class="">
     
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="song"
-                   id="480614067"
-                   fixed='true'
-                   autoplay='true'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.5'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
+            <div class="row">
+                <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease"
+                    type="song" id="480614067" fixed=' true'
+                    autoplay='true'
+                        theme='#42b983'
+                            loop='all'
+                                order='random'
+                                    preload='auto'
+                                        volume='0.5'
+                                            list-folded='true'
+                                                >
+                </meting-js>
+            </div>
 </div>
 
 <script src="/libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
             
                 <div class="container row center-align"
                     style="margin-bottom: 15px !important;">
                     <div class="col s12 m8 l8 copy-right">
                         Copyright&nbsp;&copy;
                         
-                                <span id="year">
-                                    2022
-                                </span>
-                                
+                            <span id="year">
+                                2022-2023
+                            </span>
+                            
                                     <span id="year">
                                         2022
                                     </span>
@@ -1836,7 +1801,7 @@ router<span class="token punctuation">.</span><span class="token function">push<
                                     
                                         &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
                                             class="white-color">
-                                            197.3k
+                                            197.4k
                                         </span>&nbsp;字
                                         
                                             

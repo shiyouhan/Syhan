@@ -35,7 +35,7 @@
 
    <style>
     body{
-       background-image: url(https://cdn.syhan.top/uPic/I75zFh.jpg);
+       background-image: url(http://img.syhan.top/uPic/I75zFh.jpg);
        background-repeat:no-repeat;
        background-size:cover;
        background-attachment:fixed;
@@ -514,11 +514,11 @@
 &lt;/style><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>上面的代码经过 scss 编译成 css 后，嵌套的层级会处理成扁平的样式表:</p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.list</span><span class="token punctuation">&#123;</span>
-    <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.list</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
-<span class="token selector">.item</span><span class="token punctuation">&#123;</span>
-    <span class="token property">background</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+<span class="token selector">.item</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>你还可以跟 JS 一样使用变量，比如定义一个颜色 <code>$white: #fff</code> （变量以 $ 符号开头），所有引用这个变量的样式值都会编译成 <code>#fff</code>：</p>
@@ -535,49 +535,49 @@
 &lt;/style><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>编译后：</p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.list</span><span class="token punctuation">&#123;</span>
-    <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.list</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
-<span class="token selector">.item</span><span class="token punctuation">&#123;</span>
-    <span class="token property">background</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+<span class="token selector">.item</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>就上面的方法就已经可以让你解放双手了，你是否见过下面这样一大串的，甚至更长的层级的样式表：</p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.goods-list .item .img .txt</span><span class="token punctuation">&#123;</span>
-    <span class="token comment">/* 样式 */</span> 
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.goods-list .item .img .txt</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* 样式 */</span>
 <span class="token punctuation">&#125;</span>
-<span class="token selector">.goods-list .item .name</span><span class="token punctuation">&#123;</span>
-    <span class="token comment">/* 样式 */</span> 
+<span class="token selector">.goods-list .item .name</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* 样式 */</span>
 <span class="token punctuation">&#125;</span>
-<span class="token selector">.goods-list .item .name .sub</span><span class="token punctuation">&#123;</span>
-    <span class="token comment">/* 样式 */</span> 
+<span class="token selector">.goods-list .item .name .sub</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* 样式 */</span>
 <span class="token punctuation">&#125;</span>
-<span class="token selector">.goods-list .item .price</span><span class="token punctuation">&#123;</span>
-    <span class="token comment">/* 样式 */</span> 
+<span class="token selector">.goods-list .item .price</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* 样式 */</span>
 <span class="token punctuation">&#125;</span>
-<span class="token selector">.goods-list .item .num</span><span class="token punctuation">&#123;</span>
-    <span class="token comment">/* 样式 */</span> 
+<span class="token selector">.goods-list .item .num</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* 样式 */</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>很多后端的小伙伴就是因为不想写那么臃长的样式表而选择了后端开发，如果你用 SCSS 可以让你 <strong>按 模块 来写样式</strong>：</p>
 <pre class="line-numbers language-scss" data-language="scss"><code class="language-scss"><span class="token selector">.goods-list </span><span class="token punctuation">&#123;</span>
-    <span class="token selector">.item </span><span class="token punctuation">&#123;</span>
-        <span class="token selector">.img .txt</span><span class="token punctuation">&#123;</span>
-            <span class="token comment">/* 样式 */</span> 
-        <span class="token punctuation">&#125;</span>
-        <span class="token selector">.name</span><span class="token punctuation">&#123;</span>
-            <span class="token comment">/* 样式 */</span> 
-            <span class="token selector">.sub</span><span class="token punctuation">&#123;</span>
-                <span class="token comment">/* 样式 */</span> 
-            <span class="token punctuation">&#125;</span>
-        <span class="token punctuation">&#125;</span>
-        <span class="token selector">.price</span><span class="token punctuation">&#123;</span>
-            <span class="token comment">/* 样式 */</span> 
-        <span class="token punctuation">&#125;</span>
-        <span class="token selector">.num</span><span class="token punctuation">&#123;</span>
-            <span class="token comment">/* 样式 */</span> 
-        <span class="token punctuation">&#125;</span>
+  <span class="token selector">.item </span><span class="token punctuation">&#123;</span>
+    <span class="token selector">.img .txt </span><span class="token punctuation">&#123;</span>
+      <span class="token comment">/* 样式 */</span>
     <span class="token punctuation">&#125;</span>
+    <span class="token selector">.name </span><span class="token punctuation">&#123;</span>
+      <span class="token comment">/* 样式 */</span>
+      <span class="token selector">.sub </span><span class="token punctuation">&#123;</span>
+        <span class="token comment">/* 样式 */</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">.price </span><span class="token punctuation">&#123;</span>
+      <span class="token comment">/* 样式 */</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">.num </span><span class="token punctuation">&#123;</span>
+      <span class="token comment">/* 样式 */</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
@@ -602,7 +602,7 @@
 <pre class="line-numbers language-scss" data-language="scss"><code class="language-scss">&lt;style lang=<span class="token string">"scss"</span>>
     <span class="token comment">/* 例如，设置页面背景 #007aff */</span>
     <span class="token selector">page</span><span class="token punctuation">&#123;</span>
-        <span class="token property">background</span><span class="token punctuation">:</span> <span class="token variable">$uni-color-primary</span><span class="token punctuation">;</span>  
+        <span class="token property">background</span><span class="token punctuation">:</span> <span class="token variable">$uni-color-primary</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 
     <span class="token selector">.btn</span><span class="token punctuation">&#123;</span>
@@ -614,7 +614,7 @@
 <p>在主题化下引用这些样式变量，所有的风格都会保持一致，比如这个音乐应用的主题颜色是浅绿色的，一些按钮，图标都是以这个颜色样式呈现。</p>
 <p>运用行为相关颜色，文字基本颜色，背景颜色，边框颜色，文字尺寸，组件禁用态的透明度等等 scss 变量，会让你的项目呈现高度统一，保持一致性.</p>
 <h2 id="使用-rpx-开发"><a href="#使用-rpx-开发" class="headerlink" title="使用 rpx 开发"></a>使用 rpx 开发</h2><p>在样式单位处理方面，<strong>UniApp 默认为 rpx</strong>。这是小程序官方推荐的单位，也是 Uniapp 可跨端的通用单位。</p>
-<p>大多数人心里肯定会在嘀咕，又多了一个样式单位，这是还嫌 rem，%，em，vh不够麻烦是吧？</p>
+<p>大多数人心里肯定会在嘀咕，又多了一个样式单位，这是还嫌 rem，%，em，vh 不够麻烦是吧？</p>
 <p>慢慢来一起区分这些单位，有个充分认识。</p>
 <p>平常前端在开发过程中，px 是最常用的样式单位，但是随着移动设备的兴起，rem，%，em，vw 更多单位走入了我们的视野。这些单位的出现无非多是为了解决页面适配的问题，rpx 也不例外。</p>
 <p><strong>页面适配指的是同样的布局，在不同大小的屏幕上怎么进行缩放、控制间距、宽高、字号等大小都会以同样的样式渲染。</strong></p>
@@ -624,13 +624,13 @@
 <li>使用 rem，结合 html 元素的 font-size 来根据屏幕宽度适配；</li>
 <li>使用 vw、vh，直接根据视口宽高适配。</li>
 </ul>
-<p>可是这些只是在h5网页的某些范围里可以实现，但在其他端并不完全支持， rpx 这个单位就是为了解决这个问题的。</p>
+<p>可是这些只是在 h5 网页的某些范围里可以实现，但在其他端并不完全支持， rpx 这个单位就是为了解决这个问题的。</p>
 <p><strong>rpx 即响应式 px</strong>，跟 rem 实现是类似的，一种根据屏幕宽度自适应的动态单位。规定以 <code>750rpx</code> 为屏幕基准宽（移动端更多以 iphone 6 的尺寸设计），750rpx 恰好为屏幕宽度。屏幕变宽，rpx 实际显示效果会等比放大。Uniapp 集成了其他 iOS、Android、H5、以及各种小程序（微信/支付宝/百度/头条/QQ/钉钉）等多个平台的特性，为实现多端开发而定义的一种样式单位。</p>
 <p>开发者可以通过设计稿基准宽度计算页面元素 rpx 值，设计稿 1px 与框架样式 1rpx 转换公式如下：</p>
 <p><strong>设计稿 1px / 设计稿基准宽度 = 框架样式 1rpx / 750rpx</strong></p>
 <p>换言之，页面元素宽度在 Uniapp 中的宽度计算公式：</p>
 <p><strong>750 * 元素在设计稿中的宽度 / 设计稿基准宽度</strong></p>
-<p>用一句话简单来说就是，你在750px的设计稿中量到多少数目，就是多少数目的 rpx 量，不用管单位，知道它是伸缩适配的就行。</p>
+<p>用一句话简单来说就是，你在 750px 的设计稿中量到多少数目，就是多少数目的 rpx 量，不用管单位，知道它是伸缩适配的就行。</p>
 <blockquote>
 <p>若设计稿宽度为 750px，元素 A 在设计稿上的宽度为 100px，那么元素 A 在 uni-app 里面的宽度应该设为：750 * 100 / 750，结果为：100rpx。</p>
 <p>若设计稿宽度为 640px，元素 A 在设计稿上的宽度为 100px，那么元素 A 在 uni-app 里面的宽度应该设为：750 * 100 / 640，结果为：117rpx。</p>
@@ -1198,13 +1198,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/06/26/6-yang-shi-yu-bu-ju-bem-de-ying-yong-kua-duan-jian-rong/">
+                <a href="/2022/06/26/7-shi-yong-iconfont-zuo-wei-zheng-zhan-tu-biao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="样式与布局、BEM的应用、跨端兼容">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="使用iconfont作为整站图标">
                         
-                        <span class="card-title">样式与布局、BEM的应用、跨端兼容</span>
+                        <span class="card-title">使用iconfont作为整站图标</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1372,66 +1372,57 @@
         <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
-        
         display: none;
-        
-        font-size: 12px;
+            font-size: 12px;
         font-weight: 700;
         line-height: 16px !important;
     }
 
     .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
         display: none;
-        
-        font-size: 15px;
+            font-size: 15px;
         color: #42b983;
     }
 
-    
     .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
+            left: -66px !important;
+        }
 
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
 
-    
+        
 </style>
 <div class="">
     
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="song"
-                   id="480614067"
-                   fixed='true'
-                   autoplay='true'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.5'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
+            <div class="row">
+                <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease"
+                    type="song" id="480614067" fixed=' true'
+                    autoplay='true'
+                        theme='#42b983'
+                            loop='all'
+                                order='random'
+                                    preload='auto'
+                                        volume='0.5'
+                                            list-folded='true'
+                                                >
+                </meting-js>
+            </div>
 </div>
 
 <script src="/libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
             
                 <div class="container row center-align"
                     style="margin-bottom: 15px !important;">
                     <div class="col s12 m8 l8 copy-right">
                         Copyright&nbsp;&copy;
                         
-                                <span id="year">
-                                    2022
-                                </span>
-                                
+                            <span id="year">
+                                2022-2023
+                            </span>
+                            
                                     <span id="year">
                                         2022
                                     </span>
@@ -1445,7 +1436,7 @@
                                     
                                         &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
                                             class="white-color">
-                                            197.3k
+                                            197.4k
                                         </span>&nbsp;字
                                         
                                             

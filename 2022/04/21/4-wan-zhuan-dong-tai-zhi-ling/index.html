@@ -35,7 +35,7 @@
 
    <style>
     body{
-       background-image: url(https://cdn.syhan.top/uPic/I75zFh.jpg);
+       background-image: url(http://img.syhan.top/uPic/I75zFh.jpg);
        background-repeat:no-repeat;
        background-size:cover;
        background-attachment:fixed;
@@ -522,22 +522,22 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
-  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"DynamicArguments"</span><span class="token punctuation">,</span>
-  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">let</span> msg <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"旅行包都买好了，就差一个时机了"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
-      msg<span class="token punctuation">,</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"DynamicArguments"</span><span class="token punctuation">,</span>
+    <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">let</span> msg <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"旅行包都买好了，就差一个时机了"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+        msg<span class="token punctuation">,</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-<span class="token selector">input</span> <span class="token punctuation">&#123;</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
+  <span class="token selector">input</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>接着在 <code>src/router/index.js</code> 注册路由。</p>
@@ -581,9 +581,9 @@
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-21_16-34-56.png" alt="图片描述"></p>
 <h2 id="3、动态指令"><a href="#3、动态指令" class="headerlink" title="3、动态指令"></a>3、动态指令</h2><p>Vue3 新增了动态指令，简单来说就是我们可以通过定义变量来控制指令的名字，这样可以提高指令操作效率，提高代码可读性。</p>
 <p>动态指令有点类似定义变量：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> key <span class="token operator">=</span> <span class="token string">'name'</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> key <span class="token operator">=</span> <span class="token string">"name"</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  <span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token operator">:</span> <span class="token string">'zhangsan'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token operator">:</span> <span class="token string">"zhangsan"</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>上面这串代码中的 <code>[key]</code> 会被解析成为 <code>name</code></p>
@@ -597,11 +597,11 @@
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
   <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'DynamicArguments'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"DynamicArguments"</span><span class="token punctuation">,</span>
     <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token string">'syhan.top'</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token string">"syhan.top"</span><span class="token punctuation">;</span>
       <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
         a<span class="token punctuation">,</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
@@ -620,12 +620,12 @@
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
   <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'DynamicArguments'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"DynamicArguments"</span><span class="token punctuation">,</span>
     <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">'mqxu.top'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">let</span> urlKey <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">'href'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"mqxu.top"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> urlKey <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"href"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
         a<span class="token punctuation">,</span>
         urlKey<span class="token punctuation">,</span>
@@ -633,8 +633,6 @@
     <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
 
 <h3 id="v-bind-varName-简写模式"><a href="#v-bind-varName-简写模式" class="headerlink" title="v-bind:[varName] 简写模式"></a>v-bind:[varName] 简写模式</h3><p>在简写模式中，我们可以将 <code>v-bind</code> 去掉，只剩下 <code>:[varName]</code>。</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
@@ -648,12 +646,12 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
   <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'DynamicArguments'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"DynamicArguments"</span><span class="token punctuation">,</span>
     <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">'aaa.com'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">let</span> urlKey <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">'href'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"aaa.com"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> urlKey <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"href"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
         urlKey<span class="token punctuation">,</span>
         a<span class="token punctuation">,</span>
@@ -661,8 +659,6 @@
     <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
 
 <h3 id="v-on-handlerEventName-绑定事件名变量"><a href="#v-on-handlerEventName-绑定事件名变量" class="headerlink" title="v-on:[handlerEventName] 绑定事件名变量"></a>v-on:[handlerEventName] 绑定事件名变量</h3><p>我们可以设计一个计数器，在 <code>setup</code> 函数定义一个 <code>num</code> 变量，初始化值为 0，定义方法来操作这个变量。</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
@@ -676,9 +672,9 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
   <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'DynamicArguments'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"DynamicArguments"</span><span class="token punctuation">,</span>
     <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       <span class="token keyword">let</span> num <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">const</span> <span class="token function-variable function">increase</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
@@ -692,8 +688,6 @@
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
 <p>当然，我们也可以使用变量来定义事件名字。在 <code>setup</code> 函数中定义一个点击事件名字。代码如下：</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dynamic-arguments<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -706,12 +700,12 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
   <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'DynamicArguments'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"DynamicArguments"</span><span class="token punctuation">,</span>
     <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       <span class="token keyword">let</span> num <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">let</span> clickEventName <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> clickEventName <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">const</span> <span class="token function-variable function">increase</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
         num<span class="token punctuation">.</span>value<span class="token operator">++</span><span class="token punctuation">;</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
@@ -736,12 +730,12 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
   <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'DynamicArguments'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"DynamicArguments"</span><span class="token punctuation">,</span>
     <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       <span class="token keyword">let</span> num <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">let</span> clickEventName <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> clickEventName <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">const</span> <span class="token function-variable function">increase</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
         num<span class="token punctuation">.</span>value<span class="token operator">++</span><span class="token punctuation">;</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
@@ -764,7 +758,7 @@
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
   <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'child'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"child"</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -778,7 +772,7 @@
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
   <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'parent'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"parent"</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -797,10 +791,10 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-  <span class="token keyword">import</span> parent <span class="token keyword">from</span> <span class="token string">'./bbb'</span><span class="token punctuation">;</span>
-  <span class="token keyword">import</span> child <span class="token keyword">from</span> <span class="token string">'./aaa'</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> parent <span class="token keyword">from</span> <span class="token string">"./bbb"</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> child <span class="token keyword">from</span> <span class="token string">"./aaa"</span><span class="token punctuation">;</span>
   <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'DynamicArguments'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"DynamicArguments"</span><span class="token punctuation">,</span>
     <span class="token literal-property property">components</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
       parent<span class="token punctuation">,</span>
       child<span class="token punctuation">,</span>
@@ -829,16 +823,16 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-  <span class="token keyword">import</span> parent <span class="token keyword">from</span> <span class="token string">'./bbb'</span><span class="token punctuation">;</span>
-  <span class="token keyword">import</span> child <span class="token keyword">from</span> <span class="token string">'./aaa'</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> parent <span class="token keyword">from</span> <span class="token string">"./bbb"</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> child <span class="token keyword">from</span> <span class="token string">"./aaa"</span><span class="token punctuation">;</span>
   <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'DynamicArguments'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"DynamicArguments"</span><span class="token punctuation">,</span>
     <span class="token literal-property property">components</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
       parent<span class="token punctuation">,</span>
       child<span class="token punctuation">,</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
     <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">let</span> child <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">'child'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> child <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"child"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
         child<span class="token punctuation">,</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
@@ -862,16 +856,16 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-  <span class="token keyword">import</span> parent <span class="token keyword">from</span> <span class="token string">'./bbb'</span><span class="token punctuation">;</span>
-  <span class="token keyword">import</span> child <span class="token keyword">from</span> <span class="token string">'./aaa'</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> parent <span class="token keyword">from</span> <span class="token string">"./bbb"</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> child <span class="token keyword">from</span> <span class="token string">"./aaa"</span><span class="token punctuation">;</span>
   <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'DynamicArguments'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"DynamicArguments"</span><span class="token punctuation">,</span>
     <span class="token literal-property property">components</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
       parent<span class="token punctuation">,</span>
       child<span class="token punctuation">,</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
     <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">let</span> child <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">'child'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> child <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"child"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
         child<span class="token punctuation">,</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
@@ -882,14 +876,14 @@
 <p>运行效果</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-21_16-42-14.png" alt="图片描述"></p>
 <h2 id="4、动态指令计算"><a href="#4、动态指令计算" class="headerlink" title="4、动态指令计算"></a>4、动态指令计算</h2><p>字符串可以互相拼接，数值可以相加，相乘等操作。动态指令也能做这些操作。在 <code>javascript</code> 中，<code>key1</code> 跟 <code>key2</code> 可以拼接成 <code>key3</code>，同样可以使用 <code>[key1+key2]</code> 动态计算。</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> key1 <span class="token operator">=</span> <span class="token string">'nam'</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> key2 <span class="token operator">=</span> <span class="token string">'e'</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> key1 <span class="token operator">=</span> <span class="token string">"nam"</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> key2 <span class="token operator">=</span> <span class="token string">"e"</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> key3 <span class="token operator">=</span> key1 <span class="token operator">+</span> key2<span class="token punctuation">;</span>
 <span class="token keyword">let</span> obj1 <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  <span class="token punctuation">[</span>key1 <span class="token operator">+</span> key2<span class="token punctuation">]</span><span class="token operator">:</span> <span class="token string">'Ken'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span>key1 <span class="token operator">+</span> key2<span class="token punctuation">]</span><span class="token operator">:</span> <span class="token string">"Ken"</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> obj2 <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  <span class="token punctuation">[</span>key3<span class="token punctuation">]</span><span class="token operator">:</span> <span class="token string">'Ken'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span>key3<span class="token punctuation">]</span><span class="token operator">:</span> <span class="token string">"Ken"</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-21_16-42-53.png" alt="图片描述"></p>
@@ -906,12 +900,12 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
   <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'DynamicArguments'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"DynamicArguments"</span><span class="token punctuation">,</span>
     <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">let</span> key1 <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">'nam'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">let</span> key2 <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">'e'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> key1 <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"nam"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> key2 <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"e"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
         key1<span class="token punctuation">,</span>
         key2<span class="token punctuation">,</span>
@@ -1664,66 +1658,57 @@
         <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
-        
         display: none;
-        
-        font-size: 12px;
+            font-size: 12px;
         font-weight: 700;
         line-height: 16px !important;
     }
 
     .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
         display: none;
-        
-        font-size: 15px;
+            font-size: 15px;
         color: #42b983;
     }
 
-    
     .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
+            left: -66px !important;
+        }
 
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
 
-    
+        
 </style>
 <div class="">
     
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="song"
-                   id="480614067"
-                   fixed='true'
-                   autoplay='true'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.5'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
+            <div class="row">
+                <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease"
+                    type="song" id="480614067" fixed=' true'
+                    autoplay='true'
+                        theme='#42b983'
+                            loop='all'
+                                order='random'
+                                    preload='auto'
+                                        volume='0.5'
+                                            list-folded='true'
+                                                >
+                </meting-js>
+            </div>
 </div>
 
 <script src="/libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
             
                 <div class="container row center-align"
                     style="margin-bottom: 15px !important;">
                     <div class="col s12 m8 l8 copy-right">
                         Copyright&nbsp;&copy;
                         
-                                <span id="year">
-                                    2022
-                                </span>
-                                
+                            <span id="year">
+                                2022-2023
+                            </span>
+                            
                                     <span id="year">
                                         2022
                                     </span>
@@ -1737,7 +1722,7 @@
                                     
                                         &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
                                             class="white-color">
-                                            197.3k
+                                            197.4k
                                         </span>&nbsp;字
                                         
                                             

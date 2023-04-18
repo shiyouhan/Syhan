@@ -35,7 +35,7 @@
 
    <style>
     body{
-       background-image: url(https://cdn.syhan.top/uPic/I75zFh.jpg);
+       background-image: url(http://img.syhan.top/uPic/I75zFh.jpg);
        background-repeat:no-repeat;
        background-size:cover;
        background-attachment:fixed;
@@ -496,39 +496,39 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="页面导航、网络请求、数据缓存"><a href="#页面导航、网络请求、数据缓存" class="headerlink" title="页面导航、网络请求、数据缓存"></a>页面导航、网络请求、数据缓存</h1><h2 id="页面导航"><a href="#页面导航" class="headerlink" title="页面导航"></a>页面导航</h2><p>说到页面导航，我们可能首先想到的是页面跳转（页面A跳转到页面B），页面跳转在不同端之间有不同的区别：</p>
+                <h1 id="页面导航、网络请求、数据缓存"><a href="#页面导航、网络请求、数据缓存" class="headerlink" title="页面导航、网络请求、数据缓存"></a>页面导航、网络请求、数据缓存</h1><h2 id="页面导航"><a href="#页面导航" class="headerlink" title="页面导航"></a>页面导航</h2><p>说到页面导航，我们可能首先想到的是页面跳转（页面 A 跳转到页面 B），页面跳转在不同端之间有不同的区别：</p>
 <ul>
 <li>H5 通过 window.history 属性对其进行访问，改变路由记录从而实现跳转</li>
 <li>iOS/安卓 是改变根视图或操作导航控制器出栈进栈从而实现跳转</li>
 <li>小程序实现跳转采用的方式也是改变根视图或操作导航控制器出栈进栈</li>
 </ul>
 <p>如果你要把用 Uniapp 开发的项目编译成 H5，那么该项目呈现的是单页面应用，单页面应用实现页面跳转是通过监测页面 url 的 hash 改变而加载不同页面。hash 模式背后的原理是 onhashchange 事件，可以在 window 对象上监听这个事件：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>hash <span class="token operator">=</span> <span class="token string">'list/list'</span> <span class="token comment">// 设置页面 url 的 hash，会在当前url后加上 '#list/list'</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>hash <span class="token operator">=</span> <span class="token string">"list/list"</span><span class="token punctuation">;</span> <span class="token comment">// 设置页面 url 的 hash，会在当前url后加上 '#list/list'</span>
 
-<span class="token keyword">let</span> hash <span class="token operator">=</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>hash <span class="token comment">// '#/pages/list/list'</span>
+<span class="token keyword">let</span> hash <span class="token operator">=</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>hash<span class="token punctuation">;</span> <span class="token comment">// '#/pages/list/list'</span>
 
-window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'hashchange'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span> 
-    <span class="token comment">// 监听 hash 变化，点击浏览器的前进后退或者hash改变会触发</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"hashchange"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// 监听 hash 变化，点击浏览器的前进后退或者hash改变会触发</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>例如访问列表地址，# 后面的路径就是指向页面地址：</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html">http://localhost:8080/#/pages/list/list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>如果不想要很丑的 hash，我们可以用路由的 history 模式，在项目的配置文件 【manifest.json】&gt;&gt;【h5配置】&gt;&gt; 【路由模式】 进行修改：</p>
+<p>如果不想要很丑的 hash，我们可以用路由的 history 模式，在项目的配置文件 【manifest.json】&gt;&gt;【h5 配置】&gt;&gt; 【路由模式】 进行修改：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/TV5oTG.png"></p>
 <p>history 模式改变 url 的方式会导致浏览器向服务器发送请求，如果服务器端未做任何处理，则会请求资源失败，我们需要在服务器端做处理：如果匹配不到任何静态资源，则应该始终返回同一个 html 页面。具体操作可以看 <a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/essentials/history-mode.html">这里</a></p>
-<p>如果你要用 Uniapp 开发的项目编译成微信小程序，就要注意微信小程序的页面栈的限制了，小程序中页面栈<strong>限制最多十层</strong>（微信进行了限制调整），随着页面栈的push增加，在不知道的情况下就会堆栈到十层，再用 API navigateTo 去跳转页面就跳不动了，用户会跳转失效（卡死状态）。</p>
+<p>如果你要用 Uniapp 开发的项目编译成微信小程序，就要注意微信小程序的页面栈的限制了，小程序中页面栈<strong>限制最多十层</strong>（微信进行了限制调整），随着页面栈的 push 增加，在不知道的情况下就会堆栈到十层，再用 API navigateTo 去跳转页面就跳不动了，用户会跳转失效（卡死状态）。</p>
 <p>如果遇到上述问题，删除当前页面栈（redirectTo）或删除所有页面栈（reLaunch）来跳转了，页面栈以跳转的 url 为第一个页面栈。页面栈可以通过 getCurrentPages 方法获取。</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">navigateTo</span><span class="token punctuation">(</span><span class="token parameter">url<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">let</span> goType <span class="token operator">=</span> <span class="token function">getCurrentPages</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length <span class="token operator">>=</span> <span class="token number">10</span> <span class="token operator">?</span> <span class="token string">'redirectTo'</span> <span class="token operator">:</span> <span class="token string">'navigateTo'</span>
-    wx<span class="token punctuation">[</span>goType<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-        url<span class="token punctuation">,</span>
-        <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-            <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-        <span class="token function-variable function">fail</span><span class="token operator">:</span> <span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-        <span class="token function-variable function">complete</span><span class="token operator">:</span> <span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token keyword">let</span> goType <span class="token operator">=</span> <span class="token function">getCurrentPages</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length <span class="token operator">>=</span> <span class="token number">10</span> <span class="token operator">?</span> <span class="token string">"redirectTo"</span> <span class="token operator">:</span> <span class="token string">"navigateTo"</span><span class="token punctuation">;</span>
+  wx<span class="token punctuation">[</span>goType<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    url<span class="token punctuation">,</span>
+    <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">fail</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">complete</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>简单化是微信小程序的开发理念的其中之一，如果你的页面栈层出现爆栈卡制，那么可以考虑一下你的产品项目的入口是不是设计的太深了。</p>
@@ -537,19 +537,20 @@ window<span class="token punctuation">.</span><span class="token function">addEv
 <p>如果想要首页跳转到列表页面并传一些参数：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 在起始页面跳转到list.vue页面并传递参数</span>
 uni<span class="token punctuation">.</span><span class="token function">navigateTo</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">'/pages/list/list?id=1&amp;name=uniapp'</span>
+  <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">"/pages/list/list?id=1&amp;name=uniapp"</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// 或者使用标签形式跳转</span>
-<span class="token operator">&lt;</span>navigator url<span class="token operator">=</span><span class="token string">"/pages/list/list?id=1&amp;name=uniapp"</span><span class="token operator">></span>去列表<span class="token operator">&lt;</span><span class="token operator">/</span>navigator<span class="token operator">></span>
+<span class="token operator">&lt;</span>navigator url<span class="token operator">=</span><span class="token string">"/pages/list/list?id=1&amp;name=uniapp"</span><span class="token operator">></span>去列表<span class="token operator">&lt;</span><span class="token operator">/</span>navigator<span class="token operator">></span><span class="token punctuation">;</span>
 
 <span class="token comment">// 在list.vue页面接受参数</span>
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
-    <span class="token function-variable function">onLoad</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">option</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//option为object类型，会序列化上个页面传递的参数</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>option<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//打印出上个页面传递的参数</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>option<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//打印出上个页面传递的参数</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token function-variable function">onLoad</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">option</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//option为object类型，会序列化上个页面传递的参数</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>option<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//打印出上个页面传递的参数</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>option<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//打印出上个页面传递的参数</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>我们还可以使用下面的几个 API 操作页面跳转:</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">uni<span class="token punctuation">.</span><span class="token function">navigateTo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 保留当前页面，跳转到应用内的某个页面，使用 uni<span class="token punctuation">.</span>navigateBack 可以返回到原页面。
@@ -565,7 +566,7 @@ uni<span class="token punctuation">.</span><span class="token function">switchTa
 
 <p>如果使用标签形式进行跳转改变标签 <code>open-type</code> 属性即可：</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>navigator</span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>navigate/navigate?title=navigate<span class="token punctuation">"</span></span> <span class="token attr-name">open-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>navigate<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    跳转到新页面
+  跳转到新页面
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>navigator</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>open-type 跳转方式参数对应：</p>
@@ -603,35 +604,38 @@ uni<span class="token punctuation">.</span><span class="token function">switchTa
 <td></td>
 </tr>
 </tbody></table>
-<h2 id="Uniapp中的网络请求"><a href="#Uniapp中的网络请求" class="headerlink" title="Uniapp中的网络请求"></a>Uniapp中的网络请求</h2><p>Uniapp 使用 API <code>uni.request()</code> 发起网络请求，如果你用过微信小程序开发就会熟悉这个 API（wx.request()），Uniapp 兼容了微信代码，如果你写了 <code>wx.</code> 前缀，也可以执行，效果等同于 <code>uni.</code>。</p>
+<h2 id="Uniapp-中的网络请求"><a href="#Uniapp-中的网络请求" class="headerlink" title="Uniapp 中的网络请求"></a>Uniapp 中的网络请求</h2><p>Uniapp 使用 API <code>uni.request()</code> 发起网络请求，如果你用过微信小程序开发就会熟悉这个 API（wx.request()），Uniapp 兼容了微信代码，如果你写了 <code>wx.</code> 前缀，也可以执行，效果等同于 <code>uni.</code>。</p>
 <p>代码示例：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">uni<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">'https://www.example.com/request'</span><span class="token punctuation">,</span> <span class="token comment">//仅为示例，并非真实接口地址</span>
-    <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-        <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token string">'uni.request'</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">header</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-        <span class="token string-property property">'custom-header'</span><span class="token operator">:</span> <span class="token string">'hello'</span> <span class="token comment">//自定义请求头信息</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-    <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token string">'request success'</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
+  <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">"https://www.example.com/request"</span><span class="token punctuation">,</span> <span class="token comment">//仅为示例，并非真实接口地址</span>
+  <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token string">"uni.request"</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">header</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token string-property property">"custom-header"</span><span class="token operator">:</span> <span class="token string">"hello"</span><span class="token punctuation">,</span> <span class="token comment">//自定义请求头信息</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token string">"request success"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>指定接口地址、请求方法、请求参数，可以拿来即用。如果没有传入 success / fail / complete 参数，则会返回封装后的 Promise 对象:</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// Promise</span>
-uni<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">'https://www.example.com/request'</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">data</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>   <span class="token comment">// data为一个数组，数组第一项为错误信息，第二项为返回数据</span>
-    <span class="token keyword">let</span> <span class="token punctuation">[</span>error<span class="token punctuation">,</span> res<span class="token punctuation">]</span>  <span class="token operator">=</span> data<span class="token punctuation">;</span>
+uni
+  <span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">"https://www.example.com/request"</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// data为一个数组，数组第一项为错误信息，第二项为返回数据</span>
+    <span class="token keyword">let</span> <span class="token punctuation">[</span>error<span class="token punctuation">,</span> res<span class="token punctuation">]</span> <span class="token operator">=</span> data<span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>如何中断一次请求呢？</p>
-<p>很多场景下是如果请求2个接口数据，当某一个接口成功的时候，就可能需要禁止掉另外一个接口的继续请求了：</p>
+<p>很多场景下是如果请求 2 个接口数据，当某一个接口成功的时候，就可能需要禁止掉另外一个接口的继续请求了：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> requestTask <span class="token operator">=</span> uni<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">'https://www.example.com/request'</span> <span class="token comment">// 仅为示例，并非真实接口地址。</span>
+  <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">"https://www.example.com/request"</span><span class="token punctuation">,</span> <span class="token comment">// 仅为示例，并非真实接口地址。</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// 中断请求任务</span>
@@ -651,72 +655,71 @@ requestTask<span class="token punctuation">.</span><span class="token function">
 <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
 <span class="token comment">// ...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
 <p>有效封装能够更好的管理业务，比如服务器 500 错误的处理，400 的错误怎么去处理，这些就是让用户能在错误请求中获得良好体验。</p>
 <p>一段 request 封装处理的响应代码：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">resInterceptor</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">response<span class="token punctuation">,</span> conf <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">// TODO do your response</span>
-    <span class="token keyword">const</span> statusCode <span class="token operator">=</span> response<span class="token punctuation">.</span>statusCode
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'statusCode：'</span><span class="token operator">+</span> statusCode<span class="token punctuation">)</span>
-    <span class="token comment">// response interceptor</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>statusCode <span class="token operator">>=</span> <span class="token number">200</span> <span class="token operator">&amp;&amp;</span> statusCode <span class="token operator">&lt;</span> <span class="token number">300</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token comment">//成功</span>
-        <span class="token function">_responseLog</span><span class="token punctuation">(</span>response<span class="token punctuation">,</span> conf<span class="token punctuation">,</span> <span class="token string">"response 200-299"</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> response
-    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>statusCode <span class="token operator">===</span> <span class="token number">500</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token function">_responseLog</span><span class="token punctuation">(</span>response<span class="token punctuation">,</span> conf<span class="token punctuation">,</span> <span class="token string">"response 500"</span><span class="token punctuation">)</span>
-        <span class="token comment">// 为了对reject的内容更加可控，我们增加了一个控制字段 wakaryReqToReject</span>
-        <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
-            <span class="token comment">// 根据当前字段来判断是否reject</span>
-            <span class="token literal-property property">wakaryReqToReject</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-            <span class="token comment">// 下面可以配置您的其它返回信息，方便您更加统一的处理reject的内容。</span>
-            <span class="token comment">// 以下内容会被作为reject的返回，根据您的需要处理，比如返回您的具体错误信息</span>
-            <span class="token literal-property property">msg</span><span class="token operator">:</span> <span class="token string">"服务器错误"</span><span class="token punctuation">,</span>
-            <span class="token literal-property property">res</span><span class="token operator">:</span> response
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-        <span class="token function">_responseLog</span><span class="token punctuation">(</span>response<span class="token punctuation">,</span> conf<span class="token punctuation">,</span> <span class="token string">"response 300-499"</span><span class="token punctuation">)</span>
-        <span class="token comment">// 为了对reject的内容更加可控，我们增加了一个控制字段 wakaryReqToReject</span>
-        <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
-            <span class="token comment">// 根据当前字段来判断是否reject</span>
-            <span class="token literal-property property">wakaryReqToReject</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-            <span class="token comment">// 下面可以配置您的其它返回信息，方便您更加统一的处理reject的内容。</span>
-            <span class="token comment">// 以下内容会被作为reject的返回，根据您的需要处理，比如返回您的具体错误信息</span>
-            <span class="token literal-property property">msg</span><span class="token operator">:</span> <span class="token string">"这里是提示信息"</span><span class="token punctuation">,</span>
-            <span class="token literal-property property">res</span><span class="token operator">:</span> response
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token comment">// TODO do your response</span>
+  <span class="token keyword">const</span> statusCode <span class="token operator">=</span> response<span class="token punctuation">.</span>statusCode<span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"statusCode："</span> <span class="token operator">+</span> statusCode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// response interceptor</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>statusCode <span class="token operator">>=</span> <span class="token number">200</span> <span class="token operator">&amp;&amp;</span> statusCode <span class="token operator">&lt;</span> <span class="token number">300</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//成功</span>
+    <span class="token function">_responseLog</span><span class="token punctuation">(</span>response<span class="token punctuation">,</span> conf<span class="token punctuation">,</span> <span class="token string">"response 200-299"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> response<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>statusCode <span class="token operator">===</span> <span class="token number">500</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">_responseLog</span><span class="token punctuation">(</span>response<span class="token punctuation">,</span> conf<span class="token punctuation">,</span> <span class="token string">"response 500"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 为了对reject的内容更加可控，我们增加了一个控制字段 wakaryReqToReject</span>
+    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 根据当前字段来判断是否reject</span>
+      <span class="token literal-property property">wakaryReqToReject</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token comment">// 下面可以配置您的其它返回信息，方便您更加统一的处理reject的内容。</span>
+      <span class="token comment">// 以下内容会被作为reject的返回，根据您的需要处理，比如返回您的具体错误信息</span>
+      <span class="token literal-property property">msg</span><span class="token operator">:</span> <span class="token string">"服务器错误"</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">res</span><span class="token operator">:</span> response<span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">_responseLog</span><span class="token punctuation">(</span>response<span class="token punctuation">,</span> conf<span class="token punctuation">,</span> <span class="token string">"response 300-499"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 为了对reject的内容更加可控，我们增加了一个控制字段 wakaryReqToReject</span>
+    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 根据当前字段来判断是否reject</span>
+      <span class="token literal-property property">wakaryReqToReject</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token comment">// 下面可以配置您的其它返回信息，方便您更加统一的处理reject的内容。</span>
+      <span class="token comment">// 以下内容会被作为reject的返回，根据您的需要处理，比如返回您的具体错误信息</span>
+      <span class="token literal-property property">msg</span><span class="token operator">:</span> <span class="token string">"这里是提示信息"</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">res</span><span class="token operator">:</span> response<span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>注意：</strong></p>
 <ol>
 <li>良好体验的 APP，还会判断当前是否处于飞行模式、是 wifi 还是 蜂窝数据</li>
-<li>单次网络请求数据量建议控制在50K以下（仅指 JSON数据，不含图片），过多数据应分页获取，以提升应用体验。</li>
-<li>localhost、127.0.0.1等服务器地址，只能在电脑端运行，手机端连接时不能访问，请使用标准 IP 并保证手机能连接电脑网络</li>
+<li>单次网络请求数据量建议控制在 50K 以下（仅指 JSON 数据，不含图片），过多数据应分页获取，以提升应用体验。</li>
+<li>localhost、127.0.0.1 等服务器地址，只能在电脑端运行，手机端连接时不能访问，请使用标准 IP 并保证手机能连接电脑网络</li>
 </ol>
-<h2 id="Uniapp-中的storage存储信息"><a href="#Uniapp-中的storage存储信息" class="headerlink" title="Uniapp 中的storage存储信息"></a>Uniapp 中的storage存储信息</h2><p>Uniapp 集成了小程序，app，h5 的数据缓存，统一了 <code>uni.setStorage()</code>，<code>uni.setStorage()</code> 系列API，完成对缓存数据的操作。</p>
+<h2 id="Uniapp-中的-storage-存储信息"><a href="#Uniapp-中的-storage-存储信息" class="headerlink" title="Uniapp 中的 storage 存储信息"></a>Uniapp 中的 storage 存储信息</h2><p>Uniapp 集成了小程序，app，h5 的数据缓存，统一了 <code>uni.setStorage()</code>，<code>uni.setStorage()</code> 系列 API，完成对缓存数据的操作。</p>
 <p>示例代码:</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">uni<span class="token punctuation">.</span><span class="token function">setStorage</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">key</span><span class="token operator">:</span> <span class="token string">'storage_key'</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token string">'hello'</span><span class="token punctuation">,</span>
-    <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'success'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
+  <span class="token literal-property property">key</span><span class="token operator">:</span> <span class="token string">"storage_key"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token string">"hello"</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"success"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>将 data 存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，存储的内容，只支持原生类型、及能够通过 JSON.stringify 序列化的对象。</p>
-<p>记住，uniapp设置存储有同步与异步之分，使用 <code>uni.setStorage()</code> 参数对象需指定键值 <code>key</code> ，存储数据 <code>data</code>:</p>
+<p>记住，uniapp 设置存储有同步与异步之分，使用 <code>uni.setStorage()</code> 参数对象需指定键值 <code>key</code> ，存储数据 <code>data</code>:</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 异步需指定 key 和 data</span>
 uni<span class="token punctuation">.</span><span class="token function">setStorage</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">key</span><span class="token operator">:</span> <span class="token string">'storage_key'</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token string">'hello'</span><span class="token punctuation">,</span>
-    <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'success'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
+  <span class="token literal-property property">key</span><span class="token operator">:</span> <span class="token string">"storage_key"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token string">"hello"</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"success"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// 同步，不用指定 key 和 data 的键</span>
-uni<span class="token punctuation">.</span><span class="token function">setStorageSync</span><span class="token punctuation">(</span><span class="token string">'storage_key'</span><span class="token punctuation">,</span> <span class="token string">'hello'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+uni<span class="token punctuation">.</span><span class="token function">setStorageSync</span><span class="token punctuation">(</span><span class="token string">"storage_key"</span><span class="token punctuation">,</span> <span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>因为是异步操作，有接口调用成功的回调函数，如果有业务逻辑处理或者判定失败等情况，就可以从这入手。</p>
 <p><strong>注意:</strong></p>
@@ -1457,66 +1460,57 @@ uni<span class="token punctuation">.</span><span class="token function">setStora
         <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
-        
         display: none;
-        
-        font-size: 12px;
+            font-size: 12px;
         font-weight: 700;
         line-height: 16px !important;
     }
 
     .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
         display: none;
-        
-        font-size: 15px;
+            font-size: 15px;
         color: #42b983;
     }
 
-    
     .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
+            left: -66px !important;
+        }
 
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
 
-    
+        
 </style>
 <div class="">
     
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="song"
-                   id="480614067"
-                   fixed='true'
-                   autoplay='true'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.5'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
+            <div class="row">
+                <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease"
+                    type="song" id="480614067" fixed=' true'
+                    autoplay='true'
+                        theme='#42b983'
+                            loop='all'
+                                order='random'
+                                    preload='auto'
+                                        volume='0.5'
+                                            list-folded='true'
+                                                >
+                </meting-js>
+            </div>
 </div>
 
 <script src="/libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
             
                 <div class="container row center-align"
                     style="margin-bottom: 15px !important;">
                     <div class="col s12 m8 l8 copy-right">
                         Copyright&nbsp;&copy;
                         
-                                <span id="year">
-                                    2022
-                                </span>
-                                
+                            <span id="year">
+                                2022-2023
+                            </span>
+                            
                                     <span id="year">
                                         2022
                                     </span>
@@ -1530,7 +1524,7 @@ uni<span class="token punctuation">.</span><span class="token function">setStora
                                     
                                         &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
                                             class="white-color">
-                                            197.3k
+                                            197.4k
                                         </span>&nbsp;字
                                         
                                             

@@ -35,7 +35,7 @@
 
    <style>
     body{
-       background-image: url(https://cdn.syhan.top/uPic/I75zFh.jpg);
+       background-image: url(http://img.syhan.top/uPic/I75zFh.jpg);
        background-repeat:no-repeat;
        background-size:cover;
        background-attachment:fixed;
@@ -502,32 +502,32 @@
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/NE5xCm.png"></p>
 <p>用代码来表示就是：</p>
 <pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
-    &lt;!-- 这是一个房子 --&gt;
-    &lt;view&gt;
-        &lt;!-- 屋顶 --&gt;
-        &lt;roof&gt;&lt;&#x2F;roof&gt;
-        &lt;!-- 墙 --&gt;
-        &lt;wall&gt;&lt;&#x2F;wall&gt;
-        &lt;!-- 窗户 --&gt;
-        &lt;window&gt;&lt;&#x2F;window&gt;
-        &lt;!-- 门 --&gt;
-        &lt;door&gt;&lt;&#x2F;door&gt;
-    &lt;&#x2F;view&gt;
+  &lt;!-- 这是一个房子 --&gt;
+  &lt;view&gt;
+    &lt;!-- 屋顶 --&gt;
+    &lt;roof&gt;&lt;&#x2F;roof&gt;
+    &lt;!-- 墙 --&gt;
+    &lt;wall&gt;&lt;&#x2F;wall&gt;
+    &lt;!-- 窗户 --&gt;
+    &lt;window&gt;&lt;&#x2F;window&gt;
+    &lt;!-- 门 --&gt;
+    &lt;door&gt;&lt;&#x2F;door&gt;
+  &lt;&#x2F;view&gt;
 &lt;&#x2F;template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>那么换成一个页面呢？一个完整的页面由页头，内容，页脚等组成：</p>
 <pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
-    &lt;view&gt;
-        &lt;!-- 页头 --&gt;
-        &lt;page-header&gt;&lt;&#x2F;page-header&gt;
-        &lt;!-- 内容 --&gt;
-        &lt;content&gt;&lt;&#x2F;content&gt;
-        &lt;!-- 页脚 --&gt;
-        &lt;pager-footer&gt;&lt;&#x2F;pager-footer&gt;
-    &lt;&#x2F;view&gt;
+  &lt;view&gt;
+    &lt;!-- 页头 --&gt;
+    &lt;page-header&gt;&lt;&#x2F;page-header&gt;
+    &lt;!-- 内容 --&gt;
+    &lt;content&gt;&lt;&#x2F;content&gt;
+    &lt;!-- 页脚 --&gt;
+    &lt;pager-footer&gt;&lt;&#x2F;pager-footer&gt;
+  &lt;&#x2F;view&gt;
 &lt;&#x2F;template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>我们在开发页面的时候，头部和尾部都是固定不变的，只要内容更改就行。在开发框架中，页面其实也是作为组件化的一部分，但是我们组件更多关注的是页面的每个部件，比如头部，内容区，弹出框甚至确认按钮都可以作为一个组件，每个组件有独立的HTML、CSS、JS 代码。</p>
+<p>我们在开发页面的时候，头部和尾部都是固定不变的，只要内容更改就行。在开发框架中，页面其实也是作为组件化的一部分，但是我们组件更多关注的是页面的每个部件，比如头部，内容区，弹出框甚至确认按钮都可以作为一个组件，每个组件有独立的 HTML、CSS、JS 代码。</p>
 <h2 id="基础组件"><a href="#基础组件" class="headerlink" title="基础组件"></a>基础组件</h2><p>Uniapp 根据多端的特性以 Vue 语法糖 + 小程序的 API 打造了一大批组件，这些组件在开发的时候以 HBuliderX 为 IDE，生产的时候把那些代码编译转换为各个平台特性的语法与 API。</p>
 <p>Uniapp 框架根据组件的设计思想为我们设计提供了一系列的基础组件，我们可以通过组合这些基础组件进行快速开发。每一个基础组件都独立定义了样式与功能，这些基础组件中比如 button 组件，你可以设置按钮的大小，文字样式，里面的回调时机，这个按钮组件具有独立的并且有完整的多样化功能，相当于我们以参数的形式去定义这个按钮。</p>
 <p><strong>Uniapp 基础组件分为以下八大类：</strong></p>
@@ -545,47 +545,46 @@
 <h2 id="自定义组件"><a href="#自定义组件" class="headerlink" title="自定义组件"></a>自定义组件</h2><p>在数据绑定的三大框架 Angular、React、Vue 中，所有的元素都可以细分为一个组件，甚至是一个页面。这个组件可以重复的复用，组件的使用也造就了当今的前端的繁华的原因之一，当然现在使用的 Uniapp 也不例外，综合了小程序，weex，h5 等共有特性。</p>
 <p>一个组件由三大部分组成：template 模板，JS 数据交互和 CSS 样式层：</p>
 <pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
-    &lt;view class&#x3D;&quot;content&quot;&gt;
-       &lt;image class&#x3D;&quot;logo&quot; src&#x3D;&quot;&#x2F;static&#x2F;logo.png&quot;&gt;&lt;&#x2F;image&gt;
-       &lt;button @tap&#x3D;&quot;getMsg&quot;&gt;&#123;&#123;title&#125;&#125;&lt;&#x2F;button&gt;
-    &lt;&#x2F;view&gt;
+  &lt;view class&#x3D;&quot;content&quot;&gt;
+    &lt;image class&#x3D;&quot;logo&quot; src&#x3D;&quot;&#x2F;static&#x2F;logo.png&quot;&gt;&lt;&#x2F;image&gt;
+    &lt;button @tap&#x3D;&quot;getMsg&quot;&gt;&#123;&#123; title &#125;&#125;&lt;&#x2F;button&gt;
+  &lt;&#x2F;view&gt;
 &lt;&#x2F;template&gt;
 
 &lt;script&gt;
-    export default &#123;
-        &#x2F;&#x2F; props 是从父级（引用当前组件）的变量占位，在当前组件下给这些变量一个初始化值（initValue）
-        props:&#123;
-            title: &#123;
-                type: String,
-                default: &#39;&#39;
-            &#125;,
-            list:&#123;
-                type: Array,
-                default () &#123;  &#x2F;&#x2F; 这里返回值需要是一个函数
-                    return []
-                &#125;
-            &#125;
-        &#125;,
-        data() &#123;
-            return &#123;
-                title: &#39;Hello&#39;
-            &#125;
-        &#125;,
-        created() &#123;
-
-        &#125;,
-        methods: &#123;
-            getMsg () &#123;
-                console.log(&#39;I am a demo&#39;)
-                this.$emit(&#39;getMsg&#39;, this)
-            &#125;
-        &#125;
-    &#125;
+export default &#123;
+  &#x2F;&#x2F; props 是从父级（引用当前组件）的变量占位，在当前组件下给这些变量一个初始化值（initValue）
+  props: &#123;
+    title: &#123;
+      type: String,
+      default: &quot;&quot;,
+    &#125;,
+    list: &#123;
+      type: Array,
+      default() &#123;
+        &#x2F;&#x2F; 这里返回值需要是一个函数
+        return [];
+      &#125;,
+    &#125;,
+  &#125;,
+  data() &#123;
+    return &#123;
+      title: &quot;Hello&quot;,
+    &#125;;
+  &#125;,
+  created() &#123;&#125;,
+  methods: &#123;
+    getMsg() &#123;
+      console.log(&quot;I am a demo&quot;);
+      this.$emit(&quot;getMsg&quot;, this);
+    &#125;,
+  &#125;,
+&#125;;
 &lt;&#x2F;script&gt;
 
 &lt;style lang&#x3D;&quot;scss&quot;&gt;
-    ...
-&lt;&#x2F;style&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+...
+&lt;&#x2F;style&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>可以看到上面主要由三个主要元素组成 <code>template</code> ， <code>script</code> ，<code>style</code>。</p>
 <ol>
@@ -638,128 +637,124 @@
 </ol>
 <p>在 components 文件夹创建 product-card.vue 文件:</p>
 <pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
-	&lt;view class&#x3D;&quot;prod&quot;&gt;
-		&lt;image class&#x3D;&quot;img&quot; :src&#x3D;&quot;imgSrc&quot; mode&#x3D;&quot;aspectFill&quot;&gt;&lt;&#x2F;image&gt;
-		&lt;view class&#x3D;&quot;title&quot;&gt;&#123;&#123; title &#125;&#125;&lt;&#x2F;view&gt;
-		&lt;view class&#x3D;&quot;flex-box&quot;&gt;
-			&lt;view class&#x3D;&quot;price&quot;&gt;￥&#123;&#123;price&#125;&#125;&lt;&#x2F;view&gt;
-			&lt;view class&#x3D;&quot;market-price&quot;&gt;&#123;&#123;marketPrice&#125;&#125;&lt;&#x2F;view&gt;
-		&lt;&#x2F;view&gt;
-	&lt;&#x2F;view&gt;
+  &lt;view class&#x3D;&quot;prod&quot;&gt;
+    &lt;image class&#x3D;&quot;img&quot; :src&#x3D;&quot;imgSrc&quot; mode&#x3D;&quot;aspectFill&quot;&gt;&lt;&#x2F;image&gt;
+    &lt;view class&#x3D;&quot;title&quot;&gt;&#123;&#123; title &#125;&#125;&lt;&#x2F;view&gt;
+    &lt;view class&#x3D;&quot;flex-box&quot;&gt;
+      &lt;view class&#x3D;&quot;price&quot;&gt;￥&#123;&#123; price &#125;&#125;&lt;&#x2F;view&gt;
+      &lt;view class&#x3D;&quot;market-price&quot;&gt;&#123;&#123; marketPrice &#125;&#125;&lt;&#x2F;view&gt;
+    &lt;&#x2F;view&gt;
+  &lt;&#x2F;view&gt;
 &lt;&#x2F;template&gt;
 
 &lt;script&gt;
-	export default &#123;
-		&#x2F;&#x2F; 从父组件传值
-		props: &#123;
-			imgSrc: &#123;
-				type: String,
-				default: &#39;&#39;
-			&#125;,
-			title: &#123;
-				type: String,
-				default: &#39;&#39;
-			&#125;,
-			price: &#123;
-				type: String,
-				default: &#39;&#39;
-			&#125;,
-			marketPrice: &#123;
-				type: String,
-				default: &#39;&#39;
-			&#125;,
-		&#125;,
-		data() &#123;
-			return &#123;
-
-			&#125;
-		&#125;,
-		methods: &#123;
-
-		&#125;
-	&#125;
+export default &#123;
+  &#x2F;&#x2F; 从父组件传值
+  props: &#123;
+    imgSrc: &#123;
+      type: String,
+      default: &quot;&quot;,
+    &#125;,
+    title: &#123;
+      type: String,
+      default: &quot;&quot;,
+    &#125;,
+    price: &#123;
+      type: String,
+      default: &quot;&quot;,
+    &#125;,
+    marketPrice: &#123;
+      type: String,
+      default: &quot;&quot;,
+    &#125;,
+  &#125;,
+  data() &#123;
+    return &#123;&#125;;
+  &#125;,
+  methods: &#123;&#125;,
+&#125;;
 &lt;&#x2F;script&gt;
 &lt;style lang&#x3D;&quot;scss&quot; scoped&gt;
-	.prod &#123;
-		position: relative;
-		width: 350rpx;
-		line-height: 34rpx;
-		color: #333;
-		background: #fff;
-		border-radius: 10rpx;
-		overflow: hidden;
-		font-size: 26rpx;
-		border: 1px solid #ccc;
-		margin-bottom: 10px;
+.prod &#123;
+  position: relative;
+  width: 350rpx;
+  line-height: 34rpx;
+  color: #333;
+  background: #fff;
+  border-radius: 10rpx;
+  overflow: hidden;
+  font-size: 26rpx;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
 
-		.img &#123;
-			display: block;
-			width: 100%;
-			height: 260rpx;
-		&#125;
+  .img &#123;
+    display: block;
+    width: 100%;
+    height: 260rpx;
+  &#125;
 
-		.title &#123;
-			padding: 5px;
-		&#125;
+  .title &#123;
+    padding: 5px;
+  &#125;
 
-		.price &#123;
-			padding: 2px 5px;
-			color: #ff5000;
-		&#125;
+  .price &#123;
+    padding: 2px 5px;
+    color: #ff5000;
+  &#125;
 
-		.market-price &#123;
-			padding: 2px 5px;
-			font-size: 24rpx;
-			color: #979797;
-			text-decoration: line-through;
-		&#125;
-	&#125;
-&lt;&#x2F;style&gt;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  .market-price &#123;
+    padding: 2px 5px;
+    font-size: 24rpx;
+    color: #979797;
+    text-decoration: line-through;
+  &#125;
+&#125;
+&lt;&#x2F;style&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>上面组件的图片路径、商品名称、价格、市场价都经过 props 定义，只要在引用这个组件的页面里传值就行。</p>
 <p>这样我们在首页 /pages/index.vue 就可以引用这个组件了</p>
 <pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
-	&lt;view class&#x3D;&quot;content&quot;&gt;
-		&lt;product-card :imgSrc&#x3D;&quot;prod.img&quot; :title&#x3D;&quot;prod.title&quot; :price&#x3D;&quot;prod.price&quot; :marketPrice&#x3D;&quot;prod.marketPrice&quot;
-			v-for&#x3D;&quot;count in 8&quot; &#x2F;&gt;
-	&lt;&#x2F;view&gt;
+  &lt;view class&#x3D;&quot;content&quot;&gt;
+    &lt;product-card
+      :imgSrc&#x3D;&quot;prod.img&quot;
+      :title&#x3D;&quot;prod.title&quot;
+      :price&#x3D;&quot;prod.price&quot;
+      :marketPrice&#x3D;&quot;prod.marketPrice&quot;
+      v-for&#x3D;&quot;count in 8&quot;
+    &#x2F;&gt;
+  &lt;&#x2F;view&gt;
 &lt;&#x2F;template&gt;
 
 &lt;script&gt;
-	import productCard from &#39;@&#x2F;components&#x2F;product-card.vue&#39;
-	export default &#123;
-		components: &#123;
-			productCard
-		&#125;,
-		data() &#123;
-			return &#123;
-				prod: &#123;
-					img: &#39;http:&#x2F;&#x2F;gw.alicdn.com&#x2F;bao&#x2F;uploaded&#x2F;i3&#x2F;1917047079&#x2F;O1CN01VlEDD522AEJzpw3A5_!!2item_pic.png_360x10000.jpg&#39;,
-					title: &#39;Apple&#x2F;苹果 iPhone 12 Pro&#39;,
-					price: &#39;8699.00&#39;,
-					marketPrice: &#39;￥8699.00&#39;,
-				&#125;
-			&#125;
-		&#125;,
-		onLoad() &#123;&#125;,
-		methods: &#123;
-
-		&#125;
-	&#125;
+import productCard from &quot;@&#x2F;components&#x2F;product-card.vue&quot;;
+export default &#123;
+  components: &#123;
+    productCard,
+  &#125;,
+  data() &#123;
+    return &#123;
+      prod: &#123;
+        img: &quot;http:&#x2F;&#x2F;gw.alicdn.com&#x2F;bao&#x2F;uploaded&#x2F;i3&#x2F;1917047079&#x2F;O1CN01VlEDD522AEJzpw3A5_!!2item_pic.png_360x10000.jpg&quot;,
+        title: &quot;Apple&#x2F;苹果 iPhone 12 Pro&quot;,
+        price: &quot;8699.00&quot;,
+        marketPrice: &quot;￥8699.00&quot;,
+      &#125;,
+    &#125;;
+  &#125;,
+  onLoad() &#123;&#125;,
+  methods: &#123;&#125;,
+&#125;;
 &lt;&#x2F;script&gt;
 
 &lt;style scoped&gt;
-	.content &#123;
-		background: #fff;
-		padding: 5px;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-around;
-	&#125;
-&lt;&#x2F;style&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+.content &#123;
+  background: #fff;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+&#125;
+&lt;&#x2F;style&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="全局组件"><a href="#全局组件" class="headerlink" title="全局组件"></a>全局组件</h2><p>Uniapp 支持配置全局组件，需在 <code>main.js</code> 里进行全局注册，注册后就可在所有页面里使用该组件。</p>
 <p>但是要求：</p>
@@ -768,18 +763,18 @@
 <li>nvue 页面暂不支持全局组件<br>(注：建议统一用按需页面引入组件)</li>
 </ul>
 <p><code>main.js</code>里进行全局导入和注册</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
-<span class="token keyword">import</span> pageHead <span class="token keyword">from</span> <span class="token string">'./components/page-head.vue'</span>
-Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">'page-head'</span><span class="token punctuation">,</span> pageHead<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> pageHead <span class="token keyword">from</span> <span class="token string">"./components/page-head.vue"</span><span class="token punctuation">;</span>
+Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">"page-head"</span><span class="token punctuation">,</span> pageHead<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>index.vue里可直接使用组件</p>
+<p>index.vue 里可直接使用组件</p>
 <pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
   &lt;view&gt;
     &lt;page-head&gt;&lt;&#x2F;page-head&gt;
   &lt;&#x2F;view&gt;
 &lt;&#x2F;template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="非H5端不支持列表"><a href="#非H5端不支持列表" class="headerlink" title="非H5端不支持列表"></a>非H5端不支持列表</h2><p>Uniapp 只支持 Vue 单文件组件（ .vue 组件）。其他的诸如：动态组件，自定义 render 和 <code>&lt;script type=&quot;text/x-template&quot;&gt;</code> 字符串模版等，在非 H5 端不支持。</p>
+<h2 id="非-H5-端不支持列表"><a href="#非-H5-端不支持列表" class="headerlink" title="非 H5 端不支持列表"></a>非 H5 端不支持列表</h2><p>Uniapp 只支持 Vue 单文件组件（ .vue 组件）。其他的诸如：动态组件，自定义 render 和 <code>&lt;script type=&quot;text/x-template&quot;&gt;</code> 字符串模版等，在非 H5 端不支持。</p>
 <ul>
 <li>Slot（scoped 暂时还没做支持）</li>
 <li>动态组件</li>
@@ -1523,66 +1518,57 @@ Vue<span class="token punctuation">.</span><span class="token function">componen
         <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
-        
         display: none;
-        
-        font-size: 12px;
+            font-size: 12px;
         font-weight: 700;
         line-height: 16px !important;
     }
 
     .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
         display: none;
-        
-        font-size: 15px;
+            font-size: 15px;
         color: #42b983;
     }
 
-    
     .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
+            left: -66px !important;
+        }
 
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
 
-    
+        
 </style>
 <div class="">
     
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="song"
-                   id="480614067"
-                   fixed='true'
-                   autoplay='true'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.5'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
+            <div class="row">
+                <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease"
+                    type="song" id="480614067" fixed=' true'
+                    autoplay='true'
+                        theme='#42b983'
+                            loop='all'
+                                order='random'
+                                    preload='auto'
+                                        volume='0.5'
+                                            list-folded='true'
+                                                >
+                </meting-js>
+            </div>
 </div>
 
 <script src="/libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
             
                 <div class="container row center-align"
                     style="margin-bottom: 15px !important;">
                     <div class="col s12 m8 l8 copy-right">
                         Copyright&nbsp;&copy;
                         
-                                <span id="year">
-                                    2022
-                                </span>
-                                
+                            <span id="year">
+                                2022-2023
+                            </span>
+                            
                                     <span id="year">
                                         2022
                                     </span>
@@ -1596,7 +1582,7 @@ Vue<span class="token punctuation">.</span><span class="token function">componen
                                     
                                         &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
                                             class="white-color">
-                                            197.3k
+                                            197.4k
                                         </span>&nbsp;字
                                         
                                             

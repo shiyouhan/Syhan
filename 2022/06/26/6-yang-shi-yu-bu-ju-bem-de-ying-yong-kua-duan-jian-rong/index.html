@@ -35,7 +35,7 @@
 
    <style>
     body{
-       background-image: url(https://cdn.syhan.top/uPic/I75zFh.jpg);
+       background-image: url(http://img.syhan.top/uPic/I75zFh.jpg);
        background-repeat:no-repeat;
        background-size:cover;
        background-attachment:fixed;
@@ -496,95 +496,104 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="样式与布局、BEM的应用、跨端兼容"><a href="#样式与布局、BEM的应用、跨端兼容" class="headerlink" title="样式与布局、BEM的应用、跨端兼容"></a>样式与布局、BEM的应用、跨端兼容</h1><p>主要学习 CSS 命名规范与 HTML 结构相结合的关系，并使用条件编译对应不同平台。</p>
+                <h1 id="样式与布局、BEM-的应用、跨端兼容"><a href="#样式与布局、BEM-的应用、跨端兼容" class="headerlink" title="样式与布局、BEM 的应用、跨端兼容"></a>样式与布局、BEM 的应用、跨端兼容</h1><p>主要学习 CSS 命名规范与 HTML 结构相结合的关系，并使用条件编译对应不同平台。</p>
 <p>先看一下 CSS 命名弊端。</p>
 <h2 id="CSS-命名弊端"><a href="#CSS-命名弊端" class="headerlink" title="CSS 命名弊端"></a>CSS 命名弊端</h2><p>你是否有见过这样的代码？</p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.top--left .left1-block_nav-liItem > li a</span><span class="token punctuation">&#123;</span>
-	
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.top--left .left1-block_nav-liItem > li a</span> <span class="token punctuation">&#123;</span>
 <span class="token punctuation">&#125;</span>
 <span class="token selector">.gy-theme .bar-header .hy-nav .order-search .pull-down.active .select-drop</span> <span class="token punctuation">&#123;</span>
-    <span class="token property">display</span><span class="token punctuation">:</span> block
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>上面的代码风格各异的使用了 <code>-</code> , <code>_</code>，驼峰等风格而且嵌套深，CSS 引擎查找样式从右到左进行匹配，遍历页面上每个 li a 元素并确定其父元素。</p>
 <p>每个人的代码都有自己的风格在，对于本人也会对自己写的代码会比较熟悉，但是放在多人开发上就显得另类了。协同开发的小伙伴可能根本不知道你写的是什么，甚至跟你写的代码冲突覆盖。或者会反感你写的代码。</p>
 <p>我们先了解一下 CSS 中命名规范中的 BEM。</p>
-<h2 id="什么叫BEM？"><a href="#什么叫BEM？" class="headerlink" title="什么叫BEM？"></a>什么叫BEM？</h2><p><strong>BEM 是 BlockElementModifier 的简称</strong>，其实是块（block）、元素（element）、修饰符（modifier）的简称，是 CSS 中的一种命名规范。这种巧妙的命名方法让你的 CSS 类对其他开发者来说更加透明而且更有意义。BEM命名约定更加严格，而且包含更多的信息，它们用于一个团队开发一个耗时的大项目。</p>
-<p>BEM 的关键是光凭名字就可以告诉其他开发者某个标记是用来干什么的。通过浏览HTML代码中的class属性，你就能够明白模块之间是如何关联的：有一些仅仅是组件，有一些则是这些组件的子孙或者是元素，还有一些是组件的其他形态或者是修饰符。</p>
-<p>看一下这个大家比较熟悉的哆啦A梦吧，看看这之间有什么相似之处。</p>
+<h2 id="什么叫-BEM？"><a href="#什么叫-BEM？" class="headerlink" title="什么叫 BEM？"></a>什么叫 BEM？</h2><p><strong>BEM 是 BlockElementModifier 的简称</strong>，其实是块（block）、元素（element）、修饰符（modifier）的简称，是 CSS 中的一种命名规范。这种巧妙的命名方法让你的 CSS 类对其他开发者来说更加透明而且更有意义。BEM 命名约定更加严格，而且包含更多的信息，它们用于一个团队开发一个耗时的大项目。</p>
+<p>BEM 的关键是光凭名字就可以告诉其他开发者某个标记是用来干什么的。通过浏览 HTML 代码中的 class 属性，你就能够明白模块之间是如何关联的：有一些仅仅是组件，有一些则是这些组件的子孙或者是元素，还有一些是组件的其他形态或者是修饰符。</p>
+<p>看一下这个大家比较熟悉的哆啦 A 梦吧，看看这之间有什么相似之处。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/EQrUK7.png"></p>
-<p>上面的哆啦A梦如果用进行分块，可以分为头部（脸部），手部，脚部这三大块。其中我们把脸部拿出来细分：眼睛、嘴巴、鼻子，用关系图表示：</p>
+<p>上面的哆啦 A 梦如果用进行分块，可以分为头部（脸部），手部，脚部这三大块。其中我们把脸部拿出来细分：眼睛、嘴巴、鼻子，用关系图表示：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/0k2ee3.png"></p>
-<h2 id="页面布局-BEM-scss"><a href="#页面布局-BEM-scss" class="headerlink" title="页面布局 + BEM + scss"></a>页面布局 + BEM + scss</h2><p>我们用 BEM 规范来表达一下哆啦A梦的结构：</p>
+<h2 id="页面布局-BEM-scss"><a href="#页面布局-BEM-scss" class="headerlink" title="页面布局 + BEM + scss"></a>页面布局 + BEM + scss</h2><p>我们用 BEM 规范来表达一下哆啦 A 梦的结构：</p>
 <pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
-	&lt;view&gt;
-		&lt;view class&#x3D;&quot;doraemon&quot;&gt;
-			&lt;view class&#x3D;&quot;doraemon--face&quot;&gt;
-				&lt;view class&#x3D;&quot;doraemon--face-eye doraemon--face-eye_active&quot;&gt;&lt;&#x2F;view&gt;
-				&lt;view class&#x3D;&quot;doraemon--face-mouth&quot;&gt;&lt;&#x2F;view&gt;
-				&lt;view class&#x3D;&quot;doraemon--face-nose&quot;&gt;&lt;&#x2F;view&gt;
-			&lt;&#x2F;view&gt;
-			&lt;view class&#x3D;&quot;doraemon--hand&quot;&gt;
-				&lt;view class&#x3D;&quot;doraemon--hand-finger&quot;&gt;&lt;&#x2F;view&gt;
-			&lt;&#x2F;view&gt;
-			&lt;view class&#x3D;&quot;doraemon--footer&quot;&gt;
-				&lt;view class&#x3D;&quot;doraemon--footer-toe&quot;&gt;&lt;&#x2F;view&gt;
-			&lt;&#x2F;view&gt;
-		&lt;&#x2F;view&gt;
-	&lt;&#x2F;view&gt;
-&lt;&#x2F;template&gt;	
+  &lt;view&gt;
+    &lt;view class&#x3D;&quot;doraemon&quot;&gt;
+      &lt;view class&#x3D;&quot;doraemon--face&quot;&gt;
+        &lt;view class&#x3D;&quot;doraemon--face-eye doraemon--face-eye_active&quot;&gt;&lt;&#x2F;view&gt;
+        &lt;view class&#x3D;&quot;doraemon--face-mouth&quot;&gt;&lt;&#x2F;view&gt;
+        &lt;view class&#x3D;&quot;doraemon--face-nose&quot;&gt;&lt;&#x2F;view&gt;
+      &lt;&#x2F;view&gt;
+      &lt;view class&#x3D;&quot;doraemon--hand&quot;&gt;
+        &lt;view class&#x3D;&quot;doraemon--hand-finger&quot;&gt;&lt;&#x2F;view&gt;
+      &lt;&#x2F;view&gt;
+      &lt;view class&#x3D;&quot;doraemon--footer&quot;&gt;
+        &lt;view class&#x3D;&quot;doraemon--footer-toe&quot;&gt;&lt;&#x2F;view&gt;
+      &lt;&#x2F;view&gt;
+    &lt;&#x2F;view&gt;
+  &lt;&#x2F;view&gt;
+&lt;&#x2F;template&gt;
 &lt;style lang&#x3D;&quot;scss&quot;&gt;
-	.doraemon&#123;
-		.doraemon--face&#123;
-			.doraemon--face-eye&#123;&#125;
-			.doraemon--face-mouth&#123;&#125;
-			.doraemon--face-nose&#123;&#125;
-		&#125;
-		.doraemon--hand&#123;
-			.doraemon--hand-finger&#123;&#125;
-		&#125;
-		.doraemon--footer&#123;
-			.doraemon--footer-toe&#123;&#125;
-		&#125;
-	&#125;
-&lt;&#x2F;style&gt;	<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+.doraemon &#123;
+  .doraemon--face &#123;
+    .doraemon--face-eye &#123;
+    &#125;
+    .doraemon--face-mouth &#123;
+    &#125;
+    .doraemon--face-nose &#123;
+    &#125;
+  &#125;
+  .doraemon--hand &#123;
+    .doraemon--hand-finger &#123;
+    &#125;
+  &#125;
+  .doraemon--footer &#123;
+    .doraemon--footer-toe &#123;
+    &#125;
+  &#125;
+&#125;
+&lt;&#x2F;style&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>上面使用 BEM 规范：<strong>块和元素之间用 – 连接</strong>，<strong>元素和修饰符之间用 _ 连接</strong> （示例：b–e_m），来命名 CSS（用代码组织哆啦A梦），组织 HTML 元素结构，一一对应 CSS 代码，使得代码结构更清晰。</p>
+<p>上面使用 BEM 规范：<strong>块和元素之间用 – 连接</strong>，<strong>元素和修饰符之间用 _ 连接</strong> （示例：b–e_m），来命名 CSS（用代码组织哆啦 A 梦），组织 HTML 元素结构，一一对应 CSS 代码，使得代码结构更清晰。</p>
 <p>使用 BEM 的方式，还是混淆使用 <code>-</code>，<code>_</code>，而且命名方式长，就命名这一个会让你举手投降。</p>
 <p>利用 BEM 的规范思想，我们可以有自己的一套命名规范。</p>
 <p>比如上面的示例中最里层的代码顶层元素，代表颗粒度最小的元素组成部分了，以此为准则，最底层元素不加任何前缀修饰符和块表示，并且以全小写用 - 连接（kebab-case），因此我们可以这么去做：</p>
 <pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
-	&lt;view&gt;
-		&lt;view class&#x3D;&quot;doraemon&quot;&gt;
-			&lt;view class&#x3D;&quot;doraemon-face&quot;&gt;
-				&lt;view class&#x3D;&quot;eye&quot;&gt;&lt;&#x2F;view&gt;
-				&lt;view class&#x3D;&quot;mouth&quot;&gt;&lt;&#x2F;view&gt;
-				&lt;view class&#x3D;&quot;nose&quot;&gt;&lt;&#x2F;view&gt;
-			&lt;&#x2F;view&gt;
-			&lt;view class&#x3D;&quot;doraemon-hand&quot;&gt;
-				&lt;view class&#x3D;&quot;finger&quot;&gt;&lt;&#x2F;view&gt;
-			&lt;&#x2F;view&gt;
-			&lt;view class&#x3D;&quot;doraemon-footer&quot;&gt;
-				&lt;view class&#x3D;&quot;toe&quot;&gt;&lt;&#x2F;view&gt;
-			&lt;&#x2F;view&gt;
-		&lt;&#x2F;view&gt;
-	&lt;&#x2F;view&gt;
-&lt;&#x2F;template&gt;	
+  &lt;view&gt;
+    &lt;view class&#x3D;&quot;doraemon&quot;&gt;
+      &lt;view class&#x3D;&quot;doraemon-face&quot;&gt;
+        &lt;view class&#x3D;&quot;eye&quot;&gt;&lt;&#x2F;view&gt;
+        &lt;view class&#x3D;&quot;mouth&quot;&gt;&lt;&#x2F;view&gt;
+        &lt;view class&#x3D;&quot;nose&quot;&gt;&lt;&#x2F;view&gt;
+      &lt;&#x2F;view&gt;
+      &lt;view class&#x3D;&quot;doraemon-hand&quot;&gt;
+        &lt;view class&#x3D;&quot;finger&quot;&gt;&lt;&#x2F;view&gt;
+      &lt;&#x2F;view&gt;
+      &lt;view class&#x3D;&quot;doraemon-footer&quot;&gt;
+        &lt;view class&#x3D;&quot;toe&quot;&gt;&lt;&#x2F;view&gt;
+      &lt;&#x2F;view&gt;
+    &lt;&#x2F;view&gt;
+  &lt;&#x2F;view&gt;
+&lt;&#x2F;template&gt;
 &lt;style lang&#x3D;&quot;scss&quot;&gt;
-	.doraemon&#123;
-		.doraemon-face&#123;
-			.eye&#123;&#125;
-			.mouth&#123;&#125;
-			.nose&#123;&#125;
-		&#125;
-		.doraemon-hand&#123;
-			.finger&#123;&#125;
-		&#125;
-		.doraemon-footer&#123;
-			.toe&#123;&#125;
-		&#125;
-	&#125;
-&lt;&#x2F;style&gt;	<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+.doraemon &#123;
+  .doraemon-face &#123;
+    .eye &#123;
+    &#125;
+    .mouth &#123;
+    &#125;
+    .nose &#123;
+    &#125;
+  &#125;
+  .doraemon-hand &#123;
+    .finger &#123;
+    &#125;
+  &#125;
+  .doraemon-footer &#123;
+    .toe &#123;
+    &#125;
+  &#125;
+&#125;
+&lt;&#x2F;style&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>当然每个团队的规范不一样，为了更容易阅读和理解，更容易协作，更容易控制，需要服从团队的意识再去以开发效率去考虑，让团队甚至是你个人都能够更加容易地维护代码，如果你做到了，那么你自己也有了规范。</p>
 <p>当我们自己将不同的规范糅合在一起以形成自己的行为准则时，需要考虑：</p>
@@ -597,10 +606,10 @@
 <h2 id="全局样式与局部样式"><a href="#全局样式与局部样式" class="headerlink" title="全局样式与局部样式"></a>全局样式与局部样式</h2><p>定义在 App.vue 中的样式为全局样式，作用于每一个页面。在 pages 目录下 的 vue 文件中定义的样式为局部样式，只作用在对应的页面，并会覆盖 App.vue 中相同的选择器。</p>
 <p>注意：</p>
 <ol>
-<li>nvue页面暂不支持全局样式；</li>
+<li>nvue 页面暂不支持全局样式；</li>
 <li>App.vue 中通过 <code>@import</code> 语句可以导入外联样式，一样作用于每一个页面。</li>
 </ol>
-<p>这样我们可以在 common 的文件夹添加一个 common.scss 引入到app.vue中作为基础样式</p>
+<p>这样我们可以在 common 的文件夹添加一个 common.scss 引入到 app.vue 中作为基础样式</p>
 <pre class="line-numbers language-scss" data-language="scss"><code class="language-scss">&lt;!-- App.vue -->
 &lt;style lang=<span class="token string">"scss"</span>>
     <span class="token keyword">@import</span> <span class="token string">'./common/css/common.scss'</span><span class="token punctuation">;</span>
@@ -619,11 +628,11 @@
 </ul>
 <p>平台名称参数对应：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/o2WH5Z.png"></p>
-<p>条件编译是利用注释实现的，在不同语法里注释写法不一样，<strong>JS 使用 // 注释、CSS 使用 /* 注释 */</strong></p>
+<p>条件编译是利用注释实现的，在不同语法里注释写法不一样，<strong>JS 使用 // 注释、CSS 使用 /_ 注释 _/</strong></p>
 <p>可以这么实现:</p>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token comment">/* #ifdef MP-WEIXIN */</span>
-<span class="token selector">.wx-clor</span><span class="token punctuation">&#123;</span>
-    <span class="token property">color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+<span class="token selector">.wx-clor</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 <span class="token comment">/* #endif */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -1134,13 +1143,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/06/26/5-shi-yong-sass-bian-xie-gong-yong-yang-shi/">
+                <a href="/2022/06/26/7-shi-yong-iconfont-zuo-wei-zheng-zhan-tu-biao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="使用 SASS 编写公用样式">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="使用iconfont作为整站图标">
                         
-                        <span class="card-title">使用 SASS 编写公用样式</span>
+                        <span class="card-title">使用iconfont作为整站图标</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1183,13 +1192,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/06/26/7-shi-yong-iconfont-zuo-wei-zheng-zhan-tu-biao/">
+                <a href="/2022/06/26/9-xiao-cheng-xu-app-diao-shi-huan-jing-pei-zhi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="使用iconfont作为整站图标">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="小程序、APP调试环境配置">
                         
-                        <span class="card-title">使用iconfont作为整站图标</span>
+                        <span class="card-title">小程序、APP调试环境配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1357,66 +1366,57 @@
         <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
-        
         display: none;
-        
-        font-size: 12px;
+            font-size: 12px;
         font-weight: 700;
         line-height: 16px !important;
     }
 
     .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
         display: none;
-        
-        font-size: 15px;
+            font-size: 15px;
         color: #42b983;
     }
 
-    
     .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
+            left: -66px !important;
+        }
 
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
 
-    
+        
 </style>
 <div class="">
     
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="song"
-                   id="480614067"
-                   fixed='true'
-                   autoplay='true'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.5'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
+            <div class="row">
+                <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease"
+                    type="song" id="480614067" fixed=' true'
+                    autoplay='true'
+                        theme='#42b983'
+                            loop='all'
+                                order='random'
+                                    preload='auto'
+                                        volume='0.5'
+                                            list-folded='true'
+                                                >
+                </meting-js>
+            </div>
 </div>
 
 <script src="/libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
             
                 <div class="container row center-align"
                     style="margin-bottom: 15px !important;">
                     <div class="col s12 m8 l8 copy-right">
                         Copyright&nbsp;&copy;
                         
-                                <span id="year">
-                                    2022
-                                </span>
-                                
+                            <span id="year">
+                                2022-2023
+                            </span>
+                            
                                     <span id="year">
                                         2022
                                     </span>
@@ -1430,7 +1430,7 @@
                                     
                                         &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
                                             class="white-color">
-                                            197.3k
+                                            197.4k
                                         </span>&nbsp;字
                                         
                                             

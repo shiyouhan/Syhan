@@ -35,7 +35,7 @@
 
    <style>
     body{
-       background-image: url(https://cdn.syhan.top/uPic/I75zFh.jpg);
+       background-image: url(http://img.syhan.top/uPic/I75zFh.jpg);
        background-repeat:no-repeat;
        background-size:cover;
        background-attachment:fixed;
@@ -500,7 +500,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="玩转Vue3响应性"><a href="#玩转Vue3响应性" class="headerlink" title="玩转Vue3响应性"></a>玩转Vue3响应性</h1><h2 id="1、内容介绍"><a href="#1、内容介绍" class="headerlink" title="1、内容介绍"></a>1、内容介绍</h2><p>使用 <code>Vue-cli</code> 脚手架搭建 <code>Vue3</code> 项目，实现 <code>TodoList</code> 小案例，探索 <code>Vue3.0</code> 响应式特性。</p>
+                <h1 id="玩转-Vue3-响应性"><a href="#玩转-Vue3-响应性" class="headerlink" title="玩转 Vue3 响应性"></a>玩转 Vue3 响应性</h1><h2 id="1、内容介绍"><a href="#1、内容介绍" class="headerlink" title="1、内容介绍"></a>1、内容介绍</h2><p>使用 <code>Vue-cli</code> 脚手架搭建 <code>Vue3</code> 项目，实现 <code>TodoList</code> 小案例，探索 <code>Vue3.0</code> 响应式特性。</p>
 <p>脚手架相关请参考 <a target="_blank" rel="noopener" href="https://cli.vuejs.org/zh/">Vue CLI</a> 文档</p>
 <h4 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h4><ul>
 <li>环境准备</li>
@@ -515,8 +515,6 @@
 <p>使用以下命令可以查看是否升级到最新版本。</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">vue -V<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-
-
 <h2 id="3、搭建-Vue3-项目"><a href="#3、搭建-Vue3-项目" class="headerlink" title="3、搭建 Vue3 项目"></a>3、搭建 Vue3 项目</h2><p>输入以下命令创建一个名为 <code>vue-code</code> 的项目。</p>
 <pre class="line-numbers language-bssh" data-language="bssh"><code class="language-bssh">vue create vue-code<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -528,7 +526,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-21_19-08-27.png" alt="图片描述"></p>
 <p>第三步：配置文件</p>
 <ul>
-<li><p>Use history mode for router?  输入 <code>  y</code>，回车。</p>
+<li><p>Use history mode for router? 输入 <code>  y</code>，回车。</p>
 </li>
 <li><p>Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported</p>
 </li>
@@ -540,7 +538,7 @@
 <p>选中 <code>In dedicated config files</code>。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-21_19-09-12.png" alt="图片描述"></p>
 <ul>
-<li><p>Save this as a preset for future projects? (y/N)   ：输入 <code>y</code>。</p>
+<li><p>Save this as a preset for future projects? (y/N) ：输入 <code>y</code>。</p>
 </li>
 <li><p>Save preset as：不用输入，直接回车。</p>
 </li>
@@ -593,21 +591,21 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
-  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"todoList"</span><span class="token punctuation">,</span>
-  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
-      <span class="token literal-property property">list</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">&#123;</span>
-          <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"aaa"</span><span class="token punctuation">,</span>
-          <span class="token literal-property property">gender</span><span class="token operator">:</span> <span class="token string">"male"</span><span class="token punctuation">,</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-      <span class="token punctuation">]</span><span class="token punctuation">,</span>
-      <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-      <span class="token literal-property property">gender</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"todoList"</span><span class="token punctuation">,</span>
+    <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+        <span class="token literal-property property">list</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">&#123;</span>
+            <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"aaa"</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">gender</span><span class="token operator">:</span> <span class="token string">"male"</span><span class="token punctuation">,</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">gender</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>然后给 <code>TodoList</code> 加上样式：</p>
@@ -737,8 +735,6 @@ button</span> <span class="token punctuation">&#123;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
 <h4 id="编辑操作"><a href="#编辑操作" class="headerlink" title="编辑操作"></a>编辑操作</h4><p>点击清单中的 <strong>编辑按钮</strong> 之后，数据会同步到两个输入框中。数据修改完成之后，点击 <strong>更新按钮</strong> 会对数据进行修改保存。</p>
 <p>接下来我们在 methods 中添加 edit 方法，添加如下代码：</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
@@ -849,13 +845,13 @@ button</span> <span class="token punctuation">&#123;</span>
 <h4 id="值得关注的点"><a href="#值得关注的点" class="headerlink" title="值得关注的点"></a>值得关注的点</h4><ul>
 <li>在 Vue3 中，我们可以直接给对象赋值</li>
 </ul>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>obj<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'Zhangsan'</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>obj<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"Zhangsan"</span><span class="token punctuation">;</span>
 <span class="token keyword">this</span><span class="token punctuation">.</span>obj<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">18</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <ul>
 <li>直接修改数组元素</li>
 </ul>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Zhangsan'</span><span class="token punctuation">,</span> <span class="token literal-property property">gender</span><span class="token operator">:</span> <span class="token string">'男'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Zhangsan"</span><span class="token punctuation">,</span> <span class="token literal-property property">gender</span><span class="token operator">:</span> <span class="token string">"男"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
 <li>设置数组 <code>length</code> 属性</li>
@@ -882,7 +878,7 @@ button</span> <span class="token punctuation">&#123;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
   <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
     <span class="token function-variable function">data</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-      <span class="token literal-property property">list</span><span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'Zhangsan'</span><span class="token punctuation">,</span> <span class="token string">'JavaScript'</span><span class="token punctuation">,</span> <span class="token string">'前端工程师'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">list</span><span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"Zhangsan"</span><span class="token punctuation">,</span> <span class="token string">"JavaScript"</span><span class="token punctuation">,</span> <span class="token string">"前端工程师"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -892,7 +888,7 @@ button</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
       <span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">const</span> newItem <span class="token operator">=</span> <span class="token function">prompt</span><span class="token punctuation">(</span><span class="token string">'Input a new item'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> newItem <span class="token operator">=</span> <span class="token function">prompt</span><span class="token punctuation">(</span><span class="token string">"Input a new item"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>newItem<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
           <span class="token keyword">this</span><span class="token punctuation">.</span>list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>newItem<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
@@ -903,8 +899,6 @@ button</span> <span class="token punctuation">&#123;</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
 
 <h2 id="5、升级-Todolist-代码"><a href="#5、升级-Todolist-代码" class="headerlink" title="5、升级 Todolist 代码"></a>5、升级 Todolist 代码</h2><p>本机将学几个 <code>composition-api</code>。</p>
 <ul>
@@ -935,9 +929,7 @@ button</span> <span class="token punctuation">&#123;</span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-<h4 id="数据变量定义"><a href="#数据变量定义" class="headerlink" title="数据变量定义"></a>数据变量定义</h4><p>在 Vue3中，所有的变量定义在 setup 函数里面，我们需要引入 <code>ref</code>，<code>reactive</code> 来定义变量。</p>
+<h4 id="数据变量定义"><a href="#数据变量定义" class="headerlink" title="数据变量定义"></a>数据变量定义</h4><p>在 Vue3 中，所有的变量定义在 setup 函数里面，我们需要引入 <code>ref</code>，<code>reactive</code> 来定义变量。</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref<span class="token punctuation">,</span> reactive <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>使用 <code>ref</code> 来定义列表，姓名，性别三个简单变量，用 <code>reactive</code> 来定义索引对象。</p>
@@ -1044,12 +1036,10 @@ button</span> <span class="token punctuation">&#123;</span>
   <span class="token punctuation">&#125;</span>
   list<span class="token punctuation">.</span>value<span class="token punctuation">[</span>indexObj<span class="token punctuation">.</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
   list<span class="token punctuation">.</span>value<span class="token punctuation">[</span>indexObj<span class="token punctuation">.</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>gender <span class="token operator">=</span> gender<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
-  name<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
-  gender<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  name<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+  gender<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
   indexObj<span class="token punctuation">.</span>index <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
 
 <h4 id="删除操作-1"><a href="#删除操作-1" class="headerlink" title="删除操作"></a>删除操作</h4><p>我们在 setup 函数中定义 del 方法。</p>
 <p><strong>删除时</strong></p>
@@ -1059,11 +1049,9 @@ button</span> <span class="token punctuation">&#123;</span>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">del</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">index</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   list<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   indexObj<span class="token punctuation">.</span>index <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-  name<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
-  gender<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  name<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+  gender<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
 
 <h4 id="清空操作-1"><a href="#清空操作-1" class="headerlink" title="清空操作"></a>清空操作</h4><p>将 clear 函数定义在 setup 中，最终暴露出去给模板使用。</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">clear</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
@@ -1097,113 +1085,111 @@ button</span> <span class="token punctuation">&#123;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref<span class="token punctuation">,</span> reactive <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
-  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"todoList"</span><span class="token punctuation">,</span>
-  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">let</span> list <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">let</span> gender <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">let</span> indexObj <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">index</span><span class="token operator">:</span> <span class="token keyword">null</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> <span class="token function-variable function">edit</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">index</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">let</span> item <span class="token operator">=</span> list<span class="token punctuation">.</span>value<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
-      name<span class="token punctuation">.</span>value <span class="token operator">=</span> item<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
-      gender<span class="token punctuation">.</span>value <span class="token operator">=</span> item<span class="token punctuation">.</span>gender<span class="token punctuation">;</span>
-      indexObj<span class="token punctuation">.</span>index <span class="token operator">=</span> index<span class="token punctuation">;</span>
-      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> <span class="token function-variable function">del</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">index</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-      list<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      indexObj<span class="token punctuation">.</span>index <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-      name<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
-      gender<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> <span class="token function-variable function">update</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>name<span class="token punctuation">.</span>value <span class="token operator">||</span> <span class="token operator">!</span>gender<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span><span class="token punctuation">;</span>
-      <span class="token punctuation">&#125;</span>
-      list<span class="token punctuation">.</span>value<span class="token punctuation">[</span>indexObj<span class="token punctuation">.</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
-      list<span class="token punctuation">.</span>value<span class="token punctuation">[</span>indexObj<span class="token punctuation">.</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>gender <span class="token operator">=</span> gender<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
-      name<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
-      gender<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
-      indexObj<span class="token punctuation">.</span>index <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> <span class="token function-variable function">add</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>name<span class="token punctuation">.</span>value <span class="token operator">||</span> <span class="token operator">!</span>gender<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span><span class="token punctuation">;</span>
-      <span class="token punctuation">&#125;</span>
-      list<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-        <span class="token literal-property property">name</span><span class="token operator">:</span> name<span class="token punctuation">.</span>value<span class="token punctuation">,</span>
-        <span class="token literal-property property">gender</span><span class="token operator">:</span> gender<span class="token punctuation">.</span>value<span class="token punctuation">,</span>
-      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      name<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
-      gender<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> <span class="token function-variable function">clear</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-      list<span class="token punctuation">.</span>value<span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
-      list<span class="token punctuation">,</span>
-      name<span class="token punctuation">,</span>
-      gender<span class="token punctuation">,</span>
-      indexObj<span class="token punctuation">,</span>
-      add<span class="token punctuation">,</span>
-      edit<span class="token punctuation">,</span>
-      update<span class="token punctuation">,</span>
-      del<span class="token punctuation">,</span>
-      clear<span class="token punctuation">,</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref<span class="token punctuation">,</span> reactive <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"todoList"</span><span class="token punctuation">,</span>
+    <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">let</span> list <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> gender <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> indexObj <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">index</span><span class="token operator">:</span> <span class="token keyword">null</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> <span class="token function-variable function">edit</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">index</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">let</span> item <span class="token operator">=</span> list<span class="token punctuation">.</span>value<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        name<span class="token punctuation">.</span>value <span class="token operator">=</span> item<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+        gender<span class="token punctuation">.</span>value <span class="token operator">=</span> item<span class="token punctuation">.</span>gender<span class="token punctuation">;</span>
+        indexObj<span class="token punctuation">.</span>index <span class="token operator">=</span> index<span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> <span class="token function-variable function">del</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">index</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        list<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        indexObj<span class="token punctuation">.</span>index <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        name<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+        gender<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> <span class="token function-variable function">update</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>name<span class="token punctuation">.</span>value <span class="token operator">||</span> <span class="token operator">!</span>gender<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        list<span class="token punctuation">.</span>value<span class="token punctuation">[</span>indexObj<span class="token punctuation">.</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+        list<span class="token punctuation">.</span>value<span class="token punctuation">[</span>indexObj<span class="token punctuation">.</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>gender <span class="token operator">=</span> gender<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+        name<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+        gender<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+        indexObj<span class="token punctuation">.</span>index <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> <span class="token function-variable function">add</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>name<span class="token punctuation">.</span>value <span class="token operator">||</span> <span class="token operator">!</span>gender<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        list<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+          <span class="token literal-property property">name</span><span class="token operator">:</span> name<span class="token punctuation">.</span>value<span class="token punctuation">,</span>
+          <span class="token literal-property property">gender</span><span class="token operator">:</span> gender<span class="token punctuation">.</span>value<span class="token punctuation">,</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        name<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+        gender<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> <span class="token function-variable function">clear</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        list<span class="token punctuation">.</span>value<span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+        list<span class="token punctuation">,</span>
+        name<span class="token punctuation">,</span>
+        gender<span class="token punctuation">,</span>
+        indexObj<span class="token punctuation">,</span>
+        add<span class="token punctuation">,</span>
+        edit<span class="token punctuation">,</span>
+        update<span class="token punctuation">,</span>
+        del<span class="token punctuation">,</span>
+        clear<span class="token punctuation">,</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>scss<span class="token punctuation">"</span></span> <span class="token attr-name">scoped</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-<span class="token selector">.todo-list</span> <span class="token punctuation">&#123;</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 640px<span class="token punctuation">;</span>
-  <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
-  <span class="token selector">.header</span> <span class="token punctuation">&#123;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span> 60px<span class="token punctuation">;</span>
-    <span class="token property">line-height</span><span class="token punctuation">:</span> 60px<span class="token punctuation">;</span>
-    <span class="token property">background-color</span><span class="token punctuation">:</span> #3e3e3e<span class="token punctuation">;</span>
-    <span class="token property">color</span><span class="token punctuation">:</span> orange<span class="token punctuation">;</span>
-    <span class="token property">font-size</span><span class="token punctuation">:</span> 48px<span class="token punctuation">;</span>
-    <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
-    <span class="token property">border-radius</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
-
-  <span class="token selector">ul</span> <span class="token punctuation">&#123;</span>
-    <span class="token property">padding</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
-    <span class="token property">min-height</span><span class="token punctuation">:</span> 400px<span class="token punctuation">;</span>
-    <span class="token selector">li</span> <span class="token punctuation">&#123;</span>
-      <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
-      <span class="token property">text-align</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
-      <span class="token property">height</span><span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
-      <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
-      <span class="token property">background-color</span><span class="token punctuation">:</span> #9ebabb<span class="token punctuation">;</span>
-      <span class="token property">line-height</span><span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
-      <span class="token property">border-left</span><span class="token punctuation">:</span> 8px solid #629a9c<span class="token punctuation">;</span>
+  <span class="token selector">.todo-list</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 640px<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+    <span class="token selector">.header</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">height</span><span class="token punctuation">:</span> 60px<span class="token punctuation">;</span>
+      <span class="token property">line-height</span><span class="token punctuation">:</span> 60px<span class="token punctuation">;</span>
+      <span class="token property">background-color</span><span class="token punctuation">:</span> #3e3e3e<span class="token punctuation">;</span>
+      <span class="token property">color</span><span class="token punctuation">:</span> orange<span class="token punctuation">;</span>
+      <span class="token property">font-size</span><span class="token punctuation">:</span> 48px<span class="token punctuation">;</span>
+      <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
       <span class="token property">border-radius</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
-      <span class="token property">padding</span><span class="token punctuation">:</span> 5px 10px<span class="token punctuation">;</span>
-      <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
-      <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
-      <span class="token selector">.btn-div</span> <span class="token punctuation">&#123;</span>
-        <span class="token property">float</span><span class="token punctuation">:</span> right<span class="token punctuation">;</span>
-      <span class="token punctuation">&#125;</span>
-      <span class="token selector">span</span> <span class="token punctuation">&#123;</span>
-        <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
-        <span class="token property">padding</span><span class="token punctuation">:</span> 0 10px<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token selector">ul</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">padding</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+      <span class="token property">min-height</span><span class="token punctuation">:</span> 400px<span class="token punctuation">;</span>
+      <span class="token selector">li</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+        <span class="token property">text-align</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
+        <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> #9ebabb<span class="token punctuation">;</span>
+        <span class="token property">line-height</span><span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
+        <span class="token property">border-left</span><span class="token punctuation">:</span> 8px solid #629a9c<span class="token punctuation">;</span>
+        <span class="token property">border-radius</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
+        <span class="token property">padding</span><span class="token punctuation">:</span> 5px 10px<span class="token punctuation">;</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+        <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
+        <span class="token selector">.btn-div</span> <span class="token punctuation">&#123;</span>
+          <span class="token property">float</span><span class="token punctuation">:</span> right<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token selector">span</span> <span class="token punctuation">&#123;</span>
+          <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+          <span class="token property">padding</span><span class="token punctuation">:</span> 0 10px<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
       <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
   <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
 
-<span class="token selector">input,
-button</span> <span class="token punctuation">&#123;</span>
-  <span class="token property">margin-right</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
+  <span class="token selector">input,
+  button</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">margin-right</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
 
 <h2 id="6、非响应式"><a href="#6、非响应式" class="headerlink" title="6、非响应式"></a>6、非响应式</h2><p>在 Vue3 还提供了一些 <code>API</code> 专门处理非响应性的场景。</p>
 <p>例如：我们在 <code>Vue</code> 组件中一次性消耗大量的数据，如果这些数据只是展示，那么我们是不应该让这些数据具有响应特性的，我们都知道在 Vue2.x 中，我们通常会使用以下代码：</p>
@@ -1220,14 +1206,14 @@ button</span> <span class="token punctuation">&#123;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> markRaw <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> markRaw <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
   <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
     <span class="token function-variable function">data</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-      <span class="token literal-property property">obj</span><span class="token operator">:</span> <span class="token function">markRaw</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Vue'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">obj</span><span class="token operator">:</span> <span class="token function">markRaw</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Vue"</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
       <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>obj<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'Ken'</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>obj<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"Ken"</span><span class="token punctuation">;</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
@@ -1984,66 +1970,57 @@ button</span> <span class="token punctuation">&#123;</span>
         <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
-        
         display: none;
-        
-        font-size: 12px;
+            font-size: 12px;
         font-weight: 700;
         line-height: 16px !important;
     }
 
     .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
         display: none;
-        
-        font-size: 15px;
+            font-size: 15px;
         color: #42b983;
     }
 
-    
     .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
+            left: -66px !important;
+        }
 
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
 
-    
+        
 </style>
 <div class="">
     
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="song"
-                   id="480614067"
-                   fixed='true'
-                   autoplay='true'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.5'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
+            <div class="row">
+                <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease"
+                    type="song" id="480614067" fixed=' true'
+                    autoplay='true'
+                        theme='#42b983'
+                            loop='all'
+                                order='random'
+                                    preload='auto'
+                                        volume='0.5'
+                                            list-folded='true'
+                                                >
+                </meting-js>
+            </div>
 </div>
 
 <script src="/libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
             
                 <div class="container row center-align"
                     style="margin-bottom: 15px !important;">
                     <div class="col s12 m8 l8 copy-right">
                         Copyright&nbsp;&copy;
                         
-                                <span id="year">
-                                    2022
-                                </span>
-                                
+                            <span id="year">
+                                2022-2023
+                            </span>
+                            
                                     <span id="year">
                                         2022
                                     </span>
@@ -2057,7 +2034,7 @@ button</span> <span class="token punctuation">&#123;</span>
                                     
                                         &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
                                             class="white-color">
-                                            197.3k
+                                            197.4k
                                         </span>&nbsp;字
                                         
                                             

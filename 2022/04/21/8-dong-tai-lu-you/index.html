@@ -35,7 +35,7 @@
 
    <style>
     body{
-       background-image: url(https://cdn.syhan.top/uPic/I75zFh.jpg);
+       background-image: url(http://img.syhan.top/uPic/I75zFh.jpg);
        background-repeat:no-repeat;
        background-size:cover;
        background-attachment:fixed;
@@ -521,20 +521,20 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> getCurrentInstance<span class="token punctuation">,</span> ref <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
-  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> createRouter<span class="token punctuation">,</span> createWebHistory <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue-router'</span><span class="token punctuation">;</span>
-  <span class="token keyword">import</span> OtherRoute <span class="token keyword">from</span> <span class="token string">'./OtherRoute.vue'</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> getCurrentInstance<span class="token punctuation">,</span> ref <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> createRouter<span class="token punctuation">,</span> createWebHistory <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"vue-router"</span><span class="token punctuation">;</span>
+  <span class="token keyword">import</span> OtherRoute <span class="token keyword">from</span> <span class="token string">"./OtherRoute.vue"</span><span class="token punctuation">;</span>
   <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'TestRoute'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"TestRoute"</span><span class="token punctuation">,</span>
     <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
       <span class="token literal-property property">test</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
         <span class="token literal-property property">type</span><span class="token operator">:</span> String<span class="token punctuation">,</span>
-        <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">'test'</span><span class="token punctuation">,</span>
+        <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">"test"</span><span class="token punctuation">,</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
     <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
-        <span class="token literal-property property">msg</span><span class="token operator">:</span> <span class="token string">'hello'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">msg</span><span class="token operator">:</span> <span class="token string">"hello"</span><span class="token punctuation">,</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
     <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -542,14 +542,14 @@
       <span class="token keyword">let</span> root <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">let</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
         <span class="token punctuation">&#123;</span>
-          <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
-          <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Home'</span><span class="token punctuation">,</span>
-          <span class="token literal-property property">component</span><span class="token operator">:</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token comment">/* webpackChunkName: "about" */</span> <span class="token string">'./Home.vue'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"/"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Home"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">component</span><span class="token operator">:</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token comment">/* webpackChunkName: "about" */</span> <span class="token string">"./Home.vue"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
         <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
         <span class="token punctuation">&#123;</span>
-          <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/about'</span><span class="token punctuation">,</span>
-          <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'About'</span><span class="token punctuation">,</span>
-          <span class="token literal-property property">component</span><span class="token operator">:</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token comment">/* webpackChunkName: "about" */</span> <span class="token string">'./About.vue'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"/about"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"About"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">component</span><span class="token operator">:</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token comment">/* webpackChunkName: "about" */</span> <span class="token string">"./About.vue"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
         <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
       <span class="token punctuation">]</span><span class="token punctuation">;</span>
       <span class="token keyword">let</span> router <span class="token operator">=</span> <span class="token function">createRouter</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
@@ -557,14 +557,14 @@
         routes<span class="token punctuation">,</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">let</span> removeRoute <span class="token operator">=</span> router<span class="token punctuation">.</span><span class="token function">addRoute</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-        <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/otherroute'</span><span class="token punctuation">,</span>
-        <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'OtherRoute'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"/otherroute"</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"OtherRoute"</span><span class="token punctuation">,</span>
         <span class="token literal-property property">component</span><span class="token operator">:</span> OtherRoute<span class="token punctuation">,</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">let</span> isHasRoute <span class="token operator">=</span> router<span class="token punctuation">.</span><span class="token function">hasRoute</span><span class="token punctuation">(</span><span class="token string">'OtherRoute'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> isHasRoute <span class="token operator">=</span> router<span class="token punctuation">.</span><span class="token function">hasRoute</span><span class="token punctuation">(</span><span class="token string">"OtherRoute"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">let</span> route <span class="token operator">=</span> router<span class="token punctuation">.</span><span class="token function">getRoutes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      router<span class="token punctuation">.</span><span class="token function">removeRoute</span><span class="token punctuation">(</span><span class="token string">'OtherRoute'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">let</span> isRemove <span class="token operator">=</span> router<span class="token punctuation">.</span><span class="token function">hasRoute</span><span class="token punctuation">(</span><span class="token string">'OtherRoute'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      router<span class="token punctuation">.</span><span class="token function">removeRoute</span><span class="token punctuation">(</span><span class="token string">"OtherRoute"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> isRemove <span class="token operator">=</span> router<span class="token punctuation">.</span><span class="token function">hasRoute</span><span class="token punctuation">(</span><span class="token string">"OtherRoute"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       route <span class="token operator">=</span> router<span class="token punctuation">.</span><span class="token function">getRoutes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token keyword">let</span> <span class="token function-variable function">click</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -654,7 +654,7 @@
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-21_15-41-30.png" alt="图片描述"></p>
 <h2 id="3、创建路由函数-createRouter"><a href="#3、创建路由函数-createRouter" class="headerlink" title="3、创建路由函数 createRouter()"></a>3、创建路由函数 createRouter()</h2><p>首先我们在 <code>src/views/TestRoute.vue</code> 引入 <code>createRouter</code>，<code>createHistory</code>。</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> createRouter<span class="token punctuation">,</span> createWebHistory <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue-router'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> createRouter<span class="token punctuation">,</span> createWebHistory <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"vue-router"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>接着我们在 <code>setup</code> 方法定义 <code>routes</code>，并创建路由对象 <code>router</code>。</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -688,34 +688,32 @@
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
   <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
-    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'OtherRoute'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"OtherRoute"</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>接着我们在 <code>src/views/TestRoute.vue</code> 导入上面 <code>OtherRoute.vue</code>。</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> OtherRoute <span class="token keyword">from</span> <span class="token string">'./OtherRoute.vue'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> OtherRoute <span class="token keyword">from</span> <span class="token string">"./OtherRoute.vue"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>然后我们给上文提到的 <code>router</code> 对象添加一个 <code>/otherroute</code> 路由，其路由名称为 <code>OtherRoute</code>，对应的组件 <code>OtherRoute.vue</code>。</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js">router<span class="token punctuation">.</span><span class="token function">addRoute</span><span class="token punctuation">(</span>routes<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
-  <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/otherroute'</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'OtherRoute'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"/otherroute"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"OtherRoute"</span><span class="token punctuation">,</span>
   <span class="token literal-property property">component</span><span class="token operator">:</span> OtherRoute<span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
 <h2 id="5、路由判断-router-hasRoute"><a href="#5、路由判断-router-hasRoute" class="headerlink" title="5、路由判断 router.hasRoute()"></a>5、路由判断 router.hasRoute()</h2><p>我们可以使用 <code>hasRoute</code> 方法来判断我们上面添加路由是否成功。</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> isHasRoute <span class="token operator">=</span> router<span class="token punctuation">.</span><span class="token function">hasRoute</span><span class="token punctuation">(</span><span class="token string">'OtherRoute'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> isHasRoute <span class="token operator">=</span> router<span class="token punctuation">.</span><span class="token function">hasRoute</span><span class="token punctuation">(</span><span class="token string">"OtherRoute"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>打印 <code>isHasRoute</code>。</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'router===>'</span><span class="token punctuation">,</span> isHasRoute<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"router===>"</span><span class="token punctuation">,</span> isHasRoute<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-21_15-40-22.png" alt="图片描述"></p>
 <h2 id="6、获取路由-router-getRoutes"><a href="#6、获取路由-router-getRoutes" class="headerlink" title="6、获取路由 router.getRoutes()"></a>6、获取路由 router.getRoutes()</h2><p>首先我们在 <code>setup()&#123;&#125;</code> 内定义 <code>route</code>：</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> route <span class="token operator">=</span> router<span class="token punctuation">.</span><span class="token function">getRoutes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>打印 <code>route</code>：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'router===>'</span><span class="token punctuation">,</span> route<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"router===>"</span><span class="token punctuation">,</span> route<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-21_15-39-50.png" alt="图片描述"></p>
 <h2 id="7、移除路由-router-removeRoute"><a href="#7、移除路由-router-removeRoute" class="headerlink" title="7、移除路由 router.removeRoute()"></a>7、移除路由 router.removeRoute()</h2><p>有了添加路由，判断路由，路由获取，当然会有路由移除。</p>
@@ -725,13 +723,13 @@
 <li>打印所有路由</li>
 </ul>
 <p>我们在 <code>setup()&#123;&#125;</code> 方法中写下如下代码：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">router<span class="token punctuation">.</span><span class="token function">removeRoute</span><span class="token punctuation">(</span><span class="token string">'OtherRoute'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> isRemove <span class="token operator">=</span> router<span class="token punctuation">.</span><span class="token function">hasRoute</span><span class="token punctuation">(</span><span class="token string">'OtherRoute'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">router<span class="token punctuation">.</span><span class="token function">removeRoute</span><span class="token punctuation">(</span><span class="token string">"OtherRoute"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> isRemove <span class="token operator">=</span> router<span class="token punctuation">.</span><span class="token function">hasRoute</span><span class="token punctuation">(</span><span class="token string">"OtherRoute"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 route <span class="token operator">=</span> route<span class="token punctuation">.</span><span class="token function">getRoutes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>然后在 <code>click</code> 方法打印出 <code>isRemove</code>：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'remove route===>'</span><span class="token punctuation">,</span> isRemove<span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'router===>'</span><span class="token punctuation">,</span> route<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"remove route===>"</span><span class="token punctuation">,</span> isRemove<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"router===>"</span><span class="token punctuation">,</span> route<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>效果如下：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/Snipaste_2022-04-21_15-38-18.png" alt="图片描述"></p>
@@ -1478,66 +1476,57 @@ console<span class="token punctuation">.</span><span class="token function">log<
         <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
-        
         display: none;
-        
-        font-size: 12px;
+            font-size: 12px;
         font-weight: 700;
         line-height: 16px !important;
     }
 
     .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
         display: none;
-        
-        font-size: 15px;
+            font-size: 15px;
         color: #42b983;
     }
 
-    
     .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
+            left: -66px !important;
+        }
 
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
 
-    
+        
 </style>
 <div class="">
     
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="song"
-                   id="480614067"
-                   fixed='true'
-                   autoplay='true'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.5'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
+            <div class="row">
+                <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease"
+                    type="song" id="480614067" fixed=' true'
+                    autoplay='true'
+                        theme='#42b983'
+                            loop='all'
+                                order='random'
+                                    preload='auto'
+                                        volume='0.5'
+                                            list-folded='true'
+                                                >
+                </meting-js>
+            </div>
 </div>
 
 <script src="/libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
             
                 <div class="container row center-align"
                     style="margin-bottom: 15px !important;">
                     <div class="col s12 m8 l8 copy-right">
                         Copyright&nbsp;&copy;
                         
-                                <span id="year">
-                                    2022
-                                </span>
-                                
+                            <span id="year">
+                                2022-2023
+                            </span>
+                            
                                     <span id="year">
                                         2022
                                     </span>
@@ -1551,7 +1540,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                                     
                                         &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
                                             class="white-color">
-                                            197.3k
+                                            197.4k
                                         </span>&nbsp;字
                                         
                                             
