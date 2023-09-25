@@ -35,7 +35,7 @@
 
    <style>
     body{
-       background-image: url(http://img.syhan.top/uPic/I75zFh.jpg);
+       background-image: url(https://cdn.syhan.top/uPic/I75zFh.jpg);
        background-repeat:no-repeat;
        background-size:cover;
        background-attachment:fixed;
@@ -320,7 +320,7 @@
 
 
 
-    <div class="bg-cover pd-header post-cover" style="background-image: url('http://img.syhan.top/uPic/xNv0kE.jpg')">
+    <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.syhan.top/uPic/xNv0kE.jpg')">
         <div class="container" style="right: 0px;left: 0px;">
             <div class="row">
                 <div class="col s12 m12 l12">
@@ -496,7 +496,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="深入理解跨平台方案的历史发展逻辑"><a href="#深入理解跨平台方案的历史发展逻辑" class="headerlink" title="深入理解跨平台方案的历史发展逻辑"></a>深入理解跨平台方案的历史发展逻辑</h1><p><img src="http://img.syhan.top/uPic/Gw0lth.jpg"></p>
+                <h1 id="深入理解跨平台方案的历史发展逻辑"><a href="#深入理解跨平台方案的历史发展逻辑" class="headerlink" title="深入理解跨平台方案的历史发展逻辑"></a>深入理解跨平台方案的历史发展逻辑</h1><p><img src="https://cdn.syhan.top/uPic/Gw0lth.jpg"></p>
 <h2 id="1-跨平台开发的背景"><a href="#1-跨平台开发的背景" class="headerlink" title="1. 跨平台开发的背景"></a>1. 跨平台开发的背景</h2><p>​ 在移动互联网的浪潮下，我们开发的应用要想取胜，开发效率和使用体验可以说是同等重要。但是使用原生的方式来开发 App，就要求我们必须针对 iOS 和 Android 这两个平台分别开发，这对于中小型团队来说就是隐患和额外的负担。</p>
 <p>​ 因为这样，我们不仅需要在不同的项目间尝试用不同的语言去实现同样的功能，还要承担由此带来的维护任务。如果还要继续向其他平台（比如 Web、Mac 或 Windows）拓展的话，我们需要付出的成本和时间将成倍增长。而这显然是难以接受的。于是跨平台开发的概念顺势走进了我们的视野。</p>
 <p>​ 所以从本质上讲，<strong>跨平台开发是为了增加业务代码的复用率，减少因为要适配多个平台带来的工作量，从而降低开发成本。</strong>在提高业务专注度的同时，能够为用户提供一致的用户体验。用一个词来概括这些好处的话，就是“多快好省”。</p>
@@ -528,14 +528,14 @@
 </ol>
 <p>​ 而这只是完成 HTML5 页面渲染的最基础的加载过程。加载、解析和渲染这三个过程在实际运行时又不是完全独立的，还会有交叉。也就是说，会存在一边加载，一边解析，一边渲染的现象。这就使得页面的展示并不像想象中那么容易。</p>
 <p>​ 通过上面的分析可以看出，一个 HTML5 页面的展示是多么复杂！这和原生开发通过简单直接地创建控件，设置属性后即可完成页面渲染有非常大的差异。Web 与原生在 UI 渲染与系统功能调用上各司其职，因此这个时代的框架在 Web 与原生系统间还有比较明显的、甚至肉眼可见的边界。</p>
-<img src="http://img.syhan.top/uPic/cIpmaX.jpg" alt="图 1 Hybrid 开发框架" style="zoom:50%;" />
+<img src="https://cdn.syhan.top/uPic/cIpmaX.jpg" alt="图 1 Hybrid 开发框架" style="zoom:50%;" />
 
 <h3 id="2-2-泛-Web-容器时代"><a href="#2-2-泛-Web-容器时代" class="headerlink" title="2.2 泛 Web 容器时代"></a>2.2 泛 Web 容器时代</h3><p>​ 虽然 Web 容器方案具有生态繁荣、开发体验友好、生产效率高、跨平台兼容性强等优势，但它最大的问题在于承载着大量 Web 标准的 Web 容器过于笨重，以至于性能和体验都达不到与原生同样的水准，在复杂交互和动画上较难实现出优良的用户体验。</p>
 <p>​ 在实际的产品功能研发中，我们通常只会用到 Web 标准中很小的一部分。面对这样的现实，我们很快就想到：能否对笨重的 Web 容器进行功能裁剪，在仅保留必要的 Web 标准和渲染能力的基础上，使得友好的开发体验与稳定的渲染性能保持一个平衡？</p>
 <p>​ 答案当然是可以。</p>
 <p>​ 泛 Web 容器时代的解决方案优化了 Web 容器时代的加载、解析和渲染这三大过程，把影响它们独立运行的 Web 标准进行了裁剪，以相对简单的方式支持了构建移动端页面必要的 Web 标准（如 Flexbox 等），也保证了便捷的前端开发体验；同时，这个时代的解决方案基本上完全放弃了浏览器控件渲染，而是采用原生自带的 UI 组件实现代替了核心的渲染引擎，仅保持必要的基本控件渲染能力，从而使得渲染过程更加简化，也保证了良好的渲染性能。</p>
 <p>​ 也就是说，在泛 Web 容器时代，我们仍然采用前端友好的 JavaScript 进行开发，整体加载、渲染机制大大简化，并且由原生接管绘制，即将原生系统作为渲染的后端，为依托于 JavaScript 虚拟机的 JavaScript 代码提供所需要的 UI 控件的实体。这，也是现在绝大部分跨平台框架的思路，而 <strong>React Native</strong> 和 <strong>Weex</strong> 就是其中的佼佼者。</p>
-<img src="http://img.syhan.top/uPic/7bLdhV.jpg" alt="图 2 泛 Web 容器框架" style="zoom:50%;" />
+<img src="https://cdn.syhan.top/uPic/7bLdhV.jpg" alt="图 2 泛 Web 容器框架" style="zoom:50%;" />
 
 <p>​ 为了追求性能体验的极致，进一步维持方案的简单可扩展性，有些轻量级的跨平台方案甚至会完全抛弃 Web 标准、放弃 JavaScript 的动态执行能力而自创一套原生 DSL，如天猫的 <a target="_blank" rel="noopener" href="https://pingguohe.net/2017/12/07/Tangram-2.html">VirtualView</a> 框架。从广义上来说，这些方案也是泛 Web 容器类方案。</p>
 <h3 id="2-3-自绘引擎时代"><a href="#2-3-自绘引擎时代" class="headerlink" title="2.3 自绘引擎时代"></a>2.3 自绘引擎时代</h3><p>​ 泛 Web 容器时代使用原生控件承载界面渲染，固然解决了不少性能问题，但同时也带来了新的问题。抛开框架本身需要处理大量平台相关的逻辑外，随着系统版本变化和 API 的变化，我们还需要处理不同平台的原生控件渲染能力差异，修复各类奇奇怪怪的 Bug。始终需要 Follow Native 的思维方式，就使得泛 Web 容器框架的跨平台特性被大打折扣。</p>
@@ -544,12 +544,12 @@
 <li>渲染引擎依靠跨平台的 Skia 图形库来实现，Skia 引擎会将使用 Dart 构建的抽象的视图结构数据加工成 GPU 数据，交由 OpenGL 最终提供给 GPU 渲染，至此完成渲染闭环，因此可以在最大程度上保证一款应用在不同平台、不同设备上的体验一致性。</li>
 <li>开发语言选用的是同时支持 JIT（Just-in-Time，即时编译）和 AOT（Ahead-of-Time，预编译）的 Dart，不仅保证了开发效率，更提升了执行效率（比使用 JavaScript 开发的泛 Web 容器方案要高得多）。</li>
 </ul>
-<img src="http://img.syhan.top/uPic/Iy0Tcr.jpg" alt="图 3 自绘引擎开发框架" style="zoom:50%;" />
+<img src="https://cdn.syhan.top/uPic/Iy0Tcr.jpg" alt="图 3 自绘引擎开发框架" style="zoom:50%;" />
 
 <p>​ 通过这样的思路，Flutter 可以尽可能地减少不同平台之间的差异, 同时保持和原生开发一样的高性能。所以 Flutter 成了三类跨平台移动开发方案中最灵活的那个，也成了目前最受业界关注的框架。</p>
 <p>​ 现在，我们已经弄明白了三类跨平台方案，那么在开发应用的时候，到底应该如何选择最适合自己的框架呢？</p>
 <h2 id="3-跨平台开发的方案选择"><a href="#3-跨平台开发的方案选择" class="headerlink" title="3. 跨平台开发的方案选择"></a>3. 跨平台开发的方案选择</h2><p>​ 从不同的角度来看，三个时代的跨平台框架代表们在开发效率、渲染性能、维护成本和社区生态上各有优劣，如下图所示：</p>
-<p><img src="http://img.syhan.top/uPic/HywXgM.jpg" alt="图 4 主流跨平台框架对比"></p>
+<p><img src="https://cdn.syhan.top/uPic/HywXgM.jpg" alt="图 4 主流跨平台框架对比"></p>
 <p>​ 在做技术选型时，可以参考以上维度，从开发效率、技术栈、性能表现、维护成本和社区生态来进行综合考虑。比如，是否必须支持动态化？是只解决 Android、iOS 的跨端问题，还是要包括 Web？对性能要求如何？对多端体验的绝对一致性和维护成本是否有强诉求？</p>
 <p>​ 从各个维度综合考量，React Native 和 Flutter 无疑是最均衡的两种跨平台开发方案，而其他的方案或多或少都“偏科严重”。</p>
 <ul>
@@ -1064,12 +1064,12 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/09/12/widget-zhong-de-state/">
+                <a href="/2022/09/12/widget-gou-jian-flutter-jie-mian-de-ji-shi/">
                     <div class="card-image">
                         
-                        <img src="http://img.syhan.top/uPic/xNv0kE.jpg" class="responsive-img" alt="Widget 中的 State">
+                        <img src="https://cdn.syhan.top/uPic/pyTxgu.jpg" class="responsive-img" alt="Widget—构建 Flutter 界面的基石">
                         
-                        <span class="card-title">Widget 中的 State</span>
+                        <span class="card-title">Widget—构建 Flutter 界面的基石</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

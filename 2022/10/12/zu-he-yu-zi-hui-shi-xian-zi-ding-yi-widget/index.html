@@ -35,7 +35,7 @@
 
    <style>
     body{
-       background-image: url(http://img.syhan.top/uPic/I75zFh.jpg);
+       background-image: url(https://cdn.syhan.top/uPic/I75zFh.jpg);
        background-repeat:no-repeat;
        background-size:cover;
        background-attachment:fixed;
@@ -320,7 +320,7 @@
 
 
 
-    <div class="bg-cover pd-header post-cover" style="background-image: url('http://img.syhan.top/uPic/esw4n7.jpg')">
+    <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.syhan.top/uPic/esw4n7.jpg')">
         <div class="container" style="right: 0px;left: 0px;">
             <div class="row">
                 <div class="col s12 m12 l12">
@@ -496,7 +496,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="组合与自绘实现自定义-Widget"><a href="#组合与自绘实现自定义-Widget" class="headerlink" title="组合与自绘实现自定义 Widget"></a>组合与自绘实现自定义 Widget</h1><p><img src="http://img.syhan.top/uPic/XflerI.jpg"></p>
+                <h1 id="组合与自绘实现自定义-Widget"><a href="#组合与自绘实现自定义-Widget" class="headerlink" title="组合与自绘实现自定义 Widget"></a>组合与自绘实现自定义 Widget</h1><p><img src="https://cdn.syhan.top/uPic/XflerI.jpg"></p>
 <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><p>在前面的学习中，我们认识了 Flutter 中最常用也最经典的布局 Widget，即单子容器 Container、多子容器 Row/Column，以及层叠容器 Stack 与 Positioned，也学习了这些不同容器之间的摆放子 Widget 的布局规则，我们可以通过它们，来实现子控件的对齐、嵌套、层叠等，它们也是构建一个界面精美的 App 所必须的布局概念。</p>
 <p>在实际开发中，我们会经常遇到一些复杂的 UI 需求，往往无法通过使用 Flutter 的基本 Widget，通过设置其属性参数来满足。这时候就需要针对特定的场景自定义 Widget 了。</p>
 <p>在 Flutter 中，自定义 Widget 与其他平台类似：可以使用基本 Widget 组装成一个高级别的 Widget，也可以自己在画板上根据特殊需求来画界面。</p>
@@ -506,7 +506,7 @@
 <p>比如在新闻类应用中，我们经常需要将新闻 Icon、标题、简介与日期组合成一个单独的控件，作为一个整体去响应用户的点击事件。面对这类需求，我们可以把现有的 Image、Text 及各类布局，组合成一个更高级的新闻 Item 控件，对外暴露设置 model 和点击回调的属性即可。</p>
 <p>接下来通过一个例子说明如何通过组装去自定义控件。</p>
 <p>下图是 App Store 的升级项 UI 示意图，图里的每一项，都有应用 Icon、名称、更新日期、更新简介、应用版本、应用大小以及更新 / 打开按钮。可以看到，这里面的 UI 元素还是相对较多的，现在我们希望将升级项 UI 封装成一个单独的控件，节省使用成本，以及后续的维护成本。</p>
-<img src="http://img.syhan.top/uPic/fI66ua.jpg" alt="图 1 App Store 升级项 UI" style="zoom:50%;" />
+<img src="https://cdn.syhan.top/uPic/fI66ua.jpg" alt="图 1 App Store 升级项 UI" style="zoom:50%;" />
 
 <p>在分析这个升级项 UI 的整体结构之前，我们先定义一个数据结构 UpdateItemModel 来存储升级信息。为了方便讨论，这里把所有的属性都定义为了字符串类型，在实际使用中可以根据需要将属性定义得更规范（比如将 appDate 定义为 DateTime 类型）。</p>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">UpdateItemModel</span> <span class="token punctuation">&#123;</span>
@@ -524,7 +524,7 @@
 <p>按照子 Widget 的摆放方向，布局方式只有水平和垂直两种，因此我们也按照这两个维度对 UI 结构进行拆解。</p>
 <p>按垂直方向，我们用绿色的框把这个 UI 拆解为上半部分与下半部分，如图 2 所示。下半部分比较简单，是两个文本控件的组合；上半部分稍微复杂一点，我们先将其包装为一个水平布局的 Row 控件。</p>
 <p>接下来，我们再一起看看水平方向应该如何布局。</p>
-<img src="http://img.syhan.top/uPic/3ODCK2.jpg" alt="图 2 升级项 UI 整体结构示意图" style="zoom:50%;" />
+<img src="https://cdn.syhan.top/uPic/3ODCK2.jpg" alt="图 2 升级项 UI 整体结构示意图" style="zoom:50%;" />
 
 <p>我们先把升级项的上半部分拆解成对应的 UI 元素：</p>
 <ul>
@@ -533,7 +533,7 @@
 <li>中间部分是两个文本在垂直方向上的组合，因此拆解为 Column，Column 内部则是两个 Text；</li>
 </ul>
 <p>拆解示意图如下所示：</p>
-<img src="http://img.syhan.top/uPic/eKEYdX.jpg" alt="图 3 上半部分 UI 结构示意图" style="zoom:50%;" />
+<img src="https://cdn.syhan.top/uPic/eKEYdX.jpg" alt="图 3 上半部分 UI 结构示意图" style="zoom:50%;" />
 
 <p>通过与拆解前的 UI 对比，你就会发现还有 3 个问题待解决：即控件间的边距如何设置、中间部分的伸缩（截断）规则又是怎样、图片圆角怎么实现。接下来，分别来解决。</p>
 <p>Image、FlatButton，以及 Column 这三个控件，与父容器 Row 之间存在一定的间距，因此我们还需要在最左边的 Image 与最右边的 FlatButton 上包装一层 Padding，用以留白填充。</p>
@@ -570,7 +570,7 @@
   <span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>升级项 UI 的下半部分比较简单，是两个文本控件的组合。与上半部分的拆解类似，我们用一个 Column 控件将它俩装起来，如图 4 所示：</p>
-<img src="http://img.syhan.top/uPic/xQmevk.jpg" alt="图 4 下半部分 UI 结构示意图" style="zoom:50%;" />
+<img src="https://cdn.syhan.top/uPic/xQmevk.jpg" alt="图 4 下半部分 UI 结构示意图" style="zoom:50%;" />
 
 <p>与上半部分类似，这两个文本与父容器之间存在些间距，因此在 Column 的最外层还需要用 Padding 控件给包装起来，设置父容器间距。</p>
 <p>另一方面，Column 的两个文本控件间也存在间距，因此我们仍然使用 Padding 控件将下面的文本包装起来，单独设置这两个文本之间的间距。</p>
@@ -639,7 +639,7 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>运行效果如下所示：</p>
-<img src="http://img.syhan.top/uPic/abZqFM.jpg" alt="图 6 自绘控件示例" style="zoom:50%;" />
+<img src="https://cdn.syhan.top/uPic/abZqFM.jpg" alt="图 6 自绘控件示例" style="zoom:50%;" />
 
 <p>可以看到，使用 CustomPainter 进行自绘控件并不算复杂，建议你试着用画笔和画布，去实现更丰富的功能。</p>
 <p><strong>在实现视觉需求上，自绘需要自己亲自处理绘制逻辑，而组合则是通过子 Widget 的拼接来实现绘制意图。</strong>因此从渲染逻辑处理上，自绘方案可以进行深度的渲染定制，从而实现少数通过组合很难实现的需求（比如饼图、k 线图）。不过，当视觉效果需要调整时，采用自绘的方案可能需要大量修改绘制代码，而组合方案则相对简单：只要布局拆分设计合理，可以通过更换子 Widget 类型来轻松搞定。</p>
@@ -1149,12 +1149,12 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/10/18/ding-zhi-bu-tong-feng-ge-de-app-zhu-ti/">
+                <a href="/2022/10/12/jing-dian-bu-ju-ding-yi-zi-kong-jian-zai-fu-rong-qi-zhong-pai-ban-de-wei-zhi/">
                     <div class="card-image">
                         
-                        <img src="http://img.syhan.top/uPic/uC6Coq.jpg" class="responsive-img" alt="Widget—构建 Flutter 界面的基石">
+                        <img src="https://cdn.syhan.top/uPic/uCzGen.jpg" class="responsive-img" alt="经典布局：定义子控件在父容器中排版的位置">
                         
-                        <span class="card-title">Widget—构建 Flutter 界面的基石</span>
+                        <span class="card-title">经典布局：定义子控件在父容器中排版的位置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1165,7 +1165,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-18
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-12
                         </span>
                         <span class="publish-author">
                             
@@ -1197,12 +1197,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/12/jing-dian-bu-ju-ding-yi-zi-kong-jian-zai-fu-rong-qi-zhong-pai-ban-de-wei-zhi/">
+                <a href="/2022/10/08/flutter-yin-ru-iconfont/">
                     <div class="card-image">
                         
-                        <img src="http://img.syhan.top/uPic/uCzGen.jpg" class="responsive-img" alt="经典布局：定义子控件在父容器中排版的位置">
+                        <img src="https://cdn.syhan.top/uPic/o0xMx5.jpg" class="responsive-img" alt="flutter 引入 iconfont">
                         
-                        <span class="card-title">经典布局：定义子控件在父容器中排版的位置</span>
+                        <span class="card-title">flutter 引入 iconfont</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1213,7 +1213,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-08
                             </span>
                         <span class="publish-author">
                             
