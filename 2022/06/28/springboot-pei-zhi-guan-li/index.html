@@ -1342,7 +1342,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token p
 <p><strong>这三个参数不要⼀起设置</strong>，会引起冲突，选⼀种即可，如下图</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/gXnuEH.png"></p>
 <h4 id="3-命令⾏⽅式"><a href="#3-命令⾏⽅式" class="headerlink" title="3. 命令⾏⽅式"></a>3. 命令⾏⽅式</h4><p>将项⽬打成 jar 包，在 jar 包的⽬录下打开命令⾏，使⽤如下命令启动：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar spring-boot-profile.jar --spring.profiles.active<span class="token operator">=</span>prod<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar spring-boot-profile.jar --spring.profiles.active&#x3D;prod<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>关于 Spring Profiles 更多信息可以参⻅：<a target="_blank" rel="noopener" href="https://www.baeldung.com/spring-profiles">Spring Profiles</a>。</p>
 <h2 id="9-配置及配置⽂件的加载优先级"><a href="#9-配置及配置⽂件的加载优先级" class="headerlink" title="9. 配置及配置⽂件的加载优先级"></a>9. 配置及配置⽂件的加载优先级</h2><h3 id="⼀、全局配置⽂件加载优先级"><a href="#⼀、全局配置⽂件加载优先级" class="headerlink" title="⼀、全局配置⽂件加载优先级"></a>⼀、全局配置⽂件加载优先级</h3><p>SpringBoot 启动会扫描以下位置的 application.properties 或者 application.yml ⽂件作为默认配置⽂件，数值越⼩的标号优先级越⾼。</p>
@@ -1359,7 +1359,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token p
 <p>假如我们在上⾯的四个配置⽂件分别设置 server.port=6666、7777、8888、9999 ，然后启动应⽤，<strong>最终的启动端⼝为 6666</strong>，因为 <strong><code>file:./config/</code></strong> (当前项⽬路径 config ⽬录下配置⽂件)优先级是最⾼的。</p>
 <p><strong>⾃定义改变全局配置⽂件的加载位置：(优先级最⾼)</strong></p>
 <p>我们也可以通过配置 spring.config.location 来改变默认配置。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar boot-launch-1.0.jar --spring.config.location<span class="token operator">=</span>/Users/apple/Desktop/application.yml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -jar boot-launch-1.0.jar --spring.config.location&#x3D;&#x2F;Users&#x2F;apple&#x2F;Desktop&#x2F;application.yml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>项⽬打包好以后，我们可以使⽤命令⾏参数的形式，在启动项⽬的时候来指定配置⽂件的位置。</p>
 <p><strong>打包的时候遇到测试代码问题失败的解决⽅案</strong></p>
@@ -1369,7 +1369,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token p
 <p><img src="https://cdn.jsdelivr.net/gh/shiyouhan/img@master/uPic/ddOJyH.png"></p>
 <p><strong>解决⽅法</strong></p>
 <p>1、⽤ maven 命令打包，跳过测试</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mvn package -Dmaven.test.skip<span class="token operator">=</span>true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mvn package -Dmaven.test.skip&#x3D;true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>2、pom 中添加配置</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">></span></span>
