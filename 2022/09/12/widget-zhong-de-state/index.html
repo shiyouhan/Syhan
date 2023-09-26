@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Widget 中的 State, Nice 2CU">
-    <meta name="description" content="">
+    <meta name="description" content="这是一个没有https的博客.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -35,7 +35,7 @@
 
    <style>
     body{
-       background-image: url(https://cdn.syhan.top/uPic/I75zFh.jpg);
+       background-image: url(http://img.syhan.top/uPic/I75zFh.jpg);
        background-repeat:no-repeat;
        background-size:cover;
        background-attachment:fixed;
@@ -155,7 +155,7 @@
         <div class="logo-name">Nice 2CU</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            这是一个没有https的博客.
             
         </div>
     </div>
@@ -320,7 +320,7 @@
 
 
 
-    <div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.syhan.top/uPic/xNv0kE.jpg')">
+    <div class="bg-cover pd-header post-cover" style="background-image: url('http://img.syhan.top/uPic/xNv0kE.jpg')">
         <div class="container" style="right: 0px;left: 0px;">
             <div class="row">
                 <div class="col s12 m12 l12">
@@ -496,7 +496,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Widget-中的-State"><a href="#Widget-中的-State" class="headerlink" title="Widget 中的 State"></a>Widget 中的 State</h1><img src="https://cdn.syhan.top/uPic/A8juyu.jpg" style="zoom:50%;" />
+                <h1 id="Widget-中的-State"><a href="#Widget-中的-State" class="headerlink" title="Widget 中的 State"></a>Widget 中的 State</h1><img src="http://img.syhan.top/uPic/A8juyu.jpg" style="zoom:50%;" />
 
 <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><p>通过上一节的学习，我们理解了 Widget 是 Flutter 构建界面的基石，也了解了 Widget、Element、RenderObject 是如何互相配合，实现图形渲染工作的。Flutter 在底层做了大量的渲染优化工作，我们只需要通过组合、嵌套不同类型的 Widget，就可以构建出任意功能、任意复杂度的界面。</p>
 <p>同时，通过前面的学习，我们也已经了解到 Widget 有 StatelessWidget 和 StatefulWidget 两种类型。StatefulWidget 应对有交互、需要动态变化视觉效果的场景，而 StatelessWidget 则用于处理静态的、无状态的视图展示。StatefulWidget 的场景已经完全覆盖了 StatelessWidget，因此我们在构建界面时，往往会大量使用 StatefulWidget 来处理静态的视图展示需求，看起来似乎也没什么问题。</p>
@@ -524,7 +524,7 @@ document<span class="token punctuation">.</span><span class="token function">que
 <h2 id="2-StatelessWidget"><a href="#2-StatelessWidget" class="headerlink" title="2. StatelessWidget"></a>2. StatelessWidget</h2><p>在 Flutter 中，Widget 采用由父到子、自顶向下的方式进行构建，父 Widget 控制着子 Widget 的显示样式，其样式配置由父 Widget 在构建时提供。</p>
 <p>用这种方式构建出的 Widget，有些（比如 Text、Container、Row、Column 等）在创建时，除了这些配置参数之外不依赖于任何其他信息，换句话说，它们一旦创建成功就不再关心、也不响应任何数据变化进行重绘。在 Flutter 中，<strong>这样的 Widget 被称为 StatelessWidget（无状态组件）。</strong></p>
 <p>StatelessWidget 的示意图如下所示：</p>
-<img src="https://cdn.syhan.top/uPic/UlRvXA.jpg" alt="图 1 StatelessWidget 示意图"/>
+<img src="http://img.syhan.top/uPic/UlRvXA.jpg" alt="图 1 StatelessWidget 示意图"/>
 
 <p>接下来以 Text 的部分源码为例，说明 StatelessWidget 的构建过程。</p>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">Text</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">&#123;</span>
@@ -567,7 +567,7 @@ document<span class="token punctuation">.</span><span class="token function">que
 <h2 id="3-StatefulWidget"><a href="#3-StatefulWidget" class="headerlink" title="3. StatefulWidget"></a>3. StatefulWidget</h2><p>与 StatelessWidget 相对应的，有一些 Widget（比如 Image、Checkbox）的展示，除了父 Widget 初始化时传入的静态配置之外，还需要处理用户的交互（比如，用户点击按钮）或其内部数据的变化（比如，网络数据回包），并体现在 UI 上。</p>
 <p>换句话说，这些 Widget 创建完成后，还需要关心和响应数据变化来进行重绘。在 Flutter 中，<strong>这一类 Widget 被称为 StatefulWidget（有状态组件）</strong>。</p>
 <p>这里有一张 StatefulWidget 的示意图：</p>
-<img src="https://cdn.syhan.top/uPic/yv3I2G.jpg" alt="图 2 StatefulWidget 示意图" />
+<img src="http://img.syhan.top/uPic/yv3I2G.jpg" alt="图 2 StatefulWidget 示意图" />
 
 <p>看到这里，你可能会有点困惑。因为在上一节“Widget，构建 Flutter 界面的基石”中说到，Widget 是不可变的，发生变化时需要销毁重建，所以谈不上状态。那么这到底是怎么回事呢？</p>
 <p>其实 StatefulWidget 是以 State 类代理 Widget 构建的设计方式实现的。接下来以 Image 的部分源码为例，来说明 StatefulWidget 的构建过程。</p>
@@ -1137,7 +1137,7 @@ document<span class="token punctuation">.</span><span class="token function">que
                 <a href="/2022/09/13/jing-dian-kong-jian-yi-wen-ben-tu-pian-he-an-niu/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.syhan.top/uPic/VP8VOn.jpg" class="responsive-img" alt="经典控件（一）：文本、图片和按钮">
+                        <img src="http://img.syhan.top/uPic/VP8VOn.jpg" class="responsive-img" alt="经典控件（一）：文本、图片和按钮">
                         
                         <span class="card-title">经典控件（一）：文本、图片和按钮</span>
                     </div>
@@ -1185,7 +1185,7 @@ document<span class="token punctuation">.</span><span class="token function">que
                 <a href="/2022/09/12/widget-gou-jian-flutter-jie-mian-de-ji-shi/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.syhan.top/uPic/pyTxgu.jpg" class="responsive-img" alt="Widget—构建 Flutter 界面的基石">
+                        <img src="http://img.syhan.top/uPic/pyTxgu.jpg" class="responsive-img" alt="Widget—构建 Flutter 界面的基石">
                         
                         <span class="card-title">Widget—构建 Flutter 界面的基石</span>
                     </div>
